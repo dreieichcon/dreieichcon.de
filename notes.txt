@@ -1,8 +1,0 @@
-possible-link-names:
-facebook
-twitter
-insta
-tictoc
-youtube
-twitch
-discord
