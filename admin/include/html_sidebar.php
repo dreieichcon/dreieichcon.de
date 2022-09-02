@@ -80,9 +80,18 @@
 
 					<li class='nav-item'>
 						<a href='index.php?page=admin_socials' class='nav-link'>
-						  <i class='nav-icon fa fa-globe-europe'></i>
+						<i class="fas fa-icons"></i>
 						  <p>
-							Socials
+							Social-Links
+						  </p>
+						</a>
+					</li>
+
+					<li class='nav-item'>
+						<a href='index.php?page=admin_icon_list' class='nav-link'>
+						<i class="fas fa-icons"></i>
+						  <p>
+							Icon-Liste
 						  </p>
 						</a>
 					</li>
