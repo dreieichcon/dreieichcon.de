@@ -1,0 +1,40 @@
+:root {
+    --primary-color: #5422AA;
+    --secondary-color: #D90368;
+    --background-color: #fff;
+    --background-color-alpha: #ffffff88;
+    --text: #32322C;
+    --borders: #32322C;
+    --blend: linear-gradient(to left, var(--primary-color), var(--secondary-color));
+    --blend-right: linear-gradient(to left, var(--primary-color), var(--secondary-color) 25%);
+    --hover: drop-shadow(0px 0px 5px var(--secondary-color));
+}
+
+html,
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: var(--background-color) !important;
+    display: flex;
+    color: var(--text) !important;
+}
+
+.app {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+}
+
+a,
+a:hover {
+    text-decoration: none !important;
+    color: var(--text) !important;
+}
+
+.gradient-border {
+    border-image-source: var(--blend);
+    border-image-slice: 1;
+}

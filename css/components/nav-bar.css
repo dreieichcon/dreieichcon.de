@@ -1,0 +1,111 @@
+:root {
+    --nav-border: 1px;
+    --nav-padding: 5px;
+    --menu-distance: 1rem;
+}
+
+.navbar-nav {
+    position: relative;
+}
+
+.nav-element {
+    border: 2px solid var(--primary-color);
+    margin-right: 1rem;
+    padding: var(--nav-padding);
+    background: var(--background-color);
+    z-index: 10;
+}
+
+.nav-drop {
+    width: inherit;
+    position: absolute;
+    visibility: collapse;
+    padding: 1rem;
+    z-index: 1;
+    min-width: 160px;
+}
+
+.drop-positioner {
+    display: flex;
+    flex-direction: column;
+    background: var(--secondary-color);
+    width: inherit;
+    padding: inherit;
+
+}
+
+.nav-element:hover>.nav-drop {
+    visibility: visible;
+}
+
+.nav-drop:hover {
+    visibility: visible;
+}
+
+.menu-option {
+    margin-top: 0.5rem;
+    cursor: pointer;
+}
+
+
+/* .nav-element::after {
+    position: absolute;
+    display: block;
+    height: calc(100% - 2*var(--nav-border));
+    width: calc(100% - 2*var(--nav-border));
+    top: var(--nav-border);
+    left: var(--nav-border);
+    content: "";
+    background: white;
+    pointer-events: none;
+    -webkit-background-clip: text;
+    background-clip: text;
+    z-index: 5;
+} */
+
+/* .nav-bar {
+    margin-top: 1px;
+}
+
+.nav-link {
+    background-image: var(--blend);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: 10;
+}
+
+.menu {
+    position: fixed;
+    display: none !important;
+    flex-direction: column;
+    width: 100%;
+}
+
+.nav-top:hover>.menu {
+    display: flex !important;
+    background-color: red;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.nav-top {
+    position: relative;
+    margin-right: 1vw;
+    padding: 0;
+    height: 50%;
+} */
+
+/* .nav-top::before {
+    position: absolute;
+    display: block;
+    height: calc(100% - 2*var(--nav-border));
+    width: calc(100% - 2*var(--nav-border));
+    top: var(--nav-border);
+    left: var(--nav-border);
+    content: "";
+    background: white;
+    pointer-events: none;
+    z-index: 5;
+    background-clip: text;
+} */

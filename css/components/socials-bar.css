@@ -1,0 +1,72 @@
+.socials-bar {
+    height: 7%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid;
+    border-width: 3px;
+    margin: 0 0 2px 0 !important;
+    padding: 0 !important;
+}
+
+.bar-icons {
+    height: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    background-clip: content-box;
+}
+
+.socials-icon {
+    height: 60%;
+    aspect-ratio: 1 / 1;
+    z-index: 10;
+}
+
+.icon-border:hover {
+    filter: var(--hover);
+}
+
+.icon-border {
+    height: 70%;
+    margin: 0 0.5rem;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-border::after {
+    width: 120%;
+    height: 120%;
+    border-radius: 30%;
+    content: "";
+    display: block;
+    position: absolute;
+    pointer-events: none;
+    background: var(--blend-right);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: 1;
+    top: -10%;
+    left: -10%;
+}
+
+.icon-border::before {
+    aspect-ratio: 1 / 1;
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    content: "";
+    display: block;
+    position: absolute;
+    pointer-events: none;
+    background: white;
+    z-index: 5;
+    top: 5%;
+    left: 5%;
+}
