@@ -100,7 +100,7 @@
 										
 										
 										<td>$admin_user_modify_ts<br>$admin_user_modify_id</td>
-										<td><a href='index.php?page=admin_globals_edit&key=$global_key'><span class='fa fa-edit'></span></a></td>
+										<td><a href='index.php?page=admin_globals_edit&key=$global_key'><span class='fa fa-edit'></span></a> &nbsp;&nbsp; <a href='index.php?page=admin_globals_delete&key=$global_key' class='text-danger'><span class='fa fa-trash'></span></a></td>
 									</tr>
 								
 								";
