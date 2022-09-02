@@ -10,20 +10,43 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-clip: content-box;
+    overflow: hidden;
 }
 
 .header-logo-large {
     width: 30vw;
     height: 90%;
     display: flex;
-    justify-content: center;
     align-items: center;
     object-fit: cover;
-    margin-left: 2vw;
+    margin-left: 1vw;
 }
 
 .header-logo-img {
     height: 100%;
+}
+
+@media only screen and (min-width: 512px) and (max-width: 950px) {
+    .header-logo-large {
+        display: none;
+    }
+
+    .main-link {
+        width: 100% !important;
+        margin: 3vw;
+    }
+
+    .main-link-title {
+        font-size: 3rem !important;
+    }
+
+    .main-link-subtitle {
+        font-size: 2rem !important;
+    }
+
+    .header-icon {
+        width: 70% !important;
+    }
 }
 
 @media only screen and (max-width: 512px) {

@@ -4,6 +4,11 @@
     --menu-distance: 1rem;
 }
 
+
+nav {
+    border-bottom: 1px solid;
+}
+
 .navbar-nav {
     position: relative;
 }

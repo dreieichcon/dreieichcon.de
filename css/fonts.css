@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "Garamond";
+    src: url("/resources/fonts/GARA.woff");
+}
+
+@font-face {
+    font-family: "Garamond Bold";
+    src: url("/resources/fonts/GARABD.woff");
+}
+
+@font-face {
+    font-family: "Garamond Italic";
+    src: url("/resources/fonts/GARAID.woff");
+}

@@ -38,3 +38,19 @@ a:hover {
     border-image-source: var(--blend);
     border-image-slice: 1;
 }
+
+main {
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    justify-content: space-between;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+main::-webkit-scrollbar {
+    display: none;
+}

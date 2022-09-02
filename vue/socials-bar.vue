@@ -2,9 +2,10 @@
     <div class="container-fluid socials-bar gradient-border">
         <div class="dreieichcon-header">DREIEICHCON 2022</div>
         <div class="bar-icons gradient-border">
-            <template v-for="link in socials">
+            <template v-for="(link, index) in socials">
                 <a
-                    class="icon-wrapper"
+                    :style="{ 'animation-delay': (index + 1) / 10 + 's' }"
+                    class="icon-wrapper animate__animated animate__fadeIn"
                     v-bind:href="link.link"
                     v-bind:key="link"
                 >

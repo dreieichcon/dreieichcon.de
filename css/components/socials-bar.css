@@ -1,8 +1,27 @@
+@media screen and (max-width: 512px) {
+    .dreieichcon-header {
+        display: none;
+    }
+
+    .socials-bar {
+        justify-content: center;
+        width: 100%;
+        padding: 1vw !important;
+    }
+}
+
+@media screen and (min-width: 512px) {
+    .socials-bar {
+        justify-content: space-between;
+        padding: 0 !important;
+    }
+}
+
 .socials-bar {
     height: 7%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+
     align-items: center;
     border-bottom: 2px solid;
     border-width: 3px;
@@ -16,6 +35,11 @@
     flex-direction: row-reverse;
     align-items: center;
     background-clip: content-box;
+}
+
+.dreieichcon-header {
+    font-family: Garamond Bold;
+    font-size: 2rem;
 }
 
 .socials-icon {

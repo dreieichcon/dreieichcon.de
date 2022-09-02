@@ -3,10 +3,10 @@
         <div class="header-logo-large">
             <img
                 class="header-logo-img"
-                src="resources/img/dreieichcon-logo.png"
+                src="resources/img/dreieichcon-logo-vislani.png"
             />
         </div>
-        <a href="" class="main-link">
+        <a v-bind:href="shoplink" class="main-link">
             <div class="main-link-flex">
                 <div class="main-link-icon">
                     <img
@@ -40,7 +40,7 @@ module.exports = {
         return {};
     },
     created() {},
-    props: ["visible", "header", "language"],
+    props: ["visible", "header", "language", "shoplink"],
     mounted() {},
     methods: {},
     components: {},

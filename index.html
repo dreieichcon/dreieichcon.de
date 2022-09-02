@@ -9,6 +9,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/fonts.css">
 
     <!-- Animate -->
     <link rel="stylesheet" href="css/animate/animate.min.css">
@@ -37,17 +38,17 @@
 
 <body>
 
-
     <div id="app" class="container-fluid app">
         <socials-bar v-bind:socials="socials"></socials-bar>
         <header-bar v-bind:visible="visibility.header" v-bind:header="header" v-bind:language="settings.language"></header-bar>
         <nav-bar v-bind:elements="nav" v-bind:language="settings.language"></nav-bar>
-        <main role="main" class="container h-100">
 
+        <main role="main" class="container-fluid h-100">
+            <page-content v-bind:content="activePage"></page-content>
+            <page-footer v-bind:footer="footer" v-bind:language="settings.language"></page-footer>
         </main>
 
     </div>
-
 
     <!-- APP.JS -->
     <script src="js/app.js"></script>

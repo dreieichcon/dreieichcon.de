@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg nav-bar">
+    <nav class="navbar navbar-expand-lg nav-bar gradient-border">
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li
