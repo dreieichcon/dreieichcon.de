@@ -25,6 +25,20 @@
 <section class="content">
 
 
+<div class="row">
+  <div class="col-12">
+    <div class="card bg-danger">
+      <div class="card-header">
+        <h3 class="card-title">Hinweis</h3>
+        <div class="card-tools"></div>
+      </div>
+      <div class="card-body" style="height: auto;">
+      Die Einträge auf dieser Seite stellen die Kern-Konfiguration des Front-Ends dar. Es ist nicht empfohlen, Einträge zu löschen oder Keys zu ändern, sofern nicht auch der Quellcode angepasst wird. Das Ändern der Values stellt kein Problem dar.
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <div class="row">
 	<div class="col-12">
@@ -86,7 +100,7 @@
 										
 										
 										<td>$admin_user_modify_ts<br>$admin_user_modify_id</td>
-										<td><a href='index.php?page=admin_global_edit&key=$global_key'><span class='fa fa-edit'></span></a></td>
+										<td><a href='index.php?page=admin_globals_edit&key=$global_key'><span class='fa fa-edit'></span></a></td>
 									</tr>
 								
 								";
