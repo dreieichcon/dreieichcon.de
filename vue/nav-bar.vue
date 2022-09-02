@@ -1,33 +1,32 @@
 <template>
     <nav class="navbar navbar-expand-lg nav-bar gradient-border">
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+        <div class="collapse navbar-collapse h100" id="navbarNav">
+            <ul class="navbar-nav h100">
                 <li
                     v-for="element in elements"
                     v-bind:key="element"
                     class="nav-element"
                 >
-                    <a class="nav-base" href="#">
-                        {{
-                            language == "de"
-                                ? element.title_de
-                                : element.title_en
-                        }}
-                    </a>
-                    <div v-if="element.options.length > 0" class="nav-drop">
-                        <div class="drop-positioner">
-                            <a
+                    <div class="dropdown">
+                        <div
+                            class="toplevel-element"
+                            v-bind:style="isPointer(element)"
+                            @click="navigate(element.page_id)"
+                        >
+                            <div class="dropdown-title">
+                                {{ getTitle(element) }}
+                            </div>
+                        </div>
+                        <div class="dropdown-content">
+                            <div
                                 v-for="option in element.options"
-                                v-bind:key="option"
-                                class="menu-option"
+                                :key="option"
+                                v-bind:style="isPointer(option)"
+                                class="dropdown-item"
                                 @click="navigate(option.page_id)"
                             >
-                                {{
-                                    language == "de"
-                                        ? option.title_de
-                                        : option.title_en
-                                }}
-                            </a>
+                                {{ getTitle(option) }}
+                            </div>
                         </div>
                     </div>
                 </li>
@@ -47,7 +46,16 @@ module.exports = {
     mounted() {},
     methods: {
         navigate(page) {
-            console.log("GOTO: " + page);
+            this.emitter.emit("navigate", { id: page });
+        },
+        getTitle(element) {
+            if (this.language == "de") return element.title_de;
+            return element.title_en;
+        },
+        isPointer(page) {
+            if (page.href != null || page.page_id != null)
+                return { cursor: "pointer" };
+            return "";
         },
     },
     components: {},

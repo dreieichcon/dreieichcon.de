@@ -1,19 +1,26 @@
-@media screen and (max-width: 512px) {
+@media screen and (max-width: 992px) {
     .dreieichcon-header {
         display: none;
     }
 
     .socials-bar {
-        justify-content: center;
+        height: 8% !important;
+        justify-content: space-between;
         width: 100%;
         padding: 1vw !important;
     }
 }
 
-@media screen and (min-width: 512px) {
+@media screen and (min-width: 992px) {
+
+
     .socials-bar {
         justify-content: space-between;
         padding: 0 !important;
+    }
+
+    .hamburger {
+        display: none !important;
     }
 }
 
@@ -39,7 +46,7 @@
 
 .dreieichcon-header {
     font-family: Garamond Bold;
-    font-size: 2rem;
+    font-size: 2vw;
 }
 
 .socials-icon {

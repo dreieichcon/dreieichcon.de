@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
 
     <!-- MITT -->
-    <!-- <script src="resources/packages/mitt.js"></script> -->
+    <script src="https://unpkg.com/mitt/dist/mitt.umd.js"></script>
 
     <!-- SFC OPTIONS -->
     <script src="js/sfc.js"></script>
@@ -39,12 +39,12 @@
 <body>
 
     <div id="app" class="container-fluid app">
-        <socials-bar v-bind:socials="socials"></socials-bar>
+        <socials-bar v-bind:socials="socials" v-bind:nav="nav" v-bind:language="settings.language"></socials-bar>
         <header-bar v-bind:visible="visibility.header" v-bind:header="header" v-bind:language="settings.language"></header-bar>
         <nav-bar v-bind:elements="nav" v-bind:language="settings.language"></nav-bar>
 
         <main role="main" class="container-fluid h-100">
-            <page-content v-bind:content="activePage"></page-content>
+            <page-content v-bind:content="activePage" v-bind:language="settings.language"></page-content>
             <page-footer v-bind:footer="footer" v-bind:language="settings.language"></page-footer>
         </main>
 

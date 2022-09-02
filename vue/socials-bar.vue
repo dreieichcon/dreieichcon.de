@@ -7,7 +7,7 @@
                     :style="{ 'animation-delay': (index + 1) / 10 + 's' }"
                     class="icon-wrapper animate__animated animate__fadeIn"
                     v-bind:href="link.link"
-                    v-bind:key="link"
+                    :key="index"
                 >
                     <div class="icon-border icon-border-gradient">
                         <img class="socials-icon" v-bind:src="link.icon" />
@@ -15,6 +15,19 @@
                 </a>
             </template>
         </div>
+        <div class="hamburger icon-wrapper bar-icons" @click="toggle()">
+            <div class="icon-border icon-border-gradient">
+                <img
+                    class="socials-icon"
+                    src="resources/icons/svgs/solid/bars.svg"
+                />
+            </div>
+        </div>
+        <hamburger
+            v-if="hamburger"
+            v-bind:language="language"
+            v-bind:elements="nav"
+        ></hamburger>
     </div>
 </template>
 
@@ -22,13 +35,25 @@
 export default {
     name: "socials-bar",
     data: function () {
-        return {};
+        return {
+            hamburger: false,
+        };
     },
-    created() {},
-    props: ["socials"],
+    created() {
+        this.emitter.on("navigate", () => (this.hamburger = false));
+    },
+    props: ["socials", "language", "nav"],
     mounted() {},
-    methods: {},
-    components: {},
+    methods: {
+        toggle() {
+            this.hamburger = !this.hamburger;
+        },
+    },
+    components: {
+        hamburger: Vue.defineAsyncComponent(() =>
+            loadModule("vue/hamburger.vue", window.options)
+        ),
+    },
 };
 </script>
 

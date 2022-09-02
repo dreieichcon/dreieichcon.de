@@ -84,31 +84,36 @@ window.data = {
             },
         ]
     },
-    nav: {
-        home: {
-            title_de: "Home",
-            title_en: "Home",
-            options: {}
-        },
-        veranstaltung: {
-            title_de: "Veranstaltung",
-            title_en: "Event",
-            options: [
-                {
-                    title_de: "Was ist der DC?",
-                    title_en: "What is the DC?",
-                    page_id: 1,
-                    page_type: "info",
-                },
-                {
-                    title_de: "Wann & Wo?",
-                    title_en: "Wann & Wo?",
-                    page_id: 2,
-                    page_type: "info",
-                },
-            ]
-        }
-    },
+    nav:
+        [
+            {
+                title_de: "Home",
+                title_en: "Home",
+                href: "home",
+                page_id: 1,
+                options: {}
+            },
+            {
+                title_de: "Veranstaltung",
+                title_en: "Event",
+                href: null,
+                page_id: null,
+                options: [
+                    {
+                        title_de: "Was ist der DC?",
+                        title_en: "What is the DC?",
+                        page_id: 1,
+                        page_type: "info",
+                    },
+                    {
+                        title_de: "Wann & Wo?",
+                        title_en: "Wann & Wo?",
+                        page_id: 2,
+                        page_type: "info",
+                    },
+                ]
+            }
+        ],
     visibility: {
         header: true,
     },
@@ -116,7 +121,36 @@ window.data = {
         language: "de"
     },
     activePage: {
-
+        title_de: "Willkommen",
+        title_en: "Welcome",
+        type: "blog",
+        id: 1,
+        content: [
+            {
+                image_de: "resources/img/dreieichcon-logo-vislani.png",
+                image_en: "resources/img/dreieichcon-logo-vislani.png",
+                image_alt_de: "",
+                image_alt_en: "",
+                title_de: "Willkommen",
+                title_en: "Welcome",
+                subtitle_de: "zum DreieichCon 2022",
+                subtitle_en: "to DreieichCon 2022",
+                content_de: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque.Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque.",
+                content_en: "Welcome to Dreiiecjaslodalksdjalskdjalskdj"
+            },
+            {
+                image_de: "resources/img/dreieichcon-logo-vislani.png",
+                image_en: "resources/img/dreieichcon-logo-vislani.png",
+                image_alt_de: "",
+                image_alt_en: "",
+                title_de: "Willkommen",
+                title_en: "Welcome",
+                subtitle_de: "zum DreieichCon 2022",
+                subtitle_en: "to DreieichCon 2022",
+                content_de: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque.Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque.",
+                content_en: "Welcome to Dreiiecjaslodalksdjalskdjalskdj"
+            }
+        ]
     }
 }
 

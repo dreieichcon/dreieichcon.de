@@ -3,6 +3,8 @@
     --secondary-color: #D90368;
     --background-color: #fff;
     --background-color-alpha: #ffffff88;
+    --nav-color: #fff;
+    --nav-hover: #eee;
     --text: #32322C;
     --borders: #32322C;
     --blend: linear-gradient(to left, var(--primary-color), var(--secondary-color));
@@ -53,4 +55,8 @@ main {
 
 main::-webkit-scrollbar {
     display: none;
+}
+
+.h100 {
+    height: 100% !important;
 }

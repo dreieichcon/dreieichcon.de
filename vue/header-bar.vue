@@ -1,5 +1,5 @@
-<template v-if="visible">
-    <div class="container-fluid header-bar gradient-border">
+<template>
+    <div v-if="visible" class="container-fluid header-bar gradient-border">
         <div class="header-logo-large">
             <img
                 class="header-logo-img"
