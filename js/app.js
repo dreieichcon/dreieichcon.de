@@ -51,10 +51,8 @@ var app = Vue.createApp({
             }
 
             if (data.id > 1) {
-                this.visibility.header = false;
-                console.log(this.visibility)
+                this.activePage = window.galleryPage;
             }
-            // this.activePage = {};
         }
     },
     components: {
