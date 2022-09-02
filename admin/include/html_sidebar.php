@@ -78,6 +78,15 @@
 						</a>
 					</li>
 
+					<li class='nav-item'>
+						<a href='index.php?page=admin_socials' class='nav-link'>
+						  <i class='nav-icon fa fa-globe-europe'></i>
+						  <p>
+							Socials
+						  </p>
+						</a>
+					</li>
+
 				
          
 
