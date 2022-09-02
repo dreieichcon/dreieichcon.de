@@ -35,7 +35,7 @@ module.exports = {
     mounted() {},
     methods: {
         navigate(page) {
-            this.emitter.emit("navigate", { id: page });
+            if (page != null) this.emitter.emit("navigate", { id: page });
         },
         getTitle(element) {
             if (this.language == "de") return element.title_de;

@@ -1,0 +1,39 @@
+.overlay-master {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #55555555;
+    backdrop-filter: blur(20px);
+    z-index: 20000;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay-image-wrapper {
+    width: 90%;
+    max-width: 90%;
+}
+
+.overlay-image {
+    width: 100%;
+}
+
+.overlay-close {
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.icon {
+    height: 50px;
+    aspect-ratio: 1 / 1;
+    z-index: 10;
+    filter: invert();
+}

@@ -7,7 +7,12 @@
                 v-bind:language="language"
             ></page-blog>
         </template>
-        <!-- <template v-if="content.type === 'gallery'"></template> -->
+        <template v-if="content.type === 'gallery'">
+            <page-gallery
+                v-bind:items="content.content"
+                v-bind:language="language"
+            ></page-gallery>
+        </template>
     </div>
 </template>
 
@@ -29,6 +34,9 @@ module.exports = {
     components: {
         "page-blog": Vue.defineAsyncComponent(() =>
             loadModule("vue/page-content/page-blog.vue", window.options)
+        ),
+        "page-gallery": Vue.defineAsyncComponent(() =>
+            loadModule("vue/page-content/page-gallery.vue", window.options)
         ),
     },
 };

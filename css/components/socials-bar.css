@@ -4,15 +4,21 @@
     }
 
     .socials-bar {
-        height: 8% !important;
         justify-content: space-between;
         width: 100%;
         padding: 1vw !important;
     }
+
+    .icon-border::after {
+        background: var(--blend);
+    }
+
+    .icon-border:hover {
+        filter: none !important;
+    }
 }
 
 @media screen and (min-width: 992px) {
-
 
     .socials-bar {
         justify-content: space-between;
@@ -21,6 +27,10 @@
 
     .hamburger {
         display: none !important;
+    }
+
+    .icon-border::after {
+        background: var(--blend-right);
     }
 }
 
@@ -79,7 +89,7 @@
     display: block;
     position: absolute;
     pointer-events: none;
-    background: var(--blend-right);
+    /* background: var(--blend-right); */
     background-repeat: no-repeat;
     background-attachment: fixed;
     z-index: 1;

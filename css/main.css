@@ -4,6 +4,7 @@
     --background-color: #fff;
     --background-color-alpha: #ffffff88;
     --nav-color: #fff;
+    --gallery-bg: #eee;
     --nav-hover: #eee;
     --text: #32322C;
     --borders: #32322C;
@@ -59,4 +60,22 @@ main::-webkit-scrollbar {
 
 .h100 {
     height: 100% !important;
+}
+
+.d1 {
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.1))
+}
+
+.d2 {
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.1))
+}
+
+.title {
+    font-weight: 600;
+    font-size: larger;
+    color: var(--secondary-color);
+}
+
+.subtitle {
+    font-size: small;
 }

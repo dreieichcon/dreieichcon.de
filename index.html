@@ -29,9 +29,11 @@
     <!-- SFC OPTIONS -->
     <script src="js/sfc.js"></script>
 
+    <!-- AXIOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <!-- DATA -->
     <script src="js/data.js"></script>
-
 </head>
 
 
@@ -40,9 +42,9 @@
 
     <div id="app" class="container-fluid app">
         <socials-bar v-bind:socials="socials" v-bind:nav="nav" v-bind:language="settings.language"></socials-bar>
-        <header-bar v-bind:visible="visibility.header" v-bind:header="header" v-bind:language="settings.language"></header-bar>
+        <header-bar v-bind:header="header" v-bind:language="settings.language"></header-bar>
         <nav-bar v-bind:elements="nav" v-bind:language="settings.language"></nav-bar>
-
+        <image-overlay></image-overlay>
         <main role="main" class="container-fluid h-100">
             <page-content v-bind:content="activePage" v-bind:language="settings.language"></page-content>
             <page-footer v-bind:footer="footer" v-bind:language="settings.language"></page-footer>

@@ -10,20 +10,30 @@ var app = Vue.createApp({
     mounted() {
         console.log("Vue Mounted")
         console.log(data);
+
+        window.getSocials().then(
+            socials => {
+                this.socials = socials
+            })
+            .catch(error => {
+                console.log(error)
+                this.socials = window.fallbackSocials;
+            });
+
+        window.getGlobals().then(
+            globals => console.log(globals)
+        )
     },
     methods: {
         navigate(data) {
             if (data.id == 1) {
-                this.visibility.header = true;
-                this.activePage = window.data.activePage;
+                this.activePage = window.homepage;
                 return;
             }
 
             if (data.id > 1) {
-                this.visibility.header = false;
-                console.log(this.visibility)
+                this.activePage = window.galleryPage;
             }
-            // this.activePage = {};
         }
     },
     components: {
@@ -32,6 +42,7 @@ var app = Vue.createApp({
         "nav-bar": Vue.defineAsyncComponent(() => loadModule("vue/nav-bar.vue", window.options)),
         "page-content": Vue.defineAsyncComponent(() => loadModule("vue/page-content.vue", window.options)),
         "page-footer": Vue.defineAsyncComponent(() => loadModule("vue/page-footer.vue", window.options)),
+        "image-overlay": Vue.defineAsyncComponent(() => loadModule("vue/image-overlay.vue", window.options)),
     }
 })
 

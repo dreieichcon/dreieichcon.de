@@ -1,0 +1,30 @@
+.gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.gallery-wrapper {
+    margin: 1rem;
+    padding: 1rem;
+    border: 2px solid;
+    border-image-source: var(--blend);
+    border-image-slice: 1;
+    background: var(--gallery-bg);
+
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+}
+
+.gallery-item {
+    filter: none;
+}
+
+.gallery-image {
+    object-fit: contain;
+}
+
+.gallery-image>img {
+    width: 100%;
+}

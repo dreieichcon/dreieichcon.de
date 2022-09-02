@@ -6,7 +6,7 @@
                 <a
                     :style="{ 'animation-delay': (index + 1) / 10 + 's' }"
                     class="icon-wrapper animate__animated animate__fadeIn"
-                    v-bind:href="link.link"
+                    v-bind:href="link.href"
                     :key="index"
                 >
                     <div class="icon-border icon-border-gradient">
