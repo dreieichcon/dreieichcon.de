@@ -382,18 +382,33 @@ function db_select_injectable($table, $where_=array(), $order_ = array(), $limit
 	}
 
 	
-	function db_get_status($status_id){
+
+	
+
+	function db_get_page($page_id){
 		$where = array();
-		$wh['col'] = "scrap_vehicle_status_id";
+		$wh['col'] = "page_id";
 		$wh['typ'] = "=";
-		$wh['val'] = $status_id;
+		$wh['val'] = $page_id;
 		array_push($where, $wh);
 
-		$db_result = db_select("scrap_vehicle_status", $where)[0];
+		$db_result = db_select("page", $where)[0];
 	
 		
 		return $db_result;
+	}
+
+	function db_get_navigation($navigation_id){
+		$where = array();
+		$wh['col'] = "navigation_id";
+		$wh['typ'] = "=";
+		$wh['val'] = $navigation_id;
+		array_push($where, $wh);
+
+		$db_result = db_select("navigation", $where)[0];
 	
+		
+		return $db_result;
 	}
 
 

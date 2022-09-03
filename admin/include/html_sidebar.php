@@ -56,6 +56,15 @@
 					</a>
 				</li>
 
+				<li class='nav-item'>
+					<a href='index.php?page=navigation' class='nav-link'>
+					<i class="nav-icon fas fa-list"></i>
+					<p>
+						Menüband bearbeiten
+					</p>
+					</a>
+				</li>
+
 
 			
 				<li class='nav-header'>ADMINISTRATION</li>
