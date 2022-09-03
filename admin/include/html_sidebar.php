@@ -45,13 +45,13 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
          
 		<li class='nav-header'> </li>
-			<li class='nav-header'>CONVENTION BEARBEITEN</li>
+			<li class='nav-header'>SEITENINHALT</li>
 	
 				<li class='nav-item'>
-					<a href='index.php?page=convention_list' class='nav-link'>
-					<i class="fas fa-list"></i>
+					<a href='index.php?page=page' class='nav-link'>
+					<i class="nav-icon far fa-file"></i>
 					<p>
-						Convention auswählen
+						Seiten anlegen / bearbeiten
 					</p>
 					</a>
 				</li>
@@ -80,7 +80,7 @@
 
 					<li class='nav-item'>
 						<a href='index.php?page=admin_socials' class='nav-link'>
-						<i class="fas fa-icons"></i>
+						<i class="nav-icon fas fa-icons"></i>
 						  <p>
 							Social-Links
 						  </p>
@@ -89,7 +89,7 @@
 
 					<li class='nav-item'>
 						<a href='index.php?page=admin_icon_list' class='nav-link'>
-						<i class="fas fa-icons"></i>
+						<i class="nav-icon fas fa-icons"></i>
 						  <p>
 							Icon-Liste
 						  </p>
