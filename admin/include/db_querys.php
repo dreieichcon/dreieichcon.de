@@ -383,7 +383,7 @@ function db_select_injectable($table, $where_=array(), $order_ = array(), $limit
 
 	
 
-	
+	 
 
 	function db_get_page($page_id){
 		$where = array();

@@ -51,7 +51,8 @@
 					<a href='index.php?page=page' class='nav-link'>
 					<i class="nav-icon far fa-file"></i>
 					<p>
-						Seiten anlegen / bearbeiten
+						Seiten 
+						
 					</p>
 					</a>
 				</li>
@@ -60,11 +61,20 @@
 					<a href='index.php?page=navigation' class='nav-link'>
 					<i class="nav-icon fas fa-list"></i>
 					<p>
-						Menüband bearbeiten
+						Menüband
 					</p>
 					</a>
 				</li>
 
+
+				<li class='nav-item'>
+					<a href='index.php?page=bio' class='nav-link'>
+					<i class="nav-icon fas fa-user"></i>
+					<p>
+						Biografien 
+					</p>
+					</a>
+				</li>
 
 			
 				<li class='nav-header'>ADMINISTRATION</li>
