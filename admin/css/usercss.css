@@ -7,6 +7,10 @@
 	display: none;
 }
 
+.card-body pre{
+	color:white;
+}
+
 @media screen {
 	.onlyprint {
 		display: none;

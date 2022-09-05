@@ -80,6 +80,26 @@
   $page_content['blog'] = $blog;
 
 
+//load gallerys
+    
+
+  $where = array();
+  $wh['col'] = "page_id";
+  $wh['typ'] = "=";
+  $wh['val'] =  $page_id;
+  array_push($where, $wh);
+
+  $order = array();
+  $or['col'] = "page_gallery_order";
+  $or['dir'] = "ASC";
+  array_push($order, $or);
+
+  $gallery = db_select("page_gallery", $where, $order);
+
+  $page_content['gallery'] = $gallery;
+
+
+
 //add page_content to return array
   $return_array['page_content'] = $page_content;
 
