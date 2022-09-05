@@ -84,6 +84,15 @@
 					</a>
 				</li>
 
+				<li class='nav-item'>
+					<a href='index.php?page=gallery' class='nav-link'>
+					<i class="nav-icon fas fa-image"></i>
+					<p>
+						Galerien 
+					</p>
+					</a>
+				</li>
+
 			
 				<li class='nav-header'>ADMINISTRATION</li>
 					
