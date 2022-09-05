@@ -50,16 +50,42 @@
 //load bios first
 
 
-  $where = array();
-  $wh['col'] = "page_id";
-  $wh['typ'] = "=";
-  $wh['val'] =  $page_id;
-  array_push($where, $wh);
+  $sql		= "SELECT * FROM page_bio WHERE page_id = :pageid ORDER BY page_bio_name_de";
+                                                          
+  $pdo 		= new PDO($pdo_mysql, $pdo_db_user, $pdo_db_pwd);
 
-  $bios = db_select("page_bio", $where);
+  $statement	= $pdo->prepare($sql);
+
+  $statement->bindParam(':pageid', $page_id);
+
+  $statement->execute();
+
+  $bios = array();
+
+  while($row = $statement->fetch()){
+      foreach ($row as $key => $value){
+          $row[$key] = db_parse($value);
+      }
+      $where = array();
+      $wh['col'] = "page_bio_id";
+      $wh['typ'] = "=";
+      $wh['val'] =  $row['page_bio_id'];
+      array_push($where, $wh);
+    
+      $order = array();
+      $or['col'] = "page_bio_gallery_order";
+      $or['dir'] = "ASC";
+      array_push($order, $or);
+    
+      $row['gallery'] = db_select("page_bio_gallery", $where, $order);
+
+      array_push($bios, $row);
+  }
+
+  
 
   $page_content['bio'] = $bios;
-
+ 
 
 //load blog-posts second
     
