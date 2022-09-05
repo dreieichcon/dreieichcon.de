@@ -4,13 +4,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0"><?php echo($global_application_name_header);?> Biografien</h1>
+            <h1 class="m-0"><?php echo($global_application_name_header);?> Blog</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="index.php">Startseite</a></li>
               
-              <li class="breadcrumb-item active">Bios</li>
+              <li class="breadcrumb-item active">Blog</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -44,10 +44,10 @@
 	<div class="col-12">
 		<div class="card">
 			<div class="card-header">
-				<h3 class="card-title">Biograifen verwalten</h3>
+				<h3 class="card-title">Blog-Einträge verwalten</h3>
 
 				<div class="card-tools">
-					<a href="index.php?page=bio_add" title="neue Biografie anlegen" class="btn btn-primary"><span class="fa fa-plus-circle"> </span> neu</a>
+					<a href="index.php?page=blog_add" title="neuen Blogeintrag anlegen" class="btn btn-primary"><span class="fa fa-plus-circle"> </span> neu</a>
 				</div>
 			</div>
 				
@@ -55,8 +55,9 @@
 				<table class="table table-head-fixed">
 					<thead>
 							<tr>
-								<th>Name </th>
-								<th>Seite</th>
+								<th>Überschrift </th>
+                                <th>Seite</th>
+								<th>Beginn</th>
 								
 								<th>letzte Änderung</th>
 								<th>Aktionen</th>
@@ -69,7 +70,7 @@
 							
                                
 
-                                $sql		= "SELECT * FROM page_bio ORDER BY page_bio_name_de";
+                                $sql		= "SELECT * FROM page_blog ORDER BY page_id, page_blog_order, page_blog_headline_de";
                                                         
                                 $pdo 		= new PDO($pdo_mysql, $pdo_db_user, $pdo_db_pwd);
 
@@ -93,26 +94,32 @@
 						
 							foreach($db_array as $line){
 								
-								$page_bio_id		    = $line['page_bio_id'];
-								$page_bio_name_de		= $line['page_bio_name_de'];
-								$page_bio_name_en		= $line['page_bio_name_en'];
+								$page_blog_id		    = $line['page_blog_id'];
+								$page_blog_order		= $line['page_blog_order'];
+								$page_blog_headline_de	= $line['page_blog_headline_de'];
+								$page_blog_headline_en	= $line['page_blog_headline_en'];
+								$page_blog_content_de	= substr($line['page_blog_content_de'],0,250);
 								
 								
-								$modify_ts   		= UnixToTime($line['page_bio_edit_ts']);
-								$modify_id   		= db_get_user($line['page_bio_edit_id'])['user_full'];
+								
+								$modify_ts   		= UnixToTime($line['page_blog_edit_ts']);
+								$modify_id   		= db_get_user($line['page_blog_edit_id'])['user_full'];
 
                                 $page               = db_get_page($line['page_id'])['page_title_de'];
 
                               
 								echo "
 									<tr>
-										<th>$page_bio_name_de<br>$page_bio_name_en</th>
+										<th>$page_blog_headline_de<br>$page_blog_headline_en</th>
 										<td>$page</td>
+										<td>$page_blog_content_de</td>
 										
 										
 										<td>$modify_ts<br>$modify_id</td>
-										<td><a href='index.php?page=bio_edit&bio_id=$page_bio_id'><span class='fa fa-edit'></span></a> &nbsp;&nbsp;
-                                        <a href='index.php?page=bio_delete&bio_id=$page_bio_id' class='text-danger'><span class='fa fa-trash'></span></a></td>
+										<td>
+										<a href='index.php?page=blog_edit&blog_id=$page_blog_id'><span class='fa fa-edit'></span></a> &nbsp;&nbsp;
+										<a href='index.php?page=blog_image&blog_id=$page_blog_id' title='Bild bearbeiten'><span class='fa fa-image'></span></a> &nbsp;&nbsp;
+                                        <a href='index.php?page=blog_delete&blog_id=$page_blog_id' class='text-danger'><span class='fa fa-trash'></span></a></td>
 									</tr>
 								
 								";

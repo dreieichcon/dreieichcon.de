@@ -66,6 +66,14 @@
 					</a>
 				</li>
 
+				<li class='nav-item'>
+					<a href='index.php?page=blog' class='nav-link'>
+					<i class="nav-icon fas fa-blog"></i>
+					<p>
+						Blog-Einträge 
+					</p>
+					</a>
+				</li>
 
 				<li class='nav-item'>
 					<a href='index.php?page=bio' class='nav-link'>
