@@ -5,7 +5,7 @@ include("include/db_connect.php");
 include("include/db_querys.php");
 include("include/times.php");
 include("include/mailhandler.php");
-    $global_domain = "http://localhost/dreieichcon.de/";
+    $global_domain = "http://neu.dreieichcon.de/";
 
     $email 		= $_POST['email'];
 

@@ -2,7 +2,7 @@
   error_reporting(E_ALL);
   $global_application_name = "<b>dreieichcon</b>.de";
   $global_application_name_header = "";
-  $global_domain = "http://localhost/dreieichcon.de/";
+  $global_domain = "http://neu.dreieichcon.de/";
   $_SESSION['debug']=false;
   
   $security_required_level = 1;
