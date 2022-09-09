@@ -53,16 +53,16 @@ if($db_result['result'] == "ok"){
     $link           = "<a href='$link_href'>$link_href</a>";
 
 
-    $subject        = "Dein Benutzerkonto bei der Con-Tafelrunde";
+    $subject        = "Dein Benutzerkonto bei dreieichcon.de";
 
-    $body           = "<p>Hallo $name,<br> f&uuml;r Dich wurde ein Konto bei der Con-Tafelrunde angelegt. Klicke auf den nachfolgenden Link (oder kopiere ihn vollst&auml;ndig in deinen Browser) um das Passwort festzulegen:</p>
+    $body           = "<p>Hallo $name,<br> f&uuml;r Dich wurde ein Konto auf dreieichcon.de angelegt. Klicke auf den nachfolgenden Link (oder kopiere ihn vollst&auml;ndig in deinen Browser) um das Passwort festzulegen:</p>
     
     <p>$link</p>
 
     <p>Alternativ besuche verwende den unten stehenden Sicherheitscode um &uuml;ber die Anmeldemaske das Passwort zu &auml;ndern:<br><pre>$secret</pre></p>
     
     <p>Viele Gr&uuml;&szlig;e<br>
-    <i>Con-Tafelrunde Administration</i></p>";
+    <i>dreieichcon.de Administration</i></p>";
     
 
     $rec            = array();
