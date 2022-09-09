@@ -1,6 +1,6 @@
 <template>
     <div class="hamburger-flyout">
-        <template v-for="(element, index) in elements" :key="index">
+        <template v-for="(element, index) in elements">
             <div v-if="index > 0" class="separator"></div>
             <div class="elements-wrapper">
                 <div
@@ -12,10 +12,10 @@
                 </div>
                 <div
                     class="sub-element"
-                    v-for="option in element.options"
+                    v-for="option in element.childs"
                     :key="option"
-                    v-bind:style="isPointer(element)"
-                    @click="navigate(option.page_id)"
+                    v-bind:style="isPointer(option)"
+                    @click="navigate(option)"
                 >
                     - {{ getTitle(option) }}
                 </div>
@@ -35,15 +35,23 @@ module.exports = {
     mounted() {},
     methods: {
         navigate(page) {
-            if (page != null) this.emitter.emit("navigate", { id: page });
+            if (page.navigation_href != null) {
+                window.location.href = page.navigation_href;
+                return;
+            }
+
+            this.emitter.emit("navigate", { id: page.page_id });
         },
         getTitle(element) {
-            if (this.language == "de") return element.title_de;
-            return element.title_en;
+            if (this.language == "de") return element.navigation_title_de;
+            return element.navigation_title_en;
         },
         isPointer(page) {
-            if (page.href != null || page.page_id != null)
+            if (page.navigation_href != null || page.page_id != null) {
+                console.log(page);
                 return { cursor: "pointer" };
+            }
+
             return "";
         },
     },

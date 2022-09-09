@@ -69,7 +69,9 @@ module.exports = {
     },
     created() {
         this.emitter.on("navigate", (data) => {
-            if (data.id > 1) {
+            if (data.id == null) return;
+
+            if (data.id > 1 || data.id.length > 4) {
                 this.toggle(false);
             } else {
                 this.toggle(true);

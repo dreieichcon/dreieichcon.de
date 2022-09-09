@@ -1,15 +1,30 @@
 <template>
     <div>
-        <div class="main-title" v-html="getTitle(content)"></div>
+        <loading-spinner></loading-spinner>
         <template v-if="content.type === 'blog'">
+            <div class="main-title" v-html="content.getTitle(language)"></div>
             <page-blog
-                v-bind:posts="content.content"
+                v-bind:blog="content"
                 v-bind:language="language"
             ></page-blog>
         </template>
         <template v-if="content.type === 'gallery'">
+            <div class="main-title" v-html="content.getTitle(language)"></div>
             <page-gallery
-                v-bind:items="content.content"
+                v-bind:gallery="content"
+                v-bind:language="language"
+            ></page-gallery>
+        </template>
+        <template v-if="content.type === 'bio'">
+            <div class="main-title" v-html="content.getTitle(language)"></div>
+            <page-biography
+                v-bind:biography="content"
+                v-bind:language="language"
+            >
+            </page-biography>
+            <page-gallery
+                v-if="content.hasGallery()"
+                v-bind:gallery="content.gallery"
                 v-bind:language="language"
             ></page-gallery>
         </template>
@@ -25,15 +40,16 @@ module.exports = {
     created() {},
     props: ["content", "language"],
     mounted() {},
-    methods: {
-        getTitle(page) {
-            if (this.language === "de") return page.title_de;
-            return page.title_en;
-        },
-    },
+    methods: {},
     components: {
+        "loading-spinner": Vue.defineAsyncComponent(() =>
+            loadModule("vue/loading-spinner.vue", window.options)
+        ),
         "page-blog": Vue.defineAsyncComponent(() =>
             loadModule("vue/page-content/page-blog.vue", window.options)
+        ),
+        "page-biography": Vue.defineAsyncComponent(() =>
+            loadModule("vue/page-content/page-bio.vue", window.options)
         ),
         "page-gallery": Vue.defineAsyncComponent(() =>
             loadModule("vue/page-content/page-gallery.vue", window.options)

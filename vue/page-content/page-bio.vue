@@ -1,6 +1,8 @@
 <template>
     <div>
-        <div
+        BIOGRAPHY HERE
+        {{ biography }}
+        <!-- <div
             v-for="(post, index) in blog.posts"
             :key="index"
             class="
@@ -44,34 +46,34 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 
 <script>
 module.exports = {
-    name: "page-blog",
+    name: "page-bio",
     data: function () {
         return {};
     },
     created() {},
-    props: ["blog", "language"],
+    props: ["biography", "language"],
     mounted() {},
     methods: {
-        imageAlign(index) {
-            // if (window.innerWidth < 995) return { float: "none" };
-            if (index % 2 == 0)
-                return { float: "left", "padding-right": "1rem" };
-            return { float: "right", "padding-left": "1rem" };
-        },
-        titleAlign(index) {
-            if (index % 2 != 0) return { "align-items": "flex-end" };
-        },
+        // imageAlign(index) {
+        //     // if (window.innerWidth < 995) return { float: "none" };
+        //     if (index % 2 == 0)
+        //         return { float: "left", "padding-right": "1rem" };
+        //     return { float: "right", "padding-left": "1rem" };
+        // },
+        // titleAlign(index) {
+        //     if (index % 2 != 0) return { "align-items": "flex-end" };
+        // },
     },
     components: {},
 };
 </script>
 
 <style>
-@import "css/components/page-content.css";
+@import "css/components/page-bio.css";
 </style>

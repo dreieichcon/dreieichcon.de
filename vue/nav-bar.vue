@@ -3,7 +3,7 @@
         <div class="collapse navbar-collapse h100" id="navbarNav">
             <ul class="navbar-nav h100">
                 <li
-                    v-for="element in elements"
+                    v-for="element in nav.options"
                     v-bind:key="element"
                     class="nav-element"
                 >
@@ -11,21 +11,21 @@
                         <div
                             class="toplevel-element"
                             v-bind:style="isPointer(element)"
-                            @click="navigate(element.page_id)"
+                            @click="navigate(element)"
                         >
                             <div class="dropdown-title">
-                                {{ getTitle(element) }}
+                                {{ element.getTitle(language) }}
                             </div>
                         </div>
                         <div class="dropdown-content">
                             <div
-                                v-for="option in element.childs"
+                                v-for="option in element.options"
                                 :key="option"
                                 v-bind:style="isPointer(option)"
                                 class="dropdown-item"
-                                @click="navigate(option.page_id)"
+                                @click="navigate(option)"
                             >
-                                {{ getTitle(option) }}
+                                {{ option.getTitle(language) }}
                             </div>
                         </div>
                     </div>
@@ -42,18 +42,19 @@ module.exports = {
         return {};
     },
     created() {},
-    props: ["elements", "language"],
+    props: ["nav", "language"],
     mounted() {},
     methods: {
-        navigate(page) {
-            this.emitter.emit("navigate", { id: page });
+        navigate(item) {
+            if (item.href != null) {
+                window.location.href = item.href;
+                return;
+            }
+
+            this.emitter.emit("navigate", { id: item.page_id });
         },
-        getTitle(element) {
-            if (this.language == "de") return element.navigation_title_de;
-            return element.navigation_title_de;
-        },
-        isPointer(page) {
-            if (page.href != null || page.page_id != null)
+        isPointer(item) {
+            if (item.href != null || item.page_id != null)
                 return { cursor: "pointer" };
             return "";
         },

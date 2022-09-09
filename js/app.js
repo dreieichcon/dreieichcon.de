@@ -1,3 +1,4 @@
+
 var app = Vue.createApp({
     data() {
         return window.data;
@@ -8,13 +9,12 @@ var app = Vue.createApp({
     },
 
     mounted() {
-        console.log("Vue Mounted")
-        console.log(data);
-
         window.getNav().then(
             navigation => {
-                this.nav = this.nav.concat(navigation)
+                this.nav = ContentLoader.getNav(navigation)
             }
+        ).finally(
+            e => this.emitter.emit("loading", { nav: false })
         )
 
         window.getSocials().then(
@@ -24,34 +24,61 @@ var app = Vue.createApp({
             .catch(error => {
                 console.log(error)
                 this.socials = window.fallbackSocials;
-            });
+            }).finally(
+                e => this.emitter.emit("loading", { socials: false })
+            )
 
         window.getGlobals().then(
             globals => console.log(globals)
+        ).finally(
+            e => this.emitter.emit("loading", { globals: false })
         )
+
+        var params = new URLSearchParams(window.location.search);
+        var page = 1
+
+        if (params.has("p"))
+            page = params.get("p");
+
+        this.emitter.emit("navigate", { id: page });
+        // window.getPage(page)
+        //     .then(
+        //         result => {
+        //             this.activePage = ContentLoader.parseContent(result)
+        //         })
+        //     .catch(
+        //         error => {
+
+        //             this.activePage = ContentLoader.getError(error)
+
+        //         })
+        //     .finally(e => {
+        //         this.emitter.emit("loading", { page: false })
+        //     })
     },
     methods: {
         navigate(data) {
-            if (data.id == 1) {
-                this.activePage = window.homepage;
-                return;
+
+            if (data.id == null) return;
+
+            this.activePage = {};
+
+            window.history.replaceState("", "EEE", window.location.origin + "?p=" + data.id);
+
+            if (data.id == "contact") {
+                this.activePage = this.pageData.contact
             }
 
-            if (data.id > 1) {
-                this.activePage = window.galleryPage;
-            }
-        }
-    },
-    methods: {
-        navigate(data) {
-            if (data.id == 1) {
-                this.visibility.header = true;
-                this.activePage = window.data.activePage;
-                return;
-            }
-
-            if (data.id > 1) {
-                this.activePage = window.galleryPage;
+            if (data.id >= 1) {
+                this.emitter.emit("loading", { page: true })
+                window.getPage(data.id).then(
+                    result => {
+                        this.activePage = ContentLoader.parseContent(result)
+                    }).catch(error => {
+                        this.activePage = ContentLoader.getError(error)
+                    }).finally((e) => {
+                        this.emitter.emit("loading", { page: false })
+                    })
             }
         }
     },

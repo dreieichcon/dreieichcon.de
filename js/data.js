@@ -47,52 +47,28 @@ window.data = {
             },
         ]
     },
-    nav:
-        [
-            {
-                navigation_title_de: "Home",
-                navigation_title_en: "Home",
-                href: "home",
-                page_id: 1,
-                childs: {}
-            }
-        ],
+    nav: new NavCollection([
+        {
+            navigation_title_de: "Home",
+            navigation_title_en: "Home",
+            page_id: 1
+        }
+    ]),
     settings: {
         language: "de"
     },
     activePage: {
-        title_de: "Willkommen",
-        title_en: "Welcome",
-        type: "blog",
-        id: 1,
-        content: [
-            {
-                image_de: "resources/img/dreieichcon-logo-vislani.png",
-                image_en: "resources/img/dreieichcon-logo-vislani.png",
-                image_alt_de: "",
-                image_alt_en: "",
-                title_de: "Willkommen",
-                title_en: "Welcome",
-                subtitle_de: "zum DreieichCon 2022",
-                subtitle_en: "to DreieichCon 2022",
-                content_de: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque.Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque.",
-                content_en: "Welcome to Dreiiecjaslodalksdjalskdjalskdj"
-            },
-            {
-                image_de: "resources/img/dreieichcon-logo-vislani.png",
-                image_en: "resources/img/dreieichcon-logo-vislani.png",
-                image_alt_de: "",
-                image_alt_en: "",
-                title_de: "Willkommen",
-                title_en: "Welcome",
-                subtitle_de: "zum DreieichCon 2022",
-                subtitle_en: "to DreieichCon 2022",
-                content_de: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque.Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ullam. Reprehenderit cum consequuntur vitae nam! Iusto nostrum fugit, distinctio magnam ullam dolorem harum vel dignissimos veritatis ex pariatur doloribus doloremque.",
-                content_en: "Welcome to Dreiiecjaslodalksdjalskdjalskdj"
-            }
-        ]
+    },
+    loading: {
+        content: true
+    },
+    pageData: {
+        contact: {
+            page_type: "contact_form"
+        }
     }
 }
+
 
 window.homepage = {
     title_de: "Willkommen",
@@ -127,75 +103,6 @@ window.homepage = {
     ]
 };
 
-window.galleryPage = {
-    title_de: "Aussteller",
-    title_en: "Exhibitors",
-    type: "gallery",
-    id: 2,
-    content: [
-        {
-            image_de: "resources/img/dreieichcon-logo-vislani.png",
-            image_en: "resources/img/dreieichcon-logo-vislani.png",
-            image_alt_de: "",
-            image_alt_en: "",
-            title_de: "Willkommen",
-            title_en: "Welcome",
-            subtitle_de: "zum DreieichCon 2022",
-            subtitle_en: "to DreieichCon 2022",
-            page_id: ""
-        },
-        {
-            image_de: "resources/img/dreieichcon-logo-vislani.png",
-            image_en: "resources/img/dreieichcon-logo-vislani.png",
-            image_alt_de: "",
-            image_alt_en: "",
-            title_de: "Willkommen",
-            title_en: "Welcome",
-            subtitle_de: "zum DreieichCon 2022",
-            subtitle_en: "to DreieichCon 2022",
-        },
-        {
-            image_de: "resources/img/dreieichcon-logo-vislani.png",
-            image_en: "resources/img/dreieichcon-logo-vislani.png",
-            image_alt_de: "",
-            image_alt_en: "",
-            title_de: "Willkommen",
-            title_en: "Welcome",
-            subtitle_de: "zum DreieichCon 2022",
-            subtitle_en: "to DreieichCon 2022",
-        },
-        {
-            image_de: "resources/img/dreieichcon-logo-vislani.png",
-            image_en: "resources/img/dreieichcon-logo-vislani.png",
-            image_alt_de: "",
-            image_alt_en: "",
-            title_de: "Willkommen",
-            title_en: "Welcome",
-            subtitle_de: "zum DreieichCon 2022",
-            subtitle_en: "to DreieichCon 2022",
-        },
-        {
-            image_de: "resources/img/dreieichcon-logo-vislani.png",
-            image_en: "resources/img/dreieichcon-logo-vislani.png",
-            image_alt_de: "",
-            image_alt_en: "",
-            title_de: "Willkommen",
-            title_en: "Welcome",
-            subtitle_de: "zum DreieichCon 2022",
-            subtitle_en: "to DreieichCon 2022",
-        },
-        {
-            image_de: "resources/img/dreieichcon-logo-vislani.png",
-            image_en: "resources/img/dreieichcon-logo-vislani.png",
-            image_alt_de: "",
-            image_alt_en: "",
-            title_de: "Willkommen",
-            title_en: "Welcome",
-            subtitle_de: "zum DreieichCon 2022",
-            subtitle_en: "to DreieichCon 2022",
-        }
-    ]
-}
 
 window.fallbackSocials = [{
     name: "youtube",
@@ -245,36 +152,32 @@ function buildLink(endpoint) {
     return href + endpoint;
 }
 
-function pullUp(data, children) {
 
-    for (var i = 0; i < children.length; i++) {
+function traverse(topLevel, parent, child) {
 
-        var child = children[i];
-
-        child.navigation_title_de = " - " + child.navigation_title_de;
-        child.navigation_title_en = " - " + child.navigation_title_en;
-
-        data.childs.push(child)
+    if (child.childs != undefined) {
+        child.childs.forEach(c => traverse(topLevel, child, c));
     }
 
-    console.log(data)
+    parent.childs.forEach((item, index) => {
+        topLevel.childs.push(item)
+        parent.childs.splice(index, 1)
+    })
 }
 
 function parseNavigationChildren(data) {
 
+    data.forEach(topLevel => {
+        if (topLevel.childs != undefined) {
+            topLevel.childs.forEach(child => {
+                traverse(topLevel, topLevel, child)
+            })
+        }
+    })
+
     console.log(data);
 
-    if (data.childs == undefined) return data;
-    if (data.childs.length < 0) return data;
-
-    for (var i = 0; i < data.childs.length; i++) {
-        var child = data.childs[i];
-
-        if (child.childs.length > 0) {
-            pullUp(data, child.childs)
-        }
-    }
-
+    return data;
 }
 
 window.getSocials = function () {
