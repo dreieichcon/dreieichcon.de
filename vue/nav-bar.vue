@@ -19,7 +19,7 @@
                         </div>
                         <div class="dropdown-content">
                             <div
-                                v-for="option in element.options"
+                                v-for="option in element.childs"
                                 :key="option"
                                 v-bind:style="isPointer(option)"
                                 class="dropdown-item"
@@ -49,8 +49,8 @@ module.exports = {
             this.emitter.emit("navigate", { id: page });
         },
         getTitle(element) {
-            if (this.language == "de") return element.title_de;
-            return element.title_en;
+            if (this.language == "de") return element.navigation_title_de;
+            return element.navigation_title_de;
         },
         isPointer(page) {
             if (page.href != null || page.page_id != null)

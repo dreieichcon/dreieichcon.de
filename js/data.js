@@ -50,31 +50,11 @@ window.data = {
     nav:
         [
             {
-                title_de: "Home",
-                title_en: "Home",
+                navigation_title_de: "Home",
+                navigation_title_en: "Home",
                 href: "home",
                 page_id: 1,
-                options: {}
-            },
-            {
-                title_de: "Veranstaltung",
-                title_en: "Event",
-                href: null,
-                page_id: null,
-                options: [
-                    {
-                        title_de: "Was ist der DC?",
-                        title_en: "What is the DC?",
-                        page_id: 1,
-                        page_type: "info",
-                    },
-                    {
-                        title_de: "Wann & Wo?",
-                        title_en: "Wann & Wo?",
-                        page_id: 2,
-                        page_type: "info",
-                    },
-                ]
+                childs: {}
             }
         ],
     settings: {
@@ -265,6 +245,38 @@ function buildLink(endpoint) {
     return href + endpoint;
 }
 
+function pullUp(data, children) {
+
+    for (var i = 0; i < children.length; i++) {
+
+        var child = children[i];
+
+        child.navigation_title_de = " - " + child.navigation_title_de;
+        child.navigation_title_en = " - " + child.navigation_title_en;
+
+        data.childs.push(child)
+    }
+
+    console.log(data)
+}
+
+function parseNavigationChildren(data) {
+
+    console.log(data);
+
+    if (data.childs == undefined) return data;
+    if (data.childs.length < 0) return data;
+
+    for (var i = 0; i < data.childs.length; i++) {
+        var child = data.childs[i];
+
+        if (child.childs.length > 0) {
+            pullUp(data, child.childs)
+        }
+    }
+
+}
+
 window.getSocials = function () {
     return new Promise(
         (resolve, reject) => {
@@ -284,6 +296,29 @@ window.getGlobals = function () {
                 .then(result => {
                     resolve(result.data)
                 })
+                .catch(error => reject(error))
+        }
+    )
+}
+
+window.getPage = function (page_id) {
+    return new Promise(
+        (resolve, reject) => {
+            axios.get(buildLink("/api/page.php?page_id=" + page_id))
+                .then(result => {
+                    resolve(result.data)
+                })
+                .catch(error => reject(error))
+        }
+    )
+}
+
+window.getNav = function () {
+    return new Promise(
+        (resolve, reject) => {
+            axios.get(buildLink("/api/navigation.php")).then(result => {
+                resolve(parseNavigationChildren(result.data))
+            })
                 .catch(error => reject(error))
         }
     )

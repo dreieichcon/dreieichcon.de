@@ -11,6 +11,12 @@ var app = Vue.createApp({
         console.log("Vue Mounted")
         console.log(data);
 
+        window.getNav().then(
+            navigation => {
+                this.nav = this.nav.concat(navigation)
+            }
+        )
+
         window.getSocials().then(
             socials => {
                 this.socials = socials
