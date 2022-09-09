@@ -13,7 +13,13 @@
 
     $data['page_id']                    = $_POST['page_id'];
     $data['page_gallery_order']         = $_POST['page_gallery_order'];
-    $data['page_id_link']               = $_POST['page_id_link'];
+    if(isset($_POST['page_id_link'])&& $_POST['page_id_link']>0){
+        $data['page_id_link']               = $_POST['page_id_link'];
+    }else{
+        $data['page_id_link'] = null;
+    }
+
+    
     $data['page_gallery_text_de']       = $_POST['page_gallery_text_de'];
     $data['page_gallery_text_en']       = $_POST['page_gallery_text_en'];
 
