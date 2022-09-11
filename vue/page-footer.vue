@@ -30,18 +30,18 @@ module.exports = {
         return {};
     },
     created() {},
-    props: ["footer", "language"],
+    props: ["footer"],
     mounted() {},
     methods: {
         getContent(item) {
-            if (this.language == "de") {
+            if (this.$language == "de") {
                 return window.parseData(item.content_de);
             }
 
             return window.parseData(item.content_en);
         },
         getTitle(item) {
-            if (this.language == "de") {
+            if (this.$language == "de") {
                 return window.parseData(item.title_de);
             }
 
@@ -50,7 +50,7 @@ module.exports = {
         getLink(item, index, items) {
             var ret = "<div class='footer-link'>";
 
-            if (this.language == "de") {
+            if (this.$language == "de") {
                 ret += window.parseData(item.title_de);
             } else {
                 ret += window.parseData(item.title_en);

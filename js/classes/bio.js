@@ -7,11 +7,11 @@ class BioContent extends ContentItem {
         this.short_en = data.page_bio_short_bio_en;
         this.content_de = data.page_bio_content_de;
         this.content_en = data.page_bio_content_en;
-        this.image_de = "noimg.png" //data.page_bio_image_de;
+        this.image_de = data.page_bio_image_de;
         this.image_en = data.page_bio_image_en;
         this.image_alt_de = data.page_bio_image_alt_de;
         this.image_alt_en = data.page_bio_image_alt_en;
-        this.base = "/upload/bio_gallery/img/";
+        this.base = "/upload/bio_profile/img/";
     }
 }
 
