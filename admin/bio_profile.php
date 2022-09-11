@@ -34,7 +34,7 @@ $target_dir = "../upload/bio_profile/img/";
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0"><?php echo($global_application_name_header);?> Profilbilder für  bearbeiten</h1>
+            <h1 class="m-0"><?php echo($global_application_name_header);?> Profilbilder für <?php echo $data['page_bio_name_de']; ?> bearbeiten</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
