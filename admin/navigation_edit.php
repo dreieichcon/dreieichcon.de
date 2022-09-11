@@ -171,6 +171,13 @@ if(count($db_array)>0){
                               </div>
                             </div>
 
+                            <div class="col-6">
+                              <div class="form-group">
+                                <label class="col-form-label" for="navigation_special_page">Spezial-Link</label>
+                                <input  type="text" name="navigation_special_page"  class="form-control" placeholder="" value="<?php echo $data['navigation_special_page'] ;?>" >
+                              </div>
+                            </div>
+
                         </div>
                     </div>
 

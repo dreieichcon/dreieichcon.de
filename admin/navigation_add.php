@@ -139,6 +139,14 @@
                               </div>
                             </div>
 
+
+                            <div class="col-6">
+                              <div class="form-group">
+                                <label class="col-form-label" for="navigation_special_page">Spezial-Link</label>
+                                <input  type="text" name="navigation_special_page"  class="form-control" placeholder="">
+                              </div>
+                            </div>
+
                         </div>
                     </div>
 
