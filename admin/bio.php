@@ -111,9 +111,13 @@
 										
 										
 										<td>$modify_ts<br>$modify_id</td>
-										<td><a href='index.php?page=bio_edit&bio_id=$page_bio_id'><span class='fa fa-edit'></span></a> &nbsp;&nbsp;
-										<a href='index.php?page=bio_gallery&page_bio_id=$page_bio_id'><span class='fa fa-image'></span></a> &nbsp;&nbsp;
-                                        <a href='index.php?page=bio_delete&bio_id=$page_bio_id' class='text-danger'><span class='fa fa-trash'></span></a></td>
+										<td>
+                      <a href='index.php?page=bio_edit&bio_id=$page_bio_id'><span class='fa fa-edit'></span></a> &nbsp;&nbsp;
+										  <a href='index.php?page=bio_profile&page_bio_id=$page_bio_id' titel='Profilbild'><span class='fa fa-id-badge'></span></a> &nbsp;&nbsp;
+										  <a href='index.php?page=bio_gallery&page_bio_id=$page_bio_id'><span class='fa fa-image'></span></a> &nbsp;&nbsp;
+                      <a href='index.php?page=bio_delete&bio_id=$page_bio_id' class='text-danger'><span class='fa fa-trash'></span></a>
+                                        
+                                        </td>
 									</tr>
 								
 								";
