@@ -146,42 +146,58 @@
 
 						
 							foreach($db_array as $line){
+
+                $page = "";
 								
-								$navigation_id		    = $line['navigation_id'];
-								$navigation_title_de	= $line['navigation_title_de'];
-								$navigation_title_en	= $line['navigation_title_en'];
-								$page_id		        = $line['page_id'];
-								$navigation_href		= $line['navigation_href'];
-								$navigation_parent		= $line['navigation_parent'];
+								$navigation_id		         = $line['navigation_id'];
+								$navigation_title_de	     = $line['navigation_title_de'];
+								$navigation_title_en       = $line['navigation_title_en'];
+								$page_id		               = $line['page_id'];
+								$navigation_href		       = $line['navigation_href'];
+								$navigation_parent		     = $line['navigation_parent'];
+								$navigation_special_page	 = $line['navigation_special_page'];
 							
-								$navigation_order 	    = $line['navigation_order'];
+								$navigation_order 	       = $line['navigation_order'];
 								
-								$modify_ts   		    = UnixToTime($line['navigation_edit_ts']);
-								$modify_id   		    = db_get_user($line['navigation_edit_id'])['user_full'];
+								$modify_ts   		           = UnixToTime($line['navigation_edit_ts']);
+								$modify_id   		           = db_get_user($line['navigation_edit_id'])['user_full'];
 
-                                if($page_id >0){
-                                    $page = db_get_page($page_id)['page_title_de'];
-                                }else{
-                                    $page = $navigation_href;
-                                }
+                if($page_id >0){
+                    $page = "Intern: ".db_get_page($page_id)['page_title_de'];
+                }else{
+                    if($navigation_href != ""){
+                      $page = "Extern: " .$navigation_href;
+                    }
+                }
 
-                                if($navigation_parent > 0){
-                                    $parent = db_get_navigation($navigation_parent)['navigation_title_de'];    
-                                }else{
-                                    $parent = "";
-                                }
+                if($navigation_parent > 0){
+                    $parent = db_get_navigation($navigation_parent)['navigation_title_de'];    
+                }else{
+                    $parent = "";
+                }
+
+                if($navigation_special_page != ""){
+                  if($page!=""){
+                    $page = "<span class='text-warning'>Special-Page: $navigation_special_page</span><br>$page";
+                  }else{
+                    $page = "<span class='text-warning'>Special-Page: $navigation_special_page</span>";
+                  }
+                  
+                }
                               
 								echo "
 									<tr>
-                                        <td>$navigation_order</td>
+                    <td>$navigation_order</td>
 										<th>$navigation_title_de<br>$navigation_title_en</th>
 										<td>$page</td>
 										<td>$parent</td>
 										
 										
 										<td>$modify_ts<br>$modify_id</td>
-										<td><a href='index.php?page=navigation_edit&navigation_id=$navigation_id'><span class='fa fa-edit'></span></a> 
-                                        &nbsp;&nbsp; <a href='index.php?page=navigation_delete&navigation_id=$navigation_id' class='text-danger'><span class='fa fa-trash'></span></a></td>
+										<td>
+                      <a href='index.php?page=navigation_edit&navigation_id=$navigation_id'><span class='fa fa-edit'></span></a> 
+                      &nbsp;&nbsp; <a href='index.php?page=navigation_delete&navigation_id=$navigation_id' class='text-danger'><span class='fa fa-trash'></span></a>
+                    </td>
 									</tr>
 								
 								";
