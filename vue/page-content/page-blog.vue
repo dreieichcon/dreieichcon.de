@@ -17,29 +17,29 @@
                         <div class="blog-reverser" :style="titleAlign(index)">
                             <div
                                 class="blog-image"
-                                v-if="post.getImage(language)"
+                                v-if="post.getImage($language)"
                                 :style="imageAlign(index)"
                             >
                                 <img
-                                    :src="post.getImage(language)"
-                                    :alt="post.getAlt(language)"
+                                    :src="post.getImage($language)"
+                                    :alt="post.getAlt($language)"
                                 />
                             </div>
                             <div class="blog-title-wrapper">
                                 <div
                                     class="blog-title"
-                                    v-html="post.getTitle(language)"
+                                    v-html="post.getTitle($language)"
                                 ></div>
                                 <div
                                     class="blog-subtitle"
-                                    v-html="post.getSubtitle(language)"
+                                    v-html="post.getSubtitle($language)"
                                 ></div>
                                 <div class="blog-separator"></div>
                             </div>
                         </div>
                         <div
                             class="blog-content"
-                            v-html="post.getContent(language)"
+                            v-html="post.getContent($language)"
                         ></div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@ module.exports = {
         return {};
     },
     created() {},
-    props: ["blog", "language"],
+    props: ["blog"],
     mounted() {},
     methods: {
         imageAlign(index) {

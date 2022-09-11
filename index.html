@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -33,6 +34,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- Other Methods and classes -->
+    <script src="js/classes/base.js"></script>
     <script src="js/classes/blog.js"></script>
     <script src="js/classes/gallery.js"></script>
     <script src="js/classes/bio.js"></script>
@@ -46,13 +48,14 @@
 <body>
 
     <div id="app" class="container-fluid app">
-        <socials-bar v-bind:socials="socials" v-bind:nav="nav" v-bind:language="settings.language"></socials-bar>
+        <hamburger-click></hamburger-click>
+        <socials-bar v-bind:socials="socials" v-bind:nav="nav"></socials-bar>
         <header-bar v-bind:header="header" v-bind:language="settings.language"></header-bar>
         <nav-bar v-bind:nav="nav" v-bind:language="settings.language"></nav-bar>
         <image-overlay></image-overlay>
         <main role="main" class="container-fluid h-100">
-            <page-content v-bind:content="activePage" v-bind:language="settings.language"></page-content>
-            <page-footer v-bind:footer="footer" v-bind:language="settings.language"></page-footer>
+            <page-content v-bind:content="activePage"></page-content>
+            <page-footer v-bind:footer="footer"></page-footer>
         </main>
 
     </div>

@@ -1,23 +1,23 @@
 <template>
-    <div class="hamburger-flyout">
-        <template v-for="(element, index) in elements">
+    <div v-if="isVisible" class="hamburger-flyout d2">
+        <template v-for="(element, index) in elements.options" :key="index">
             <div v-if="index > 0" class="separator"></div>
             <div class="elements-wrapper">
                 <div
                     class="top-element"
                     v-bind:style="isPointer(element)"
-                    @click="navigate(element.page_id)"
+                    @click="navigate(element)"
                 >
-                    {{ getTitle(element) }}
+                    {{ element.getTitle($language) }}
                 </div>
                 <div
                     class="sub-element"
-                    v-for="option in element.childs"
+                    v-for="option in element.options"
                     :key="option"
                     v-bind:style="isPointer(option)"
                     @click="navigate(option)"
                 >
-                    - {{ getTitle(option) }}
+                    - {{ option.getTitle($language) }}
                 </div>
             </div>
         </template>
@@ -26,33 +26,38 @@
 
 <script>
 module.exports = {
-    name: "hamburger",
+    name: "hambu",
     data: function () {
-        return {};
+        return {
+            isVisible: this.$hamburger.value,
+        };
     },
     created() {},
-    props: ["elements", "language"],
+    props: ["elements"],
     mounted() {},
     methods: {
         navigate(page) {
-            if (page.navigation_href != null) {
-                window.location.href = page.navigation_href;
+            if (page.href != null) {
+                window.location.href = page.href;
                 return;
             }
 
             this.emitter.emit("navigate", { id: page.page_id });
         },
-        getTitle(element) {
-            if (this.language == "de") return element.navigation_title_de;
-            return element.navigation_title_en;
-        },
         isPointer(page) {
-            if (page.navigation_href != null || page.page_id != null) {
-                console.log(page);
+            if (page.href != null || page.page_id != null) {
                 return { cursor: "pointer" };
             }
 
             return "";
+        },
+    },
+    watch: {
+        "$hamburger.value": {
+            handler: function () {
+                this.isVisible = this.$hamburger.value;
+            },
+            deep: true,
         },
     },
     components: {},

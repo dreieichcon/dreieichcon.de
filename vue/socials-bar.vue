@@ -23,11 +23,7 @@
                 />
             </div>
         </div>
-        <hamburger
-            v-if="hamburger"
-            v-bind:language="language"
-            v-bind:elements="nav"
-        ></hamburger>
+        <hamburger v-bind:elements="nav"></hamburger>
     </div>
 </template>
 
@@ -35,18 +31,17 @@
 export default {
     name: "socials-bar",
     data: function () {
-        return {
-            hamburger: false,
-        };
+        return {};
     },
     created() {
-        this.emitter.on("navigate", () => (this.hamburger = false));
+        this.emitter.on("navigate", () => (this.$hamburger.value = false));
     },
-    props: ["socials", "language", "nav"],
+    props: ["socials", "nav"],
     mounted() {},
     methods: {
         toggle() {
-            this.hamburger = !this.hamburger;
+            this.$hamburger.value = !this.$hamburger.value;
+            console.log(this.$hamburger.value);
         },
     },
     components: {

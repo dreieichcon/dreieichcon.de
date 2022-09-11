@@ -1,52 +1,56 @@
 <template>
     <div>
-        BIOGRAPHY HERE
-        {{ biography }}
-        <!-- <div
-            v-for="(post, index) in blog.posts"
+        <div
+            v-for="(entry, index) in biography.content"
             :key="index"
             class="
                 container-liquid
-                blog-container
+                bio-container
                 animate__animated animate__fadeInDown
             "
             :style="{ 'animation-delay': (index + 1) / 10 + 's' }"
         >
-            <div v-if="index > 0" class="blog-separator-large"></div>
+            <div v-if="index > 0" class="bio-separator-large"></div>
             <div>
-                <div class="blog-content-wrapper">
-                    <div class="blog-wrapper">
-                        <div class="blog-reverser" :style="titleAlign(index)">
+                <div class="bio-content-wrapper">
+                    <div class="bio-wrapper">
+                        <div class="bio-reverser">
                             <div
-                                class="blog-image"
-                                v-if="post.getImage(language)"
-                                :style="imageAlign(index)"
+                                class="bio-image"
+                                v-if="entry.getImage($language)"
                             >
                                 <img
-                                    :src="post.getImage(language)"
-                                    :alt="post.getAlt(language)"
+                                    :src="entry.getImage($language)"
+                                    :alt="entry.getAlt($language)"
                                 />
                             </div>
-                            <div class="blog-title-wrapper">
+                            <div class="bio-title-container">
                                 <div
-                                    class="blog-title"
-                                    v-html="post.getTitle(language)"
+                                    class="bio-name"
+                                    v-html="entry.getTitle($language)"
                                 ></div>
                                 <div
-                                    class="blog-subtitle"
-                                    v-html="post.getSubtitle(language)"
+                                    class="bio-short"
+                                    v-html="entry.getShortBio($language)"
                                 ></div>
-                                <div class="blog-separator"></div>
+                                <div class="bio-separator"></div>
                             </div>
                         </div>
                         <div
-                            class="blog-content"
-                            v-html="post.getContent(language)"
+                            class="bio-content"
+                            v-html="entry.getContent($language)"
                         ></div>
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
+        <div class="bio-gallery-title-wrapper" v-if="biography.hasGallery()">
+            <div class="bio-separator-large"></div>
+            <div
+                class="bio-gallery-title-text"
+                v-html="biography.getGalleryTitle($language)"
+            ></div>
+        </div>
     </div>
 </template>
 
@@ -57,19 +61,9 @@ module.exports = {
         return {};
     },
     created() {},
-    props: ["biography", "language"],
+    props: ["biography"],
     mounted() {},
-    methods: {
-        // imageAlign(index) {
-        //     // if (window.innerWidth < 995) return { float: "none" };
-        //     if (index % 2 == 0)
-        //         return { float: "left", "padding-right": "1rem" };
-        //     return { float: "right", "padding-left": "1rem" };
-        // },
-        // titleAlign(index) {
-        //     if (index % 2 != 0) return { "align-items": "flex-end" };
-        // },
-    },
+    methods: {},
     components: {},
 };
 </script>

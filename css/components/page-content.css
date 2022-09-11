@@ -4,13 +4,14 @@
     }
 }
 
-@media screen and (min-width: 512px) and (max-width: 992px) {
-    .blog-image {
+@media screen and (max-width: 992px) {
+    .bio-image {
         float: none;
         min-width: 50vw;
+        padding-bottom: 1rem;
     }
 
-    .blog-reverser {
+    .bio-reverser {
         display: flex;
         flex-direction: column-reverse;
     }
@@ -48,7 +49,6 @@
 .blog-title-wrapper {
     display: flex;
     flex-direction: column;
-
 }
 
 .blog-content-wrapper {

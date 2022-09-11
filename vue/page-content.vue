@@ -2,30 +2,19 @@
     <div>
         <loading-spinner></loading-spinner>
         <template v-if="content.type === 'blog'">
-            <div class="main-title" v-html="content.getTitle(language)"></div>
-            <page-blog
-                v-bind:blog="content"
-                v-bind:language="language"
-            ></page-blog>
+            <div class="main-title" v-html="content.getTitle($language)"></div>
+            <page-blog v-bind:blog="content"></page-blog>
         </template>
         <template v-if="content.type === 'gallery'">
-            <div class="main-title" v-html="content.getTitle(language)"></div>
-            <page-gallery
-                v-bind:gallery="content"
-                v-bind:language="language"
-            ></page-gallery>
+            <div class="main-title" v-html="content.getTitle($language)"></div>
+            <page-gallery v-bind:gallery="content"></page-gallery>
         </template>
         <template v-if="content.type === 'bio'">
-            <div class="main-title" v-html="content.getTitle(language)"></div>
-            <page-biography
-                v-bind:biography="content"
-                v-bind:language="language"
-            >
-            </page-biography>
+            <div class="main-title" v-html="content.getTitle($language)"></div>
+            <page-biography v-bind:biography="content"> </page-biography>
             <page-gallery
                 v-if="content.hasGallery()"
                 v-bind:gallery="content.gallery"
-                v-bind:language="language"
             ></page-gallery>
         </template>
     </div>
@@ -38,7 +27,7 @@ module.exports = {
         return {};
     },
     created() {},
-    props: ["content", "language"],
+    props: ["content"],
     mounted() {},
     methods: {},
     components: {

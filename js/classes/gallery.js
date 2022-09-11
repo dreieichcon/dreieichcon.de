@@ -1,5 +1,6 @@
-class GalleryImage {
+class GalleryImage extends ContentItem {
     constructor(data) {
+        super();
         this.title_de = data.page_gallery_text_de;
         this.title_en = data.page_gallery_text_en;
         this.subtitle_de = "";
@@ -11,32 +12,13 @@ class GalleryImage {
         this.page_id = data.page_id_link;
         this.base = ""
     }
-
-
-    getSubtitle(language) {
-        if (language === "de") return this.subtitle_de;
-        return this.subtitle_en;
-    }
-
-    getTitle(language) {
-        if (language === "de") return this.title_de;
-        return this.title_en;
-    }
-
-    getImage(language) {
-        if (language === "de") return this.base + this.image_de;
-        return this.base + this.image_en;
-    }
-
-    getAlt(language) {
-        if (language === "de") return this.image_alt_de;
-        return this.image_alt_en;
-    }
 }
 
-class Gallery {
+class Gallery extends ContentItem {
 
     constructor(data) {
+        super();
+
         this.type = "gallery"
         this.items = []
 
@@ -51,11 +33,6 @@ class Gallery {
         )
     }
 
-    getTitle(language) {
-        if (language === "de") return this.title_de;
-        return this.title_en;
-    }
-
     static parseBioGallery(data) {
         var d = {
             page_gallery_image_href_de: data.page_bio_gallery_image_href_de,
@@ -65,7 +42,6 @@ class Gallery {
             page_gallery_text_de: data.page_bio_gallery_text_de,
             page_gallery_text_en: data.page_bio_gallery_text_en
         };
-        console.log(d)
         return d;
     }
 }

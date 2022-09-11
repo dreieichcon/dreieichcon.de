@@ -7,14 +7,16 @@ var app = Vue.createApp({
         this.emitter.on("*", (e, data) => console.log(e, data));
         this.emitter.on("navigate", (data) => this.navigate(data))
     },
-
     mounted() {
+
         window.getNav().then(
             navigation => {
                 this.nav = ContentLoader.getNav(navigation)
             }
         ).finally(
-            e => this.emitter.emit("loading", { nav: false })
+            e => setTimeout(q =>
+                this.emitter.emit("loading", { nav: false }), 250
+            )
         )
 
         window.getSocials().then(
@@ -41,20 +43,6 @@ var app = Vue.createApp({
             page = params.get("p");
 
         this.emitter.emit("navigate", { id: page });
-        // window.getPage(page)
-        //     .then(
-        //         result => {
-        //             this.activePage = ContentLoader.parseContent(result)
-        //         })
-        //     .catch(
-        //         error => {
-
-        //             this.activePage = ContentLoader.getError(error)
-
-        //         })
-        //     .finally(e => {
-        //         this.emitter.emit("loading", { page: false })
-        //     })
     },
     methods: {
         navigate(data) {
@@ -77,7 +65,9 @@ var app = Vue.createApp({
                     }).catch(error => {
                         this.activePage = ContentLoader.getError(error)
                     }).finally((e) => {
-                        this.emitter.emit("loading", { page: false })
+                        setTimeout(function () {
+                            this.emitter.emit("loading", { page: false })
+                        }, 250)
                     })
             }
         }
@@ -89,12 +79,17 @@ var app = Vue.createApp({
         "page-content": Vue.defineAsyncComponent(() => loadModule("vue/page-content.vue", window.options)),
         "page-footer": Vue.defineAsyncComponent(() => loadModule("vue/page-footer.vue", window.options)),
         "image-overlay": Vue.defineAsyncComponent(() => loadModule("vue/image-overlay.vue", window.options)),
-    }
+        "hamburger-click": Vue.defineAsyncComponent(() => loadModule("vue/hamburger-click.vue", window.options)),
+    },
 })
 
 
 const emitter = mitt()
-app.config.globalProperties.emitter = emitter
+app.config.globalProperties.emitter = emitter;
+app.config.globalProperties.$language = "de";
+app.config.globalProperties.$editMode = false;
+app.config.globalProperties.$hamburger = Vue.ref(false);
 
+window.emitter = emitter;
 
 var app = app.mount("#app")

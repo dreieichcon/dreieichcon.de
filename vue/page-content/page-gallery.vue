@@ -9,12 +9,15 @@
             <div class="gallery-item" @click="navigateOrEmbiggen(item)">
                 <div class="gallery-image">
                     <img
-                        :src="item.getImage(language)"
-                        :alt="item.getAlt(language)"
+                        :src="item.getImage($language)"
+                        :alt="item.getAlt($language)"
                     />
                 </div>
-                <div class="title" v-html="item.getTitle(language)"></div>
-                <div class="subtitle" v-html="item.getSubtitle(language)"></div>
+                <div class="title" v-html="item.getTitle($language)"></div>
+                <div
+                    class="subtitle"
+                    v-html="item.getSubtitle($language)"
+                ></div>
             </div>
         </div>
     </div>
@@ -27,7 +30,7 @@ module.exports = {
         return {};
     },
     created() {},
-    props: ["gallery", "language"],
+    props: ["gallery"],
     mounted() {},
     methods: {
         navigateOrEmbiggen(item) {
@@ -35,7 +38,7 @@ module.exports = {
                 this.emitter.emit("navigate", { id: item.page_id });
             else {
                 this.emitter.emit("image-overlay", {
-                    src: item.getImage(language),
+                    src: item.getImage(this.$language),
                 });
             }
         },

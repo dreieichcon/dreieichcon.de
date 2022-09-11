@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg nav-bar gradient-border">
+    <nav class="navbar navbar-expand-lg nav-bar gradient-border d1">
         <div class="collapse navbar-collapse h100" id="navbarNav">
             <ul class="navbar-nav h100">
                 <li
@@ -17,7 +17,7 @@
                                 {{ element.getTitle(language) }}
                             </div>
                         </div>
-                        <div class="dropdown-content">
+                        <div class="dropdown-content d2">
                             <div
                                 v-for="option in element.options"
                                 :key="option"

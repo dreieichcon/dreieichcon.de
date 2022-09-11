@@ -15,6 +15,8 @@ nav {
     border-bottom: 1px solid;
     padding: 0 !important;
     height: 5vh !important;
+    background: var(--background-color);
+    z-index: 999;
 }
 
 .navbar-nav {
@@ -39,6 +41,10 @@ nav {
     /* Internet Explorer/Edge */
 }
 
+.dropdown {
+    height: 100% !important;
+}
+
 .toplevel-element {
     border-right: 1px solid var(--secondary-color);
     height: 100%;
@@ -51,8 +57,9 @@ nav {
 .dropdown-content {
     position: absolute;
     display: none;
-    background-color: var(--nav-color);
+    background: var(--nav-color);
     flex-direction: column;
+    border: 1px solid green;
 }
 
 .dropdown-item {
@@ -67,6 +74,7 @@ nav {
 .dropdown:hover .dropdown-content {
     display: flex;
 }
+
 
 .nav-element:hover {
     background-color: var(--nav-hover);
