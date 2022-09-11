@@ -59,7 +59,6 @@ nav {
     display: none;
     background: var(--nav-color);
     flex-direction: column;
-    border: 1px solid green;
 }
 
 .dropdown-item {

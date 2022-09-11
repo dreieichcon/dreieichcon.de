@@ -43,6 +43,7 @@ var app = Vue.createApp({
             page = params.get("p");
 
         this.emitter.emit("navigate", { id: page });
+
     },
     methods: {
         navigate(data) {
