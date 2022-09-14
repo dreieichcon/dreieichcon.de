@@ -74,7 +74,7 @@ if(count($db_array)>0){
 
                                 <div class="form-group">
                                     <label class="col-form-label" for="value">Value</label>
-                                    <input required type="text" name="value"  class="form-control" placeholder="" value="<?php echo $data['global_value'];?>">
+                                    <textarea required name="value" id="value" class="form-control" placeholder="" rows="25"><?php echo $data['global_value'];?></textarea>
                                 </div>	
                             </div>
                         </div>
