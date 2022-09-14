@@ -52,7 +52,7 @@
 
                                 <div class="form-group">
                                     <label class="col-form-label" for="value">Value</label>
-                                    <input required type="text" name="value"  class="form-control" placeholder="">
+                                    <textarea required name="value" id="value" class="form-control" placeholder="" rows="25"></textarea>
                                 </div>	
                             </div>
                         </div>
