@@ -15,30 +15,7 @@
                 src="resources/img/dreieichcon-logo-vislani.png"
             />
         </div>
-        <a v-bind:href="shoplink" class="main-link">
-            <div class="main-link-flex">
-                <div class="main-link-icon">
-                    <img
-                        class="header-icon"
-                        src="resources/icons/svgs/solid/ticket-alt.svg"
-                    />
-                </div>
-                <div class="main-link-text-group">
-                    <div class="main-link-title">
-                        {{
-                            language == "de" ? header.title_de : header.title_en
-                        }}
-                    </div>
-                    <div class="main-link-subtitle">
-                        {{
-                            language == "de"
-                                ? header.subtitle_de
-                                : header.subtitle_en
-                        }}
-                    </div>
-                </div>
-            </div>
-        </a>
+        <shoplink></shoplink>
     </div>
 </template>
 
@@ -81,7 +58,11 @@ module.exports = {
     props: ["header", "language", "shoplink"],
     mounted() {},
 
-    components: {},
+    components: {
+        shoplink: Vue.defineAsyncComponent(() =>
+            loadModule("vue/header-content/shoplink.vue", window.options)
+        ),
+    },
 };
 </script>
 

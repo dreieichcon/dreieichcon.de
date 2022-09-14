@@ -4,7 +4,7 @@ class ContentItem {
     }
 
     getTitle(language) {
-        if (language === "de") {
+        if (language.value === "de") {
             if (this.title_de === undefined) throw "title_de is undefined"
             return this.title_de;
         }
@@ -13,7 +13,7 @@ class ContentItem {
     }
 
     getSubtitle(language) {
-        if (language === "de") {
+        if (language.value === "de") {
             if (this.subtitle_de === undefined) throw "subtitle_de is undefined"
             return this.subtitle_de;
         }
@@ -22,7 +22,7 @@ class ContentItem {
     }
 
     getImage(language) {
-        if (language === "de") {
+        if (language.value === "de") {
             if (this.image_de === undefined) throw "image_de is undefined"
             if (this.image_de === null) return false;
             return this.base + this.image_de;
@@ -33,7 +33,7 @@ class ContentItem {
     }
 
     getAlt(language) {
-        if (language === "de") {
+        if (language.value === "de") {
             if (this.image_alt_de === undefined) throw "image_alt_de is undefined"
             return this.image_alt_de;
         }
@@ -42,7 +42,7 @@ class ContentItem {
     }
 
     getContent(language) {
-        if (language === "de") {
+        if (language.value === "de") {
             if (this.content_de === undefined) throw "content_de is undefined"
             return this.content_de;
         }
@@ -51,11 +51,18 @@ class ContentItem {
     }
 
     getShortBio(language) {
-        if (language === "de") {
+        if (language.value === "de") {
             if (this.short_de === undefined) throw "short_de is undefined"
             return this.short_de;
         }
         if (this.short_en === undefined) throw "short_en is undefined"
         return this.short_en;
+    }
+
+    parseData(input) {
+        var ret = input;
+        ret = ret.replaceAll("\n", "<br/>")
+        ret = ret.replaceAll("&amp;", "&")
+        return ret;
     }
 }

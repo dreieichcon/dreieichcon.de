@@ -34,14 +34,14 @@ module.exports = {
     mounted() {},
     methods: {
         getContent(item) {
-            if (this.$language == "de") {
+            if (this.$language.value == "de") {
                 return window.parseData(item.content_de);
             }
 
             return window.parseData(item.content_en);
         },
         getTitle(item) {
-            if (this.$language == "de") {
+            if (this.$language.value == "de") {
                 return window.parseData(item.title_de);
             }
 
@@ -50,7 +50,7 @@ module.exports = {
         getLink(item, index, items) {
             var ret = "<div class='footer-link'>";
 
-            if (this.$language == "de") {
+            if (this.$language.value == "de") {
                 ret += window.parseData(item.title_de);
             } else {
                 ret += window.parseData(item.title_en);

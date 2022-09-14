@@ -55,7 +55,6 @@ window.data = {
         }
     ]),
     settings: {
-        language: "de"
     },
     activePage: {
     },
@@ -144,6 +143,7 @@ window.fallbackSocials = [{
 window.parseData = function (data) {
     var ret = data;
     ret = ret.replaceAll("\n", "<br/>")
+    ret = ret.replaceAll("&amp;", "&")
     return ret;
 }
 
@@ -174,8 +174,6 @@ function parseNavigationChildren(data) {
             })
         }
     })
-
-    console.log(data);
 
     return data;
 }
@@ -219,11 +217,11 @@ window.getPage = function (page_id) {
 window.getNav = function () {
     return new Promise(
         (resolve, reject) => {
-            axios.get(buildLink("/api/navigation.php")).then(result => {
-                resolve(parseNavigationChildren(result.data))
-            })
+            axios.get(buildLink("/api/navigation.php"))
+                .then(result => {
+                    resolve(parseNavigationChildren(result.data))
+                })
                 .catch(error => reject(error))
         }
     )
 }
-

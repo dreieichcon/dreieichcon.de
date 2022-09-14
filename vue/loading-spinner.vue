@@ -1,5 +1,5 @@
 <template>
-    <div v-show="stillLoading || page" class="spinner-wrapper" :class="overall">
+    <div v-show="page" class="spinner-wrapper" :class="overall">
         <div class="spinner-tab">
             <img
                 class="spinner"
@@ -17,33 +17,22 @@ module.exports = {
         return {
             page: true,
             nav: true,
-            socials: true,
-            globals: true,
-            stillLoading: true,
-            overall: "spinner-overall",
         };
     },
     created() {
         this.emitter.on("loading", (e) => {
             if (e.page != undefined) this.page = e.page;
             if (e.nav != undefined) this.nav = e.nav;
-            if (e.socials != undefined) this.socials = e.socials;
-            if (e.globals != undefined) this.globals = e.globals;
-            this.updateOverall();
         });
+    },
+    computed: {
+        overall() {
+            return this.nav ? "spinner-overall" : "";
+        },
     },
     props: [],
     mounted() {},
-    methods: {
-        updateOverall() {
-            setTimeout(() => {
-                if (!this.page && !this.nav) {
-                    this.stillLoading = false;
-                    this.overall = "";
-                }
-            }, 50);
-        },
-    },
+    methods: {},
     components: {},
 };
 </script>

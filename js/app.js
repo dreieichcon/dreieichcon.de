@@ -9,15 +9,24 @@ var app = Vue.createApp({
     },
     mounted() {
 
+        var params = new URLSearchParams(window.location.search);
+        var page = 1
+
+        if (params.has("p"))
+            page = params.get("p");
+
         window.getNav().then(
             navigation => {
-                this.nav = ContentLoader.getNav(navigation)
+                this.nav = ContentLoader.getNav(navigation);
             }
         ).finally(
-            e => setTimeout(q =>
-                this.emitter.emit("loading", { nav: false }), 250
+            e => setTimeout(q => {
+                this.emitter.emit("loading", { nav: false })
+                this.emitter.emit("navigate", { id: page });
+            }
+                , 250
             )
-        )
+        );
 
         window.getSocials().then(
             socials => {
@@ -26,23 +35,11 @@ var app = Vue.createApp({
             .catch(error => {
                 console.log(error)
                 this.socials = window.fallbackSocials;
-            }).finally(
-                e => this.emitter.emit("loading", { socials: false })
-            )
+            });
 
         window.getGlobals().then(
             globals => console.log(globals)
-        ).finally(
-            e => this.emitter.emit("loading", { globals: false })
-        )
-
-        var params = new URLSearchParams(window.location.search);
-        var page = 1
-
-        if (params.has("p"))
-            page = params.get("p");
-
-        this.emitter.emit("navigate", { id: page });
+        );
 
     },
     methods: {
@@ -87,7 +84,7 @@ var app = Vue.createApp({
 
 const emitter = mitt()
 app.config.globalProperties.emitter = emitter;
-app.config.globalProperties.$language = "de";
+app.config.globalProperties.$language = Vue.ref("de");
 app.config.globalProperties.$editMode = false;
 app.config.globalProperties.$hamburger = Vue.ref(false);
 

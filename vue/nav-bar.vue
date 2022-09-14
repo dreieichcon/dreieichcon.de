@@ -14,7 +14,7 @@
                             @click="navigate(element)"
                         >
                             <div class="dropdown-title">
-                                {{ element.getTitle(language) }}
+                                {{ element.getTitle($language) }}
                             </div>
                         </div>
                         <div class="dropdown-content d2">
@@ -25,7 +25,7 @@
                                 class="dropdown-item"
                                 @click="navigate(option)"
                             >
-                                {{ option.getTitle(language) }}
+                                {{ option.getTitle($language) }}
                             </div>
                         </div>
                     </div>
@@ -42,7 +42,7 @@ module.exports = {
         return {};
     },
     created() {},
-    props: ["nav", "language"],
+    props: ["nav"],
     mounted() {},
     methods: {
         navigate(item) {
