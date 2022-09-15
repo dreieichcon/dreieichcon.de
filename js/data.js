@@ -1,34 +1,12 @@
 window.data = {
     socials:
         [],
+    globals: new Globals(),
     header: {
-        title_de: "TICKETS",
-        title_en: "TICKETS",
-        subtitle_de: "Nur im Vorverkauf!",
-        subtitle_en: "Only on preorder!",
         shoplink: "https://pretix.eu/wiric-online/dc2022"
     },
     footer: {
-        content: [
-            {
-                title_de: "Veranstalter",
-                title_en: "Organizer",
-                content_de: "Jugendclub WIRIC im \n Bürgerverein Buchschlag e.V. \n Zeppelinstr. 4 \n 63303 Dreieich",
-                content_en: "Jugendclub WIRIC im \n Bürgerverein Buchschlag e.V. \n Zeppelinstr. 4 \n 63303 Dreieich"
-            },
-            {
-                title_de: "Veranstaltungsort",
-                title_en: "Location",
-                content_de: "Bürgerhäuser Dreieich",
-                content_en: "Bürgerhäuser Dreieich"
-            },
-            {
-                title_de: "Öffnungszeiten DreieichCon 2022",
-                title_en: "Opening Times",
-                content_de: "19.-20.11.2022 <br/> Samstag: 10:00-X Uhr <br/> Sonntag: 10:00 - 18:00",
-                content_en: "Jugendclub WIRIC im <br/> Bürgerverein Buchschlag e.V. <br/> Zeppelinstr. 4 <br/> 63303 Dreieich"
-            }
-        ],
+
         links: [
             {
                 title_de: "Impressum",

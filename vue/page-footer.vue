@@ -6,8 +6,14 @@
                 class="footer-object"
                 :key="index"
             >
-                <div class="footer-header" v-html="getTitle(content)"></div>
-                <div class="footer-content" v-html="getContent(content)"></div>
+                <div
+                    class="footer-header"
+                    v-html="content.getTitle($language)"
+                ></div>
+                <div
+                    class="footer-content"
+                    v-html="content.getContent($language)"
+                ></div>
             </div>
         </div>
         <div class="footer-container-links">
@@ -33,29 +39,9 @@ module.exports = {
     props: ["footer"],
     mounted() {},
     methods: {
-        getContent(item) {
-            if (this.$language.value == "de") {
-                return window.parseData(item.content_de);
-            }
-
-            return window.parseData(item.content_en);
-        },
-        getTitle(item) {
-            if (this.$language.value == "de") {
-                return window.parseData(item.title_de);
-            }
-
-            return window.parseData(item.title_en);
-        },
         getLink(item, index, items) {
             var ret = "<div class='footer-link'>";
-
-            if (this.$language.value == "de") {
-                ret += window.parseData(item.title_de);
-            } else {
-                ret += window.parseData(item.title_en);
-            }
-
+            ret += item.getTitle(this.$language);
             ret += "</div>";
 
             if (index >= 0 && index < items.length - 1) {

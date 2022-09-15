@@ -57,6 +57,10 @@
     padding: 1rem;
 }
 
+.blog-content {
+    word-wrap: anywhere !important;
+}
+
 .blog-image {
     width: 30%;
     object-fit: contain;

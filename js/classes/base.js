@@ -62,6 +62,7 @@ class ContentItem {
     parseData(input) {
         var ret = input;
         ret = ret.replaceAll("\n", "<br/>")
+        ret = ret.replaceAll("\\n", "<br/>")
         ret = ret.replaceAll("&amp;", "&")
         return ret;
     }

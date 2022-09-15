@@ -39,6 +39,7 @@
     <script src="js/classes/gallery.js"></script>
     <script src="js/classes/bio.js"></script>
     <script src="js/classes/nav.js"></script>
+    <script src="js/classes/globals.js"></script>
     <script src="js/classes/contentloader.js"></script>
 
     <!-- DATA -->
@@ -55,7 +56,7 @@
         <image-overlay></image-overlay>
         <main role="main" class="container-fluid h-100">
             <page-content v-bind:content="activePage"></page-content>
-            <page-footer v-bind:footer="footer"></page-footer>
+            <page-footer v-bind:footer="globals.footer"></page-footer>
         </main>
 
     </div>

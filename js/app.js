@@ -38,7 +38,7 @@ var app = Vue.createApp({
             });
 
         window.getGlobals().then(
-            globals => console.log(globals)
+            globals => this.globals.setData(globals)
         );
 
     },

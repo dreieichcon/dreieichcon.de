@@ -46,6 +46,10 @@
     color: var(--primary-color);
 }
 
+.bio-content {
+    word-wrap: anywhere !important;
+}
+
 .bio-content-wrapper {
     display: flex;
     flex-direction: row;
