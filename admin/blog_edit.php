@@ -60,7 +60,41 @@ if(count($db_array)>0){
                     
                     <div class="card-body" style="height: auto;">
 
-                    <div class="row">
+                      <div class="row">
+                          <div class="col-6">
+                                <div class="form-group">
+                                  <label class="col-form-label" for="page_blog_content_type_id">Seiten-Typ</label>
+                                  <select required class="form-control" name="page_blog_content_type_id">
+                                  <option disabled value="0">+++ Seiten-Typ auswählen +++</option>
+                                    <?php
+                                      $order = array();
+                                      $order1['col'] = "page_blog_content_type_label";
+                                      $order1['dir'] = "ASC";
+
+                                      array_push($order, $order1);
+
+                                      $db_array = db_select("page_blog_content_type", array(), $order);
+
+
+                                      foreach($db_array as $line){
+                                        $page_id        = $line['page_blog_content_type_id'];
+                                        $page_title_de   = $line['page_blog_content_type_label'];
+
+                                        $selected = "";
+                                        if($data['page_blog_content_type_id'] == $page_id){
+                                          $selected = "selected";
+                                        }
+
+                                        echo "<option $selected value='$page_id'>$page_title_de</option>\n";
+                                      }
+
+                                    ?>
+                                    </select>
+                                </div>
+                              </div>
+                        </div>
+
+                     <div class="row">
                         <div class="col-6">
                               <div class="form-group">
                                 <label class="col-form-label" for="page_id">Seite</label>

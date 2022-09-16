@@ -9,6 +9,7 @@
     $data['page_blog_subheadline_en']        = $_POST['page_blog_subheadline_en'];
     $data['page_blog_content_de']            = $_POST['page_blog_content_de'];
     $data['page_blog_content_en']            = $_POST['page_blog_content_en'];
+    $data['page_blog_content_type_id']            = $_POST['page_blog_content_type_id'];
 
     
     $data['page_blog_edit_id']       = $_SESSION['admin_user_id'];
