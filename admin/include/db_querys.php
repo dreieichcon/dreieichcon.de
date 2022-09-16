@@ -198,7 +198,7 @@ function db_select($table, $where_=array(), $order_ = array(), $limit = null, $p
 
 	if(strlen($where_clause) > 0){
 		$where_clause = substr($where_clause, 0,-4); //remove trailing AND
-		$where = "WHERE  $where_clause ";
+		$where = "WHERE $where_clause ";
 	}else{
 		$where = "";
 	}
@@ -238,10 +238,13 @@ function db_select($table, $where_=array(), $order_ = array(), $limit = null, $p
 
 
 	foreach($where_ as &$where){
+		
 		$value = $where['val'];
-		$key = db_parse($where['col']);
+		$key = $where['col'];
 		$key_ = ':' . $key;
-		$statement->bindParam($key_, $value);
+		if($value != "NULL"){
+			$statement->bindParam($key_, $value);
+		}
 	}
 
 	$selected = $statement->execute();
@@ -287,7 +290,7 @@ function db_select_injectable($table, $where_=array(), $order_ = array(), $limit
 
 	if(strlen($where_clause) > 0){
 		$where_clause = substr($where_clause, 0,-4); //remove trailing AND
-		$where = "WHERE  $where_clause ";
+		$where = "WHERE $where_clause ";
 	}else{
 		$where = "";
 	}

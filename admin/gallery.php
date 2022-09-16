@@ -83,7 +83,7 @@
 
                                 $db_array = array();
 
-                                while($row = $statement->fetch()){
+                                while($row = $statement->fetch(PDO::FETCH_ASSOC)){
                                     foreach ($row as $key => $value){
                                         $row[$key] = db_parse($value);
                                     }
