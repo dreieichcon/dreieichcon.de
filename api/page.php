@@ -102,7 +102,7 @@ $statement->execute();
 
 $blog = array();
 
-while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+while($row = $statement->fetch()){
     foreach ($row as $key => $value){
         $row[$key] = db_parse($value);
     }
