@@ -5,11 +5,12 @@
   include("../admin/include/db_querys.php");
   include("../admin/include/times.php");
 
-  $return_array = get_childs(0);
+  $return_array = get_childs("NULL");
 
-    
+        
 
     function get_childs($navigation_id){
+      
         $where = array();
         $wh['col'] = "navigation_parent";
         $wh['typ'] = "=";
@@ -22,6 +23,7 @@
         array_push($order, $or);
         
         $db_array = db_select("navigation", $where, $order);
+
         $local_array = array();
         foreach($db_array as $line){
             $childs = get_childs($line['navigation_id']);
@@ -33,7 +35,7 @@
         return $local_array;
 
     }
-    header('Content-Type: application/json');
+   header('Content-Type: application/json');
     echo json_encode($return_array);
 
   ?>

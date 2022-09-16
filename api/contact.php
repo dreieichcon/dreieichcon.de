@@ -1,5 +1,10 @@
 <?php
+//TODO Prevent Spam
 
+if(!isset($_POST['name']) || !isset($_POST['name']) || !isset($_POST['name'])){
+    http_response_code(400);
+    die;
+}
   include("../admin/include/functions.php");
   include("../admin/include/db_connect.php");
   include("../admin/include/db_querys.php");

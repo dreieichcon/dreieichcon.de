@@ -22,7 +22,7 @@
 		
 		$selected = $statement->execute();
 		
-		while($row = $statement->fetch()){
+		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
 			$user_id		= $row['admin_user_id'];
 			$user_name		= $row['admin_user_name'];
 			$user_mail		= $row['admin_user_mail'];

@@ -83,7 +83,7 @@
 
                                 $db_array = array();
 
-                                while($row = $statement->fetch()){
+                                while($row = $statement->fetch(PDO::FETCH_ASSOC)){
                                     foreach ($row as $key => $value){
                                         $row[$key] = db_parse($value);
                                     }
@@ -100,7 +100,11 @@
 								$page_blog_order		= $line['page_blog_order'];
 								$page_blog_headline_de	= $line['page_blog_headline_de'];
 								$page_blog_headline_en	= $line['page_blog_headline_en'];
-								$page_blog_content_de	= substr($line['page_blog_content_de'],0,250);
+								$page_blog_content_de   = "";
+								if(!is_null($line['page_blog_content_de'])){
+									$page_blog_content_de	= substr($line['page_blog_content_de'],0,250);
+								}
+								
 								
 								
 								

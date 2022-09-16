@@ -42,7 +42,7 @@ include("include/pepper.php");
 	
 	$statement->execute();
 
-    while($row = $statement->fetch()){
+    while($row = $statement->fetch(PDO::FETCH_ASSOC)){
         $user_data = $row;
     }
 
