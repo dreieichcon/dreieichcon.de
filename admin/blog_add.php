@@ -128,14 +128,14 @@
                             <div class="col-6">
                               <div class="form-group">
                                 <label class="col-form-label" for="page_blog_subheadline_de">Subheadline Deutsch</label>
-                                <textarea required name="page_blog_subheadline_de" id="page_blog_subheadline_de" class="form-control" placeholder=""></textarea>
+                                <textarea  name="page_blog_subheadline_de" id="page_blog_subheadline_de" class="form-control" placeholder=""></textarea>
                               </div>
                             </div>
 
                             <div class="col-6">
                               <div class="form-group">
                                 <label class="col-form-label" for="page_blog_subheadline_en">Subheadline Englisch</label>
-                                <textarea required name="page_blog_subheadline_en" id="page_blog_subheadline_en" class="form-control" placeholder=""></textarea>
+                                <textarea  name="page_blog_subheadline_en" id="page_blog_subheadline_en" class="form-control" placeholder=""></textarea>
                               </div>
                             </div>
                         </div>
@@ -145,7 +145,7 @@
                             <div class="col-12">
                               <div class="form-group">
                                 <label class="col-form-label" for="page_blog_content_de">Inhalt Deutsch</label>
-                                <textarea required name="page_blog_content_de" id="page_blog_content_de" class="form-control" placeholder="" rows="25"></textarea>
+                                <textarea  name="page_blog_content_de" id="page_blog_content_de" class="form-control" placeholder="" rows="25"></textarea>
                               </div>
                             </div>
                         </div>
@@ -154,7 +154,7 @@
                             <div class="col-12">
                               <div class="form-group">
                                 <label class="col-form-label" for="page_blog_content_en">Inhalt Englisch</label>
-                                <textarea required name="page_blog_content_en" id="page_blog_content_en" class="form-control" placeholder="" rows="25"></textarea>
+                                <textarea  name="page_blog_content_en" id="page_blog_content_en" class="form-control" placeholder="" rows="25"></textarea>
                               </div>
                             </div>
                         </div>
