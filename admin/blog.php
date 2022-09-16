@@ -71,7 +71,7 @@
 							
                                
 
-                                $sql		= "SELECT * FROM page_blog b, page_bloq_content_type t WHERE t.page_blog_content_type_id = b.page_blog_content_type_id ORDER BY page_id, page_blog_order, page_blog_headline_de";
+                                $sql		= "SELECT * FROM page_blog b, page_blog_content_type t WHERE t.page_blog_content_type_id = b.page_blog_content_type_id ORDER BY b.page_id, b.page_blog_order, b.page_blog_headline_de";
                                                         
                                 $pdo 		= new PDO($pdo_mysql, $pdo_db_user, $pdo_db_pwd);
 
@@ -96,7 +96,7 @@
 							foreach($db_array as $line){
 								
 								$page_blog_id		    = $line['page_blog_id'];
-								$type				    = $line['page_blog_content_type'];
+								$type				    = $line['page_blog_content_type_label'];
 								$page_blog_order		= $line['page_blog_order'];
 								$page_blog_headline_de	= $line['page_blog_headline_de'];
 								$page_blog_headline_en	= $line['page_blog_headline_en'];
