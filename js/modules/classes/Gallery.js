@@ -26,9 +26,10 @@ export class Gallery extends ContentCollection {
         this.title_en = data.page_title_en
 
         if (data.page_content.gallery === undefined) return;
-        data.page_content.gallery.forEach(x => {
+        data.page_content.gallery.forEach(d => {
+            var x = new GalleryImage(d);
             x.base = "/upload/gallery/img/"
-            this.collection.push(new GalleryImage(x))
+            this.collection.push(x)
         }
         )
     }
