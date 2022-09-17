@@ -26,7 +26,7 @@ export class ContentItem {
 
         var property = this[identifier]
 
-        if (property === undefined) return "undefined"
+        if (property === undefined || property === null) return identifier + " undefined"
         return this.parseData(property);
     }
 
