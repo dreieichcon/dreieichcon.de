@@ -1,7 +1,6 @@
 <template>
     <div v-if="isVisible" class="hamburger-flyout d2">
         <template v-for="(element, index) in elements.options" :key="index">
-            <div v-if="index > 0" class="separator"></div>
             <div class="elements-wrapper">
                 <div
                     class="top-element"

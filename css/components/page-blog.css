@@ -1,0 +1,131 @@
+@media screen and (max-width: 512px) {
+    .blog-image {
+        display: none;
+    }
+
+    .blog-image-image {
+        width: 80% !important;
+        padding-bottom: 1rem;
+    }
+
+    .blog-image-wrapper {
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .blog-image {
+        float: none;
+        min-width: 50vw;
+        padding-bottom: 1rem;
+    }
+
+    .blog-image-image {
+        width: 75% !important;
+        padding-bottom: 1rem;
+    }
+
+    .blog-reverser {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100%;
+    }
+
+    .blog-image-wrapper {
+        align-items: center;
+    }
+}
+
+.blog-container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.blog-separator {
+    height: 1px;
+    background-color: var(--borders);
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.blog-separator-large {
+    height: 1px;
+    background: var(--blend);
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.blog-title-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.blog-content {
+    word-wrap: anywhere !important;
+}
+
+.blog-image-aligner {
+    display: flex;
+    width: 100%;
+}
+
+.blog-image-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-reverser {
+}
+
+.blog-image {
+    width: 30%;
+    object-fit: contain;
+}
+
+.blog-image-image {
+    width: 30%;
+    object-fit: contain;
+}
+
+.blog-image-image>img {
+    width: 100%;
+}
+
+.blog-image>img {
+    width: 100%;
+}
+
+.blog-title {
+    font-weight: 600;
+    font-size: larger;
+    color: var(--secondary-color);
+    
+}
+
+.blog-image-title {
+    font-weight: 600;
+    font-size: larger;
+    color: var(--secondary-color);
+    margin-bottom: 0.25rem;
+}
+
+.blog-subtitle {
+    font-size: small;
+}
+
+.blog-image-subtitle {
+    margin-top: 0.25rem;
+    margin-left: 0.25rem;
+    font-style: italic;
+    font-weight: 300;
+}

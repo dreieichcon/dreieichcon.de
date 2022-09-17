@@ -1,8 +1,10 @@
+import { ContentCollection, ContentItem } from "./ContentItem.js"
+
 class NavChild extends ContentItem {
     constructor(data) {
         super();
-        this.title_de = this.parseData(data.navigation_title_de);
-        this.title_en = this.parseData(data.navigation_title_en);
+        this.title_de = data.navigation_title_de;
+        this.title_en = data.navigation_title_en;
         this.page_id = data.page_id;
         this.href = data.navigation_href;
         if (data.navigation_special_page != null) this.page_id = data.navigation_special_page;
@@ -12,8 +14,8 @@ class NavChild extends ContentItem {
 class NavItem extends ContentItem {
     constructor(data) {
         super();
-        this.title_de = this.parseData(data.navigation_title_de);
-        this.title_en = this.parseData(data.navigation_title_en);
+        this.title_de = data.navigation_title_de;
+        this.title_en = data.navigation_title_en;
         this.page_id = data.page_id;
         this.href = data.navigation_href;
 
@@ -28,16 +30,14 @@ class NavItem extends ContentItem {
     }
 }
 
-class NavCollection {
+export class NavCollection extends ContentCollection {
     constructor(data) {
 
-        this.title = "NavCollection"
-        this.options = []
-
+        super();
         if (data === undefined) return;
 
         data.forEach(element => {
-            this.options.push(new NavItem(element))
+            this.collection.push(new NavItem(element))
         });
     }
 }

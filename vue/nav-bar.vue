@@ -3,7 +3,7 @@
         <div class="collapse navbar-collapse h100" id="navbarNav">
             <ul class="navbar-nav h100">
                 <li
-                    v-for="element in nav.options"
+                    v-for="element in nav.collection"
                     v-bind:key="element"
                     class="nav-element"
                 >
@@ -14,7 +14,7 @@
                             @click="navigate(element)"
                         >
                             <div class="dropdown-title">
-                                {{ element.getTitle($language) }}
+                                {{ element.get("title", $language) }}
                             </div>
                         </div>
                         <div class="dropdown-content d2">
@@ -25,7 +25,7 @@
                                 class="dropdown-item"
                                 @click="navigate(option)"
                             >
-                                {{ option.getTitle($language) }}
+                                {{ option.get("title", $language) }}
                             </div>
                         </div>
                     </div>

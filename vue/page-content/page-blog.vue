@@ -1,7 +1,7 @@
 <template>
     <div>
         <div
-            v-for="(post, index) in blog.posts"
+            v-for="(post, index) in blog.collection"
             :key="index"
             class="
                 container-liquid
@@ -10,40 +10,20 @@
             "
             :style="{ 'animation-delay': (index + 1) / 10 + 's' }"
         >
-            <div v-if="index > 0" class="blog-separator-large"></div>
-            <div>
-                <div class="blog-content-wrapper">
-                    <div class="blog-wrapper">
-                        <div class="blog-reverser" :style="titleAlign(index)">
-                            <div
-                                class="blog-image"
-                                v-if="post.getImage($language)"
-                                :style="imageAlign(index)"
-                            >
-                                <img
-                                    :src="post.getImage($language)"
-                                    :alt="post.getAlt($language)"
-                                />
-                            </div>
-                            <div class="blog-title-wrapper">
-                                <div
-                                    class="blog-title"
-                                    v-html="post.getTitle($language)"
-                                ></div>
-                                <div
-                                    class="blog-subtitle"
-                                    v-html="post.getSubtitle($language)"
-                                ></div>
-                                <div class="blog-separator"></div>
-                            </div>
-                        </div>
-                        <div
-                            class="blog-content"
-                            v-html="post.getContent($language)"
-                        ></div>
-                    </div>
-                </div>
-            </div>
+            <div
+                v-if="index > 0 && post.hasTitle"
+                class="blog-separator-large"
+            ></div>
+            <blog-post
+                v-if="post.type === 'Post'"
+                v-bind:post="post"
+                v-bind:index="index"
+            ></blog-post>
+            <blog-image
+                v-if="post.type === 'Image'"
+                v-bind:post="post"
+                v-bind:index="index"
+            ></blog-image>
         </div>
     </div>
 </template>
@@ -57,18 +37,21 @@ module.exports = {
     created() {},
     props: ["blog"],
     mounted() {},
-    methods: {
-        imageAlign(index) {
-            // if (window.innerWidth < 995) return { float: "none" };
-            if (index % 2 == 0)
-                return { float: "left", "padding-right": "1rem" };
-            return { float: "right", "padding-left": "1rem" };
-        },
-        titleAlign(index) {
-            if (index % 2 != 0) return { "align-items": "flex-end" };
-        },
+    methods: {},
+    components: {
+        "blog-post": Vue.defineAsyncComponent(() =>
+            loadModule(
+                "vue/page-content/blog-content/blog-post.vue",
+                window.options
+            )
+        ),
+        "blog-image": Vue.defineAsyncComponent(() =>
+            loadModule(
+                "vue/page-content/blog-content/blog-image.vue",
+                window.options
+            )
+        ),
     },
-    components: {},
 };
 </script>
 

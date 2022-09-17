@@ -1,7 +1,9 @@
 <?php
 //TODO Prevent Spam
 
-if(!isset($_POST['name']) || !isset($_POST['name']) || !isset($_POST['name'])){
+$_POST = json_decode(file_get_contents("php://input"),true);
+
+if(!isset($_POST['name']) || !isset($_POST['mail']) || !isset($_POST['message'])){
     http_response_code(400);
     die;
 }

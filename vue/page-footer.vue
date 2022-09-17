@@ -8,11 +8,11 @@
             >
                 <div
                     class="footer-header"
-                    v-html="content.getTitle($language)"
+                    v-html="content.get('title', $language)"
                 ></div>
                 <div
                     class="footer-content"
-                    v-html="content.getContent($language)"
+                    v-html="content.get('content', $language)"
                 ></div>
             </div>
         </div>
@@ -41,7 +41,7 @@ module.exports = {
     methods: {
         getLink(item, index, items) {
             var ret = "<div class='footer-link'>";
-            ret += item.getTitle(this.$language);
+            ret += item.get("title", this.$language);
             ret += "</div>";
 
             if (index >= 0 && index < items.length - 1) {

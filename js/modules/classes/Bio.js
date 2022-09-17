@@ -1,4 +1,7 @@
-class BioContent extends ContentItem {
+import { ContentCollection, ContentItem } from "./ContentItem.js";
+import { Gallery, GalleryImage } from "./Gallery.js";
+
+export class BioItem extends ContentItem {
     constructor(data) {
         super();
         this.title_de = data.page_bio_name_de;
@@ -15,36 +18,33 @@ class BioContent extends ContentItem {
     }
 }
 
-
-class Biography extends ContentItem {
+export class Bio extends ContentCollection {
     constructor(data) {
-
         super();
-        console.log(data)
         this.type = "bio"
         this.title_de = data.page_title_de
         this.title_en = data.page_title_en
-
-        this.content = [];
+        this.hasGallery = false;
 
         this.gallery = {
-            items: []
-        };
+            collection: []
+        }
 
         if (data.page_content.bio === undefined) return;
 
         data.page_content.bio.forEach(element => {
 
-            this.content.push(new BioContent(element))
+            this.collection.push(new BioItem(element))
 
             if (element.gallery.length > 0) {
+                this.hasGallery = true;
                 element.gallery
                     .forEach(
                         x => {
                             var data = Gallery.parseBioGallery(x)
                             var galleryItem = new GalleryImage(data);
                             galleryItem.base = "/upload/bio_gallery/img/"
-                            this.gallery.items.push(
+                            this.gallery.collection.push(
                                 galleryItem)
                         }
                     );
@@ -52,14 +52,10 @@ class Biography extends ContentItem {
         });
     }
 
-    hasGallery() {
-        return this.gallery.items.length > 0;
-    }
-
     getGalleryTitle(language) {
         var names = ""
-        this.content.forEach((x, i) => {
-            if (i < this.content.length && this.content.length > 1) {
+        this.collection.forEach((x, i) => {
+            if (i < this.collection.length && this.collection.length > 1) {
                 names += x.title_de + " & "
             }
             else names += x.title_de;

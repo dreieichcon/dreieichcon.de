@@ -32,5 +32,6 @@ module.exports = {
     height: 100vh;
     width: 100vw;
     background: transparent;
+    z-index: 999;
 }
 </style>

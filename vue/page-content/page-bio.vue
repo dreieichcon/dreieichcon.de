@@ -1,7 +1,7 @@
 <template>
     <div>
         <div
-            v-for="(entry, index) in biography.content"
+            v-for="(entry, index) in biography.collection"
             :key="index"
             class="
                 container-liquid
@@ -21,30 +21,30 @@
                             >
                                 <img
                                     :src="entry.getImage($language)"
-                                    :alt="entry.getAlt($language)"
+                                    :alt="entry.get('image_alt', $language)"
                                 />
                             </div>
                             <div class="bio-title-container">
                                 <div
                                     class="bio-name"
-                                    v-html="entry.getTitle($language)"
+                                    v-html="entry.get('title', $language)"
                                 ></div>
                                 <div
                                     class="bio-short"
-                                    v-html="entry.getShortBio($language)"
+                                    v-html="entry.get('short', $language)"
                                 ></div>
                                 <div class="bio-separator"></div>
                             </div>
                         </div>
                         <div
                             class="bio-content"
-                            v-html="entry.getContent($language)"
+                            v-html="entry.get('content', $language)"
                         ></div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="bio-gallery-title-wrapper" v-if="biography.hasGallery()">
+        <div class="bio-gallery-title-wrapper" v-if="biography.hasGallery">
             <div class="bio-separator-large"></div>
             <div
                 class="bio-gallery-title-text"

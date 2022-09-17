@@ -1,4 +1,6 @@
-class GalleryImage extends ContentItem {
+import { ContentItem, ContentCollection } from "./ContentItem.js";
+
+export class GalleryImage extends ContentItem {
     constructor(data) {
         super();
         this.title_de = data.page_gallery_text_de;
@@ -14,13 +16,11 @@ class GalleryImage extends ContentItem {
     }
 }
 
-class Gallery extends ContentItem {
-
+export class Gallery extends ContentCollection {
     constructor(data) {
         super();
 
         this.type = "gallery"
-        this.items = []
 
         this.title_de = data.page_title_de
         this.title_en = data.page_title_en
@@ -28,7 +28,7 @@ class Gallery extends ContentItem {
         if (data.page_content.gallery === undefined) return;
         data.page_content.gallery.forEach(x => {
             x.base = "/upload/gallery/img/"
-            this.items.push(new GalleryImage(x))
+            this.collection.push(new GalleryImage(x))
         }
         )
     }

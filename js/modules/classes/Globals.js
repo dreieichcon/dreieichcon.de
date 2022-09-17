@@ -1,23 +1,15 @@
-class Footer extends ContentItem {
+import { ContentItem } from "./ContentItem.js"
+import { Footer, FooterLink } from "./Footer.js"
+
+export class Globals extends ContentItem {
     constructor() {
         super();
-    }
-}
 
-class FooterLink extends ContentItem {
-    constructor() {
-        super();
-    }
-}
-
-
-class Globals extends ContentItem {
-    constructor() {
-        super();
         this.footer = {
             content: [],
             links: []
         }
+
         this.header = {}
     }
 
@@ -35,10 +27,10 @@ class Globals extends ContentItem {
                     this.footer.content[num] = new Footer()
                 }
 
-                this.footer.content[num][identifier] = this.parseData(value);
+                this.footer.content[num][identifier] = value;
             }
 
-            if (key.startsWith("footerLink.")) {
+            else if (key.startsWith("footerLink.")) {
                 var num = key.split(".")[1]
                 var identifier = key.split(".")[2]
 
@@ -46,12 +38,12 @@ class Globals extends ContentItem {
                     this.footer.links[num] = new FooterLink();
                 }
 
-                this.footer.links[num][identifier] = this.parseData(value);
+                this.footer.links[num][identifier] = value;
             }
 
-
+            else {
+                console.log(key + " " + value)
+            }
         })
-
-        console.log(this)
     }
 }

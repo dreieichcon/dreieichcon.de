@@ -2,9 +2,10 @@
     position: absolute;
     top: 6%;
     right: 0;
+    bottom: 0;
     margin-right: 1rem;
     background: var(--nav-color);
-    z-index: 999;
+    z-index: 1000;
     display: flex;
     flex-direction: column;
     user-select: none;
@@ -17,10 +18,15 @@
     /* Firefox */
     -ms-user-select: none;
     /* Internet Explorer/Edge */
+    overflow: scroll;
+}
+
+.elements-wrapper {
+    border-bottom: 1px solid var(--borders);
 }
 
 .top-element {
-    padding: 1rem;
+    padding: 0.75rem 0.5rem 0.75rem;
 }
 
 .sub-element {
@@ -33,9 +39,4 @@
 
 .sub-element:hover {
     background-color: var(--nav-hover);
-}
-
-.separator {
-    height: 1px;
-    background: var(--borders);
 }
