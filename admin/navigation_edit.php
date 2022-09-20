@@ -156,10 +156,18 @@ if(count($db_array)>0){
                             </div>
 
                             <div class="col-6">
-                                <u>Hinweise:</u><br>
-                                Interne Links werden über externe Bevorzugt.<br>
-                                Wird kein Übergeordnetes Element gewählt, erscheint der Menüpunkt in der obersten Ebene
+                            
+                            <div class="form-group">
+                                <label class="col-form-label" for="navigation_show">Sichtbar</label><br>
+                                <?php
+                                  $checked = "";
+                                  if($data['navigation_show']== 1){
+                                    $checked = "checked";
+                                  }
+                                ?>
+                                <input <?php echo $checked;?> type="checkbox" name="navigation_show" data-bootstrap-switch data-off-color="danger" data-on-color="success" data-off-text="unsichtbar" data-on-text="sichtbar" value="show">
                             </div>
+                        </div>
 
                         </div>
 
@@ -179,12 +187,21 @@ if(count($db_array)>0){
                             </div>
 
                         </div>
-                    </div>
+                   
 
+                      <div class="row">
+                        <div class="col-12">
+                            <u>Hinweise:</u><br>
+                            Priorität: Spezial-Link, interner Link (Verweis auf Seite), externer Link
+                            <br>
+                            Wird kein übergeordnetes Element gewählt, erscheint der Menüpunkt in der obersten Ebene.
+                        </div>
+                      </div>
+                    </div>
                     <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Eintrag speichern</button>
                     </div>
-
+                    
                     
             </div>
         

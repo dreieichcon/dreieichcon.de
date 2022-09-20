@@ -156,6 +156,7 @@
 								$navigation_href		       = $line['navigation_href'];
 								$navigation_parent		     = $line['navigation_parent'];
 								$navigation_special_page	 = $line['navigation_special_page'];
+								$navigation_show	         = $line['navigation_show'];
 							
 								$navigation_order 	       = $line['navigation_order'];
 								
@@ -184,9 +185,14 @@
                   }
                   
                 }
+
+                $active = "";
+                if($navigation_show != 1){
+                  $active = "class='deactivated'";
+                }
                               
 								echo "
-									<tr>
+									<tr $active>
                     <td>$navigation_order</td>
 										<th>$navigation_title_de<br>$navigation_title_en</th>
 										<td>$page</td>

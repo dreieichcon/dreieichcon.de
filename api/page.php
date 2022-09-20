@@ -90,24 +90,24 @@
 //load blog-posts second
 
 
-$sql		= "SELECT * FROM page_blog b, page_blog_content_type t WHERE t.page_blog_content_type_id = b.page_blog_content_type_id AND b.page_id = :page_id ORDER BY b.page_blog_order, b.page_blog_headline_de";
-                                                        
-$pdo 		= new PDO($pdo_mysql, $pdo_db_user, $pdo_db_pwd);
+  $sql		= "SELECT * FROM page_blog b, page_blog_content_type t WHERE t.page_blog_content_type_id = b.page_blog_content_type_id AND b.page_id = :page_id ORDER BY b.page_blog_order, b.page_blog_headline_de";
+                                                          
+  $pdo 		= new PDO($pdo_mysql, $pdo_db_user, $pdo_db_pwd);
 
-$statement	= $pdo->prepare($sql);
+  $statement	= $pdo->prepare($sql);
 
-$statement->bindParam(':page_id', $page_id);
+  $statement->bindParam(':page_id', $page_id);
 
-$statement->execute();
+  $statement->execute();
 
-$blog = array();
+  $blog = array();
 
-while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-    foreach ($row as $key => $value){
-        $row[$key] = db_parse($value);
-    }
-    array_push($blog, $row);
-}
+  while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+      foreach ($row as $key => $value){
+          $row[$key] = db_parse($value);
+      }
+      array_push($blog, $row);
+  }
     
 
   

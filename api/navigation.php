@@ -10,19 +10,33 @@
         
 
     function get_childs($navigation_id){
-      
-        $where = array();
-        $wh['col'] = "navigation_parent";
-        $wh['typ'] = "=";
-        $wh['val'] = $navigation_id;
-        array_push($where, $wh);
 
-        $order = array();
-        $or['col'] = "navigation_order";
-        $or['dir'] = "ASC";
-        array_push($order, $or);
-        
-        $db_array = db_select("navigation", $where, $order);
+      global $pdo_connection;
+      $pdo = new PDO($pdo_connection['mysql'], $pdo_connection['user'], $pdo_connection['pwd']);
+
+    if($navigation_id == "NULL"){
+      $sql = "SELECT * FROM navigation WHERE navigation_parent is NULL AND navigation_show = 1 ORDER BY navigation_order";
+    }else{
+      $sql = "SELECT * FROM navigation WHERE navigation_parent = $navigation_id AND navigation_show = 1 ORDER BY navigation_order";
+    }
+   
+
+      $statement	= $pdo->prepare($sql);
+
+   //   $statement->bindParam(':parent', $navigation_id);
+
+      $statement->execute();
+
+      $db_array = array();
+
+      while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+          foreach ($row as $key => $value){
+              $row[$key] = db_parse($value);
+          }
+          array_push($db_array, $row);
+      }
+      
+       
 
         $local_array = array();
         foreach($db_array as $line){

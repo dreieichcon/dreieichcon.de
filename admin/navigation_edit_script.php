@@ -17,6 +17,13 @@ $data['navigation_title_en']        = $_POST['navigation_title_en'];
 $data['navigation_order']           = $_POST['navigation_order'];
 $data['navigation_special_page']    = $_POST['navigation_special_page'];
 
+if(isset($_POST['navigation_show']) && $_POST['navigation_show'] == "show"){
+    $data['navigation_show']            = 1;
+}else{
+    $data['navigation_show']            = 0;
+}
+
+
 if(isset($_POST['page_id']) && $_POST['page_id']>0){
     $data['page_id']        = $_POST['page_id'];
 }else{
