@@ -5,8 +5,16 @@
     $data['page_blog_order']                 = $_POST['page_blog_order'];
     $data['page_blog_headline_de']           = $_POST['page_blog_headline_de'];
     $data['page_blog_headline_en']           = $_POST['page_blog_headline_en'];
-    $data['page_blog_subheadline_de']        = $_POST['page_blog_subheadline_de'];
-    $data['page_blog_subheadline_en']        = $_POST['page_blog_subheadline_en'];
+    
+    if(isset($_POST['page_blog_subheadline_de'])){
+        $data['page_blog_subheadline_de']        = $_POST['page_blog_subheadline_de'];
+    }
+
+    if(isset($_POST['page_blog_subheadline_en'])){
+        $data['page_blog_subheadline_en']        = $_POST['page_blog_subheadline_en'];
+    }
+
+    
     $data['page_blog_content_de']            = $_POST['page_blog_content_de'];
     $data['page_blog_content_en']            = $_POST['page_blog_content_en'];
     $data['page_blog_content_type_id']            = $_POST['page_blog_content_type_id'];

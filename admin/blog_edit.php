@@ -159,14 +159,14 @@ if(count($db_array)>0){
                             <div class="col-6">
                               <div class="form-group">
                                 <label class="col-form-label" for="page_blog_subheadline_de">Subheadline Deutsch</label>
-                                <textarea required name="page_blog_subheadline_de" id="page_blog_subheadline_de" class="form-control" placeholder=""><?php echo $data['page_blog_subheadline_de'] ;?></textarea>
+                                <textarea  name="page_blog_subheadline_de" id="page_blog_subheadline_de" class="form-control" placeholder=""><?php echo $data['page_blog_subheadline_de'] ;?></textarea>
                               </div>
                             </div>
 
                             <div class="col-6">
                               <div class="form-group">
                                 <label class="col-form-label" for="page_blog_subheadline_en">Subheadline Englisch</label>
-                                <textarea required name="page_blog_subheadline_en" id="page_blog_subheadline_en" class="form-control" placeholder=""><?php echo $data['page_blog_subheadline_en'] ;?></textarea>
+                                <textarea  name="page_blog_subheadline_en" id="page_blog_subheadline_en" class="form-control" placeholder=""><?php echo $data['page_blog_subheadline_en'] ;?></textarea>
                               </div>
                             </div>
                         </div>
