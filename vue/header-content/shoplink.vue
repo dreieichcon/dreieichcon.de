@@ -13,11 +13,11 @@ module.exports = {
         return {};
     },
     created() {},
-    props: [],
+    props: ["shoplink"],
     mounted() {},
     methods: {
-        navigate(href) {
-            this.emitter.emit("navigate", { id: href });
+        navigate(link) {
+            this.emitter.emit("navigate", { href: link });
         },
     },
     components: {},

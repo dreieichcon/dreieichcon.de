@@ -5,9 +5,6 @@ window.data = {
     socials:
         [],
     globals: new Globals(),
-    header: {
-        shoplink: "https://pretix.eu/wiric-online/dc2022"
-    },
     nav: new NavCollection([
         {
             navigation_title_de: "Home",

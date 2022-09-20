@@ -1,13 +1,13 @@
 <template>
     <div v-if="isVisible" class="hamburger-flyout d2">
-        <template v-for="(element, index) in elements.options" :key="index">
+        <template v-for="(element, index) in elements.collection" :key="index">
             <div class="elements-wrapper">
                 <div
                     class="top-element"
                     v-bind:style="isPointer(element)"
                     @click="navigate(element)"
                 >
-                    {{ element.getTitle($language) }}
+                    {{ element.get("title", $language) }}
                 </div>
                 <div
                     class="sub-element"
@@ -16,7 +16,7 @@
                     v-bind:style="isPointer(option)"
                     @click="navigate(option)"
                 >
-                    - {{ option.getTitle($language) }}
+                    - {{ option.get("title", $language) }}
                 </div>
             </div>
         </template>

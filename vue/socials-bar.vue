@@ -1,6 +1,9 @@
 <template>
     <div class="container-fluid socials-bar gradient-border">
-        <div class="dreieichcon-header">DREIEICHCON 2022</div>
+        <div
+            class="dreieichcon-header"
+            v-html:="globals.get('name', $language)"
+        ></div>
         <div class="bar-icons gradient-border">
             <template v-for="(link, index) in socials.collection">
                 <a
@@ -36,8 +39,10 @@ export default {
     created() {
         this.emitter.on("navigate", () => (this.$hamburger.value = false));
     },
-    props: ["socials", "nav"],
-    mounted() {},
+    props: ["socials", "nav", "globals"],
+    mounted() {
+        console.log(this.globals);
+    },
     methods: {
         toggle() {
             this.$hamburger.value = !this.$hamburger.value;

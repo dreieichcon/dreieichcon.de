@@ -41,8 +41,8 @@
 
     <div id="app" class="container-fluid app">
         <hamburger-click></hamburger-click>
-        <socials-bar v-bind:socials="socials" v-bind:nav="nav"></socials-bar>
-        <header-bar v-bind:header="header" v-bind:language="settings.language"></header-bar>
+        <socials-bar v-bind:socials="socials" v-bind:nav="nav" v-bind:globals="globals"></socials-bar>
+        <header-bar v-bind:header="globals.header"></header-bar>
         <nav-bar v-bind:nav="nav"></nav-bar>
         <image-overlay></image-overlay>
         <main role="main" class="container-fluid h-100">

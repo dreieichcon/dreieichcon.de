@@ -19,6 +19,7 @@
 .overlay-image-wrapper {
     width: 90%;
     max-width: 90%;
+    max-height: 80% !important;
 }
 
 .overlay-image {

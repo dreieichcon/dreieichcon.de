@@ -41,6 +41,16 @@ export class Globals extends ContentItem {
                 this.footer.links[num][identifier] = value;
             }
 
+            else if (key.startsWith("tickets_shoplink")) {
+                this.header["shoplink"] = value;
+            }
+
+            else if (key.startsWith("event")) {
+                var identifier = key.split(".")[1]
+
+                this[identifier] = value;
+            }
+
             else {
                 console.log(key + " " + value)
             }

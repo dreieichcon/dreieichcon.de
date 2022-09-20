@@ -15,7 +15,7 @@
                 src="resources/img/dreieichcon-logo-vislani.png"
             />
         </div>
-        <shoplink></shoplink>
+        <shoplink v-bind:shoplink="header.shoplink"></shoplink>
     </div>
 </template>
 
@@ -55,7 +55,7 @@ module.exports = {
             }
         });
     },
-    props: ["header", "language", "shoplink"],
+    props: ["header"],
     mounted() {},
 
     components: {
