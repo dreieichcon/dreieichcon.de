@@ -55,36 +55,36 @@
 			<div class="card-body " style="height: auto;">
             <pre class="text-white"><?php
                     //get all top elements
-                        get_childs(0, 0);
+                        get_childs("NULL", 0);
 
                         function get_childs($navigation_id, $depth){
                           global $pdo_connection;
                           $pdo = new PDO($pdo_connection['mysql'], $pdo_connection['user'], $pdo_connection['pwd']);
                     
-                        if($navigation_id == "NULL"){
-                          $sql = "SELECT * FROM navigation WHERE navigation_parent is NULL AND navigation_show = 1 ORDER BY navigation_order";
-                        }else{
-                          $sql = "SELECT * FROM navigation WHERE navigation_parent = $navigation_id AND navigation_show = 1 ORDER BY navigation_order";
-                        }
-                       
-                    
-                          $statement	= $pdo->prepare($sql);
-                    
-                       //   $statement->bindParam(':parent', $navigation_id);
-                    
-                          $statement->execute();
-                    
-                          $db_array = array();
-                    
-                          while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-                              foreach ($row as $key => $value){
-                                  $row[$key] = db_parse($value);
-                              }
-                              array_push($db_array, $row);
+                          if($navigation_id == "NULL"){
+                            $sql = "SELECT * FROM navigation WHERE navigation_parent is NULL AND navigation_show = 1 ORDER BY navigation_order";
+                          }else{
+                            $sql = "SELECT * FROM navigation WHERE navigation_parent = $navigation_id AND navigation_show = 1 ORDER BY navigation_order";
                           }
+                        
+                      
+                            $statement	= $pdo->prepare($sql);
+                      
+                        //   $statement->bindParam(':parent', $navigation_id);
+                      
+                            $statement->execute();
+                      
+                            $db_array = array();
+                      
+                            while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+                                foreach ($row as $key => $value){
+                                    $row[$key] = db_parse($value);
+                                }
+                                array_push($db_array, $row);
+                            }
                           
                             
-                            $db_array = db_select("navigation", $where, $order);
+                            
                             foreach($db_array as $line){
                                 $title = $line['navigation_title_de'];
                                 $id    = $line['navigation_id'];
