@@ -19,6 +19,8 @@
     }else{
         $data['page_id_link'] = null;
     }
+
+    $data['page_gallery_href']       = $_POST['page_gallery_href'];
     
     $data['page_gallery_text_de']       = $_POST['page_gallery_text_de'];
     $data['page_gallery_text_en']       = $_POST['page_gallery_text_en'];

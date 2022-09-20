@@ -20,7 +20,10 @@
     }
 
     
+    $data['page_gallery_href']       = $_POST['page_gallery_href'];
+    
     $data['page_gallery_text_de']       = $_POST['page_gallery_text_de'];
+    
     $data['page_gallery_text_en']       = $_POST['page_gallery_text_en'];
 
     $data['page_gallery_edit_id']       = $_SESSION['admin_user_id'];

@@ -104,10 +104,14 @@
                                   </select>
                               </div>
                             </div>
+
                             <div class="col-6">
-                              <u>Hinweis:</u><br>
-                              Die Bilder werden erst im nächsten Schritt hochgeladen
+                              <div class="form-group">
+                                <label class="col-form-label" for="page_gallery_href">Externer Link</label>
+                                <input type="text" name="page_gallery_href"  class="form-control" placeholder="">
+                              </div>
                             </div>
+                            
                         </div>
                         
                         
@@ -128,7 +132,12 @@
                         </div>
 
 
-                        
+                        <div class="row">
+                        <div class="col-6">
+                              <u>Hinweis:</u><br>
+                              Die Bilder werden erst im nächsten Schritt hochgeladen
+                            </div>
+                                  </div>
                     </div>
 
                     <div class="card-footer">
