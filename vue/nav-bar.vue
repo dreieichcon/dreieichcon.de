@@ -47,7 +47,7 @@ module.exports = {
     methods: {
         navigate(item) {
             if (item.href != null) {
-                window.location.href = item.href;
+                this.emitter.emit("navigate", { href: item.href });
                 return;
             }
 

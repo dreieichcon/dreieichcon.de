@@ -55,13 +55,13 @@ export class Bio extends ContentCollection {
     getGalleryTitle(language) {
         var names = ""
         this.collection.forEach((x, i) => {
-            if (i < this.collection.length && this.collection.length > 1) {
+            if (i < this.collection.length - 1 && this.collection.length > 1) {
                 names += x.title_de + " & "
             }
             else names += x.title_de;
         });
 
-        if (language === "de") return "Galerie von " + names;
+        if (language.value === "de") return "Galerie von " + names;
         return "Gallery of " + names;
     }
 }

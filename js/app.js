@@ -41,6 +41,11 @@ var app = Vue.createApp({
     methods: {
         navigate(data) {
 
+            if (data.href != undefined) {
+                window.location.href = data.href;
+                return;
+            }
+
             if (data.id == null) return;
 
             this.emitter.emit("loading", { page: true });
