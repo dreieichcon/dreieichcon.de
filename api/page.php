@@ -90,7 +90,7 @@
 //load blog-posts second
 
 
-  $sql		= "SELECT * FROM page_blog b, page_blog_content_type t WHERE t.page_blog_content_type_id = b.page_blog_content_type_id AND b.page_id = :page_id ORDER BY b.page_blog_order, b.page_blog_headline_de";
+  $sql		= "SELECT * FROM page_blog b, page_blog_content_type t WHERE t.page_blog_content_type_id = b.page_blog_content_type_id AND b.page_id = :page_id AND b.page_blog_show = 1 ORDER BY b.page_blog_order, b.page_blog_headline_de";
                                                           
   $pdo 		= new PDO($pdo_mysql, $pdo_db_user, $pdo_db_pwd);
 

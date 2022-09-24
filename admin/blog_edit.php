@@ -92,6 +92,18 @@ if(count($db_array)>0){
                                     </select>
                                 </div>
                               </div>
+
+
+                              <div class="form-group">
+                                <label class="col-form-label" for="page_blog_show">Sichtbar</label><br>
+                                <?php
+                                  $checked = "";
+                                  if($data['page_blog_show']== 1){
+                                    $checked = "checked";
+                                  }
+                                ?>
+                                <input <?php echo $checked;?> type="checkbox" name="page_blog_show" data-bootstrap-switch data-off-color="danger" data-on-color="success" data-off-text="unsichtbar" data-on-text="sichtbar" value="show">
+                            </div>
                         </div>
 
                      <div class="row">

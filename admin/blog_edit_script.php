@@ -9,6 +9,14 @@
     $data['page_blog_content_de']            = $_POST['page_blog_content_de'];
     $data['page_blog_content_en']            = $_POST['page_blog_content_en'];
     $data['page_blog_content_type_id']       = $_POST['page_blog_content_type_id'];
+
+
+
+    if(isset($_POST['page_blog_show']) && $_POST['page_blog_show'] == "show"){
+        $data['page_blog_show']            = 1;
+    }else{
+        $data['page_blog_show']            = 0;
+    }
     
     if(isset($_POST['page_blog_subheadline_de'])){
         $data['page_blog_subheadline_de']        = $_POST['page_blog_subheadline_de'];

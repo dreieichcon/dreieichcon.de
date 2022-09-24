@@ -100,12 +100,18 @@
 								$page_blog_order		= $line['page_blog_order'];
 								$page_blog_headline_de	= $line['page_blog_headline_de'];
 								$page_blog_headline_en	= $line['page_blog_headline_en'];
+								$page_blog_show			= $line['page_blog_show'];
+
+
 								$page_blog_content_de   = "";
 								if(!is_null($line['page_blog_content_de'])){
 									$page_blog_content_de	= substr($line['page_blog_content_de'],0,250);
 								}
 								
-								
+								$active = "";
+								if($page_blog_show != 1){
+								  $active = "class='deactivated'";
+								}
 								
 								
 								$modify_ts   		= UnixToTime($line['page_blog_edit_ts']);
@@ -115,7 +121,7 @@
 
                               
 								echo "
-									<tr>
+									<tr $active>
 										<th>$page_blog_headline_de<br>$page_blog_headline_en</th>
 										<td>$type</td>
 										<td>$page</td>
