@@ -9,6 +9,7 @@
                         :style="imageAlign(index)"
                     >
                         <img
+                            class="blog-img"
                             :src="post.getImage($language)"
                             :alt="post.get('image_alt', $language)"
                         />

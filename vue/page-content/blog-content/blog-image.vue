@@ -12,6 +12,7 @@
                 <div class="blog-image-wrapper">
                     <div class="blog-image-image">
                         <img
+                            class="blog-img"
                             :src="post.getImage($language)"
                             :alt="post.get('image_alt', $language)"
                         />

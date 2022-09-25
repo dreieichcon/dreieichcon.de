@@ -18,6 +18,19 @@ export class ContentItem {
         return ret;
     }
 
+    exists(property, language) {
+        var identifier = property
+        if (language.value === undefined) identifier += "_" + language;
+        else identifier += "_" + language.value;
+
+        var property = this[identifier]
+
+        if (property === undefined) return false;
+        if (property === null) return false;
+
+        return true;
+    }
+
     get(property, language) {
 
         var identifier = property
@@ -26,8 +39,15 @@ export class ContentItem {
 
         var property = this[identifier]
 
-        if (property === undefined || property === null) return identifier + " undefined"
+        if (property === undefined) return identifier + " undefined"
+        if (property === null) return null;
         return this.parseData(property);
+    }
+
+    set(property, value) {
+
+        if (value === undefined) this[property] = null
+        this[property] = value;
     }
 
     getImage(language) {
