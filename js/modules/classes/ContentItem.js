@@ -14,7 +14,19 @@ export class ContentItem {
         var ret = input;
         ret = ret.replaceAll("\n", "<br/>")
         ret = ret.replaceAll("\\n", "<br/>")
-        ret = ret.replaceAll("&amp;", "&")
+
+        const ampGex = "&[amp;]+"
+        const quotGex = "&[quot;]+"
+        const apoGex = "&[apos;]+"
+        const ltGex = "&[lt;]+"
+        const gtGex = "&[gt;]+"
+
+        ret = ret.replaceAll(ampGex, "&")
+        ret = ret.replaceAll(apoGex, "'")
+        ret = ret.replaceAll(quotGex, '"')
+        ret = ret.replaceAll(ltGex, '<')
+        ret = ret.replaceAll(gtGex, '>')
+
         return ret;
     }
 
