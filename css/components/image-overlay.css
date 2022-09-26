@@ -20,10 +20,12 @@
     width: 90%;
     max-width: 90%;
     max-height: 80% !important;
+    display: flex;
+    justify-content: center;
 }
 
 .overlay-image {
-    width: 100%;
+    width: auto;
     height: 100%;
 }
 

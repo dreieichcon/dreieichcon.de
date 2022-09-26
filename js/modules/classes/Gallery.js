@@ -13,6 +13,12 @@ export class GalleryImage extends ContentItem {
         this.image_alt_en = data.page_gallery_image_alt_en;
         this.page_id = data.page_id_link;
         this.base = ""
+        this.page_href = null;
+
+        if (data.page_gallery_href != null) {
+            this.page_href = data.page_gallery_href
+            this.page_id = null;
+        }
     }
 }
 

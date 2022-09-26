@@ -36,6 +36,8 @@ module.exports = {
         navigateOrEmbiggen(item) {
             if (item.page_id != null)
                 this.emitter.emit("navigate", { id: item.page_id });
+            if (item.page_href != null)
+                this.emitter.emit("navigate", { href: item.page_href });
             else {
                 this.emitter.emit("image-overlay", {
                     src: item.getImage(this.$language),
