@@ -72,6 +72,30 @@
 	}
 
 
+	function UnixToEventTime($input){
+		setlocale(LC_ALL, "de_DE.utf8");
+		$day  = date("w", $input);
+		
+		
+		$tag[0] = "So";
+		$tag[1] = "Mo";
+		$tag[2] = "Di";
+		$tag[3] = "Mi";
+		$tag[4] = "Do";
+		$tag[5] = "Fr";
+		$tag[6] = "Sa";
+		
+		$tag_string = $tag[$day];
+		
+		
+
+		$datum  = date("d. ", $input);
+		$zeit   = date("H:i", $input);
+		
+		$timestring = "$tag_string $zeit";
+				
+		return $timestring;
+	}
 
 	
 	
@@ -177,6 +201,18 @@ function UnixToDateEN($input){
 // UNIX-Timestamp to format used for input type="date" fields
 function UnixToDateForm($input){
 	$datum  = date("Y-m-d", $input);
+		
+	$timestring = "$datum";
+			
+	return $timestring;
+}	
+
+function UnixToTimeForm($input, $sec=false){
+	if($sec){
+		$datum  = date("H:i:s", $input);
+	}else{
+		$datum  = date("H:i", $input);
+	}
 		
 	$timestring = "$datum";
 			
