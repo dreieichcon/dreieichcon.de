@@ -57,7 +57,7 @@
 				$return_string = "";
 
 				if($this->headline){
-					$return_string =  "<li class='nav-header'>SEITENINHALT</li>";
+					$return_string =  "<li class='nav-header'>".strtoupper($this->label)."</li>";
 				}else{
 					$page   = $this->page;
 					$lable  = $this->label;
