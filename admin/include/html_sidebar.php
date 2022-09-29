@@ -90,8 +90,8 @@
 
 		array_push($navigation, new nav_item("PROGRAMM", "", "", true));
 		array_push($navigation, new nav_item("Orte", "location", "far fa-compass"));
-		array_push($navigation, new nav_item("Typen", "program_type", "fas fa-list"));
-		array_push($navigation, new nav_item("Programm", "program", "fas fa-calendar"));
+		array_push($navigation, new nav_item("Typen", "event_type", "fas fa-list"));
+		array_push($navigation, new nav_item("Programm", "event", "fas fa-calendar"));
 
 		array_push($navigation, new nav_item("ADMINISTRATION", "", "", true));
 		array_push($navigation, new nav_item("Benutzer", "admin_user", "fas fa-user"));

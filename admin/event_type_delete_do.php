@@ -1,18 +1,18 @@
 <?php
 
-    $id = $_GET['program_type_id'];
+    $id = $_GET['event_type_id'];
 
     $where = array();
-    $wh['col'] = "program_type_id";
+    $wh['col'] = "event_type_id";
     $wh['typ'] = "=";
     $wh['val'] = $id;
     array_push($where, $wh);
 
     
     $query		= "Veranstaltungsart löschen";
-    $db_result 	= db_delete("program_type", $where);
+    $db_result 	= db_delete("event_type", $where);
 
     
-    include("program_type.php");
+    include("event_type.php");
 
 ?>

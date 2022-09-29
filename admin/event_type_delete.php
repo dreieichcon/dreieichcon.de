@@ -1,12 +1,12 @@
 <?php
 
     $where = array();
-    $wh['col'] = "program_type_id";
+    $wh['col'] = "event_type_id";
     $wh['typ'] = "=";
-    $wh['val'] = $_GET['program_type_id'];
+    $wh['val'] = $_GET['event_type_id'];
     array_push($where, $wh);
 
-    $db_array = db_select("program_type", $where);
+    $db_array = db_select("event_type", $where);
 
 if(count($db_array)>0){
     $data = $db_array[0];
@@ -23,7 +23,7 @@ if(count($db_array)>0){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0"><?php echo($global_application_name_header);?> Veranstaltungsort <?php echo $data['program_type_de']; ?> löschen</h1>
+            <h1 class="m-0"><?php echo($global_application_name_header);?> Veranstaltungsort <?php echo $data['event_type_de']; ?> löschen</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -43,9 +43,9 @@ if(count($db_array)>0){
 <section class="content">
 
 <?php
-$key = $data['program_type_de'];
+$key = $data['event_type_de'];
 
-$id  = $data['program_type_id'];
+$id  = $data['event_type_id'];
 
 ?>
 
@@ -80,7 +80,7 @@ $id  = $data['program_type_id'];
 					
                     &nbsp;&nbsp;&nbsp;&nbsp;
 
-					<a href="index.php?page=program_type_delete_do&program_type_id=<?php echo $id; ?>" title="Menüpunkt löschen" class="btn btn-danger">
+					<a href="index.php?page=event_type_delete_do&event_type_id=<?php echo $id; ?>" title="Menüpunkt löschen" class="btn btn-danger">
                     ja, Veranstaltungsart löschen
                     <span class="fas fa-arrow-circle-right"> </span>
                     </a>

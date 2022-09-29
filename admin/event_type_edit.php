@@ -1,4 +1,22 @@
+<?php
 
+    $where = array();
+    $wh['col'] = "event_type_id";
+    $wh['typ'] = "=";
+    $wh['val'] = $_GET['event_type_id'];
+    array_push($where, $wh);
+
+    $db_array = db_select("event_type", $where);
+
+if(count($db_array)>0){
+    $data = $db_array[0];
+}else{
+    include("999.php");
+    include("include/html_footer.php");
+    die;
+}
+
+?>
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
@@ -26,8 +44,8 @@
 <!-- Main content -->
 <section class="content">
 
-<form action="index.php?page=program_type_add_script" method="POST">
-
+<form action="index.php?page=event_type_edit_script" method="POST">
+<input type="hidden" name="event_type_id" value="<?php echo $data['event_type_id'] ;?>" >
 <div class="row">
     <div class="col-12">
         
@@ -44,15 +62,15 @@
                         <div class="row">
                             <div class="col-6">
                               <div class="form-group">
-                                <label class="col-form-label" for="program_type_de">Bezeichung Deutsch</label>
-                                <input required type="text" name="program_type_de"  class="form-control" placeholder="">
+                                <label class="col-form-label" for="event_type_de">Bezeichung Deutsch</label>
+                                <input required type="text" name="event_type_de"  class="form-control" placeholder="" value="<?php echo $data['event_type_de'] ;?>" >
                               </div>
                             </div>
 
                             <div class="col-6">
                               <div class="form-group">
-                                <label class="col-form-label" for="program_type_en">Bezeichnung Englisch</label>
-                                <input required type="text" name="program_type_en"  class="form-control" placeholder="">
+                                <label class="col-form-label" for="event_type_en">Bezeichnung Englisch</label>
+                                <input required type="text" name="event_type_en"  class="form-control" placeholder="" value="<?php echo $data['event_type_en'] ;?>" >
                               </div>
                             </div>
                         </div>

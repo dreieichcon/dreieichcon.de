@@ -51,7 +51,7 @@
 				<h3 class="card-title">Veranstaltungsarten verwalten</h3>
 
 				<div class="card-tools">
-					<a href="index.php?page=program_type_add" title="neue Veranstaltungsart anlegen" class="btn btn-primary"><span class="fa fa-plus-circle"> </span> neu</a>
+					<a href="index.php?page=event_type_add" title="neue Veranstaltungsart anlegen" class="btn btn-primary"><span class="fa fa-plus-circle"> </span> neu</a>
 				</div>
 			</div>
 				
@@ -74,7 +74,7 @@
 							
                                
 
-                                $sql		= "SELECT * FROM program_type ORDER BY program_type_de ASC";
+                                $sql		= "SELECT * FROM event_type ORDER BY event_type_de ASC";
                                                         
                                 $pdo 		= new PDO($pdo_mysql, $pdo_db_user, $pdo_db_pwd);
 
@@ -100,30 +100,30 @@
 
                                
 								
-								$program_type_id		  = $line['program_type_id'];
-								$program_type_de	      = $line['program_type_de'];
-								$program_type_en          = $line['program_type_en'];
+								$event_type_id		  = $line['event_type_id'];
+								$event_type_de	      = $line['event_type_de'];
+								$event_type_en          = $line['event_type_en'];
 
 							
 							
 								
 								
-								$modify_ts   		       = UnixToTime($line['program_type_edit_ts']);
-								$modify_id   		       = db_get_user($line['program_type_edit_id'])['user_full'];
+								$modify_ts   		       = UnixToTime($line['event_type_edit_ts']);
+								$modify_id   		       = db_get_user($line['event_type_edit_id'])['user_full'];
 
                               
 								echo "
 									<tr>
-                                        <td>$program_type_de<br>$program_type_en</td>
+                                        <td>$event_type_de<br>$event_type_en</td>
                                         
 										
 										
 										
 										<td>$modify_ts<br>$modify_id</td>
 										<td>
-                                            <a href='index.php?page=program_type_edit&program_type_id=$program_type_id'><span class='fa fa-edit'></span></a> 
+                                            <a href='index.php?page=event_type_edit&event_type_id=$event_type_id'><span class='fa fa-edit'></span></a> 
                                             &nbsp;&nbsp; 
-                                            <a href='index.php?page=program_type_delete&program_type_id=$program_type_id' class='text-danger'><span class='fa fa-trash'></span></a>
+                                            <a href='index.php?page=event_type_delete&event_type_id=$event_type_id' class='text-danger'><span class='fa fa-trash'></span></a>
                                         </td>
 									</tr>
 								

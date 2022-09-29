@@ -16,7 +16,7 @@
 
   $return_array = array();
 
-$sql		= "SELECT * FROM program p, program_type t, location l WHERE p.location_id = l.location_id AND p.program_type_id = t.program_type_id ORDER BY p.program_start_ts ASC, l.location_name_de ASC";
+$sql		= "SELECT * FROM event e, event_type t, location l WHERE e.location_id = l.location_id AND e.event_type_id = t.event_type_id ORDER BY e.program_start_ts ASC, l.location_name_de ASC";
                                                         
 $pdo 		= new PDO($pdo_mysql, $pdo_db_user, $pdo_db_pwd);
 
