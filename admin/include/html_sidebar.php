@@ -36,6 +36,75 @@
 		  
         </div>
       </div>
+
+	  <?php
+
+		class nav_item{
+			public $label;
+			public $page;
+			public $icon;
+			public $headline;
+
+
+			function __construct($label, $page, $icon, $headline=false){
+				$this->label 		= $label;
+				$this->page 		= $page;
+				$this->icon 		= $icon;
+				$this->headline 	= $headline;
+			}
+
+			function get_nav_item(){
+				$return_string = "";
+
+				if($this->headline){
+					$return_string =  "<li class='nav-header'>SEITENINHALT</li>";
+				}else{
+					$page   = $this->page;
+					$lable  = $this->label;
+					$icon   = $this->icon;
+
+					$return_string = "
+						<li class='nav-item'>
+							<a href='index.php?page=$page' class='nav-link'>
+								<i class='nav-icon $icon'></i>
+								<p>
+									$lable 
+								</p>
+							</a>
+						</li>
+					";
+				}
+
+				return $return_string;
+			}
+		}//end class
+
+		$navigation = array();
+
+		array_push($navigation, new nav_item("SEITENINHALT", "", "", true));
+		array_push($navigation, new nav_item("Seiten", "page", "far fa-file"));
+		array_push($navigation, new nav_item("Menüband", "navigation", "fas fa-list"));
+		array_push($navigation, new nav_item("Blog-Einträge", "blog", "fas fa-blog"));
+		array_push($navigation, new nav_item("Biografien", "bio", "fas fa-user"));
+		array_push($navigation, new nav_item("Galerien", "gallery", "fas fa-image"));
+
+		array_push($navigation, new nav_item("PROGRAMM", "", "", true));
+		array_push($navigation, new nav_item("Orte", "location", "far fa-compass"));
+		array_push($navigation, new nav_item("Typen", "program_type", "fas fa-list"));
+		array_push($navigation, new nav_item("Programm", "program", "fas fa-calendar"));
+
+		array_push($navigation, new nav_item("ADMINISTRATION", "", "", true));
+		array_push($navigation, new nav_item("Benutzer", "admin_user", "fas fa-user"));
+		array_push($navigation, new nav_item("Globals", "globals", "fas fa-globe-europe"));
+		array_push($navigation, new nav_item("Social-Links", "admin_socials", "fas fa-icons"));
+		array_push($navigation, new nav_item("Icon-Liste", "admin_icon_list", "fas fa-icons"));
+
+		
+
+		
+
+
+	?>
 	  
 	
 	  
@@ -45,92 +114,15 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
          
 		<li class='nav-header'> </li>
-			<li class='nav-header'>SEITENINHALT</li>
+		<?php
+			foreach($navigation as $nav){
+				echo $nav->get_nav_item();
+			}
+
+		?>
+		
 	
-				<li class='nav-item'>
-					<a href='index.php?page=page' class='nav-link'>
-					<i class="nav-icon far fa-file"></i>
-					<p>
-						Seiten 
-						
-					</p>
-					</a>
-				</li>
 
-				<li class='nav-item'>
-					<a href='index.php?page=navigation' class='nav-link'>
-					<i class="nav-icon fas fa-list"></i>
-					<p>
-						Menüband
-					</p>
-					</a>
-				</li>
-
-				<li class='nav-item'>
-					<a href='index.php?page=blog' class='nav-link'>
-					<i class="nav-icon fas fa-blog"></i>
-					<p>
-						Blog-Einträge 
-					</p>
-					</a>
-				</li>
-
-				<li class='nav-item'>
-					<a href='index.php?page=bio' class='nav-link'>
-					<i class="nav-icon fas fa-user"></i>
-					<p>
-						Biografien 
-					</p>
-					</a>
-				</li>
-
-				<li class='nav-item'>
-					<a href='index.php?page=gallery' class='nav-link'>
-					<i class="nav-icon fas fa-image"></i>
-					<p>
-						Galerien 
-					</p>
-					</a>
-				</li>
-
-			
-				<li class='nav-header'>ADMINISTRATION</li>
-					
-					<li class='nav-item'>
-						<a href='index.php?page=admin_user' class='nav-link'>
-						  <i class='nav-icon fa fa-user'></i>
-						  <p>
-							Benutzer
-						  </p>
-						</a>
-					</li>
-
-					<li class='nav-item'>
-						<a href='index.php?page=admin_globals' class='nav-link'>
-						  <i class='nav-icon fa fa-globe-europe'></i>
-						  <p>
-							Globals
-						  </p>
-						</a>
-					</li>
-
-					<li class='nav-item'>
-						<a href='index.php?page=admin_socials' class='nav-link'>
-						<i class="nav-icon fas fa-icons"></i>
-						  <p>
-							Social-Links
-						  </p>
-						</a>
-					</li>
-
-					<li class='nav-item'>
-						<a href='index.php?page=admin_icon_list' class='nav-link'>
-						<i class="nav-icon fas fa-icons"></i>
-						  <p>
-							Icon-Liste
-						  </p>
-						</a>
-					</li>
 
 				
          
