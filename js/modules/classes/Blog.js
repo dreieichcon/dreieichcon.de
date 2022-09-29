@@ -4,16 +4,16 @@ class BlogPost extends ContentItem {
     constructor(data) {
         super();
         this.type = "Post"
-        this.title_de = data.page_blog_headline_de
-        this.title_en = data.page_blog_headline_en
-        this.subtitle_de = data.page_blog_subheadline_de
-        this.subtitle_en = data.page_blog_subheadline_en
-        this.content_de = data.page_blog_content_de
-        this.content_en = data.page_blog_content_en
-        this.image_de = data.page_blog_image_href_de
-        this.image_en = data.page_blog_image_href_en
-        this.image_alt_de = data.page_blog_image_alt_de
-        this.image_alt_en = data.page_blog_image_alt_en
+        this.set("title_de", data.page_blog_headline_de)
+        this.set("title_en", data.page_blog_headline_en)
+        this.set("subtitle_de", data.page_blog_subheadline_de)
+        this.set("subtitle_en", data.page_blog_subheadline_en)
+        this.set("content_de", data.page_blog_content_de)
+        this.set("content_en", data.page_blog_content_en)
+        this.set("image_de", data.page_blog_image_href_de)
+        this.set("image_en", data.page_blog_image_href_en)
+        this.set("image_alt_de", data.page_blog_image_alt_de)
+        this.set("image_alt_en", data.page_blog_image_alt_en)
         this.base = "/upload/blog/img/"
 
         this.hasTitle = true;
@@ -24,16 +24,16 @@ class BlogImage extends ContentItem {
     constructor(data) {
         super();
         this.type = "Image"
-        this.title_de = data.page_blog_headline_de
-        this.title_en = data.page_blog_headline_en
-        this.subtitle_de = data.page_blog_subheadline_de
-        this.subtitle_en = data.page_blog_subheadline_en
-        this.content_de = data.page_blog_content_de
-        this.content_en = data.page_blog_content_en
-        this.image_de = data.page_blog_image_href_de
-        this.image_en = data.page_blog_image_href_en
-        this.image_alt_de = data.page_blog_image_alt_de
-        this.image_alt_en = data.page_blog_image_alt_en
+        this.set("title_de", data.page_blog_headline_de)
+        this.set("title_en", data.page_blog_headline_en)
+        this.set("subtitle_de", data.page_blog_subheadline_de)
+        this.set("subtitle_en", data.page_blog_subheadline_en)
+        this.set("content_de", data.page_blog_content_de)
+        this.set("content_en", data.page_blog_content_en)
+        this.set("image_de", data.page_blog_image_href_de)
+        this.set("image_en", data.page_blog_image_href_en)
+        this.set("image_alt_de", data.page_blog_image_alt_de)
+        this.set("image_alt_en", data.page_blog_image_alt_en)
         this.base = "/upload/blog/img/"
 
         if (data.page_blog_content_type === "picture_noheadline")

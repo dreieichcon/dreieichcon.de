@@ -14,8 +14,33 @@ export class ContentItem {
         var ret = input;
         ret = ret.replaceAll("\n", "<br/>")
         ret = ret.replaceAll("\\n", "<br/>")
-        ret = ret.replaceAll("&amp;", "&")
+
+        const ampGex = "&[amp;]+"
+        const quotGex = "&[quot;]+"
+        const apoGex = "&[apos;]+"
+        const ltGex = "&[lt;]+"
+        const gtGex = "&[gt;]+"
+
+        ret = ret.replaceAll(ampGex, "&")
+        ret = ret.replaceAll(apoGex, "'")
+        ret = ret.replaceAll(quotGex, '"')
+        ret = ret.replaceAll(ltGex, '<')
+        ret = ret.replaceAll(gtGex, '>')
+
         return ret;
+    }
+
+    exists(property, language) {
+        var identifier = property
+        if (language.value === undefined) identifier += "_" + language;
+        else identifier += "_" + language.value;
+
+        var property = this[identifier]
+
+        if (property === undefined) return false;
+        if (property === null) return false;
+
+        return true;
     }
 
     get(property, language) {
@@ -26,8 +51,15 @@ export class ContentItem {
 
         var property = this[identifier]
 
-        if (property === undefined || property === null) return identifier + " undefined"
+        if (property === undefined) return identifier + " undefined"
+        if (property === null) return null;
         return this.parseData(property);
+    }
+
+    set(property, value) {
+
+        if (value === undefined) this[property] = null
+        this[property] = value;
     }
 
     getImage(language) {
