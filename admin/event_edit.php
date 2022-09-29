@@ -265,13 +265,13 @@ if(count($db_array)>0){
 							
                                
 
-                                $sql		= "SELECT * FROM page_bio b, event_host h, event e WHERE e.event_id = h.event_id AND h.page_bio_id = b.page_bio_id ORDER BY page_bio_name_de";
+                                $sql		= "SELECT * FROM page_bio b, event_host h WHERE h.event_id = :event AND h.page_bio_id = b.page_bio_id ORDER BY page_bio_name_de";
                                                         
                                 $pdo 		= new PDO($pdo_mysql, $pdo_db_user, $pdo_db_pwd);
 
                                 $statement	= $pdo->prepare($sql);
 
-                                //$statement->bindParam(':name', $value);
+                                $statement->bindParam(':event', $event_id);
 
                                 $statement->execute();
 
@@ -431,13 +431,13 @@ if(count($db_array)>0){
 							
                                
 
-                                $sql		= "SELECT * FROM page_bio b, event_participant h, event e WHERE e.event_id = h.event_id AND h.page_bio_id = b.page_bio_id ORDER BY page_bio_name_de";
+                                $sql		= "SELECT * FROM page_bio b, event_participant h WHERE h.event_id = :event AND h.page_bio_id = b.page_bio_id ORDER BY page_bio_name_de";
                                                         
                                 $pdo 		= new PDO($pdo_mysql, $pdo_db_user, $pdo_db_pwd);
 
                                 $statement	= $pdo->prepare($sql);
 
-                                //$statement->bindParam(':name', $value);
+                                $statement->bindParam(':event', $event_id);
 
                                 $statement->execute();
 
