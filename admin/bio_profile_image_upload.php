@@ -46,10 +46,12 @@ if(is_file($target_dir.$image)){
 if($language == "de"){
     $data['page_bio_image_de']              = "";
     $data['page_bio_image_alt_de']          = "";
+    $data['page_bio_image_copy_de']          = "";
     
 }else{
     $data['page_bio_image_en']              = "";
     $data['page_bio_image_alt_en']          = "";
+    $data['page_bio_image_copy_en']          = "";
 }
 
 
@@ -137,10 +139,12 @@ if ($uploadOk == 0) {
         if($language == "de"){
             $data['page_bio_image_de']              = $new_file_name.".".$imageFileType;
             $data['page_bio_image_alt_de']          = $_POST['page_bio_image_alt'];
+            $data['page_bio_image_copy_de']          = $_POST['page_bio_image_copy'];
             
         }else{
             $data['page_bio_image_en']              = $new_file_name.".".$imageFileType;
             $data['page_bio_image_alt_en']          = $_POST['page_bio_image_alt'];
+            $data['page_bio_image_copy_en']          = $_POST['page_bio_image_copy'];
         }
         
       

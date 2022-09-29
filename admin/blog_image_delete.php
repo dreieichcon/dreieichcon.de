@@ -46,10 +46,12 @@
     if($language == "de"){
         $data['page_blog_image_href_de']         = "";
         $data['page_blog_image_alt_de']          = "";
+        $data['page_blog_image_copy_de']          = "";
         
     }else{
         $data['page_blog_image_href_en']         = "";
         $data['page_blog_image_alt_en']          = "";
+        $data['page_blog_image_copy_en']          = "";
     }
 
 

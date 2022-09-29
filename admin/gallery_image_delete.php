@@ -45,10 +45,12 @@
     if($language == "de"){
         $data['page_gallery_image_href_de']         = "";
         $data['page_gallery_image_alt_de']          = "";
+        $data['page_gallery_image_copy_de']          = "";
         
     }else{
         $data['page_gallery_image_href_en']         = "";
         $data['page_gallery_image_alt_en']          = "";
+        $data['page_gallery_image_copy_en']          = "";
     }
 
 

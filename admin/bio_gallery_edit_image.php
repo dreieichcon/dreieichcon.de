@@ -81,9 +81,14 @@ $target_dir = "../upload/bio_gallery/img/";
                                     $icon = $no_icon;
                                 }
 							}
+							if($data['page_bio_gallery_image_copy_de']!=""){
+								$copy = "<br>&copy " . $data['page_bio_gallery_image_copy_de'];
+							  }else{
+								$copy = "";
+							  }
 							?>
 						<img src="<?php echo $icon; ?>" width="100%"><br>
-                        <?php echo $data['page_bio_gallery_image_alt_de']; ?>
+                        <?php echo $data['page_bio_gallery_image_alt_de']; echo $copy;?>
 					</div>
 					
 					<div class="col-8" >
@@ -98,6 +103,11 @@ $target_dir = "../upload/bio_gallery/img/";
                             <div class="form-group">
                                 <label class="col-form-label" for="page_bio_gallery_image_alt">Alternativ-Text</label>
                                 <input required type="text" name="page_bio_gallery_image_alt"  class="form-control" placeholder="">
+                              </div>
+
+							  <div class="form-group">
+                                <label class="col-form-label" for="page_bio_gallery_image_copy">Copyright</label>
+                                <input  type="text" name="page_bio_gallery_image_copy"  class="form-control" placeholder="">
                               </div>
                             
 
@@ -164,9 +174,14 @@ $target_dir = "../upload/bio_gallery/img/";
                                     $icon = $no_icon;
                                 }
 							}
+							if($data['page_bio_gallery_image_copy_en']!=""){
+								$copy = "<br>&copy " . $data['page_bio_gallery_image_copy_en'];
+							  }else{
+								$copy = "";
+							  }
 							?>
 						<img src="<?php echo $icon; ?>" width="100%"><br>
-                        <?php echo $data['page_bio_gallery_image_alt_en']; ?>
+                        <?php echo $data['page_bio_gallery_image_alt_en']; echo $copy; ?>
 					</div>
 					
 					<div class="col-8" >
@@ -183,6 +198,10 @@ $target_dir = "../upload/bio_gallery/img/";
                                 <input required type="text" name="page_bio_gallery_image_alt"  class="form-control" placeholder="">
                               </div>
                             
+							  <div class="form-group">
+                                <label class="col-form-label" for="page_bio_gallery_image_copy">Copyright</label>
+                                <input  type="text" name="page_bio_gallery_image_copy"  class="form-control" placeholder="">
+                              </div>
 
 							<div class="form-group">
 								<label for="exampleInputFile">Bild hochladen</label>

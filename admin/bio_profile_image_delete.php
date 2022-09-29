@@ -46,10 +46,12 @@
     if($language == "de"){
         $data['page_bio_image_de']              = "";
         $data['page_bio_image_alt_de']          = "";
+        $data['page_bio_image_copy_de']          = "";
         
     }else{
         $data['page_bio_image_en']              = "";
         $data['page_bio_image_alt_en']          = "";
+        $data['page_bio_image_copy_en']          = "";
     }
 
 

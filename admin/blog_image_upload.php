@@ -46,10 +46,12 @@
     if($language == "de"){
         $data['page_blog_image_href_de']         = "";
         $data['page_blog_image_alt_de']          = "";
+        $data['page_blog_image_copy_de']          = "";
         
     }else{
         $data['page_blog_image_href_en']         = "";
         $data['page_blog_image_alt_en']          = "";
+        $data['page_blog_image_copy_en']          = "";
     }
     
   
@@ -137,10 +139,12 @@
             if($language == "de"){
                 $data['page_blog_image_href_de']         = $new_file_name.".".$imageFileType;
                 $data['page_blog_image_alt_de']          = $_POST['page_blog_image_alt'];
+                $data['page_blog_image_copy_de']          = $_POST['page_blog_image_copy'];
                 
             }else{
                 $data['page_blog_image_href_en']         = $new_file_name.".".$imageFileType;
                 $data['page_blog_image_alt_en']          = $_POST['page_blog_image_alt'];
+                $data['page_blog_image_copy_en']          = $_POST['page_blog_image_copy'];
             }
             
           
