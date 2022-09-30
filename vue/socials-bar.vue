@@ -1,9 +1,6 @@
 <template>
     <div class="container-fluid socials-bar gradient-border">
-        <div
-            class="dreieichcon-header"
-            v-html:="globals.get('name', $language)"
-        ></div>
+        <div class="dreieichcon-header"></div>
         <div class="bar-icons gradient-border">
             <template v-for="(link, index) in socials.collection">
                 <a

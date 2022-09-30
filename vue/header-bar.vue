@@ -48,11 +48,11 @@ module.exports = {
         this.emitter.on("navigate", (data) => {
             if (data.id == null) return;
 
-            if (data.id > 1 || data.id.length > 4) {
-                this.toggle(false);
-            } else {
-                this.toggle(true);
-            }
+            // if (data.id > 1 || data.id.length > 4) {
+            //     this.toggle(false);
+            // } else {
+            //     this.toggle(true);
+            // }
         });
     },
     props: ["header"],

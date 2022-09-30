@@ -13,7 +13,10 @@
                         :alt="item.get('image_alt', $language)"
                     />
                 </div>
-                <div class="title" v-html="item.get('title', $language)"></div>
+                <div
+                    class="title-smaller"
+                    v-html="item.get('title', $language)"
+                ></div>
                 <div
                     class="subtitle"
                     v-html="item.get('subtitle', $language)"

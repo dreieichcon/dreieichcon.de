@@ -13,6 +13,10 @@
     --hover: drop-shadow(0px 0px 5px var(--secondary-color));
 }
 
+.container-fluid {
+    max-width: 2000px !important;
+}
+
 html,
 body {
     width: 100vw;
@@ -73,6 +77,12 @@ main::-webkit-scrollbar {
 .title {
     font-weight: 600;
     font-size: larger;
+    color: var(--secondary-color);
+}
+
+.title-smaller {
+    font-weight: 600;
+    font-size: large;
     color: var(--secondary-color);
 }
 
