@@ -25,25 +25,30 @@ table {
 
 tr {
     width: 100%;
+    display: flex;
 }
 
 th {
     color: var(--primary-color);
     padding: 0.25rem 0.75rem;
-    border-bottom: 1px solid;
-    border-image: var(--blend);
-    border-image-slice: 1;
     text-align: center;
-    max-width: calc(20vw - 1.5rem);
-    min-width: 15vw;
 }
 
 td {
-    max-width: calc(20vw - 1.5rem);
-    min-width: 15vw;
     padding: 0.25rem 0.75rem;
     text-align: center;
     word-wrap: break-word;
+}
+
+th,
+td {
+    flex: 1;
+}
+
+.header-row {
+    border-bottom: 1px solid;
+    border-image: var(--blend);
+    border-image-slice: 1;
 }
 
 .row-one {
@@ -89,4 +94,8 @@ td {
 .mobile-heading {
     color: var(--primary-color);
     font-weight: 400;
+}
+
+.web {
+    width: 100%;
 }

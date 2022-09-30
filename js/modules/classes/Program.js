@@ -5,16 +5,28 @@ export class ProgramItem extends TableRow {
         super();
 
         window.debug(data)
-        this.addKvp("Name", data.program_title_de, "de", "title");
-        this.addKvp("Name", data.program_title_en, "en", "title");
-        this.addKvp("Beschreibung", data.program_description_de, "de", "description")
-        this.addKvp("Description", data.program_description_en, "en", "description")
+        this.addKvp("Name", data.event_title_de, "de", "title");
+        this.addKvp("Name", data.event_title_en, "en", "title");
+
+        this.addKvp("Beschreibung", data.event_description_de, "de", "description");
+        this.addKvp("Description", data.event_description_en, "en", "description");
+
         this.addKvp("Ort", data.location_name_de, "de", "location");
         this.addKvp("Location", data.location_name_en, "en", "location");
-        this.addKvp("Beginn", this.formatTimestamp(data.program_start_ts, "de"), "de", "starttime")
-        this.addKvp("Start", this.formatTimestamp(data.program_start_ts, "en"), "en", "starttime")
-        this.addKvp("Zeit bis Start", this.formatTimeUntil(data.program_start_ts, "de"), "de", "timeuntil")
-        this.addKvp("Time until Start", this.formatTimeUntil(data.program_start_ts, "en"), "en", "timeuntil")
+
+        this.addKvp("Typ", data.event_type_de, "de", "type");
+        this.addKvp("Type", data.event_type_en, "en", "type");
+
+        this.addKvp("Beginn", this.formatTimestamp(data.event_start_ts, "de"), "de", "starttime");
+        this.addKvp("Start", this.formatTimestamp(data.event_start_ts, "en"), "en", "starttime");
+
+        this.addKvp("Dauer", this.formatDuration(data.event_start_ts, data.event_end_ts, "de"), "de", "duration");
+        this.addKvp("Duration", this.formatDuration(data.event_start_ts, data.event_end_ts, "en"), "en", "duration");
+
+        this.addKvp("Zeit bis Start", this.formatTimeUntil(data.event_start_ts, data.event_end_ts, "de"), "de", "timeuntil");
+        this.addKvp("Time until Start", this.formatTimeUntil(data.event_start_ts, data.event_end_ts, "en"), "en", "timeuntil");
+
+        this.isRunning = this.isCurrently(data.event_start_ts, data.event_end_ts);
     }
 }
 

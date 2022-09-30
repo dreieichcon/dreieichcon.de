@@ -8,6 +8,11 @@ export class ContentItem {
         this.hours_en = "Hours"
         this.minutes_de = "Minuten"
         this.minutes_en = "Minutes"
+
+        this.running_de = "Läuft gerade."
+        this.running_en = "Currently running."
+        this.over_de = "Bereits vorbei."
+        this.over_en = "Already over."
     }
 
     parseData(input) {
@@ -81,11 +86,20 @@ export class ContentItem {
             return new Intl.DateTimeFormat("en-Gb", { dateStyle: "short", timeStyle: "short" }).format(date).replaceAll(",", "-")
     }
 
-    formatTimeUntil(input, language) {
-        var date = new Date(input * 1000);
-        var now = Date.now()
+    formatTimeUntil(inputStart, inputEnd, language) {
 
-        var diffTime = Math.abs(date - now);
+        var startDate = new Date(inputStart * 1000);
+        var endDate = new Date(inputEnd * 1000);
+        var now = Date.now();
+
+        var isRunning = ((endDate - now) > 0 && (startDate - now) < 0);
+        if (isRunning) return this.get("running", language);
+
+        var isOver = ((endDate - now) < 0)
+        if (isOver) return this.get("over", language);
+
+
+        var diffTime = Math.abs(startDate - now);
 
         if (diffTime < 0) return "";
 
@@ -103,6 +117,31 @@ export class ContentItem {
 
         return Math.round(timeInMinutes) + " " + this.get("minutes", language);
 
+    }
+
+    formatDuration(inputStart, inputEnd, language) {
+        var startDate = new Date(inputStart * 1000);
+        var endDate = new Date(inputEnd * 1000);
+
+        var diffTime = Math.abs(startDate - endDate)
+
+        var timeInDays = diffTime / (1000 * 60 * 60 * 24)
+
+        var timeInHours = timeInDays * 24
+        if (timeInHours > 1) return Math.round(timeInHours) + " " + this.get("hours", language);
+
+        var timeInMinutes = timeInHours * 60
+        return Math.round(timeInMinutes) + " " + this.get("minutes", language);
+    }
+
+    isCurrently(inputStart, inputEnd) {
+        var startDate = new Date(inputStart * 1000);
+        var endDate = new Date(inputEnd * 1000);
+        var now = Date.now();
+
+        var isRunning = ((endDate - now) > 0 && (startDate - now) < 0);
+        if (isRunning) return true;
+        return false;
     }
 }
 

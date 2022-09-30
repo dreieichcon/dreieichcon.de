@@ -41,7 +41,7 @@ export class ApiConnector {
     }
 
     static getProgram() {
-        return this.get("/api/program.php");
+        return this.get("/api/event.php");
     }
 
     static getNav() {

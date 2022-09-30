@@ -1,7 +1,7 @@
 <template>
     <div class="content">
         <table class="web">
-            <tr>
+            <tr class="header-row">
                 <th
                     v-for="(heading, index) in headings"
                     :key="heading"
@@ -60,7 +60,6 @@ module.exports = {
             if (index < count - 1) {
                 return { "border-right": "1px solid var(--borders)" };
             }
-            return { "border-left": "1px solid var(--borders)" };
         },
         getMobileBorders(index, count) {
             if (index < count - 1) {
