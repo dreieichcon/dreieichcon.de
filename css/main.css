@@ -56,6 +56,10 @@
     background: var(--text);
 }
 
+.container-fluid {
+    max-width: 2000px !important;
+}
+
 html,
 body {
     width: 100vw;
