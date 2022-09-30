@@ -11,7 +11,38 @@
     --blend: linear-gradient(to left, var(--primary-color), var(--secondary-color));
     --blend-right: linear-gradient(to left, var(--primary-color), var(--secondary-color) 25%);
     --hover: drop-shadow(0px 0px 5px var(--secondary-color));
+
+    --drop: rgba(0, 0, 0, 0.1);
 }
+
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #8755DD !important;
+
+        --secondary-color: #D90368;
+
+        --background-color: #111 !important;
+        --background-color-alpha: #11111188 !important;
+
+        --gallery-bg: #111 !important;
+
+        --nav-color: #111 !important;
+        --nav-hover: #222 !important;
+
+        --text: #F8F7F9 !important;
+        --borders: #F8F7F9 !important;
+
+        --blend: linear-gradient(to left, var(--primary-color), var(--secondary-color));
+        --blend-right: linear-gradient(to left, var(--primary-color), var(--secondary-color) 25%);
+        --hover: drop-shadow(0px 0px 5px var(--secondary-color));
+
+        --drop: rgba(255, 255, 255, 0.1) !important;
+    }
+}
+
+
+
 
 .container-fluid {
     max-width: 2000px !important;
@@ -67,11 +98,11 @@ main::-webkit-scrollbar {
 }
 
 .d1 {
-    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.1))
+    filter: drop-shadow(1px 1px 1px var(--drop))
 }
 
 .d2 {
-    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.1))
+    filter: drop-shadow(2px 2px 2px var(--drop))
 }
 
 .title {

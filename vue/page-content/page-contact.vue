@@ -15,6 +15,7 @@
                     type="text"
                     :placeholder="name_placeholder"
                     :style="name_error"
+                    class="form-input"
                 />
             </div>
             <div class="form-row">
@@ -27,6 +28,7 @@
                     type="email"
                     :placeholder="mail_placeholder"
                     :style="mail_error"
+                    class="form-input"
                 />
             </div>
             <div class="form-row-text">

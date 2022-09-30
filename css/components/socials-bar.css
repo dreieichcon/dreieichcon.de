@@ -1,5 +1,5 @@
-@media screen and (max-width: 400px){
-    .icon-border{
+@media screen and (max-width: 400px) {
+    .icon-border {
         height: 60% !important;
     }
 }
@@ -65,6 +65,12 @@
     font-size: 2vw;
 }
 
+@media (prefers-color-scheme: dark) {
+    .socials-icon {
+        filter: invert();
+    }
+}
+
 .socials-icon {
     height: 60%;
     aspect-ratio: 1 / 1;
@@ -120,7 +126,7 @@
     display: block;
     position: absolute;
     pointer-events: none;
-    background: white;
+    background: var(--background-color);
     z-index: 5;
     top: 5%;
     left: 5%;

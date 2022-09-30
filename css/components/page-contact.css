@@ -56,6 +56,11 @@
     min-width: 80px;
 }
 
+.form-input {
+    background: var(--background-color);
+    color: var(--text);
+}
+
 .form-title {
     margin-bottom: 0.5rem;
 }
@@ -64,6 +69,8 @@
     width: 100%;
     min-height: 20vh !important;
     font-size: small;
+    background: var(--background-color);
+    color: var(--text);
 }
 
 .form-button {
