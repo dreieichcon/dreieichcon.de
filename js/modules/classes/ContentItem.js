@@ -81,9 +81,9 @@ export class ContentItem {
     formatTimestamp(input, language) {
         var date = new Date(input * 1000);
         if (language == "de")
-            return new Intl.DateTimeFormat("de-de", { dateStyle: "short", timeStyle: "short" }).format(date).replaceAll(",", "-")
+            return new Intl.DateTimeFormat("de-de", { dateStyle: "short", timeStyle: "short" }).format(date).replaceAll(",", " -")
         else
-            return new Intl.DateTimeFormat("en-Gb", { dateStyle: "short", timeStyle: "short" }).format(date).replaceAll(",", "-")
+            return new Intl.DateTimeFormat("en-Gb", { dateStyle: "short", timeStyle: "short" }).format(date).replaceAll(",", " -")
     }
 
     formatTimeUntil(inputStart, inputEnd, language) {
@@ -93,11 +93,12 @@ export class ContentItem {
         var now = Date.now();
 
         var isRunning = ((endDate - now) > 0 && (startDate - now) < 0);
+
         if (isRunning) return this.get("running", language);
 
         var isOver = ((endDate - now) < 0)
-        if (isOver) return this.get("over", language);
 
+        if (isOver) return this.get("over", language);
 
         var diffTime = Math.abs(startDate - now);
 
@@ -116,7 +117,6 @@ export class ContentItem {
         var timeInMinutes = timeInHours * 60
 
         return Math.round(timeInMinutes) + " " + this.get("minutes", language);
-
     }
 
     formatDuration(inputStart, inputEnd, language) {

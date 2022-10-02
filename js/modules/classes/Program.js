@@ -26,7 +26,32 @@ export class ProgramItem extends TableRow {
         this.addKvp("Zeit bis Start", this.formatTimeUntil(data.event_start_ts, data.event_end_ts, "de"), "de", "timeuntil");
         this.addKvp("Time until Start", this.formatTimeUntil(data.event_start_ts, data.event_end_ts, "en"), "en", "timeuntil");
 
+        this.parseImage(data);
+
         this.isRunning = this.isCurrently(data.event_start_ts, data.event_end_ts);
+    }
+
+    parseImage(data) {
+
+        if (data.event_image_href_de === null)
+            this.set("iImage_de", false);
+
+        else
+            this.set("iImage_de", new ImageItem(
+                data.event_image_href_de,
+                data.event_image_alt_de,
+                data.event_image_copy_de
+            ))
+
+        if (data.event_image_href_en == null)
+            this.set("iImage_en", false);
+
+        else
+            this.set("iImage_en", new ImageItem(
+                data.event_image_href_en,
+                data.event_image_alt_en,
+                data.event_image_copy_en
+            ))
     }
 }
 

@@ -5,7 +5,7 @@
                 <th
                     v-for="(heading, index) in headings"
                     :key="heading"
-                    :style="getBorderStyle(index, headings.length)"
+                    :style="getTableStyle(index, headings.length)"
                 >
                     {{ heading }}
                 </th>
@@ -15,7 +15,7 @@
                     v-for="(data, i) in row.getTableRow($language)"
                     :key="data"
                     v-html="data.data"
-                    :style="getBorderStyle(i, headings.length)"
+                    :style="getTableStyle(i, headings.length)"
                     :class="getRowStyle(rowindex)"
                 ></td>
             </tr>
@@ -56,10 +56,19 @@ module.exports = {
             }
             return "row-one";
         },
-        getBorderStyle(index, count) {
+        getTableStyle(index, count) {
+            var percentage = 100 / count + "%";
+
+            var returner = {
+                "max-width": percentage,
+                "min-width": percentage,
+            };
+
             if (index < count - 1) {
-                return { "border-right": "1px solid var(--borders)" };
+                returner["border-right"] = "1px solid var(--borders)";
             }
+
+            return returner;
         },
         getMobileBorders(index, count) {
             if (index < count - 1) {
