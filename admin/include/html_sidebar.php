@@ -95,7 +95,7 @@
 
 		array_push($navigation, new nav_item("ADMINISTRATION", "", "", true));
 		array_push($navigation, new nav_item("Benutzer", "admin_user", "fas fa-user"));
-		array_push($navigation, new nav_item("Globals", "globals", "fas fa-globe-europe"));
+		array_push($navigation, new nav_item("Globals", "admin_globals", "fas fa-globe-europe"));
 		array_push($navigation, new nav_item("Social-Links", "admin_socials", "fas fa-icons"));
 		array_push($navigation, new nav_item("Icon-Liste", "admin_icon_list", "fas fa-icons"));
 

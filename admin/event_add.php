@@ -145,6 +145,21 @@
                             </div>
                         </div>
                         
+                        <div class="row">
+                            <div class="col-6">
+                              <div class="form-group">
+                                <label class="col-form-label" for="event_description_short_de">Kurz-Beschreibung Deutsch</label>
+                                <textarea required name="event_description_short_de" id="event_description_short_de" class="form-control" placeholder=""></textarea>
+                              </div>
+                            </div>
+
+                            <div class="col-6">
+                              <div class="form-group">
+                                <label class="col-form-label" for="event_description_short_en">Kurz-Beschreibung Englisch</label>
+                                <textarea required name="event_description_short_en" id="event_description_short_en" class="form-control" placeholder=""></textarea>
+                              </div>
+                            </div>
+                        </div>
                         
                         <div class="row">
                             <div class="col-6">
@@ -161,6 +176,8 @@
                               </div>
                             </div>
                         </div>
+
+                       
 
 
                         <div class="row">

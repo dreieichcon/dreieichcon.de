@@ -5,6 +5,8 @@
 
 .deactivated{
 	text-decoration: line-through;
+	text-decoration-style: double;
+	text-decoration-color: red;
 }
 
 .hidden{

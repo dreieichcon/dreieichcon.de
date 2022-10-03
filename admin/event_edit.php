@@ -198,6 +198,22 @@ if(count($db_array)>0){
                               </div>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                              <div class="form-group">
+                                <label class="col-form-label" for="event_description_short_de">Kurz-Beschreibung Deutsch</label>
+                                <textarea required name="event_description_short_de" id="event_description_short_de" class="form-control" placeholder=""><?php echo $data['event_description_short_de'] ;?></textarea>
+                              </div>
+                            </div>
+
+                            <div class="col-6">
+                              <div class="form-group">
+                                <label class="col-form-label" for="event_description_short_en">Kurz-Beschreibung Englisch</label>
+                                <textarea required name="event_description_short_en" id="event_description_short_en" class="form-control" placeholder=""><?php echo $data['event_description_short_en'] ;?></textarea>
+                              </div>
+                            </div>
+                        </div>
                         
                         
                         <div class="row">
@@ -406,7 +422,7 @@ if(count($db_array)>0){
 	<div class="col-8">
 		<div class="card">
 			<div class="card-header">
-				<h3 class="card-title">Gastgeber (Hosts)</h3>
+				<h3 class="card-title">Gäste</h3>
 				
 				<div class="card-tools">
 				
