@@ -14,6 +14,8 @@ class BlogPost extends ContentItem {
         this.set("image_en", data.page_blog_image_href_en)
         this.set("image_alt_de", data.page_blog_image_alt_de)
         this.set("image_alt_en", data.page_blog_image_alt_en)
+        this.set("image_copy_de", data.page_blog_image_copy_de)
+        this.set("image_copy_en", data.page_blog_image_copy_en)
         this.base = "/upload/blog/img/"
 
         this.hasTitle = true;
@@ -34,6 +36,9 @@ class BlogImage extends ContentItem {
         this.set("image_en", data.page_blog_image_href_en)
         this.set("image_alt_de", data.page_blog_image_alt_de)
         this.set("image_alt_en", data.page_blog_image_alt_en)
+        this.set("image_copy_de", data.page_blog_image_copy_de)
+        this.set("image_copy_en", data.page_blog_image_copy_en)
+
         this.base = "/upload/blog/img/"
 
         if (data.page_blog_content_type === "picture_noheadline")

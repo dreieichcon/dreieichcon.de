@@ -23,6 +23,10 @@
                                     :src="entry.getImage($language)"
                                     :alt="entry.get('image_alt', $language)"
                                 />
+                                <div
+                                    class="bio-image-subtitle"
+                                    v-html="entry.get('image_copy', $language)"
+                                ></div>
                             </div>
                             <div class="bio-title-container">
                                 <div

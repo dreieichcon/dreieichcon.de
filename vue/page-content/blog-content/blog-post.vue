@@ -13,6 +13,10 @@
                             :src="post.getImage($language)"
                             :alt="post.get('image_alt', $language)"
                         />
+                        <div
+                            class="blog-image-subtitle"
+                            v-html="post.get('image_copy', $language)"
+                        ></div>
                     </div>
                     <div class="blog-title-wrapper">
                         <div

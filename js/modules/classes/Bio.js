@@ -4,16 +4,20 @@ import { Gallery, GalleryImage } from "./Gallery.js";
 export class BioItem extends ContentItem {
     constructor(data) {
         super();
-        this.title_de = data.page_bio_name_de;
-        this.title_en = data.page_bio_name_en;
-        this.short_de = data.page_bio_short_bio_de;
-        this.short_en = data.page_bio_short_bio_en;
-        this.content_de = data.page_bio_content_de;
-        this.content_en = data.page_bio_content_en;
-        this.image_de = data.page_bio_image_de;
-        this.image_en = data.page_bio_image_en;
-        this.image_alt_de = data.page_bio_image_alt_de;
-        this.image_alt_en = data.page_bio_image_alt_en;
+        this.set("title_de", data.page_bio_name_de);
+        this.set("title_en", data.page_bio_name_en);
+        this.set("short_de", data.page_bio_short_bio_de);
+        this.set("short_en", data.page_bio_short_bio_en);
+        this.set("content_de", data.page_bio_content_de);
+        this.set("content_en", data.page_bio_content_en);
+        this.set("image_de", data.page_bio_image_de);
+        this.set("image_en", data.page_bio_image_en);
+        this.set("image_alt_de", data.page_bio_image_alt_de);
+        this.set("image_alt_en", data.page_bio_image_alt_en);
+
+        this.set("image_copy_de", data.page_bio_image_copy_de);
+        this.set("image_copy_en", data.page_bio_image_copy_de);
+
         this.base = "/upload/bio_profile/img/";
     }
 }

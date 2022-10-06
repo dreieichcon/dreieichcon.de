@@ -99,3 +99,15 @@ td {
 .web {
     width: 100%;
 }
+
+.tablehover {
+    background: transparent;
+}
+
+.tablehover:hover {
+    background: var(--background-hover);
+}
+
+.tablehover:hover>td {
+    background: transparent !important;
+}

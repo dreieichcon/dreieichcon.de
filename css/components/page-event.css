@@ -1,0 +1,118 @@
+@media screen and (max-width: 512px) {
+    .event-image-wrapper {
+        display: none;
+    }
+
+    .event-image {
+        width: 80% !important;
+        padding-bottom: 1rem;
+    }
+
+    .event-table-title {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+
+    .event-top-wrapper {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        width: 100%;
+    }
+
+    .event-image-wrapper {
+        align-items: center;
+        float: none;
+        min-width: 50vw;
+        padding-bottom: 1rem
+    }
+
+    .event-image-container {
+        flex-direction: row !important;
+        width: 100%;
+    }
+}
+
+.event-separator {
+    height: 1px;
+    background-color: var(--borders);
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.event-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    padding-right: 1rem;
+}
+
+.event-image-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.event-top-wrapper {
+    display: flex;
+}
+
+.event-title-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.event-image-wrapper {
+    max-width: 30vw;
+    min-width: 25%;
+    height: 40vh;
+    margin-right: 1rem;
+    float: left;
+}
+
+.event-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.event-title {
+    font-weight: 600;
+    font-size: larger;
+    color: var(--secondary-color);
+}
+
+.event-image-subtitle {
+    margin-top: 0.25rem;
+    margin-left: 0.25rem;
+    font-style: italic;
+    font-weight: 300;
+}
+
+.event-description {
+    word-wrap: anywhere !important;
+}
+
+.event-table {
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+}
+
+.event-table-row {
+    display: flex;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.event-table-title {
+    width: 30%;
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.event-table-item {}

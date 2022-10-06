@@ -13,6 +13,7 @@ export class ApiConnector {
             .get(this.buildLink(endpoint))
             .then(
                 result => {
+                    console.log(result.data)
                     resolve(result.data)
                 }
             ).catch(error => {
@@ -40,7 +41,11 @@ export class ApiConnector {
         return this.get("/api/page.php?page_id=" + id)
     }
 
-    static getProgram() {
+    static getProgram(id) {
+        if (id != null && id != undefined) {
+            return this.get("/api/event.php?event_id=" + id);
+        }
+
         return this.get("/api/event.php");
     }
 

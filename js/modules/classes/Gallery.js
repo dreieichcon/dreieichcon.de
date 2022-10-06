@@ -3,15 +3,18 @@ import { ContentItem, ContentCollection } from "./ContentItem.js";
 export class GalleryImage extends ContentItem {
     constructor(data) {
         super();
-        this.title_de = data.page_gallery_text_de;
-        this.title_en = data.page_gallery_text_en;
-        this.subtitle_de = "";
-        this.subtitle_en = "";
-        this.image_de = data.page_gallery_image_href_de
-        this.image_en = data.page_gallery_image_href_en;
-        this.image_alt_de = data.page_gallery_image_alt_de;
-        this.image_alt_en = data.page_gallery_image_alt_en;
-        this.page_id = data.page_id_link;
+        this.set("title_de", data.page_gallery_text_de);
+        this.set("title_en", data.page_gallery_text_en);
+        this.set("subtitle_de", "");
+        this.set("subtitle_en", "");
+        this.set("image_de", data.page_gallery_image_href_de);
+        this.set("image_en", data.page_gallery_image_href_en);
+        this.set("image_alt_de", data.page_gallery_image_alt_de);
+        this.set("image_alt_en", data.page_gallery_image_alt_en);
+        this.set("page_id", data.page_id_link);
+
+        this.set("image_copy_de", data.page_gallery_image_copy_de);
+        this.set("image_copy_en", data.page_gallery_image_copy_en);
         this.base = ""
         this.page_href = null;
 
@@ -47,7 +50,9 @@ export class Gallery extends ContentCollection {
             page_gallery_image_alt_de: data.page_bio_gallery_image_alt_de,
             page_gallery_image_alt_en: data.page_bio_gallery_image_alt_en,
             page_gallery_text_de: data.page_bio_gallery_text_de,
-            page_gallery_text_en: data.page_bio_gallery_text_en
+            page_gallery_text_en: data.page_bio_gallery_text_en,
+            page_gallery_image_copy_de: data.page_bio_gallery_image_copy_de,
+            page_gallery_image_copy_en: data.page_bio_gallery_image_copy_en,
         };
         return d;
     }

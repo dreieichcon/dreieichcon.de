@@ -6,6 +6,7 @@ import { Socials } from "./classes/Socials.js";
 import { Gallery } from "./classes/Gallery.js";
 import { Bio } from "./classes/Bio.js";
 import { Error } from "./classes/Error.js";
+import { EventInfo } from "./classes/EventInfo.js";
 
 export class ContentManager {
     constructor() {
@@ -13,6 +14,10 @@ export class ContentManager {
     }
 
     static getPage(id) {
+
+        if (id.startsWith("eventinfo"))
+            return this.loadProgramSubPage(id);
+
         switch (id) {
             case "contact":
                 return this.loadContactPage();
@@ -23,6 +28,19 @@ export class ContentManager {
             default:
                 return this.loadNavigationPage(id)
         }
+    }
+
+    static loadProgramSubPage(id) {
+
+        var subId = id.split("&e=")[1]
+        console.log(subId)
+        console.log("--------")
+
+        return new Promise((resolve, reject) => {
+            ApiConnector.getProgram(subId)
+                .then(result => resolve(this.getPageContent(result[0])))
+                .catch(error => reject(this.loadErrorPage(error)))
+        })
     }
 
     static loadNavigationPage(id) {
@@ -44,6 +62,9 @@ export class ContentManager {
     }
 
     static getPageContent(data) {
+
+        console.log(data)
+
         switch (data.page_type) {
             case "blog":
                 return new Blog(data);
@@ -51,6 +72,8 @@ export class ContentManager {
                 return new Gallery(data);
             case "bio":
                 return new Bio(data);
+            case "event_info":
+                return new EventInfo(data);
         }
     }
 

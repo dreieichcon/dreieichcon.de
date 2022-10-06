@@ -3,6 +3,7 @@
     --secondary-color: #D90368;
     --background-color: #fff;
     --background-color-alpha: #ffffff88;
+    --background-hover: #B798EB;
     --nav-color: #fff;
     --gallery-bg: #eee;
     --nav-hover: #eee;
@@ -24,6 +25,7 @@
 
         --background-color: #111 !important;
         --background-color-alpha: #11111188 !important;
+        --background-hover: #2A1155;
 
         --gallery-bg: #111 !important;
 
@@ -41,11 +43,17 @@
     }
 }
 
-
-
-
 .container-fluid {
     max-width: 2000px !important;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: var(--text);
 }
 
 html,
@@ -82,11 +90,6 @@ main {
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
-    justify-content: space-between;
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
 }
 
 main::-webkit-scrollbar {

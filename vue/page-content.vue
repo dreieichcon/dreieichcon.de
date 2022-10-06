@@ -36,6 +36,13 @@
             ></div>
             <page-gallery v-bind:gallery="content"></page-gallery>
         </template>
+        <template v-if="content.type === 'event_info'">
+            <div
+                class="main-title"
+                v-html="content.get('title', $language)"
+            ></div>
+            <page-event v-bind:event="content"></page-event>
+        </template>
         <template v-if="content.type === 'bio'">
             <div
                 class="main-title"
@@ -81,6 +88,9 @@ module.exports = {
         ),
         "page-error": Vue.defineAsyncComponent(() =>
             loadModule("vue/page-content/page-error.vue", window.options)
+        ),
+        "page-event": Vue.defineAsyncComponent(() =>
+            loadModule("vue/page-content/page-event.vue", window.options)
         ),
     },
 };

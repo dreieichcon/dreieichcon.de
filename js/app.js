@@ -15,16 +15,26 @@ var app = Vue.createApp({
 
         var params = new URLSearchParams(window.location.search);
         var page = 1
+        var subPage = null;
 
-        if (params.has("p"))
+        var toNav = null;
+
+        if (params.has("p")) {
             page = params.get("p");
+            toNav = page;
+        }
+
+        if (params.has("e")) {
+            subPage = params.get("e");
+            toNav += "&e=" + subPage
+        }
 
         NavManager.getNav()
             .then(nav => this.nav = NavManager.createNav(nav))
             .finally(
                 e => setTimeout(q => {
                     this.emitter.emit("loading", { nav: false })
-                    this.emitter.emit("navigate", { id: page });
+                    this.emitter.emit("navigate", { id: toNav });
                 }
                     , 250
                 )
@@ -41,6 +51,8 @@ var app = Vue.createApp({
     methods: {
         navigate(data) {
 
+            console.log("navigate, data: " + data)
+
             if (data.href != undefined) {
                 window.location.href = data.href;
                 return;
@@ -55,7 +67,9 @@ var app = Vue.createApp({
             window.history.replaceState("", "EEE", window.location.origin + "?p=" + data.id);
 
             ContentManager.getPage(data.id)
-                .then(result => this.activePage = result)
+                .then(result => {
+                    this.activePage = result
+                })
                 .catch(result => this.activePage = result)
                 .finally((e) => {
                     setTimeout(function () {

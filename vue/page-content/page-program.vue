@@ -1,6 +1,10 @@
 <template>
     <div class="container-fluid program-wrapper">
-        <vue-table :headings="program.headings" :rows="program.rows">
+        <vue-table
+            :headings="program.headings"
+            :rows="program.rows"
+            :clickable="true"
+        >
         </vue-table>
     </div>
 </template>

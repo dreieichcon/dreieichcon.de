@@ -21,6 +21,10 @@
                         class="blog-image-subtitle"
                         v-html="post.get('subtitle', $language)"
                     ></div>
+                    <div
+                        class="blog-image-subtitle"
+                        v-html="post.get('image_copy', $language)"
+                    ></div>
                 </div>
             </div>
         </div>

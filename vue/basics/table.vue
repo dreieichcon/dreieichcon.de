@@ -10,7 +10,13 @@
                     {{ heading }}
                 </th>
             </tr>
-            <tr v-for="(row, rowindex) in rows" :key="row">
+            <tr
+                v-for="(row, rowindex) in rows"
+                :key="row"
+                :style="getPointerStyle()"
+                :class="getRowClass()"
+                @click="clickAction(row)"
+            >
                 <td
                     v-for="(data, i) in row.getTableRow($language)"
                     :key="data"
@@ -47,7 +53,7 @@ module.exports = {
         return {};
     },
     created() {},
-    props: ["headings", "rows"],
+    props: ["headings", "rows", "clickable"],
     mounted() {},
     methods: {
         getRowStyle(index) {
@@ -74,6 +80,24 @@ module.exports = {
             if (index < count - 1) {
                 return { "border-bottom": "1px solid" };
             }
+        },
+        getPointerStyle() {
+            if (this.clickable === undefined) return {};
+
+            if (this.clickable) return { cursor: "pointer" };
+        },
+        clickAction(row) {
+            if (this.clickable === undefined) return;
+            if (!this.clickable) return;
+
+            if (row.action === "navigate") {
+                this.emitter.emit("navigate", { id: row.href });
+            }
+        },
+        getRowClass() {
+            if (this.clickable === undefined) return;
+            if (!this.clickable) return;
+            return "tablehover";
         },
     },
     components: {},
