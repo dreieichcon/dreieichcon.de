@@ -69,36 +69,42 @@
 
   $return_array = array();
 
-$sql		= "SELECT * FROM event e, event_type t, location l WHERE e.location_id = l.location_id AND e.event_type_id = t.event_type_id AND e.event_show = 1 ORDER BY e.event_start_ts ASC, l.location_name_de ASC";
-                                                        
-$pdo 		= new PDO($pdo_mysql, $pdo_db_user, $pdo_db_pwd);
+  if(isset($_GET['event_id'])){
+    $sql		= "SELECT * FROM event e, event_type t, location l WHERE e.location_id = l.location_id AND e.event_type_id = t.event_type_id AND e.event_show = 1 AND e.event_id = :eventid ORDER BY e.event_start_ts ASC, l.location_name_de ASC";
+  }else{
+    $sql		= "SELECT * FROM event e, event_type t, location l WHERE e.location_id = l.location_id AND e.event_type_id = t.event_type_id AND e.event_show = 1 ORDER BY e.event_start_ts ASC, l.location_name_de ASC";
+  }
 
-$statement	= $pdo->prepare($sql);
 
-//$statement->bindParam(':page_id', $page_id);
+                                                          
+  $pdo 		= new PDO($pdo_mysql, $pdo_db_user, $pdo_db_pwd);
 
-$statement->execute();
+  $statement	= $pdo->prepare($sql);
+  if(isset($_GET['event_id'])){
+    $statement->bindParam(':eventid', $_GET['event_id']);
+  }
+  $statement->execute();
 
-$blog = array();
+  $blog = array();
 
-while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-    foreach ($row as $key => $value){
-        $row[$key] = db_parse($value);
-    }
+  while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+      foreach ($row as $key => $value){
+          $row[$key] = db_parse($value);
+      }
 
-    $row['participants'] = get_participants($row['event_id']);
-    $row['hosts']        = get_hosts($row['event_id']);
+      $row['participants'] = get_participants($row['event_id']);
+      $row['hosts']        = get_hosts($row['event_id']);
 
-    array_push($return_array, $row);
-}
-    if(isset($_GET['debug'])){
-      echo"<pre>";
-      print_r($return_array);
-      echo"</pre>";
-    }else{
-      header('Content-Type: application/json');
-      echo json_encode($return_array);
-    }
+      array_push($return_array, $row);
+  }
+      if(isset($_GET['debug'])){
+        echo"<pre>";
+        print_r($return_array);
+        echo"</pre>";
+      }else{
+        header('Content-Type: application/json');
+        echo json_encode($return_array);
+      }
 
 
 ?>
