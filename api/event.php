@@ -92,6 +92,10 @@
           $row[$key] = db_parse($value);
       }
 
+      if(isset($_GET['event_id'])){
+        $row['page_type'] = "event_info";
+      }
+
       $row['participants'] = get_participants($row['event_id']);
       $row['hosts']        = get_hosts($row['event_id']);
 
