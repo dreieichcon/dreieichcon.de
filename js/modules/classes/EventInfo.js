@@ -35,6 +35,8 @@ export class EventInfo extends ContentItem {
         this.set("event_timeuntil_title_en", "Starts in:")
         this.set("event_timeuntil_de", this.formatTimeUntil(data.event_start_ts, data.event_end_ts, "de"))
         this.set("event_timeuntil_en", this.formatTimeUntil(data.event_start_ts, data.event_end_ts, "en"))
+
+        this.base = "/upload/event/img/"
     }
 }
 

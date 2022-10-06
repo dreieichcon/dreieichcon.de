@@ -29,7 +29,7 @@ export class ProgramItem extends TableRow {
         this.isRunning = this.isCurrently(data.event_start_ts, data.event_end_ts);
 
         this.action = "navigate"
-        this.href = "eventinfo&?e=" + data.event_id;
+        this.href = "eventinfo&e=" + data.event_id;
     }
 }
 
