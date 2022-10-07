@@ -41,7 +41,7 @@ export class ContentItem {
         const underlinedGex = /(\[u\])([\s\S]+?)(\[\/u\])/g
         ret = ret.replaceAll(underlinedGex, "<u>$2</u>")
 
-        const linkGex = /(\[)(\S[^\]]{2,})(\])(\()([\S\s]+)(\))/g
+        const linkGex = /(\[)(\S[^\]]{2,})(\])(\()([\S\s]+?)(\))/g
         ret = ret.replaceAll(linkGex, "<a class='textlink' target='_blank' href=$2>$5</a>")
 
         return ret;
