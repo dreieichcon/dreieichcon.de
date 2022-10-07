@@ -17,7 +17,7 @@ var app = Vue.createApp({
         var page = 1
         var subPage = null;
 
-        var toNav = null;
+        var toNav = page;
 
         if (params.has("p")) {
             page = params.get("p");
