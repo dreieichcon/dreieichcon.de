@@ -15,8 +15,13 @@ export class ContentManager {
 
     static getPage(id) {
 
-        if (id.startsWith("eventinfo"))
-            return this.loadProgramSubPage(id);
+        try {
+            if (id.startsWith("eventinfo"))
+                return this.loadProgramSubPage(id);
+        }
+        catch {
+
+        }
 
         switch (id) {
             case "contact":
