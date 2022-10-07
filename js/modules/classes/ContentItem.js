@@ -20,17 +20,29 @@ export class ContentItem {
         ret = ret.replaceAll("\n", "<br/>")
         ret = ret.replaceAll("\\n", "<br/>")
 
-        const ampGex = "&[amp;]+"
-        const quotGex = "&[quot;]+"
-        const apoGex = "&[apos;]+"
-        const ltGex = "&[lt;]+"
-        const gtGex = "&[gt;]+"
+        const ampGex = /&[amp;]+/g
+        const quotGex = /&[quot;]+/g
+        const apoGex = /&[apos;]+/g
+        const ltGex = /&[lt;]+/g
+        const gtGex = /&[gt;]+/g
 
         ret = ret.replaceAll(ampGex, "&")
         ret = ret.replaceAll(apoGex, "'")
         ret = ret.replaceAll(quotGex, '"')
         ret = ret.replaceAll(ltGex, '<')
         ret = ret.replaceAll(gtGex, '>')
+
+        const boldGex = /(\[b\])([\s\S]+?)(\[\/b\])/g
+        ret = ret.replaceAll(boldGex, "<strong>$2</strong>")
+
+        const italicGex = /(\[i\])([\s\S]+?)(\[\/i\])/g
+        ret = ret.replaceAll(italicGex, "<em>$2</em>")
+
+        const underlinedGex = /(\[u\])([\s\S]+?)(\[\/u\])/g
+        ret = ret.replaceAll(underlinedGex, "<u>$2</u>")
+
+        const linkGex = /(\[)(\S[^\]]{2,})(\])(\()([\S\s]+)(\))/g
+        ret = ret.replaceAll(linkGex, "<a class='textlink' target='_blank' href=$2>$5</a>")
 
         return ret;
     }

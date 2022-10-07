@@ -36,7 +36,45 @@ export class EventInfo extends ContentItem {
         this.set("event_timeuntil_de", this.formatTimeUntil(data.event_start_ts, data.event_end_ts, "de"))
         this.set("event_timeuntil_en", this.formatTimeUntil(data.event_start_ts, data.event_end_ts, "en"))
 
+        this.set("host_title_de", "Moderation:")
+        this.set("host_title_en", "Hosting:")
+
+        this.set("host_content_de", this.formatHosts(data.hosts))
+        this.set("host_content_en", this.formatHosts(data.hosts))
+
+        this.set("guests_title_de", "Zu Gast:")
+        this.set("guests_title_en", "Guest(s):")
+
+        this.set("guests_content_de", this.formatParticipants(data.participants))
+        this.set("guests_content_de", this.formatParticipants(data.participants))
+
         this.base = "/upload/event/img/"
+    }
+
+    formatHosts(data) {
+
+        if (data.length === 0) return null;
+
+        var hosts = []
+
+        data.forEach(host => {
+            hosts.push(host.page_bio_name_de)
+        })
+
+        return hosts.join(", ")
+    }
+
+    formatParticipants(data) {
+
+        if (data.length === 0) return null;
+
+        var guests = []
+
+        data.forEach(guest => {
+            guests.push(guest.page_bio_name_de)
+        })
+
+        return guests.join(", ")
     }
 }
 

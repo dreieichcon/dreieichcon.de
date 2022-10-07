@@ -56,10 +56,6 @@
     background: var(--text);
 }
 
-.container-fluid {
-    max-width: 2000px !important;
-}
-
 html,
 body {
     width: 100vw;
@@ -126,4 +122,10 @@ main::-webkit-scrollbar {
 
 .subtitle {
     font-size: small;
+}
+
+a.textlink {
+    text-decoration: underline !important;
+    cursor: pointer;
+    color: var(--secondary-color) !important;
 }
