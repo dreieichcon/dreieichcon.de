@@ -17,7 +17,7 @@
     .blog-image {
         float: none;
         min-width: 50vw;
-        padding-bottom: 1rem;
+        padding-bottom: 2rem;
     }
 
     .blog-image-image {
@@ -91,6 +91,7 @@
 .blog-image {
     min-width: 25%;
     height: 40vh;
+    padding-bottom: 1rem;
 }
 
 .blog-image-image {
