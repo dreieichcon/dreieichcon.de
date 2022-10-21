@@ -1,5 +1,6 @@
 import { ApiConnector } from "./ApiConnector.js";
 import { Program } from "./classes/Program.js";
+import { GameOverview } from "./classes/Games.js";
 import { Contact } from "./classes/Contact.js";
 import { Blog } from "./classes/Blog.js";
 import { Socials } from "./classes/Socials.js";
@@ -29,6 +30,9 @@ export class ContentManager {
 
             case "program":
                 return this.loadProgramPage();
+
+            case "games":
+                return this.loadGamesPage();
 
             default:
                 return this.loadNavigationPage(id)
@@ -87,6 +91,15 @@ export class ContentManager {
             (resolve, reject) => {
                 ApiConnector.getProgram()
                     .then(result => resolve(new Program(result)))
+                    .catch(error => reject(this.loadErrorPage(error)))
+            })
+    }
+
+    static loadGamesPage() {
+        return new Promise(
+            (resolve, reject) => {
+                ApiConnector.getGames()
+                    .then(result => resolve(new GameOverview(result)))
                     .catch(error => reject(this.loadErrorPage(error)))
             })
     }
