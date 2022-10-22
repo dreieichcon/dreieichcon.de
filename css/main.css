@@ -92,10 +92,6 @@ main {
     overflow-y: scroll;
 }
 
-main::-webkit-scrollbar {
-    display: none;
-}
-
 .h100 {
     height: 100% !important;
 }
