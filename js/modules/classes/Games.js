@@ -18,11 +18,13 @@ export class GameItem extends TableRow {
 
         this.addKvp("System", data.con_convention_rpg_system, "de", "system");
 
+        this.addKvp("Typ", this.parseTags(data.con_convention_rpg_tags), "de", "tags");
+
         this.addKvp("Rundenname", data.con_convention_rpg_title, "de", "title");
 
-        this.addKvp("Spielleiter", this.parseGameMaster(user, alias), "de", "leader")
+        this.addKvp("Spielleitende", this.parseGameMaster(user, alias), "de", "leader")
 
-        this.addKvp("Angemeldete Spieler", this.calculateSlots(max, current), "de", "players")
+        this.addKvp("Spielende", this.calculateSlots(max, current), "de", "players")
 
         this.addKvp("Dauer", data.con_convention_rpg_duration + " Stunden", "de", "duration")
 
@@ -43,6 +45,16 @@ export class GameItem extends TableRow {
     parseGameMaster(user, alias) {
         if (alias === undefined || alias === null) return user;
         return alias;
+    }
+
+    parseTags(tags) {
+        var tagNames = []
+
+        tags.forEach(x => {
+            tagNames.push(x.con_convention_rpg_tag_name)
+        })
+
+        return tagNames.join(", ");
     }
 }
 export class GameGroup extends TableCollection {

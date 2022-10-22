@@ -13,7 +13,7 @@ export class ApiConnector {
             .get(this.buildLink(endpoint))
             .then(
                 result => {
-                    console.log(result.data)
+                    console.log(result)
                     resolve(result.data)
                 }
             ).catch(error => {
