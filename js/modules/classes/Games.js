@@ -31,7 +31,7 @@ export class GameItem extends TableRow {
         this.addKvp("Zeit bis Start", this.formatTimeUntil(start_ts, end_ts, "de"), "de", "timeuntil");
 
         this.action = "external"
-        this.href = "https://conservices.de/index.php?page=game_details&game_secret=" + data.con_convention_rpg_secret;
+        this.href = "https://conservices.de/index.php?page=game_details&game_secret=" + data.con_convention_rpg_secret + "&from_external";
     }
 
     calculateSlots(max, current) {
