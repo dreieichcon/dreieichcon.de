@@ -98,6 +98,14 @@ export class ContentItem {
             return new Intl.DateTimeFormat("en-Gb", { dateStyle: "short", timeStyle: "short" }).format(date).replaceAll(",", " -")
     }
 
+    formatTimestampTime(input, language) {
+        var date = new Date(input * 1000);
+        if (language == "de")
+            return new Intl.DateTimeFormat("de-de", { dateStyle: "short", timeStyle: "short" }).format(date).replaceAll(",", " -").split("-")[1];
+        else
+            return new Intl.DateTimeFormat("en-Gb", { dateStyle: "short", timeStyle: "short" }).format(date).replaceAll(",", " -").split("-")[1];
+    }
+
     formatTimeUntil(inputStart, inputEnd, language) {
 
         var startDate = new Date(inputStart * 1000);

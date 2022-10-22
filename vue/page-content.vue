@@ -43,6 +43,13 @@
             ></div>
             <page-event v-bind:event="content"></page-event>
         </template>
+        <template v-if="content.type === 'games'">
+            <div
+                class="main-title"
+                v-html="content.get('title', $language)"
+            ></div>
+            <page-games v-bind:games="content"></page-games>
+        </template>
         <template v-if="content.type === 'bio'">
             <div
                 class="main-title"
@@ -91,6 +98,9 @@ module.exports = {
         ),
         "page-event": Vue.defineAsyncComponent(() =>
             loadModule("vue/page-content/page-event.vue", window.options)
+        ),
+        "page-games": Vue.defineAsyncComponent(() =>
+            loadModule("vue/page-content/page-games.vue", window.options)
         ),
     },
 };

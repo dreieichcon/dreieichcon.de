@@ -1,52 +1,111 @@
+import { ContentItem } from "./ContentItem.js";
 import { TableCollection, TableRow, TableKvP } from "./Table.js";
 
 export class GameItem extends TableRow {
     constructor(data) {
         super();
 
+        var start_ts = data.con_convention_rpg_start_ts;
+        var end_ts = start_ts + parseInt(data.con_convention_rpg_duration) * 60 * 60;
+        var user = data.con_user_full;
+        var alias = data.con_convention_rpg_alias_master;
+        var max = data.con_convention_rpg_player_max;
+        var current = data.con_convention_rpg_player_joined;
+
         window.debug(data)
-        // this.addKvp("Name", data.event_title_de, "de", "title");
-        // this.addKvp("Name", data.event_title_en, "en", "title");
 
-        // this.addKvp("Beschreibung", data.event_description_short_de, "de", "description");
-        // this.addKvp("Description", data.event_description_short_en, "en", "description");
+        this.addKvp("Beginn", this.formatTimestampTime(start_ts, "de"), "de", "starttime");
 
-        // this.addKvp("Ort", data.location_name_de, "de", "location");
-        // this.addKvp("Location", data.location_name_en, "en", "location");
+        this.addKvp("System", data.con_convention_rpg_system, "de", "system");
 
-        // this.addKvp("Typ", data.event_type_de, "de", "type");
-        // this.addKvp("Type", data.event_type_en, "en", "type");
+        this.addKvp("Rundenname", data.con_convention_rpg_title, "de", "title");
 
-        // this.addKvp("Beginn", this.formatTimestamp(data.event_start_ts, "de"), "de", "starttime");
-        // this.addKvp("Start", this.formatTimestamp(data.event_start_ts, "en"), "en", "starttime");
+        this.addKvp("Spielleiter", this.parseGameMaster(user, alias), "de", "leader")
 
-        // this.addKvp("Dauer", this.formatDuration(data.event_start_ts, data.event_end_ts, "de"), "de", "duration");
-        // this.addKvp("Duration", this.formatDuration(data.event_start_ts, data.event_end_ts, "en"), "en", "duration");
+        this.addKvp("Angemeldete Spieler", this.calculateSlots(max, current), "de", "players")
 
-        // this.addKvp("Zeit bis Start", this.formatTimeUntil(data.event_start_ts, data.event_end_ts, "de"), "de", "timeuntil");
-        // this.addKvp("Time until Start", this.formatTimeUntil(data.event_start_ts, data.event_end_ts, "en"), "en", "timeuntil");
+        this.addKvp("Dauer", data.con_convention_rpg_duration + " Stunden", "de", "duration")
 
-        // this.isRunning = this.isCurrently(data.event_start_ts, data.event_end_ts);
+        this.addKvp("Zeit bis Start", this.formatTimeUntil(start_ts, end_ts, "de"), "de", "timeuntil");
 
-        // this.action = "navigate"
-        // this.href = "eventinfo&e=" + data.event_id;
+        this.action = "external"
+        this.href = "https://conservices.de/index.php?page=game_details&game_secret=" + data.con_convention_rpg_secret;
+    }
+
+    calculateSlots(max, current) {
+        var full = ""
+
+        if (max == current) full = " (VOLL)";
+
+        return current + "/" + max + full;
+    }
+
+    parseGameMaster(user, alias) {
+        if (alias === undefined || alias === null) return user;
+        return alias;
     }
 }
-
-export class GameOverview extends TableCollection {
-    constructor(data) {
+export class GameGroup extends TableCollection {
+    constructor(data, title) {
         super();
 
-        this.type = "games"
-        this.title_de = "Spielrunden"
-        this.title_en = "Game Rounds"
-
-        this.filtered = []
+        this.title_de = title;
 
         data.forEach(dataPoint => {
             this.rows.push(new GameItem(dataPoint))
         })
 
         this.generateHeadings("de");
+    }
+}
+
+export class GameOverview extends ContentItem {
+    constructor(data) {
+        super();
+        this.type = "games"
+        this.title_de = "Spielrunden"
+        this.title_en = "Game Rounds"
+
+        this.groups = [];
+        var temp = {
+            "Montag": [],
+            "Dienstag": [],
+            "Mittwoch": [],
+            "Donnerstag": [],
+            "Freitag": [],
+            "Samstag": [],
+            "Sonntag": []
+        }
+
+        data.forEach(dataPoint => {
+
+            var date = this.checkDate(dataPoint);
+
+            temp[date].push(dataPoint);
+        });
+
+        Object.entries(temp).forEach(x => {
+            if (x[1].length > 0) {
+                this.groups.push(new GameGroup(x[1], x[0]));
+            }
+        });
+    }
+
+    checkDate(data) {
+        var timestamp = data.con_convention_rpg_start_ts * 1000
+
+        var date = new Date(timestamp);
+
+        var day = date.getDay();
+
+        switch (day) {
+            case 0: return "Sonntag";
+            case 1: return "Montag";
+            case 2: return "Dienstag";
+            case 3: return "Mittwoch";
+            case 4: return "Donnerstag";
+            case 5: return "Freitag";
+            case 6: return "Samstag";
+        }
     }
 }

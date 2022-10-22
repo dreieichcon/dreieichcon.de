@@ -92,6 +92,11 @@ module.exports = {
 
             if (row.action === "navigate") {
                 this.emitter.emit("navigate", { id: row.href });
+                return;
+            }
+            if (row.action === "external") {
+                this.emitter.emit("navigate", { href: row.href });
+                return;
             }
         },
         getRowClass() {

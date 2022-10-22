@@ -28,7 +28,6 @@ export class ApiConnector {
             .get(endpoint)
             .then(
                 result => {
-                    console.log(result.data)
                     resolve(result.data)
                 }
             ).catch(error => {

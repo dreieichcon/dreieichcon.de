@@ -1,11 +1,21 @@
 <template>
     <div class="container-fluid program-wrapper">
-        <vue-table
-            :headings="games.headings"
-            :rows="games.rows"
-            :clickable="true"
+        <div
+            v-for="group in games.groups"
+            v-bind:key="group"
+            class="games-stack"
         >
-        </vue-table>
+            <div
+                class="games-title"
+                v-html="group.get('title', this.$language)"
+            ></div>
+            <vue-table
+                :headings="group.headings"
+                :rows="group.rows"
+                :clickable="true"
+            >
+            </vue-table>
+        </div>
     </div>
 </template>
 
