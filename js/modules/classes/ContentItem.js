@@ -148,7 +148,7 @@ export class ContentItem {
         var timeInDays = diffTime / (1000 * 60 * 60 * 24)
 
         var timeInHours = timeInDays * 24
-        if (timeInHours > 1) return Math.round(timeInHours) + " " + this.get("hours", language);
+        if (timeInHours > 1) return (Math.round(timeInHours * 10) / 10) + " " + this.get("hours", language);
 
         var timeInMinutes = timeInHours * 60
         return Math.round(timeInMinutes) + " " + this.get("minutes", language);
