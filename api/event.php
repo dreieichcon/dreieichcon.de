@@ -72,7 +72,7 @@
   if(isset($_GET['event_id'])){
     $sql		= "SELECT * FROM event e, event_type t, location l WHERE e.location_id = l.location_id AND e.event_type_id = t.event_type_id AND e.event_show = 1 AND e.event_id = :eventid ORDER BY e.event_start_ts ASC, l.location_name_de ASC";
   }else{
-    $sql		= "SELECT * FROM event e, event_type t, location l WHERE e.location_id = l.location_id AND e.event_type_id = t.event_type_id AND e.event_show = 1 ORDER BY e.event_start_ts ASC, l.location_name_de ASC";
+    $sql		= "SELECT * FROM event e, event_type t, location l WHERE e.location_id = l.location_id AND e.event_type_id = t.event_type_id AND e.event_show = 1 AND e.event_year = '2023' ORDER BY e.event_start_ts ASC, l.location_name_de ASC";
   }
 
 
