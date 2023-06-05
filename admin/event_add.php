@@ -41,7 +41,7 @@
                     <div class="card-body" style="height: auto;">
 
                     <div class="row">
-                            <div class="col-6">
+                            <div class="col-5">
                                 <div class="form-group">
                                     <label class="col-form-label" for="event_type_id">Vernstaltungsart</label>
                                     <select required class="form-control" name="event_type_id">
@@ -68,7 +68,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-6">
+                            <div class="col-5">
                                 <div class="form-group">
                                     <label class="col-form-label" for="location_id">Veranstaltungsort</label>
                                     <select required class="form-control" name="location_id">
@@ -93,6 +93,14 @@
                                     ?>
                                     </select>
                                 </div>
+                            </div>
+
+                            <div class="col-2">
+                              <div class="form-group">
+                                <label class="col-form-label" for="event_year">Veranstaltungsjahr</label>
+                                <input required type="text" name="event_year"  class="form-control" placeholder="" value="2023">
+                              </div>
+
                             </div>
 
                                 

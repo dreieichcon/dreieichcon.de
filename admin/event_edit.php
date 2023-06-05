@@ -85,7 +85,7 @@ if(count($db_array)>0){
                     </div>
 
                     <div class="row">
-                            <div class="col-6">
+                            <div class="col-5">
                                 <div class="form-group">
                                     <label class="col-form-label" for="event_type_id">Veranstaltungsart</label>
                                     <select required class="form-control" name="event_type_id">
@@ -117,7 +117,7 @@ if(count($db_array)>0){
                                 </div>
                             </div>
 
-                            <div class="col-6">
+                            <div class="col-5">
                                 <div class="form-group">
                                     <label class="col-form-label" for="location_id">Veranstaltungsort</label>
                                     <select required class="form-control" name="location_id">
@@ -149,6 +149,14 @@ if(count($db_array)>0){
                                 </div>
                             </div>
 
+
+                            <div class="col-2">
+                              <div class="form-group">
+                                <label class="col-form-label" for="event_year">Veranstaltungsjahr</label>
+                                <input required type="text" name="event_year"  class="form-control" placeholder="" value="<?php echo $data['event_year'] ;?>">
+                              </div>
+
+                            </div>
                                 
 
                         </div>

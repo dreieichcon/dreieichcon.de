@@ -59,6 +59,7 @@
 				<table class="table table-head-fixed">
 					<thead>
 							<tr>
+								<th>Jahr </th>
 								<th>Titel </th>
 								<th>Ort </th>
 								<th>Zeiten </th>
@@ -76,7 +77,7 @@
 							
                                
 
-                                $sql		= "SELECT * FROM event e, event_type t, location l WHERE l.location_id = e.location_id AND t.event_type_id = e.event_type_id ORDER BY event_start_ts ASC, location_name_de ASC, event_type_de ASC";
+                                $sql		= "SELECT * FROM event e, event_type t, location l WHERE l.location_id = e.location_id AND t.event_type_id = e.event_type_id ORDER BY event_year DESC, event_start_ts ASC, location_name_de ASC, event_type_de ASC";
                                                         
                                 $pdo 		= new PDO($pdo_mysql, $pdo_db_user, $pdo_db_pwd);
 
@@ -110,6 +111,7 @@
 								$event_type_de                  = $line['event_type_de'];
 								$location_name_de               = $line['location_name_de'];
 								$event_show               = $line['event_show'];
+								$event_year               = $line['event_year'];
 
 							
 							
@@ -126,6 +128,7 @@
 
 								echo "
 									<tr $active>
+                  <th>$event_year</th>
                                         <th>$event_title_de<br>($event_type_de)</th>
                                         <td>$location_name_de</td>
                                         <td>$event_start<br>$event_end</td>

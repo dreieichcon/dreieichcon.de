@@ -28,6 +28,7 @@ Array
     $data['event_description_en']        = $_POST['event_description_en'];
     $data['event_description_short_de']  = $_POST['event_description_short_de'];
     $data['event_description_short_en']  = $_POST['event_description_short_en'];
+    $data['event_year']                  = $_POST['event_year'];
   
     $data['event_start_ts']              = FormTimeToUnix($_POST['event_start_date']. " " . $_POST['event_start_time']);
     $data['event_end_ts']                = FormTimeToUnix($_POST['event_end_date'].   " " . $_POST['event_end_time']);
