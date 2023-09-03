@@ -35,12 +35,18 @@ export class Gallery extends ContentCollection {
         this.title_en = data.page_title_en
 
         if (data.page_content.gallery === undefined) return;
+
         data.page_content.gallery.forEach(d => {
             var x = new GalleryImage(d);
             x.base = "/upload/gallery/img/"
             this.collection.push(x)
-        }
-        )
+        })
+
+        data.page_content.gallery.sort(function(a, b) {
+            var textA = a.title_de.toUpperCase();
+            var textB = b.title_de.toUpperCase();
+            return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+        });
     }
 
     static parseBioGallery(data) {
