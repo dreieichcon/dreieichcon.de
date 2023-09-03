@@ -50,7 +50,7 @@
 //load bios first
 
 
-  $sql		= "SELECT * FROM page_bio WHERE page_id = :pageid ORDER BY page_bio_name_de";
+  $sql		= "SELECT * FROM page_bio WHERE page_id = :pageid AND page_bio_visible = 1 ORDER BY page_bio_name_de";
                                                           
   $pdo 		= new PDO($pdo_mysql, $pdo_db_user, $pdo_db_pwd);
 

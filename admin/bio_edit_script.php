@@ -7,7 +7,15 @@
     $data['page_bio_short_bio_en']  = $_POST['page_bio_short_bio_en'];
     $data['page_bio_content_de']    = $_POST['page_bio_content_de'];
     $data['page_bio_content_en']    = $_POST['page_bio_content_en'];
-    
+
+        if(isset($_POST['page_bio_visible']) && $_POST['page_bio_visible'] == "show"){
+            $data['page_bio_visible']            = 1;
+        }else{
+            $data['page_bio_visible']            = 0;
+        }
+
+
+
     $data['page_bio_edit_id']       = $_SESSION['admin_user_id'];
     $data['page_bio_edit_ts']       = time();
 
@@ -23,5 +31,3 @@
     include("bio.php");
 
 
-
-?>

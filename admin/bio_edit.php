@@ -90,6 +90,26 @@ if(count($db_array)>0){
                                   </select>
                               </div>
                             </div>
+                        <div class="col-6">
+                            <div class='form-group'>
+                                <label class='col-form-label' for='con_convention_rpg_publish'>Sichtbar</label><br>
+                                <?php
+                                $checked = "";
+                                if($data['page_bio_visible']== 1){
+                                    $checked = "checked";
+                                }
+                                ?>
+                                <input <?php echo $checked;?>
+                                        type='checkbox'
+                                        name='page_bio_visible'
+                                        data-bootstrap-switch data-off-color='danger'
+                                        data-on-color='success'
+                                        data-off-text='unsichtbar'
+                                        data-on-text='sichtbar'
+                                        value='show'
+                                >
+                            </div>
+                        </div>
 
                         </div>
                         <div class="row">

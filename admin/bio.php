@@ -96,16 +96,23 @@
 								$page_bio_id		    = $line['page_bio_id'];
 								$page_bio_name_de		= $line['page_bio_name_de'];
 								$page_bio_name_en		= $line['page_bio_name_en'];
-								
+
+                                $visible                = $line['page_bio_visible'];
+
+
 								
 								$modify_ts   		= UnixToTime($line['page_bio_edit_ts']);
 								$modify_id   		= db_get_user($line['page_bio_edit_id'])['user_full'];
 
                                 $page               = db_get_page($line['page_id'])['page_title_de'];
 
+                                if($visible != 1){
+                                    $active = "class='deactivated'";
+                                }
+
                               
 								echo "
-									<tr>
+									<tr $active>
 										<th>$page_bio_name_de<br>$page_bio_name_en</th>
 										<td>$page</td>
 										
@@ -139,3 +146,4 @@
 		</div>
 	</div>
 </div>
+

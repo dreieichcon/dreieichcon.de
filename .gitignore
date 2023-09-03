@@ -6,3 +6,5 @@ admin/include/mailhandler.php
 admin/include/pepper.php
 
 upload/
+
+.idea/
