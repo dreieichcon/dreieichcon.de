@@ -105,7 +105,7 @@
 								$modify_id   		= db_get_user($line['page_bio_edit_id'])['user_full'];
 
                                 $page               = db_get_page($line['page_id'])['page_title_de'];
-
+                                $active = "";
                                 if($visible != 1){
                                     $active = "class='deactivated'";
                                 }
