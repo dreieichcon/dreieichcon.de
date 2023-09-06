@@ -43,8 +43,15 @@ export class Gallery extends ContentCollection {
         })
 
         data.page_content.gallery.sort(function(a, b) {
-            var textA = a.title_de.toUpperCase();
-            var textB = b.title_de.toUpperCase();
+
+            var textA = a.title_de;
+            var textB = b.title_de;
+
+            if (textA !== undefined)
+                textA = textA.toUpperCase();
+            if (textB !== undefined)
+                textB = textB.toUpperCase();
+
             return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
         });
     }
