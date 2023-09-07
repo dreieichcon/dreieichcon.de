@@ -131,7 +131,30 @@
   $or['dir'] = "ASC";
   array_push($order, $or);
 
-  $gallery = db_select("page_gallery", $where, $order);
+
+  $sql = "SELECT * FROM page_gallery WHERE page_id  = :page_id AND page_gallery_visible = 1 ORDER BY page_gallery_order ASC;";
+
+$gallery = array();
+
+    $pdo 		= new PDO($pdo_mysql, $pdo_db_user, $pdo_db_pwd);
+
+    $statement	= $pdo->prepare($sql);
+
+    $statement->bindParam(':page_id', $page_id);
+
+    $statement->execute();
+
+    $blog = array();
+
+    while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+        foreach ($row as $key => $value){
+            $row[$key] = db_parse($value);
+        }
+        array_push($gallery, $row);
+    }
+
+
+
 
   $page_content['gallery'] = $gallery;
 

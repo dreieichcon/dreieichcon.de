@@ -96,12 +96,28 @@ if(count($db_array)>0){
                               </div>
                             </div>
 
-                            <div class="col-6">
-                              <div class="form-group">
-                                <label class="col-form-label" for="page_gallery_order">Position</label>
-                                <input required type="number" name="page_gallery_order"  class="form-control" placeholder="" value="<?php echo $data['page_gallery_order'] ;?>" >
-                              </div>
+                        <div class="col-6">
+                            <div class='form-group'>
+                                <label class='col-form-label' for='page_gallery_visible'>Sichtbar</label><br>
+                                <?php
+                                $checked = "";
+                                if($data['page_gallery_visible']== 1){
+                                    $checked = "checked";
+                                }
+                                ?>
+                                <input <?php echo $checked;?>
+                                        type='checkbox'
+                                        name='page_gallery_visible'
+                                        data-bootstrap-switch data-off-color='danger'
+                                        data-on-color='success'
+                                        data-off-text='unsichtbar'
+                                        data-on-text='sichtbar'
+                                        value='show'
+                                >
                             </div>
+                        </div>
+
+
 
                         </div>
 
@@ -138,6 +154,15 @@ if(count($db_array)>0){
                                   </select>
                               </div>
                             </div>
+
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="col-form-label" for="page_gallery_order">Position</label>
+                                    <input required type="number" name="page_gallery_order"  class="form-control" placeholder="" value="<?php echo $data['page_gallery_order'] ;?>" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
 
                             <div class="col-6">
                               <div class="form-group">
@@ -188,3 +213,4 @@ if(count($db_array)>0){
                     
             
 </form>
+

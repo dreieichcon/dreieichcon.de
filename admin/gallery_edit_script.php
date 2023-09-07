@@ -20,7 +20,15 @@
         $data['page_id_link'] = null;
     }
 
-    $data['page_gallery_href']       = $_POST['page_gallery_href'];
+
+    if(isset($_POST['page_gallery_visible']) && $_POST['page_gallery_visible'] == "show"){
+        $data['page_gallery_visible']            = 1;
+    }else{
+        $data['page_gallery_visible']            = 0;
+    }
+
+
+$data['page_gallery_href']       = $_POST['page_gallery_href'];
     
     $data['page_gallery_text_de']       = $_POST['page_gallery_text_de'];
     $data['page_gallery_text_en']       = $_POST['page_gallery_text_en'];

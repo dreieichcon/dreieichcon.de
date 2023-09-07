@@ -102,7 +102,8 @@
 								$page_gallery_image_alt_de 		= $line['page_gallery_image_alt_de'];
 								$page_gallery_image_alt_en 		= $line['page_gallery_image_alt_en'];
 								$page_gallery_text_de 			= $line['page_gallery_text_de'];
-								
+								$visible             			= $line['page_gallery_visible'];
+
 								$modify_ts   					= UnixToTime($line['page_gallery_edit_ts']);
 								$modify_id   					= db_get_user($line['page_gallery_edit_id'])['user_full'];
 
@@ -125,9 +126,17 @@
 								}else{
 									$image_en = $noimg;
 								}
+
+                                $active = "";
+                                if($visible != 1){
+                                    $active = "class='deactivated'";
+                                }
+
+
+
                               
 								echo "
-									<tr>
+									<tr $active>
 										<th>$page_gallery_text_de</th>
 										<td><img src='$image_de' width='75%' alt='$page_gallery_image_alt_de'><br>$page_gallery_image_alt_de</td>
 										<td><img src='$image_en' width='75%' alt='$page_gallery_image_alt_en'><br>$page_gallery_image_alt_en</td>
