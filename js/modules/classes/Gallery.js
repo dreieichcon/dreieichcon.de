@@ -42,7 +42,7 @@ export class Gallery extends ContentCollection {
             this.collection.push(x)
         })
 
-        data.page_content.gallery.sort(function(a, b) {
+        this.collection.sort(function(a, b) {
 
             var textA = a.title_de;
             var textB = b.title_de;
