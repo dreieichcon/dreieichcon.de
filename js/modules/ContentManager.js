@@ -48,7 +48,9 @@ export class ContentManager {
         return new Promise((resolve, reject) => {
             ApiConnector.getProgram(subId)
                 .then(result => resolve(this.getPageContent(result[0])))
-                .catch(error => reject(this.loadErrorPage(error)))
+                .catch(error => {
+                    reject(this.loadErrorPage(error))
+                })
         })
     }
 
@@ -100,7 +102,10 @@ export class ContentManager {
             (resolve, reject) => {
                 ApiConnector.getGames()
                     .then(result => resolve(new GameOverview(result)))
-                    .catch(error => reject(this.loadErrorPage(error)))
+                    .catch(error => {
+                        console.log(error.message)
+                        reject(this.loadErrorPage(error))
+                    })
             })
     }
 

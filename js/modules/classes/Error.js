@@ -16,5 +16,7 @@ export class Error extends ContentItem {
         this.content_en = this.content_de
 
         this.base = "/resources/img/"
+
+        console.log(data);
     }
 }

@@ -39,14 +39,30 @@ export class TableCollection extends ContentItem {
 
         this.rows = [];
         this.headings = [];
+        this.headings_de = [];
+        this.headings_en = [];
     }
 
     generateHeadings(language) {
         var row = this.rows[0];
+
         if (this.rows[0] === undefined) return;
+
+        if (this.language === undefined){
+            row.data.forEach(x => {
+                if (x.language === "de") this.headings_de.push(x.heading);
+                else this.headings_en.push(x.heading);
+            })
+        }
 
         row.data.forEach(x => {
             if (x.language === language) this.headings.push(x.heading)
         })
+    }
+
+    getHeadings(language){
+        console.log(language);
+        if (language === "de") return this.headings_de;
+        return this.headings_en;
     }
 }
