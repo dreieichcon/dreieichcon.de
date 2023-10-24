@@ -4,7 +4,6 @@ export class ProgramItem extends TableRow {
     constructor(data) {
         super();
 
-        window.debug(data)
         this.addKvp("Name", data.event_title_de, "de", "title");
         this.addKvp("Name", data.event_title_en, "en", "title");
 
@@ -47,6 +46,9 @@ export class Program extends TableCollection {
             this.rows.push(new ProgramItem(dataPoint))
         })
 
+        window.debug(this)
+
         this.generateHeadings("de");
+        this.generateHeadings();
     }
 }
