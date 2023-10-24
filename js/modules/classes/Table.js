@@ -21,10 +21,11 @@ export class TableRow extends ContentItem {
     getTableRow(language) {
         var x = []
         this.data.forEach(data => {
-            if (data.language === language.value) {
+            if (data.language === language) {
                 x.push(data);
             }
         })
+        
         return x;
     }
 
