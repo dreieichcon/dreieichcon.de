@@ -18,7 +18,8 @@ module.exports = {
     created() {},
     props: ["program"],
     mounted() {},
-    methods: {},
+    methods: {
+    },
     components: {},
 };
 </script>
