@@ -1,10 +1,5 @@
 <template>
     <div v-if="isVisible" class="hamburger-flyout d2">
-      <div class="elements-wrapper">
-        <div class="top-element" style="cursor: pointer;" @click="changeLanguage()">
-          {{ getTitle() }}
-        </div>
-      </div>
         <template v-for="(element, index) in elements.collection" :key="index">
             <div class="elements-wrapper">
                 <div
@@ -12,7 +7,7 @@
                     v-bind:style="isPointer(element)"
                     @click="navigate(element)"
                 >
-                    {{ element.get("title", this.$language.value) }}
+                    {{ element.get("title", $language) }}
                 </div>
                 <div
                     class="sub-element"
@@ -21,7 +16,7 @@
                     v-bind:style="isPointer(option)"
                     @click="navigate(option)"
                 >
-                    - {{ option.get("title", this.$language.value) }}
+                    - {{ option.get("title", $language) }}
                 </div>
             </div>
         </template>
@@ -55,14 +50,6 @@ module.exports = {
 
             return "";
         },
-      changeLanguage() {
-        if (this.$language.value === "de") this.$language.value = "en";
-        else this.$language.value = "de";
-      },
-      getTitle() {
-        if (this.$language.value === "de") return "View in English";
-        else return "auf Deutsch anzeigen"
-      }
     },
     watch: {
         "$hamburger.value": {
