@@ -80,6 +80,6 @@ export class ApiConnector {
     }
 
     static getGames() {
-        return this.getExternal("https://api.conservices.de/external_gamelist.php?api_key=201730d4278e576b25515bd90c6072d3&con_id=23")
+        return this.getExternal("https://conservices.de/api/event/d726a499-96d2-4d1d-aa62-5cfee3871951/game")
     }
 }
