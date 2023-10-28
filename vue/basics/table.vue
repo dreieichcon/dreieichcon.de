@@ -18,7 +18,7 @@
                 @click="clickAction(row)"
             >
                 <td
-                    v-for="(data, i) in row.getTableRow(this.$language.value)"
+                    v-for="(data, i) in row.getTableRow($language)"
                     :key="data"
                     v-html="data.data"
                     :style="getTableStyle(i, headings.length)"
@@ -34,7 +34,7 @@
                 :style="getMobileBorders(index, rows.length)"
             >
                 <div
-                    v-for="data in row.getTableRow(this.$language.value)"
+                    v-for="data in row.getTableRow($language)"
                     :key="data"
                     class="mobile-row"
                 >

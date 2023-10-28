@@ -14,12 +14,6 @@
                     </div>
                 </a>
             </template>
-            <div v-if="this.$language == 'de'">
-              <div @click="toggle_language()">English</div>
-            </div>
-            <div v-else>
-              <div @click="toggle_language()">Deutsch</div>
-            </div>
         </div>
         <div class="hamburger icon-wrapper bar-icons" @click="toggle()">
             <div class="icon-border icon-border-gradient">
@@ -51,10 +45,6 @@ export default {
             this.$hamburger.value = !this.$hamburger.value;
             console.log(this.$hamburger.value);
         },
-        toggle_language(){
-            if (this.$language === "de") this.$language = "en";
-            this.$language = "de";
-        }
     },
     components: {
         hamburger: Vue.defineAsyncComponent(() =>

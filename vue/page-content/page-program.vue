@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid program-wrapper">
         <vue-table
-            :headings="getHeaders(program)"
+            :headings="program.headings"
             :rows="program.rows"
             :clickable="true"
         >
@@ -18,11 +18,8 @@ module.exports = {
     created() {},
     props: ["program"],
     mounted() {},
-  methods: {
-    getHeaders(group){
-      return group.getHeadings(group, this.$language.value);
-    }
-  },
+    methods: {
+    },
     components: {},
 };
 </script>
