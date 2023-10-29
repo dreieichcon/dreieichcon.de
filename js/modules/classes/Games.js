@@ -12,6 +12,7 @@ export class GameItem extends TableRow {
         var max = data.player_max;
         var current = data.player.length;
 
+        this.start = start_ts
 
         this.addKvp("Beginn", this.formatTimestampTime(start_ts, "de"), "de", "starttime");
         this.addKvp("System", this.parseSystem(data), "de", "system");
@@ -19,7 +20,7 @@ export class GameItem extends TableRow {
         this.addKvp("Rundenname", data.title, "de", "title");
         this.addKvp("Spielleitende", this.parseGameMaster(user, alias), "de", "leader")
         this.addKvp("Spielende", this.calculateSlots(max, current), "de", "players")
-        this.addKvp("Dauer", data.duration + " Minuten", "de", "duration")
+        this.addKvp("Dauer", (data.duration / 60) + " Stunden", "de", "duration")
         this.addKvp("Zeit bis Start", this.formatTimeUntil(start_ts, end_ts, "de"), "de", "timeuntil");
 
         this.action = "external"
@@ -63,6 +64,8 @@ export class GameGroup extends TableCollection {
         data.forEach(dataPoint => {
             this.rows.push(new GameItem(dataPoint))
         })
+
+        this.rows.sort((a, b) => (a.start > b.start) ? 1 : -1)
 
         this.generateHeadings("de");
     }
