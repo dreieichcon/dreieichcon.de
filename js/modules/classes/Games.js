@@ -12,7 +12,6 @@ export class GameItem extends TableRow {
         var max = data.player_max;
         var current = data.player.length;
 
-        window.debug(data)
 
         this.addKvp("Beginn", this.formatTimestampTime(start_ts, "de"), "de", "starttime");
         this.addKvp("System", this.parseSystem(data), "de", "system");
