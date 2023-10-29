@@ -7,10 +7,10 @@
         >
             <div
                 class="games-title"
-                v-html="group.get('title', this.$language)"
+                v-html="group.get('title', this.$language.value)"
             ></div>
             <vue-table
-                :headings="group.headings"
+                :headings="getHeaders(group)"
                 :rows="group.rows"
                 :clickable="true"
             >
@@ -28,7 +28,11 @@ module.exports = {
     created() {},
     props: ["games"],
     mounted() {},
-    methods: {},
+    methods: {
+      getHeaders(group){
+        return group.getHeadings(group, this.$language.value);
+      }
+    },
     components: {},
 };
 </script>

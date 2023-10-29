@@ -16,7 +16,7 @@ if(!isset($event_id)){
     $wh['val'] = $event_id;
     array_push($where, $wh);
 
-    $db_array = db_select("event", $where);
+    $db_array = db_select("event", $where, array(), null, false);
 
 if(count($db_array)>0){
     $data = $db_array[0];
