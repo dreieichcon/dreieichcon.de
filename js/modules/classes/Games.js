@@ -22,15 +22,6 @@ export class GameItem extends TableRow {
         this.addKvp("Dauer", data.duration + " Minuten", "de", "duration")
         this.addKvp("Zeit bis Start", this.formatTimeUntil(start_ts, end_ts, "de"), "de", "timeuntil");
 
-        this.addKvp("Start", this.formatTimestampTime(start_ts, "en"), "en", "starttime");
-        this.addKvp("System", this.parseSystem(data), "en", "system");
-        this.addKvp("Type", this.parseTags(data.label), "en", "tags");
-        this.addKvp("Name", data.title, "en", "title");
-        this.addKvp("Gamemasters", this.parseGameMaster(user, alias), "en", "leader")
-        this.addKvp("Players", this.calculateSlots(max, current), "en", "players")
-        this.addKvp("Duration", data.duration + " Minuten", "en", "duration")
-        this.addKvp("Time to start", this.formatTimeUntil(start_ts, end_ts, "en"), "en", "timeuntil");
-
         this.action = "external"
         this.href = "https://conservices.de/game/" + data.id;
     }
@@ -68,14 +59,12 @@ export class GameGroup extends TableCollection {
         super();
 
         this.title_de = title;
-        this.title_en = title;
 
         data.forEach(dataPoint => {
             this.rows.push(new GameItem(dataPoint))
         })
 
         this.generateHeadings("de");
-        this.generateHeadings();
     }
 }
 
