@@ -16,40 +16,14 @@ $faker = Faker\Factory::create();
 <div class="container-fluid">
     <div class="stack">
 
-            <x-dc.site.socials.bar />
+        <x-dc.site.socials.bar />
+
+        <x-dc.site.banner.stack />
+
+        <x-dc.site.nav.navbar />
+
+
         
-        <div class="banner-stack">
-            <div class="banner-logo">
-                <img class="banner-logo-img" src="/assets/resources/img/dreieichcon-logo-vislani.png"
-                     alt="main dreieichcon banner logo"/>
-            </div>
-            <a class="banner-action-link" href="">
-                <img class="banner-action-link-img" src="/assets/resources/img/ticket-button.png"/>
-            </a>
-        </div>
-        <nav class="navbar-stack">
-            <div class="navbar-main-button">
-                <a class="navbar-nav-link">Startseite</a>
-            </div>
-            <div class="navbar-main-dropdown-button">
-                <div class="navbar-nav-link">
-                    Veranstaltung
-                </div>
-                <div class="navbar-dropdown-wrapper">
-                    <div class="navbar-dropdown-flex">
-                        <div class="navbar-dropdown-button">
-                            <a class="navbar-dropdown-link">Über uns</a>
-                        </div>
-                        <div class="navbar-dropdown-button">
-                            <a class="navbar-dropdown-link">Der Verein</a>
-                        </div>
-                        <div class="navbar-dropdown-button">
-                            <a class="navbar-dropdown-link">Wann und Wo?</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
         <div class="content-scroll">
             <div class="content-page-title">
                 Startseite
