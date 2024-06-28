@@ -12,7 +12,8 @@ $faker = Faker\Factory::create();
         <div class="profile-row">
             <div class="profile-image-stack">
                 <div class="profile-image-resize">
-                    <img class="profile-image" src="https://neu.dreieichcon.de/upload/bio_profile/img/7d0c09b3a57bfa11ec8919340a3a3852.png"/>
+                    <img class="profile-image"
+                         src="https://neu.dreieichcon.de/upload/bio_profile/img/7d0c09b3a57bfa11ec8919340a3a3852.png"/>
                 </div>
                 <div class="blog-post-image-copyright">
                     C {{ $faker->realText(40) }}
@@ -29,16 +30,24 @@ $faker = Faker\Factory::create();
                         </div>
                     </div>
                     <div class="profile-socials-bar">
-                        <x-dc.site.socials.item />
-                        <x-dc.site.socials.item />
-                        <x-dc.site.socials.item />
+                        <x-dc.site.socials.item/>
+                        <x-dc.site.socials.item/>
+                        <x-dc.site.socials.item/>
                     </div>
                 </div>
                 <div class="profile-text-divider"></div>
-                <div>
+                <div class="profile-text">
                     {{ $faker -> realText(1000) }}
                 </div>
+                <div class="profile-text-divider"></div>
+                <div class="profile-grow">
+
+                </div>
             </div>
+        </div>
+        <x-dc.site.content.main.divider />
+        <div class="profile-gallery-container">
+            <x-dc.site.content.gallery.carousel />
         </div>
     </div>
 @endsection
