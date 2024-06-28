@@ -5,7 +5,7 @@
     display: flex;
     flex-grow: 1;
     flex-direction: column;
-    overflow: scroll;
+    overflow-y: scroll;
     padding: spacing.$normal;
 }
 
