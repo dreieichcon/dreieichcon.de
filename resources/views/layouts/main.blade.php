@@ -15,26 +15,9 @@ $faker = Faker\Factory::create();
 <body>
 <div class="container-fluid">
     <div class="stack">
-        <div class="socials-stack">
-            <div class="socials-bar">
-                {{--This is one socials icon--}}
-                <a href="" class="socials-icon-wrapper">
-                    <div class="socials-icon-box">
-                        <img class="socials-icon" src="/assets/resources/icons/svg/discord.svg"/>
-                    </div>
-                </a>
-                <a href="" class="socials-icon-wrapper">
-                    <div class="socials-icon-box">
-                        <img class="socials-icon" src="/assets/resources/icons/svg/discord.svg"/>
-                    </div>
-                </a>
-                <a href="" class="socials-icon-wrapper">
-                    <div class="socials-icon-box">
-                        <img class="socials-icon" src="/assets/resources/icons/svg/discord.svg"/>
-                    </div>
-                </a>
-            </div>
-        </div>
+
+            <x-dc.site.socials.bar />
+        
         <div class="banner-stack">
             <div class="banner-logo">
                 <img class="banner-logo-img" src="/assets/resources/img/dreieichcon-logo-vislani.png"
