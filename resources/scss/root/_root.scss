@@ -4,30 +4,65 @@ $bg-lightning: #111111;
 $fg-lightning: #ffffff;
 $primary-lightning: #d90368;
 $secondary-lightning: #8755dd;
+$bg-lightning-alpha: #88111111;
+$hover-lightning: #222222;
+
+$fontSizeNav: 1.1rem;
+$fontSizePageTitle: 1.5rem;
+$fontSizeTextTitle: 1.1rem;
+$fontSizeTextSubtitle: 0.9rem;
+
 
 :root {
-  @if($theme == "lightning"){
-    --background: #{$bg-lightning};
-    --foreground: #{$fg-lightning};
-    --primary: #{$primary-lightning};
-    --secondary: #{$secondary-lightning};
-  }
-  @if($theme == "fire"){
+    --font-size-nav: #{$fontSizeNav};
+    --font-size-page-title: #{$fontSizePageTitle};
+    --font-size-text-title: #{$fontSizeTextTitle};
+    --font-size-text-subtitle: #{$fontSizeTextSubtitle};
+    --font-size-text: 1rem;
+    @if ($theme == "lightning") {
+        --background: #{$bg-lightning};
+        --background-alpha: #{$bg-lightning-alpha};
+        --foreground: #{$fg-lightning};
+        --primary: #{$primary-lightning};
+        --secondary: #{$secondary-lightning};
+        --banner-image: url(../img/background.png);
+        --hover: #{$hover-lightning};
+    }
+    @if ($theme == "fire") {
 
-  }
+    }
 }
 
-@mixin stretch{
-  width: 100vw;
-  height: 100vh;
-  min-width: 100vw;
-  min-height: 100vh;
-  display: flex;
+@mixin stretch {
+    width: 100vw;
+    height: 100vh;
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
-html, body{
-  @include stretch;
-  overflow: hidden;
-  background: var(--background);
-  color: var(--foreground);
+html, body {
+    @include stretch;
+    overflow: hidden;
+    background: var(--background);
+    color: var(--foreground);
+}
+
+.stack{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-fluid{
+    max-width: 2000px;
+}
+
+a {
+    text-decoration: none !important;
+    color: var(--foreground) !important;
 }

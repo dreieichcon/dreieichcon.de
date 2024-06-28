@@ -1,0 +1,36 @@
+﻿@mixin flex{
+    display: flex;
+}
+
+@mixin flex-fullSize {
+    @include flex;
+    flex-grow: 1;
+}
+
+@mixin flex-row{
+    @include flex;
+    flex-direction: row;
+}
+
+@mixin flex-row-right{
+    @include flex-row;
+    justify-content: flex-end;
+}
+
+@mixin flex-row-between{
+    @include flex-row;
+    justify-content: space-between;
+}
+
+@mixin flex-col{
+    @include flex;
+    flex-direction: column;
+}
+
+@mixin flex-center{
+    @include flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+

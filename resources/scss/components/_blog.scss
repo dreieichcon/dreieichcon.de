@@ -1,0 +1,69 @@
+﻿@use "../root/flex";
+@use "../root/spacing";
+
+.blog-post{
+    @include flex.flex-row;
+    width: 100%;
+
+    > .blog-post-text-stack{
+        padding-left: 1rem;
+    }
+}
+
+.blog-post-alt{
+    width: 100%;
+    @include flex.flex-row;
+    flex-direction: row-reverse;
+
+    > .blog-post-text-stack{
+        padding-right: 1rem;
+        align-items: end;
+    }
+}
+
+.blog-post-image-stack{
+    max-width: 40%;
+    width: 40%;
+}
+
+.blog-post-image{
+    width: 100%;
+    height: 90%;
+    object-fit: cover;
+}
+
+.blog-post-image-copyright {
+    font-size: var(--font-size-text-subtitle);
+    font-style: italic;
+}
+
+.blog-post-text-stack{
+    @include flex.flex-col;
+    width: 60%;
+}
+
+.blog-post-title{
+    color: var(--primary);
+    font-size: var(--font-size-text-title);
+    font-weight: 600;
+}
+
+.blog-post-subtitle{
+    font-size: var(--font-size-text-subtitle);
+}
+
+.blog-post-text-divider{
+    margin-top: spacing.$tiny;
+    margin-bottom: spacing.$small;
+    width: 100% !important;
+    height: 1px;
+    border-bottom: 1px solid var(--foreground);
+}
+
+.blog-post-divider{
+    width: 100% !important;
+    height: 1px;
+    border-bottom: 1px solid var(--primary);
+    margin-top: spacing.$small;
+    margin-bottom: spacing.$extraLarge;
+}

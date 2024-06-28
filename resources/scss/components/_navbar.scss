@@ -1,0 +1,96 @@
+@use "../root/basics";
+@use "../root/flex";
+
+$navbarHeight: 4vh;
+$navbarMinHeight: 30px;
+$dropdownHeight: 3vh;
+
+.navbar-stack{
+    height: $navbarHeight;
+    min-height: $navbarMinHeight;
+    width: 100%;
+    @include basics.bottom-primary-border;
+    @include flex.flex-row;
+    object-fit: contain;
+}
+
+@mixin navbar-button{
+    border-right: 1px solid var(--primary);
+    @include flex.flex-center;
+
+    cursor: pointer;
+
+    &:hover{
+        background: var(--hover);
+    }
+}
+
+.navbar-main-button{
+    @include navbar-button;
+}
+
+.navbar-main-dropdown-button{
+
+    @include navbar-button;
+    position: relative;
+
+    &:hover >.navbar-dropdown-wrapper{
+        visibility: visible;
+    }
+
+    > .navbar-dropdown-wrapper {
+        top: 100%;
+    }
+
+}
+
+.navbar-dropdown-wrapper{
+
+    background: var(--background-alpha);
+
+    visibility: collapse;
+    position: absolute;
+
+    left: -1px;
+
+    width: 200%;
+
+    backdrop-filter: blur(10px);
+    &:hover{
+        visibility: visible;
+    }
+}
+
+.navbar-dropdown-flex{
+    @include flex.flex-col;
+    border-left: 1px solid var(--secondary);
+    border-right: 1px solid var(--secondary);
+    border-bottom: 1px solid var(--secondary);
+}
+
+.navbar-dropdown-button{
+    @include navbar-button;
+    align-items: flex-start;
+    height: $dropdownHeight;
+    border: 0 !important;
+}
+
+@mixin navbar-link{
+    color: var(--foreground);
+    font-size: var(--font-size-nav);
+}
+
+.navbar-nav-link{
+    @include navbar-link;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.navbar-dropdown-link{
+    @include navbar-link;
+    padding-left: 0.5rem;
+    padding-right: 0.25rem;
+}
+
+
+
