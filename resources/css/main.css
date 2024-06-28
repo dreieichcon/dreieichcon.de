@@ -4,13 +4,13 @@
   --font-size-text-title: 1.1rem;
   --font-size-text-subtitle: 0.9rem;
   --font-size-text: 1rem;
-  --background: #111111;
-  --background-alpha: rgba(136, 17, 17, 0.0666666667);
+  --background: #120200;
+  --background-alpha: rgba(17, 17, 17, 0.5333333333);
   --foreground: #ffffff;
-  --primary: #d90368;
-  --secondary: #8755dd;
-  --banner-image: url(../img/background.png);
-  --hover: #222222;
+  --primary: #F25500;
+  --secondary: #ea2300;
+  --banner-image: url(../img/peter-yost-ah9tydIdlKA-unsplash.jpg);
+  --hover: #221220;
 }
 
 html, body {
@@ -155,13 +155,25 @@ a {
 }
 
 .navbar-stack {
-  height: 4vh;
-  min-height: 30px;
+  height: 4.5vh;
+  min-height: 45px;
+}
+.navbar-stack:after {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 15px;
+  background: linear-gradient(180deg, var(--background), transparent);
+  content: "";
+  z-index: 10;
+}
+
+.navbar-row {
+  height: 100%;
   width: 100%;
   border-bottom: 1px solid var(--primary);
   display: flex;
   flex-direction: row;
-  object-fit: contain;
 }
 
 .navbar-main-button {
@@ -288,6 +300,14 @@ a {
   cursor: pointer;
 }
 
+.content-divider {
+  width: 100% !important;
+  height: 1px;
+  border-bottom: 1px solid var(--primary);
+  margin-top: 0.25rem;
+  margin-bottom: 2rem;
+}
+
 .blog-post {
   display: flex;
   flex-direction: row;
@@ -346,14 +366,6 @@ a {
   width: 100% !important;
   height: 1px;
   border-bottom: 1px solid var(--foreground);
-}
-
-.blog-post-divider {
-  width: 100% !important;
-  height: 1px;
-  border-bottom: 1px solid var(--primary);
-  margin-top: 0.25rem;
-  margin-bottom: 2rem;
 }
 
 /*# sourceMappingURL=main.css.map */

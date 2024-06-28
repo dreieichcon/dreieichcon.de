@@ -1,17 +1,31 @@
 @use "../root/basics";
 @use "../root/flex";
 
-$navbarHeight: 4vh;
-$navbarMinHeight: 30px;
+$navbarHeight: 4.5vh;
+$navbarMinHeight: 45px;
 $dropdownHeight: 3vh;
+
 
 .navbar-stack{
     height: $navbarHeight;
     min-height: $navbarMinHeight;
+
+    &:after{
+        position:relative;
+        display:flex;
+        width:100%;
+        height: 15px;
+        background: linear-gradient(180deg, var(--background), transparent);
+        content: "";
+        z-index: 10;
+    }
+}
+
+.navbar-row{
+    height: 100%;
     width: 100%;
     @include basics.bottom-primary-border;
     @include flex.flex-row;
-    object-fit: contain;
 }
 
 @mixin navbar-button{

@@ -1,4 +1,5 @@
 <nav class="navbar-stack">
-    <x-dc.site.nav.button />
-
+    <div class="navbar-row">
+        <x-dc.site.nav.button />
+    </div>
 </nav>

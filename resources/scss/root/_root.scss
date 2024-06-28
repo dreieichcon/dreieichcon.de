@@ -1,11 +1,16 @@
-﻿$theme: "lightning";
+﻿$theme: "fire";
 
 $bg-lightning: #111111;
 $fg-lightning: #ffffff;
 $primary-lightning: #d90368;
 $secondary-lightning: #8755dd;
-$bg-lightning-alpha: #88111111;
+$bg-lightning-alpha: #11111188;
 $hover-lightning: #222222;
+
+$bg-fire: #120200;
+$primary-fire: #F25500;
+$secondary-fire: #ea2300;
+$hover-fire: #221220;
 
 $fontSizeNav: 1.1rem;
 $fontSizePageTitle: 1.5rem;
@@ -19,6 +24,7 @@ $fontSizeTextSubtitle: 0.9rem;
     --font-size-text-title: #{$fontSizeTextTitle};
     --font-size-text-subtitle: #{$fontSizeTextSubtitle};
     --font-size-text: 1rem;
+
     @if ($theme == "lightning") {
         --background: #{$bg-lightning};
         --background-alpha: #{$bg-lightning-alpha};
@@ -29,7 +35,13 @@ $fontSizeTextSubtitle: 0.9rem;
         --hover: #{$hover-lightning};
     }
     @if ($theme == "fire") {
-
+        --background: #{$bg-fire};
+        --background-alpha: #{$bg-lightning-alpha};
+        --foreground: #{$fg-lightning};
+        --primary: #{$primary-fire};
+        --secondary: #{$secondary-fire};
+        --banner-image: url(../img/peter-yost-ah9tydIdlKA-unsplash.jpg);
+        --hover: #{$hover-fire};
     }
 }
 
