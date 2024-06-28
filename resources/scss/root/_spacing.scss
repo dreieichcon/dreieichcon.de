@@ -5,3 +5,16 @@ $medium: 0.5rem;
 $normal: 1rem;
 $large: 1.5rem;
 $extraLarge: 2rem;
+
+@mixin noMargin{
+    margin: 0;
+}
+
+@mixin noPadding{
+    padding: 0;
+}
+
+@mixin noMarginNoPadding{
+    @include noMargin;
+    @include noPadding;
+}

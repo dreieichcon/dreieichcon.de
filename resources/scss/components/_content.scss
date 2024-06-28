@@ -20,6 +20,7 @@
     @include flex.flex-col;
     border-top: 2px solid var(--primary);
     padding-top: spacing.$medium;
+    margin-top: spacing.$normal;
 }
 
 .content-footer-row{

@@ -7,3 +7,7 @@
 @mixin subtitle{
     font-size: var(--font-size-text-subtitle);
 }
+
+@mixin text{
+    font-size: var(--font-size-text);
+}

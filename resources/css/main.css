@@ -1,16 +1,16 @@
 :root {
   --font-size-nav: 1.2rem;
   --font-size-page-title: 1.5rem;
-  --font-size-text-title: 1.3rem;
+  --font-size-text-title: 1.2rem;
   --font-size-text-subtitle: 1rem;
-  --font-size-text: 1.2rem;
+  --font-size-text: 1.1rem;
   --background: #120200;
   --background-alpha: rgba(17, 17, 17, 0.5333333333);
   --foreground: #ffffff;
   --primary: #F25500;
   --secondary: #ea2300;
   --banner-image: url(../img/peter-yost-ah9tydIdlKA-unsplash.jpg);
-  --hover: #221220;
+  --hover: #221210;
 }
 
 html, body {
@@ -276,6 +276,7 @@ a {
   flex-direction: column;
   border-top: 2px solid var(--primary);
   padding-top: 0.5rem;
+  margin-top: 1rem;
 }
 
 .content-footer-row {
@@ -387,12 +388,12 @@ a {
 .profile-row {
   display: flex;
   flex-direction: row;
+  max-height: 60vh;
 }
 
 .profile-image-stack {
   max-width: 40%;
   width: 40%;
-  max-height: 70vh;
   display: flex;
   flex-direction: column;
 }
@@ -408,14 +409,17 @@ a {
 
 .profile-image-resize {
   width: 100%;
-  height: 90%;
+  height: 92%;
 }
 
 .profile-content-stack {
   display: flex;
   flex-direction: column;
+  padding-left: 1rem;
   width: 70%;
   max-width: 70%;
+  height: 92%;
+  max-height: 92%;
 }
 
 .profile-header-bar {
@@ -446,12 +450,238 @@ a {
   font-size: var(--font-size-text-subtitle);
 }
 
+.profile-text {
+  font-size: var(--font-size-text);
+}
+
+.profile-grow {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .profile-text-divider {
   margin-top: 0.25rem;
   margin-bottom: 0.5rem;
   width: 100% !important;
   height: 1px;
   border-bottom: 1px solid var(--foreground);
+}
+
+.profile-gallery-container {
+  width: 100%;
+  height: 40vh;
+}
+
+.carousel-container {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  background: var(--background-alpha);
+}
+.carousel-container:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 35%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  content: "";
+  z-index: 15;
+}
+.carousel-container:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 35%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  content: "";
+  z-index: 15;
+}
+
+.carousel-scroll {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scrollbar-color: transparent transparent;
+  scroll-behavior: smooth;
+}
+
+.carousel-image-slide {
+  position: relative;
+  flex: 0 0 100%;
+  counter-increment: item;
+  list-style-type: none;
+}
+
+.carousel-snapper {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-image {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  margin: 0 auto 0;
+  object-fit: cover;
+}
+
+.carousel-prev {
+  position: absolute;
+  top: calc(50% - 1.5vw);
+  border-radius: 50%;
+  width: 3vw;
+  height: 3vw;
+  background: var(--hover);
+  z-index: 50;
+  object-fit: cover;
+  left: 15%;
+}
+
+.carousel-next {
+  position: absolute;
+  top: calc(50% - 1.5vw);
+  border-radius: 50%;
+  width: 3vw;
+  height: 3vw;
+  background: var(--hover);
+  z-index: 50;
+  object-fit: cover;
+  right: 15%;
+}
+
+.click-through {
+  pointer-events: none;
+}
+
+.no-visuals {
+  color: transparent;
+  background: transparent;
+}
+
+.chevron-left:before {
+  position: absolute;
+  content: "";
+  background: var(--primary);
+  left: 47%;
+  right: 47%;
+  height: 41%;
+  width: 11%;
+  top: 10%;
+  transform: skew(-20deg, 0deg);
+}
+.chevron-left:after {
+  position: absolute;
+  content: "";
+  background: var(--primary);
+  left: 47%;
+  right: 47%;
+  height: 41%;
+  width: 11%;
+  top: 50%;
+  transform: skew(20deg, 0deg);
+}
+
+.chevron-right:before {
+  position: absolute;
+  content: "";
+  background: var(--primary);
+  left: 47%;
+  right: 47%;
+  height: 41%;
+  width: 11%;
+  top: 10%;
+  transform: skew(20deg, 0deg);
+}
+.chevron-right:after {
+  position: absolute;
+  content: "";
+  background: var(--primary);
+  left: 47%;
+  right: 47%;
+  height: 41%;
+  width: 11%;
+  top: 50%;
+  transform: skew(-20deg, 0deg);
+}
+
+.carousel-collapse {
+  position: fixed;
+  top: 10vh;
+  right: 10vw;
+  width: 5vh;
+  height: 5vh;
+  border-radius: 50%;
+  background: var(--background-alpha);
+  z-index: 20000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.carousel-full {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  backdrop-filter: blur(50px);
+}
+
+.carousel-expand {
+  position: absolute;
+  width: 40%;
+  height: 100%;
+  left: 30%;
+  background: transparent;
+  cursor: pointer;
+  z-index: 200;
+}
+
+.carousel-expand-navigate {
+  position: absolute;
+  width: 40%;
+  height: 100%;
+  left: 30%;
+  background: transparent;
+  cursor: pointer;
+  z-index: 200;
+}
+
+.checkbox-hidden {
+  position: fixed;
+  top: 50px;
+  left: 50px;
+}
+
+.hide-show {
+  visibility: collapse;
+}
+
+input[type=checkbox]:checked ~ .hide-show {
+  visibility: visible !important;
 }
 
 /*# sourceMappingURL=main.css.map */
