@@ -10,9 +10,9 @@ export default defineConfig({
                 'resources/js/',
             ],
             refresh: [{
-                paths: ['resources/**'],
+                paths: ['resources/**', 'config/**', 'app/Http/Controllers/**'],
                 config: { delay: 300 }
-            }],
+            }]
         }),
     ],
 });
