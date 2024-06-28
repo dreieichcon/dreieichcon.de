@@ -13,7 +13,7 @@ $secondary-lightning: #8755dd;
     --secondary: #{$secondary-lightning};
   }
   @if($theme == "fire"){
-    
+
   }
 }
 
@@ -30,8 +30,4 @@ html, body{
   overflow: hidden;
   background: var(--background);
   color: var(--foreground);
-}
-
-.wrapper {
-  
 }
