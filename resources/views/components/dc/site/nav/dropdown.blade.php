@@ -1,11 +1,12 @@
 <div class="navbar-main-dropdown-button">
     <div class="navbar-nav-link">
-        Veranstaltung
+        {{$label}}
     </div>
     <div class="navbar-dropdown-wrapper">
         <div class="navbar-dropdown-flex">
-            <x-dc.site.nav.dropdown-element />
+           {!! $slot !!}
 
         </div>
     </div>
 </div>
+{{ $class ?? "" }}

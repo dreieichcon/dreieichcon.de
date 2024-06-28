@@ -13,7 +13,7 @@ class NavigationSeeder extends Seeder
         Navigation::create([
             "name" => "Startseite",
             "sort" => 0,
-            "target_special" => "index",
+            "target_special" => "/",
         ]);
 
 
@@ -51,11 +51,13 @@ class NavigationSeeder extends Seeder
         Navigation::create([
             "name" => "Programm",
             "sort" => 4,
+            "target_special" => "/programm",
         ]);
 
         Navigation::create([
             "name" => "Spielrunden",
             "sort" => 5,
+            "target_special" => "/games"
         ]);
 
         Navigation::create([
