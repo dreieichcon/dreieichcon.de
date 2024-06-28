@@ -1,0 +1,43 @@
+﻿@use "../root/spacing";
+@use "../root/flex";
+
+.content-scroll{
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    overflow: scroll;
+    padding: spacing.$normal;
+}
+
+.content-page-title{
+    color: var(--secondary);
+    font-size: var(--font-size-page-title);
+    font-weight: 500;
+    margin-bottom: spacing.$medium;
+}
+
+.content-footer-stack{
+    @include flex.flex-col;
+    border-top: 2px solid var(--primary);
+    padding-top: spacing.$medium;
+}
+
+.content-footer-row{
+    @include flex.flex-row;
+    justify-content: center;
+    padding: spacing.$medium;
+}
+
+.content-footer-item{
+    @include flex.flex-col;
+    max-width: 10vw;
+}
+
+.content-footer-title{
+    font-weight: bold;
+}
+
+.content-footer-link{
+    font-weight: bold;
+    cursor: pointer;
+}

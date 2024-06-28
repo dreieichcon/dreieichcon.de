@@ -1,3 +1,6 @@
 @use 'root/root';
-@use 'components/navbar';
+@use "components/banner";
 @use 'components/socials';
+@use 'components/navbar';
+@use 'components/content';
+@use 'components/blog';

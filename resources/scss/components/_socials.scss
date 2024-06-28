@@ -1,4 +1,63 @@
-﻿.socials-stack{
-  height: 5% !important;
-  border-bottom: 1px solid var(--primary);
+﻿@use '../root/basics';
+@use "../root/flex";
+
+$circleSize: 80%;
+$circlePosition: (100% - $circleSize) / 2;
+$iconMargin: 1rem;
+$socialsHeight: 5vh !important;
+$socialsMinHeight: 40px;
+
+.socials-stack{
+    height: $socialsHeight;
+    min-height: $socialsMinHeight;
+    @include basics.bottom-primary-border-large;
+    @include flex.flex-col;
+}
+
+.socials-bar{
+    height: 100%;
+    @include flex.flex-row-right;
+    align-items: center;
+}
+
+.socials-icon-wrapper{
+    height: 80%;
+    aspect-ratio: 1/1;
+    position: relative;
+    @include flex.flex-center;
+    margin-right: $iconMargin;
+}
+
+.socials-icon-box{
+
+    object-fit: cover;
+    @include flex.flex-center;
+    @include basics.full-size;
+
+    &:before{
+        @include basics.overlay-position;
+        border-radius: 50%;
+        width: $circleSize;
+        height: $circleSize;
+        top: $circlePosition;
+        left: $circlePosition;
+        background: var(--background);
+        z-index: 5;
+        content: "";
+    }
+
+    &:after{
+        @include basics.overlay-position;
+        background: var(--primary);
+        @include basics.rounded;
+        @include basics.full-size;
+        content: "";
+    }
+}
+
+.socials-icon{
+    height: 60%;
+    aspect-ratio: 1 / 1;
+    z-index: 10;
+    filter: invert(1);
 }
