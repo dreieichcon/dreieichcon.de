@@ -7,4 +7,6 @@ admin/include/pepper.php
 
 upload/
 
-.idea/
+*/.idea/*
+*/.vscode/*
+*/.github/*
