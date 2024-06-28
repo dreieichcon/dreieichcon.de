@@ -1,0 +1,24 @@
+:root {
+  --background: #111111;
+  --foreground: #ffffff;
+  --primary: #d90368;
+  --secondary: #8755dd;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  overflow: hidden;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.socials-stack {
+  height: 5% !important;
+  border-bottom: 1px solid var(--primary);
+}
+
+/*# sourceMappingURL=main.css.map */
