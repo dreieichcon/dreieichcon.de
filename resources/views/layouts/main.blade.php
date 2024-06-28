@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>DreieichCon</title>
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="/assets/css/css/fonts.css">
+    <link rel="stylesheet" href="/assets/css/css/main.css">
 </head>
 <body>
     <div class="container-fluid">
