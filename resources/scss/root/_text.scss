@@ -1,0 +1,9 @@
+@mixin title{
+    color: var(--primary);
+    font-size: var(--font-size-text-title);
+    font-weight: 600;
+}
+
+@mixin subtitle{
+    font-size: var(--font-size-text-subtitle);
+}

@@ -1,5 +1,6 @@
 ﻿@use "../root/flex";
 @use "../root/spacing";
+@use "../root/text";
 
 .blog-post{
     @include flex.flex-row;
@@ -43,13 +44,11 @@
 }
 
 .blog-post-title{
-    color: var(--primary);
-    font-size: var(--font-size-text-title);
-    font-weight: 600;
+    @include text.title;
 }
 
 .blog-post-subtitle{
-    font-size: var(--font-size-text-subtitle);
+    @include text.subtitle;
 }
 
 .blog-post-text-divider{

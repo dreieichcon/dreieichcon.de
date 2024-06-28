@@ -12,10 +12,11 @@ $primary-fire: #F25500;
 $secondary-fire: #ea2300;
 $hover-fire: #221220;
 
-$fontSizeNav: 1.1rem;
+$fontSizeNav: 1.2rem;
 $fontSizePageTitle: 1.5rem;
-$fontSizeTextTitle: 1.1rem;
-$fontSizeTextSubtitle: 0.9rem;
+$fontSizeTextTitle: 1.3rem;
+$fontSizeTextSubtitle: 1rem;
+$fontSizeText: 1.2rem;
 
 
 :root {
@@ -23,7 +24,7 @@ $fontSizeTextSubtitle: 0.9rem;
     --font-size-page-title: #{$fontSizePageTitle};
     --font-size-text-title: #{$fontSizeTextTitle};
     --font-size-text-subtitle: #{$fontSizeTextSubtitle};
-    --font-size-text: 1rem;
+    --font-size-text: #{$fontSizeText};
 
     @if ($theme == "lightning") {
         --background: #{$bg-lightning};

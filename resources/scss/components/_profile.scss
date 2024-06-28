@@ -1,0 +1,67 @@
+@use "../root/flex";
+@use "../root/spacing";
+@use "../root/text";
+
+.profile-stack{
+    @include flex.flex-col;
+}
+
+.profile-row{
+    @include flex.flex-row;
+}
+
+.profile-image-stack{
+    max-width: 40%;
+    width: 40%;
+    max-height: 70vh;
+    @include flex.flex-col;
+}
+
+.profile-image{
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    margin: auto auto 0;
+    object-fit: cover;
+}
+
+.profile-image-resize{
+    width: 100%;
+    height: 90%;
+}
+
+.profile-content-stack{
+    @include flex.flex-col;
+    width: 70%;
+    max-width: 70%;
+}
+
+.profile-header-bar{
+    @include flex.flex-row-between;
+}
+
+.profile-socials-bar{
+    @include flex.flex-row-right;
+    align-items: center;
+}
+
+.profile-title-stack{
+    @include flex.flex-col;
+}
+
+.profile-title{
+    @include text.title;
+}
+
+.profile-subtitle{
+    @include text.subtitle;
+}
+
+.profile-text-divider{
+    margin-top: spacing.$small;
+    margin-bottom: spacing.$medium;
+    width: 100% !important;
+    height: 1px;
+    border-bottom: 1px solid var(--foreground);
+}
