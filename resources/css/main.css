@@ -1,9 +1,9 @@
 :root {
-  --font-size-nav: 1.1rem;
+  --font-size-nav: 1.2rem;
   --font-size-page-title: 1.5rem;
-  --font-size-text-title: 1.1rem;
-  --font-size-text-subtitle: 0.9rem;
-  --font-size-text: 1rem;
+  --font-size-text-title: 1.3rem;
+  --font-size-text-subtitle: 1rem;
+  --font-size-text: 1.2rem;
   --background: #120200;
   --background-alpha: rgba(17, 17, 17, 0.5333333333);
   --foreground: #ffffff;
@@ -282,6 +282,7 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   padding: 0.5rem;
 }
 
@@ -289,6 +290,8 @@ a {
   display: flex;
   flex-direction: column;
   max-width: 10vw;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .content-footer-title {
@@ -298,6 +301,14 @@ a {
 .content-footer-link {
   font-weight: bold;
   cursor: pointer;
+}
+
+.content-footer-divider {
+  width: 1px;
+  height: 80%;
+  border-right: 2px solid var(--foreground);
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .content-divider {
@@ -363,6 +374,81 @@ a {
 .blog-post-text-divider {
   margin-top: 0.15rem;
   margin-bottom: 0.25rem;
+  width: 100% !important;
+  height: 1px;
+  border-bottom: 1px solid var(--foreground);
+}
+
+.profile-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.profile-image-stack {
+  max-width: 40%;
+  width: 40%;
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-image {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  margin: auto auto 0;
+  object-fit: cover;
+}
+
+.profile-image-resize {
+  width: 100%;
+  height: 90%;
+}
+
+.profile-content-stack {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  max-width: 70%;
+}
+
+.profile-header-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.profile-socials-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.profile-title-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-title {
+  color: var(--primary);
+  font-size: var(--font-size-text-title);
+  font-weight: 600;
+}
+
+.profile-subtitle {
+  font-size: var(--font-size-text-subtitle);
+}
+
+.profile-text-divider {
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
   width: 100% !important;
   height: 1px;
   border-bottom: 1px solid var(--foreground);

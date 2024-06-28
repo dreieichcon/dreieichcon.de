@@ -25,12 +25,15 @@
 .content-footer-row{
     @include flex.flex-row;
     justify-content: center;
+    align-items: center;
     padding: spacing.$medium;
 }
 
 .content-footer-item{
     @include flex.flex-col;
     max-width: 10vw;
+    margin-left: spacing.$medium;
+    margin-right: spacing.$medium;
 }
 
 .content-footer-title{
@@ -40,6 +43,14 @@
 .content-footer-link{
     font-weight: bold;
     cursor: pointer;
+}
+
+.content-footer-divider{
+    width: 1px;
+    height: 80%;
+    border-right: 2px solid var(--foreground);
+    margin-left: spacing.$medium;
+    margin-right: spacing.$medium;
 }
 
 .content-divider{

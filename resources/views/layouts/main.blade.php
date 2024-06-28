@@ -18,6 +18,7 @@
 
         <div class="content-scroll">
             @yield("content")
+            <x-dc.site.footer.stack />
         </div>
     </div>
 </div>
