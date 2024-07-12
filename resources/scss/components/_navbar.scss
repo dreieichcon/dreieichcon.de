@@ -62,16 +62,18 @@ $dropdownHeight: 3vh;
 
     background: var(--background-alpha);
 
-    visibility: collapse;
+    visibility: hidden;
     position: absolute;
 
     left: -1px;
 
     width: 200%;
+    z-index: 2000;
 
     backdrop-filter: blur(10px);
+
     &:hover{
-        visibility: visible;
+        visibility: visible !important;
     }
 }
 

@@ -26,6 +26,8 @@ class ProgrammSeeder extends Seeder
         Event::truncate();
 
 
+        Programm::truncate();
+
             //create Event$table->uuid('id')->primary()->unique();
         //            $table->string('name');
         //            $table->unsignedInteger('year');

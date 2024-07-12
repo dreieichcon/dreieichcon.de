@@ -8,6 +8,7 @@
   --background-alpha: rgba(17, 17, 17, 0.5333333333);
   --foreground: #ffffff;
   --primary: #F25500;
+  --primary-alpha: #F2550044;
   --secondary: #ea2300;
   --banner-image: url(../img/peter-yost-ah9tydIdlKA-unsplash.jpg);
   --hover: #221210;
@@ -209,14 +210,15 @@ a {
 
 .navbar-dropdown-wrapper {
   background: var(--background-alpha);
-  visibility: collapse;
+  visibility: hidden;
   position: absolute;
   left: -1px;
   width: 200%;
+  z-index: 2000;
   backdrop-filter: blur(10px);
 }
 .navbar-dropdown-wrapper:hover {
-  visibility: visible;
+  visibility: visible !important;
 }
 
 .navbar-dropdown-flex {
@@ -261,7 +263,7 @@ a {
   flex-grow: 1;
   flex-direction: column;
   overflow-y: scroll;
-  padding: 1rem;
+  padding: 0 1rem 1rem 1rem;
 }
 
 .content-page-title {
@@ -682,6 +684,29 @@ a {
 
 input[type=checkbox]:checked ~ .hide-show {
   visibility: visible !important;
+}
+
+.table-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.table-main > tbody > tr {
+  vertical-align: top;
+  border-bottom: 1px solid var(--primary-alpha);
+}
+.table-main > tbody > tr > td {
+  padding: 0.25rem;
+}
+.table-main > thead {
+  position: sticky;
+  top: 1px;
+  background: var(--background-alpha);
+  backdrop-filter: blur(15px);
+  filter: drop-shadow(0px 1px 0px var(--primary));
+}
+.table-main > thead > tr > th {
+  padding: 1rem 0.25rem;
 }
 
 /*# sourceMappingURL=main.css.map */

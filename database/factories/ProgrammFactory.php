@@ -15,8 +15,8 @@ class ProgrammFactory extends Factory
         return [
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            'title' => $this->faker->realText(),
-            'description_short' => $this->faker->realText(),
+            'title' => $this->faker->realText(20),
+            'description_short' => $this->faker->realText(140),
             'description_long' => $this->faker->realText(4500),
             'start' => Carbon::now()->addMinutes($this->faker->randomNumber()),
             'duration' => $this->faker->randomNumber(),

@@ -6,7 +6,7 @@
     flex-grow: 1;
     flex-direction: column;
     overflow-y: scroll;
-    padding: spacing.$normal;
+    padding: 0 spacing.$normal spacing.$normal spacing.$normal;
 }
 
 .content-page-title{

@@ -7,6 +7,10 @@
     border-bottom: 1px solid var(--primary);
 }
 
+@mixin bottom-primary-alpha-border {
+    border-bottom: 1px solid var(--primary-alpha);
+}
+
 @mixin bottom-primary-border-large {
     border-bottom: 2px solid var(--primary);
 }
