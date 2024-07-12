@@ -12,6 +12,7 @@ use Carbon\Carbon;
 
 use Faker\Factory;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 use function Laravel\Prompts\text;
 use function Laravel\Prompts\select;
 
@@ -20,6 +21,10 @@ class ProgrammSeeder extends Seeder
     public function run(): void
     {
         $faker = Factory::create();
+        Schema::disableForeignKeyConstraints();
+        Programm::truncate();
+        Event::truncate();
+
 
             //create Event$table->uuid('id')->primary()->unique();
         //            $table->string('name');
@@ -48,24 +53,26 @@ class ProgrammSeeder extends Seeder
         );
 
         $fake_locations = select(
-            label: "Create faked locations?",
+            label: "Clear locations and fake new?",
             options: ["Yes", "No"],
             default: "Yes",
         );
 
         $fake_types = select(
-            label: "Create faked programm types?",
+            label: "Clear types and fake new?",
             options: ["Yes", "No"],
             default: "Yes",
         );
 
         if($fake_types == "Yes"){
+            Type::truncate();
           for($i = 0; $i < 10; $i ++){
               Type::create(["name" => $faker->word]);
           }
         }
 
         if($fake_locations == "Yes"){
+            Location::truncate();
             for($i = 0; $i < 10; $i ++){
                 Location::create(["name" => $faker->word]);
             }
@@ -93,6 +100,9 @@ class ProgrammSeeder extends Seeder
                 "type_id" => Type::all()->shuffle()->first()->id,
             ]);
         }
+
+
+        Schema::enableForeignKeyConstraints();
 
     }
 }
