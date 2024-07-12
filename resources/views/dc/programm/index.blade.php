@@ -4,5 +4,11 @@
 @section("content")
 
     @dump($programm)
-    @dump($programm->first()->id)
+
+    <?php
+        $prog = new \App\Models\Programm();
+        foreach($prog->getAttributes() as $key => $value){
+            echo __($key);
+        }
+        ?>
 @endsection
