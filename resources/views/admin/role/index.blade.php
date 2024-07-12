@@ -45,7 +45,7 @@
                                 </td>
 
                                 <td>
-                                    <a href="/role/{{$role->id}}/edit"> bearbeiten </a>
+                                    <a href="/admin/role/{{$role->id}}/edit"> bearbeiten </a>
                                 </td>
                             </tr>
                         @endforeach

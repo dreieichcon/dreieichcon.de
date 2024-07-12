@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Traits\Logger;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -59,11 +60,57 @@ class AdminUserController extends Controller
         ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
+        $this->check_permission("admin.user");
+        $data = $request->validate([
+            "name" => ["required"],
+            "email" => ["required", "email"],
+        ]);
+
+        $user->update($data);
+        $changed_data = $user->getChanges();
+
+        $this->create_log("user", $user->id, "UPDATE", $changed_data);
+        return redirect("/admin/user/" . $user->id . "/edit")->with("success", "Benutzer $user->name erfolgreich bearbeitet");
     }
 
     public function destroy($id)
     {
+
+
+
+    }
+
+    public function role_add(Request $request, User $user)
+    {
+        $this->check_permission("admin.user");
+        $data = $request->validate([
+            "name" => 'required',
+        ]);
+
+        foreach($data["name"] as $name){
+            $role = Role::where("name", $name)->first();
+            $user->assignRole($role);
+        }
+
+        return redirect("/admin/user/$user->id/edit")->with("success", "Berechtigungen angepasst");
+
+    }
+
+    public function role_remove(Request $request, User $user)
+    {
+        $this->check_permission("admin.user");
+        $data = $request->validate([
+            "name" => 'required',
+        ]);
+
+        foreach($data["name"] as $name){
+            $role = Role::where("name", $name)->first();
+            $user->removeRole($role);
+        }
+
+        return redirect("/admin/user/$user->id/edit")->with("success", "Berechtigungen angepasst");
+
     }
 }

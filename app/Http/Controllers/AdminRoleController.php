@@ -32,7 +32,7 @@ class AdminRoleController extends Controller
 
         $role = Role::create($data);
 
-        return redirect("/role")->with("success", "Rolle $role->name angelegt");
+        return redirect("/admin/role")->with("success", "Rolle $role->name angelegt");
     }
 
 
@@ -52,7 +52,7 @@ class AdminRoleController extends Controller
         ]);
 
         $role->update($data);
-        return redirect("/role")->with("success", "Rolle $role->name bearbeitet");
+        return redirect("/admin/role/$role->id/edit")->with("success", "Rolle $role->name bearbeitet");
 
     }
 
@@ -67,7 +67,7 @@ class AdminRoleController extends Controller
             $permission = Permission::where("name", $name)->first();
             $role->givePermissionTo($permission);
         }
-        return redirect("/role/$role->id/edit")->with("success", "Rolle $role->name bearbeitet");
+        return redirect("/admin/role/$role->id/edit")->with("success", "Rolle $role->name bearbeitet");
     }
 
     public function permission_remove(Request $request, Role $role)
@@ -81,7 +81,7 @@ class AdminRoleController extends Controller
             $permission = Permission::where("name", $name)->first();
             $role->revokePermissionTo($permission);
         }
-        return redirect("/role/$role->id/edit")->with("success", "Rolle $role->name bearbeitet");
+        return redirect("/admin/role/$role->id/edit")->with("success", "Rolle $role->name bearbeitet");
     }
 
 

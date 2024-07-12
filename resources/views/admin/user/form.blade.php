@@ -76,7 +76,7 @@
                         ?>
 
                     <div class="card-body">
-                        <form action="/user/{{$user->id}}/role_remove" method="POST">
+                        <form action="/admin/user/{{$user->id}}/role_remove" method="POST">
                             @csrf
                             <label class="col-form-label" for="name">zugewiesene Rollen</label>
                             <select multiple required name="name[]" id="name" class="form-control" size="10">
@@ -97,7 +97,7 @@
 
 
                     <div class="card-body">
-                        <form action="/user/{{$user->id}}/role_assign" method="POST">
+                        <form action="/admin/user/{{$user->id}}/role_add" method="POST">
                             @csrf
 
                             <label class="col-form-label" for="name">verfügbare Rollen</label>

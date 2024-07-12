@@ -26,7 +26,13 @@ Route::middleware('auth')->group(function () {
 
 
     Route::resource("/admin/user", \App\Http\Controllers\AdminUserController::class);
+    Route::post("/admin/user/{user}/role_add", [\App\Http\Controllers\AdminUserController::class, "role_add"]);
+    Route::post("/admin/user/{user}/role_remove", [\App\Http\Controllers\AdminUserController::class, "role_remove"]);
+
     Route::resource("/admin/role", \App\Http\Controllers\AdminRoleController::class);
+    Route::post("/admin/role/{role}/permission_add", [\App\Http\Controllers\AdminRoleController::class, "permission_add"]);
+    Route::post("/admin/role/{role}/permission_remove", [\App\Http\Controllers\AdminRoleController::class, "permission_remove"]);
+
     Route::resource("/admin/log", \App\Http\Controllers\LogController::class);
     Route::resource("/admin/navigation", \App\Http\Controllers\NavigationController::class);
 });

@@ -52,6 +52,7 @@ if (isset($role)) {
                 </div>
             </div>
         </div>
+    </div>
 
 
         @if($patch)
@@ -64,7 +65,7 @@ if (isset($role)) {
                             ?>
 
                         <div class="card-body">
-                            <form action="/role/{{$role->id}}/permission_remove" method="POST">
+                            <form action="/admin/role/{{$role->id}}/permission_remove" method="POST">
                                 @csrf
                                 <label class="col-form-label" for="name">zugewiesene Berechtigungen</label>
                                 <select multiple required name="name[]" id="name" class="form-control" size="10">
@@ -85,7 +86,7 @@ if (isset($role)) {
 
 
                         <div class="card-body">
-                            <form action="/role/{{$role->id}}/permission_add" method="POST">
+                            <form action="/admin/role/{{$role->id}}/permission_add" method="POST">
                                 @csrf
 
                                 <label class="col-form-label" for="name">verfügbare Berechtigungen</label>
