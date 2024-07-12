@@ -1,4 +1,5 @@
 <nav class="navbar-stack">
+    <div class="navbar-row">
     <?php
         $navigation = App\Models\Navigation::whereNull("parent_id")->orderBy("sort")->get();
     ?>
@@ -23,5 +24,5 @@
             </x-dc.site.nav.dropdown>
         @endif
     @endforeach
-
+    </div>
 </nav>

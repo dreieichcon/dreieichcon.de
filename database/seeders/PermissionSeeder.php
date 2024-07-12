@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Spatie\Permission;
+use App\Models\Permission;
 use Illuminate\Database\Seeder;
 
 class PermissionSeeder extends Seeder
@@ -11,7 +11,8 @@ class PermissionSeeder extends Seeder
     {
         $permissions = [
             "event",
-            "user",
+            "admin.user",
+            "admin.role",
             "biography",
             "pages"
         ];

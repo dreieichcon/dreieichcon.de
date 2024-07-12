@@ -13,7 +13,7 @@ class AdminUserController extends Controller
     use Logger;
     public function index()
     {
-        $this->check_permission("user");
+        $this->check_permission("admin.user");
 
         return view("admin.user.index", [
             "user" => User::all(),
@@ -22,13 +22,13 @@ class AdminUserController extends Controller
 
     public function create()
     {
-        $this->check_permission("user");
+        $this->check_permission("admin.user");
         return view("admin.user.form");
     }
 
     public function store(Request $request)
     {
-        $this->check_permission("user");
+        $this->check_permission("admin.user");
 
         $data = $request->validate([
             "name" => ["required"],
@@ -49,12 +49,14 @@ class AdminUserController extends Controller
         return redirect("/admin/user")->with("success", "Benutzer $user->name erfolgreich angelegt");
     }
 
-    public function show($id)
-    {
-    }
 
-    public function edit($id)
+
+    public function edit(User $user)
     {
+        $this->check_permission("admin.user");
+        return view("admin.user.form", [
+            "user" => $user,
+        ]);
     }
 
     public function update(Request $request, $id)

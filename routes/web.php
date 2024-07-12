@@ -11,8 +11,10 @@ Route::get('/prof', function () {
     return view('prof');
 });
 
+Route::resource("/programm", \App\Http\Controllers\ProgrammController::class);
+
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return redirect("/home");
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -24,6 +26,7 @@ Route::middleware('auth')->group(function () {
 
 
     Route::resource("/admin/user", \App\Http\Controllers\AdminUserController::class);
+    Route::resource("/admin/role", \App\Http\Controllers\AdminRoleController::class);
     Route::resource("/admin/log", \App\Http\Controllers\LogController::class);
     Route::resource("/admin/navigation", \App\Http\Controllers\NavigationController::class);
 });

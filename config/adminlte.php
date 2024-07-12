@@ -314,16 +314,27 @@ return [
 
 
 
-        ['header' => 'Administration'],
+        [
+            'header' => 'Administration',
+            'can' => 'admin.*',
+        ],
         [
             'text' => 'Benutzer',
             'url' => 'admin/user',
             'icon' => 'fas fa-fw fa-user',
+            'can' => 'admin.user',
+        ],
+        [
+            'text' => 'Rollen',
+            'url' => 'admin/role',
+            'icon' => 'fas fa-fw fa-users',
+            'can' => 'admin.role',
         ],
         [
             'text' => 'Log',
             'url' => 'admin/log',
             'icon' => 'fas fa-fw fa-list',
+            'can' => 'admin.log',
         ],
 
     ],

@@ -13,7 +13,7 @@ return new class extends Migration {
             $table->unsignedInteger('year');
             $table->dateTime('start');
             $table->dateTime('end');
-            $table->text('open');
+            $table->text('opening_hours');
             $table->string('theme');
             $table->string("ticketshop")->nullable();
             $table->uuid('user_id')->nullable();

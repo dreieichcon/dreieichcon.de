@@ -1,6 +1,5 @@
 @extends("adminlte::page")
 
-
 @section("content_header")
     <h1>Benutzer-Verwaltung</h1>
 @endsection
@@ -47,7 +46,9 @@
                                     </ul>
 
                                 </td>
-                                <td></td>
+                                <td>
+                                    <a href="/admin/user/{{$u->id}}/edit"><span class="fas fa-edit"></span></a>
+                                </td>
                             </tr>
 
                         @endforeach
