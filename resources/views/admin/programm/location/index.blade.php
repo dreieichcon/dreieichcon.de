@@ -20,7 +20,7 @@
                         <thead>
                         <tr>
                             <th>Name</th>
-
+                            <th>Programmpunkte</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -29,6 +29,32 @@
                             <tr>
                                 <td>
                                     {{ $location->name }}
+                                </td>
+
+                                <td>
+                                    {{ $location->programm->count() }} Programmpunkte
+                                    <span onclick="$('#programm_location_{{$location->id}}').toggle()" class="inline_link">
+                                        anzeigen/ausblenden
+                                        <span class="fa fa-caret-down"></span>
+                                    </span>
+                                    <table class="table table-striped table-sm" style="display:none" id="programm_location_{{$location->id}}">
+                                        <thead>
+                                            <tr>
+                                                <th>Event</th>
+                                                <th>Zeitpunkt</th>
+                                                <th>Titel</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($location->programm as $programm)
+                                                <tr>
+                                                    <td>{{ $programm->event->name }}</td>
+                                                    <td>{{ $programm->start->format("d.m.Y H:i") }}</td>
+                                                    <td>{{ substr($programm->title, 0, 120) }}</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
                                 </td>
 
                                 <td>

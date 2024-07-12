@@ -313,6 +313,32 @@ return [
         ],
 
 
+        [
+            'header' => 'Programm',
+            'can' => 'content.programm',
+        ],
+
+        [
+            'text' => 'Programmpunkte',
+            'url' => 'admin/programm',
+            'icon' => 'fas fa-calendar-week',
+            'can' => 'admin.user',
+        ],
+
+        [
+            'text' => 'Orte',
+            'url' => 'admin/location',
+            'icon' => 'fas fa-location-arrow',
+            'can' => 'admin.user',
+        ],
+
+        [
+            'text' => 'Programmpunkt-Typen',
+            'url' => 'admin/type',
+            'icon' => 'fas fa-tags',
+            'can' => 'admin.user',
+        ],
+
 
         [
             'header' => 'Administration',
@@ -379,17 +405,17 @@ return [
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
+                    'asset' => true,
+                    'location' => 'storage/assets/vendor/datatables/datatables.js',
                 ],
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
                 ],
                 [
                     'type' => 'css',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
                 ],
             ],

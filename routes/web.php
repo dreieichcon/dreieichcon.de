@@ -25,6 +25,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');
 
 
+    Route::resource("/admin/location", \App\Http\Controllers\LocationController::class);
+    Route::resource("/admin/programm", \App\Http\Controllers\AdminProgrammController::class);
+
+
+
+
+
+
     Route::resource("/admin/user", \App\Http\Controllers\AdminUserController::class);
     Route::post("/admin/user/{user}/role_add", [\App\Http\Controllers\AdminUserController::class, "role_add"]);
     Route::post("/admin/user/{user}/role_remove", [\App\Http\Controllers\AdminUserController::class, "role_remove"]);

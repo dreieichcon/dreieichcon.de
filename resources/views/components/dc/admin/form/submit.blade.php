@@ -1,6 +1,6 @@
 <button
     type="submit"
-    class="btn btn-info"
+    class="btn {{ $class ?? "btn-info" }}"
 >
     {{ $text ?? "Speichern" }}
 </button>

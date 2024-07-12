@@ -13,8 +13,9 @@ class PermissionSeeder extends Seeder
             "event",
             "admin.user",
             "admin.role",
-            "biography",
-            "pages"
+            "content.biography",
+            "content.pages",
+            "content.programm"
         ];
 
 

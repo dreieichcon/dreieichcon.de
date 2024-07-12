@@ -43,7 +43,7 @@ input:valid, textarea:valid, select:valid,  .valid{
     color: var(--blue);
 }
 
-.span_link{
+.inline_link{
 
     text-decoration: underline;
     cursor: pointer;
