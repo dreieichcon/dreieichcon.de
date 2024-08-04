@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Navigation;
+use App\Models\Page;
 use App\Traits\Logger;
 use Illuminate\Http\Request;
 
@@ -27,6 +28,8 @@ class NavigationController extends Controller
         $navigation = Navigation::whereNull("parent_id")->orderBy("sort")->get();
         return view("admin.navigation.form", [
             "all_navigation" => $navigation,
+            "pages" => Page::all(),
+            "special_pages" => ["game", "programm"],
         ]);
     }
 
@@ -58,6 +61,8 @@ class NavigationController extends Controller
         return view("admin.navigation.form", [
             "all_navigation" => $all_navigation,
             "navigation" => $navigation,
+            "pages" => Page::all(),
+            "special_pages" => ["game", "programm"],
         ]);
     }
 
@@ -78,7 +83,7 @@ class NavigationController extends Controller
 
         $this->create_log("navigation", $navigation->id, "UPDATE", $diffs);
 
-        return redirect("/admin/navigation")->with("success", "Navigation $navigation->name bearbeitet");
+        return redirect("/admin/navigation/$navigation->id/edit")->with("success", "Navigation $navigation->name bearbeitet");
     }
 
     public function destroy(Navigation $navigation)

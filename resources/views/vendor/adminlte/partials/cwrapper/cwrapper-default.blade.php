@@ -32,8 +32,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header bg-success">
-
-                                Datenbank-Anfrage erfolgreich: {{ session('success') }}
+                                {{ session('success') }}
                             </div>
                         </div>
                     </div>

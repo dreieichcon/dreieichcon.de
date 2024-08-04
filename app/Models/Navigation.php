@@ -44,14 +44,16 @@ class Navigation extends Model
 
         //priority: target_special, target_external, target_internal
 
-        if (!is_null($this->target_special) || strlen($this->target_special) > 0) {
+        if (!is_null($this->target_special) && strlen($this->target_special) > 0) {
             $href = $this->target_special;
-        } elseif (!is_null($this->target_external) || strlen($this->target_external) > 0) {
+        } elseif (!is_null($this->target_external) && strlen($this->target_external) > 0) {
             $href = $this->target_external;
-        } elseif (!is_null($this->target_internal) || strlen($this->target_internal) > 0) {
-            $href = $this->target_internal;
+        } elseif (!is_null($this->target_internal) && strlen($this->target_internal) > 0) {
+            $page = Page::find($this->target_internal);
+
+            $href = "/page/" . $page->slug;
         }else{
-            $href = "";
+            $href = "no href";
         }
 
 

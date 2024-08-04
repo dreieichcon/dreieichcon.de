@@ -308,7 +308,7 @@ return [
         ],
         [
             'text' => 'statische Seiten',
-            'url' => 'admin/pages',
+            'url' => 'admin/page',
             'icon' => 'fas fa-fw fa-file',
         ],
 

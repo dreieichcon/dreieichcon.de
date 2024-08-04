@@ -10,9 +10,11 @@ if(!isset($navigation)){
     $navigation = new App\Models\Navigation();
     $action = "/admin/navigation";
     $patch = false;
+    $h3 = "neues Navigationselement anlegen";
 }else{
     $action = "/admin/navigation/$navigation->id";
     $patch  = true;
+    $h3 = "Navigationselement $navigation->name bearbeiten";
 }
 
 ?>
@@ -30,7 +32,7 @@ if(!isset($navigation)){
                     @endif
 
                     <div class="card-header">
-                        <h3 class="card-title"> neues Navigations-Element anlegen</h3>
+                        <h3 class="card-title"> {{ $h3 }}</h3>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -52,6 +54,43 @@ if(!isset($navigation)){
                                     label="Reihenfolge"
                                     value="{{ $navigation->sort }}"
                                     required
+                                />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <label class="col-form-label" for="target_internal">interne Seite <small>optional</small></label>
+                                <select id="target_internal" name="target_internal" class="form-control">
+                                    <x-dc.admin.form.option.placeholder />
+                                    @foreach($pages as $page)
+                                        <option
+                                            @if($page->id == $navigation->target_internal)
+                                                selected
+                                            @endif
+
+                                            value="{{ $page->id }}">{{ $page->title }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <x-dc.admin.form.input
+                                    name="target_external"
+                                    label="externer Link"
+                                    value="{{ $navigation->target_external }}"
+
+                                />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <x-dc.admin.form.input
+                                    name="target_special"
+                                    label="Spezial Link"
+                                    value="{{ $navigation->target_special }}"
+
                                 />
                             </div>
                         </div>

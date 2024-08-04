@@ -4,5 +4,8 @@
     "start": "Startpunkt",
     "starts_in": "Startet in",
     "location": "Ort",
-    "type": "Typ"
+    "type": "Typ",
+    "h1": "Überschrift",
+    "h2": "Unter-Überschrift",
+    "body": "Seiten-Inhalt"
 }

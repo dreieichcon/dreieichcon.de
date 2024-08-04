@@ -1,10 +1,17 @@
 <?php
 
+
 use App\Http\Controllers\ProfileController;
+use App\Models\Page;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $page = Page::where("slug", "home")->firstOrFail();
+
+    return view("dc.page.show", [
+        "page" => $page
+    ]);
 });
 
 Route::get('/prof', function () {
@@ -12,6 +19,8 @@ Route::get('/prof', function () {
 });
 
 Route::resource("/programm", \App\Http\Controllers\ProgrammController::class);
+
+Route::get("/page/{page:slug}", [\App\Http\Controllers\PageController::class, "show"]);
 
 Route::get('/dashboard', function () {
     return redirect("/home");
@@ -27,11 +36,14 @@ Route::middleware('auth')->group(function () {
 
     Route::resource("/admin/location", \App\Http\Controllers\LocationController::class);
     Route::resource("/admin/programm", \App\Http\Controllers\AdminProgrammController::class);
+    Route::resource("/admin/page", \App\Http\Controllers\AdminPageController::class);
+    Route::get("/admin/page/{page}/section_new", [\App\Http\Controllers\AdminPageController::class, 'sectionForm']);
+    Route::post("/admin/page/{page}/section_new", [\App\Http\Controllers\AdminPageController::class, 'sectionStore']);
+    Route::post("/admin/page/{page}/section_add", [\App\Http\Controllers\AdminPageController::class, 'sectionAdd']);
 
-
-
-
-
+    Route::resource("/admin/section", \App\Http\Controllers\AdminSectionController::class);
+    Route::post("/admin/section/{section}/image_new", [\App\Http\Controllers\AdminSectionController::class, 'imageStore']);
+    Route::resource("/admin/section_image", \App\Http\Controllers\AdminSectionImageController::class);
 
     Route::resource("/admin/user", \App\Http\Controllers\AdminUserController::class);
     Route::post("/admin/user/{user}/role_add", [\App\Http\Controllers\AdminUserController::class, "role_add"]);
