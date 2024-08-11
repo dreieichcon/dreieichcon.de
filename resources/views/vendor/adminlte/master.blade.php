@@ -51,6 +51,7 @@
     <link href="{{ asset("/assets/vendor/DataTables/datatables.min.css") }}" rel="stylesheet">
     <script src="{{ asset("/assets/vendor/DataTables/datatables.min.js") }}"></script>
 
+    <link href="{{ asset("/assets/vendor/iCheck/icheck-bootstrap.min.css") }}" rel="stylesheet">
 
     {{-- Livewire Styles --}}
     @if(config('adminlte.livewire'))

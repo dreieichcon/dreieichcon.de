@@ -64,6 +64,12 @@ input:valid, textarea:valid, select:valid,  .valid{
     text-align: justify;
 }
 
+.item_disabled{
+    color: var(--red);
+    text-decoration: line-through;
+}
+
+
 
 #fwb_container a{
     width: 100% !important;

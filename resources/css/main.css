@@ -4,14 +4,7 @@
   --font-size-text-title: 1.2rem;
   --font-size-text-subtitle: 1rem;
   --font-size-text: 1.1rem;
-  --background: #120200;
-  --background-alpha: rgba(17, 17, 17, 0.5333333333);
-  --foreground: #ffffff;
-  --primary: #F25500;
-  --primary-alpha: #F2550044;
-  --secondary: #ea2300;
-  --banner-image: url(../img/peter-yost-ah9tydIdlKA-unsplash.jpg);
-  --hover: #221210;
+  /* color themes are in /public/asses/css/theme */
 }
 
 html, body {
@@ -292,7 +285,7 @@ a {
 .content-footer-item {
   display: flex;
   flex-direction: column;
-  max-width: 10vw;
+  max-width: 20vw;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }

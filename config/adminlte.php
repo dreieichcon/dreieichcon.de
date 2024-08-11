@@ -299,7 +299,10 @@ return [
 
         // Sidebar items:
 
-        ['header' => 'Seiten'],
+        [
+            'header' => 'Seiten',
+            'classes' => 'text-uppercase'
+        ],
 
         [
             'text' => 'Navigation',
@@ -312,10 +315,32 @@ return [
             'icon' => 'fas fa-fw fa-file',
         ],
 
+        ###################################################
 
+        [
+            'header' => 'Biografien',
+            'classes' => 'text-uppercase'
+        ],
+
+        [
+            'text' => 'Biografien',
+            'url' => 'admin/biography',
+            'can' => 'content.biography',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+
+        [
+            'text' => 'Kategorien',
+            'url' => 'admin/category',
+            'can' => 'content.biography',
+            'icon' => 'fas fa-list',
+        ],
+
+        ###################################################
         [
             'header' => 'Programm',
             'can' => 'content.programm',
+            'classes' => 'text-uppercase'
         ],
 
         [
@@ -339,11 +364,20 @@ return [
             'can' => 'admin.user',
         ],
 
+        ###################################################
 
         [
             'header' => 'Administration',
             'can' => 'admin.*',
+            'classes' => 'text-uppercase mt-4'
         ],
+        [
+            'text' => 'Veranstaltungen',
+            'url' => 'admin/event',
+            'icon' => 'far fa-fw fa-calendar-alt',
+            'can' => 'admin.event',
+        ],
+
         [
             'text' => 'Benutzer',
             'url' => 'admin/user',

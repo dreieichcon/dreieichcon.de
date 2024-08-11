@@ -32,7 +32,7 @@
 
 .content-footer-item{
     @include flex.flex-col;
-    max-width: 10vw;
+    max-width: 20vw;
     margin-left: spacing.$medium;
     margin-right: spacing.$medium;
 }

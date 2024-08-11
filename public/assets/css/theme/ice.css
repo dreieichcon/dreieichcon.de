@@ -1,0 +1,11 @@
+:root{
+    --background:  #010809;
+    --background-alpha: #01080988;
+    --foreground: #ffffff;
+    --primary: #0b6d99;
+    --primary-alpha: #0b6d9944;
+    --secondary: #10a3e5;
+    --banner-image: url(../img/ice.png);
+    --hover: #221210;
+}
+

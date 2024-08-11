@@ -11,7 +11,11 @@ if (!isset($navigation)) {
 @endif
 <ul>
     @foreach($navigation as $nav)
-        <li>
+        <li
+        @if(!$nav->enabled)
+        class="item_disabled"
+            @endif
+        >
             {{ $nav->name }}
             @if($links)
                 <a href="/admin/navigation/{{$nav->id}}/edit" class="mr-1"><span class="fas fa-edit"></span></a>

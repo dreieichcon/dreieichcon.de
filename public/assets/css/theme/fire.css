@@ -1,0 +1,11 @@
+:root{
+    --background:  #120200;
+    --background-alpha: #11111188;
+    --foreground: #ffffff;
+    --primary: #F25500;
+    --primary-alpha: #F2550044;
+    --secondary: #ea2300;
+    --banner-image: url(../img/fire.png);
+    --hover: #221210;
+}
+

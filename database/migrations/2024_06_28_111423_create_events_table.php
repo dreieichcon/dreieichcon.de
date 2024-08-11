@@ -16,7 +16,6 @@ return new class extends Migration {
             $table->text('opening_hours');
             $table->string('theme');
             $table->string("ticketshop")->nullable();
-            $table->uuid('user_id')->nullable();
             $table->timestamps();
         });
     }

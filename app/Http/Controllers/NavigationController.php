@@ -76,7 +76,15 @@ class NavigationController extends Controller
             'target_external' => ['nullable'],
             'target_special' => ['nullable'],
             'parent_id' => ['nullable', 'exists:navigations'],
+            'enabled' => ['nullable']
         ]);
+
+        if(!isset($data['enabled'])) {
+            $navigation->enabled = false;
+        }else{
+            $navigation->enabled = true;
+        }
+        unset($data["enabled"]);
 
         $navigation->update($data);
         $diffs = $navigation->getChanges();

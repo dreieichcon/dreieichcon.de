@@ -17,7 +17,7 @@
         {{isset($style) ? "style=".$style : "" }}
         {{isset($onchange) ? "onchange=".$onchange : "" }}
         {{isset($oninput) ? "oninput=".$oninput : "" }}
-    >{{ old($attribute, $model->$attribute ?? "") }}</textarea>
+    >@if(isset($raw)){!!  old($attribute, $model->$attribute ?? "")  !!}@else{!!  strip_tags(old($attribute, $model->$attribute ?? ""))  !!}@endif</textarea>
 
     @error($attribute)
     <div class="error-message">

@@ -1,0 +1,11 @@
+:root{
+    --background:  #111111;
+    --background-alpha: #11111188;
+    --foreground: #ffffff;
+    --primary: #d90368;
+    --primary-alpha: #d9036844;
+    --secondary: #8755dd;
+    --banner-image: url(../img/background.png);
+    --hover: #222222;
+}
+

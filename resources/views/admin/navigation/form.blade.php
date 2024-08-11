@@ -110,6 +110,16 @@ if(!isset($navigation)){
                                 </select>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-12">
+                                @php($checked = $navigation->enabled)
+                               <x-dc.admin.form.icheck
+                                   label="aktiv"
+                                   name="enabled"
+                                   checked="{{$checked}}"
+                               />
+                            </div>
+                        </div>
                     </div>
                     <div class="card-footer">
                         <x-dc.admin.form.submit />

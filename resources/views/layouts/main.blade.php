@@ -3,8 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>DreieichCon</title>
-    <link rel="stylesheet" href="/assets/css/bootstrap/bootstrap.css" type="text/css">
-    <link rel="stylesheet" href="/assets/css/fonts.css" type="text/css">
+    <link rel="stylesheet" href="{{ asset("/assets/css/bootstrap/bootstrap.css") }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset("/assets/css/fonts.css") }}" type="text/css">
+
+    <?php
+    $now = \Carbon\Carbon::now();
+    $event = \App\Models\Event::where("start", "<", $now)
+        ->where("end", ">", $now)
+        ->get();
+
+    if(count($event) > 0){
+        $e = $event->sortBy("start")->first();
+    }
+        ?>
+
+    @if(isset($e))
+        <link rel="stylesheet" href="{{ asset("/assets/css/theme/" . $e->theme .  ".css") }}" type="text/css">
+    @endif
+
+
     @vite("/resources/css/main.css")
 </head>
 

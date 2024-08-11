@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');
 
+    Route::resource("/admin/navigation", \App\Http\Controllers\NavigationController::class);
 
     Route::resource("/admin/location", \App\Http\Controllers\LocationController::class);
     Route::resource("/admin/programm", \App\Http\Controllers\AdminProgrammController::class);
@@ -45,6 +46,16 @@ Route::middleware('auth')->group(function () {
     Route::post("/admin/section/{section}/image_new", [\App\Http\Controllers\AdminSectionController::class, 'imageStore']);
     Route::resource("/admin/section_image", \App\Http\Controllers\AdminSectionImageController::class);
 
+    Route::resource("/admin/biography", \App\Http\Controllers\AdminBiographyController::class);
+    Route::post("/admin/biography/{biography}/category_add", [\App\Http\Controllers\AdminBiographyController::class, 'categoryAdd']);
+    Route::post("/admin/biography/{biography}/category_remove", [\App\Http\Controllers\AdminBiographyController::class, 'categoryRemove']);
+
+    Route::resource("/admin/category", \App\Http\Controllers\AdminCategoryController::class);
+
+    Route::resource("/admin/event", \App\Http\Controllers\AdminEventController::class);
+
+
+
     Route::resource("/admin/user", \App\Http\Controllers\AdminUserController::class);
     Route::post("/admin/user/{user}/role_add", [\App\Http\Controllers\AdminUserController::class, "role_add"]);
     Route::post("/admin/user/{user}/role_remove", [\App\Http\Controllers\AdminUserController::class, "role_remove"]);
@@ -54,7 +65,7 @@ Route::middleware('auth')->group(function () {
     Route::post("/admin/role/{role}/permission_remove", [\App\Http\Controllers\AdminRoleController::class, "permission_remove"]);
 
     Route::resource("/admin/log", \App\Http\Controllers\LogController::class);
-    Route::resource("/admin/navigation", \App\Http\Controllers\NavigationController::class);
+
 });
 
 require __DIR__ . '/auth.php';

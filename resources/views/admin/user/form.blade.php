@@ -65,54 +65,16 @@
 
 
     @if($patch)
+        <x-dc.admin.twolists
+            :all="\App\Models\Role::all()"
+            :references="$user->roles"
+            sortBy="name"
+            key="name"
+            value="name"
+            action="/admin/user/{{$user->id}}/"
+            label="Berechtigung"
+        />
 
 
-        <div class="row">
-            <div class="col-6">
-                <div class="card">
-                        <?php
-                        $roles = \App\Models\Role::all();
-                        $assigned_roles = [];
-                        ?>
-
-                    <div class="card-body">
-                        <form action="/admin/user/{{$user->id}}/role_remove" method="POST">
-                            @csrf
-                            <label class="col-form-label" for="name">zugewiesene Rollen</label>
-                            <select multiple required name="name[]" id="name" class="form-control" size="10">
-                                @foreach($user->roles->sortBy("name") as $role)
-                                    @php($assigned_roles[] = $role->name)
-                                    <option value="{{ $role->name }}">{{ $role->name }}</option>
-
-                                @endforeach
-                            </select>
-                            <x-dc.admin.form.submit class="bg-info mt-2" text="Berechtigung entfernen >>>"/>
-                        </form>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="card">
-
-
-                    <div class="card-body">
-                        <form action="/admin/user/{{$user->id}}/role_add" method="POST">
-                            @csrf
-
-                            <label class="col-form-label" for="name">verfügbare Rollen</label>
-                            <select multiple required name="name[]" id="name" class="form-control" size="10">
-                                @foreach($roles->sortBy("name") as $role)
-                                    @if(!in_array($role->name, $assigned_roles))
-                                        <option value="{{ $role->name }}">{{ $role->name }}</option>
-                                    @endif
-                                @endforeach
-                            </select>
-                            <x-dc.admin.form.submit class="bg-info mt-2" text="<<< Berechtigung erteilen"/>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
     @endif
 @endsection

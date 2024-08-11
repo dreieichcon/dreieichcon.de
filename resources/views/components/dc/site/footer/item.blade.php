@@ -3,6 +3,6 @@
         {{ $title ?? ""}}
     </div>
     <div class="content-footer-text">
-        {{ $content ?? "" }}
+        {!! $slot ?? "" !!}
     </div>
 </div>
