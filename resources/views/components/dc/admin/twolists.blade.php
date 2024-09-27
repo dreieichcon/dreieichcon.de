@@ -6,9 +6,9 @@
             ?>
 
             <div class="card-body">
-                <form action="{{$action}}category_remove" method="POST">
+                <form action="{{$action}}_remove" method="POST">
                     @csrf
-                    <label class="col-form-label" for="id">zugewiesene Kategorien</label>
+                    <label class="col-form-label" for="id">zugewiesene {{$label}}</label>
                     <select multiple required name="id[]" id="id" class="form-control" size="10">
                         @foreach($references->sortBy($sortBy) as $ref)
                             @php($assigned[] = $ref->$key)
@@ -27,10 +27,10 @@
 
 
             <div class="card-body">
-                <form action="{{$action}}category_add" method="POST">
+                <form action="{{$action}}_add" method="POST">
                     @csrf
 
-                    <label class="col-form-label" for="id">verfügbare Kategorien</label>
+                    <label class="col-form-label" for="id">verfügbare {{$label}}</label>
                     <select multiple required name="id[]" id="id" class="form-control" size="10">
                         @foreach($all->sortBy($sortBy) as $a)
                             @if(!in_array($a->$key, $assigned))
