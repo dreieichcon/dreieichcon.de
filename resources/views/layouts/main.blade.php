@@ -22,7 +22,9 @@
     @endif
 
 
-    @vite("/resources/css/main.css")
+   {{-- @vite("/resources/css/main.css") --}}
+   <link rel='stylesheet' href="{{ asset("/build/assets/main-CJdvWMam.css") }}" type="text/css">
+
 </head>
 
 <body>
