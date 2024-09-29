@@ -50,6 +50,9 @@ Route::middleware('auth')->group(function () {
     Route::post("/admin/biography/{biography}/category_add", [\App\Http\Controllers\AdminBiographyController::class, 'categoryAdd']);
     Route::post("/admin/biography/{biography}/category_remove", [\App\Http\Controllers\AdminBiographyController::class, 'categoryRemove']);
 
+    Route::post("/admin/biography/{biography}/link_add", [\App\Http\Controllers\BiographyLinksController::class, 'store']);
+    Route::resource("/admin/biography_link", \App\Http\Controllers\BiographyLinksController::class);
+
     Route::resource("/admin/category", \App\Http\Controllers\AdminCategoryController::class);
 
     Route::resource("/admin/event", \App\Http\Controllers\AdminEventController::class);

@@ -8,10 +8,10 @@ $faker = Faker\Factory::create();
         <x-dc.site.footer.item
                 title="Veranstalter"
         >
-            Jugendclub WIRIC im
-            Bürgerverein Buchschlag e.V.
-            Zeppelinstraße 4
-            63303 Dreieich
+            Jugendclub WIRIC im <br>
+            Bürgerverein Buchschlag e.V.<br>
+            Zeppelinstraße 4<br>
+            63303 Dreieich<br>
         </x-dc.site.footer.item>
 
         <x-dc.site.footer.item

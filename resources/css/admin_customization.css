@@ -135,6 +135,19 @@ input:valid, textarea:valid, select:valid,  .valid{
     margin-bottom: 1rem;
 }
 
+.markdown_header{
+    font-weight: bold;
+}
+.markdown_preview{
+    background-color: rgba(26, 216, 246, 0.18) !important;
+    padding: .5rem;
+}
+
+.markdown_preview a {
+    color: rgba(246, 120, 57, 0.6);
+    text-decoration: underline;
+}
+
 @media print {
     .content-header{
         display: block !important;

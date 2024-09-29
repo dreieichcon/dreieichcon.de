@@ -68,6 +68,8 @@ if (isset($page)) {
                                 />
                             </div>
                         </div>
+                       <x-dc.admin.md-preview source="body"/>
+
                     </div>
                     <div class="card-footer">
                         <x-dc.admin.form.submit/>
@@ -76,6 +78,7 @@ if (isset($page)) {
             </form>
         </div>
     </div>
+
 
     @if($patch)
         <div class="row">

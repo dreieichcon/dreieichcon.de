@@ -71,7 +71,7 @@
             sortBy="name"
             key="name"
             value="name"
-            action="/admin/user/{{$user->id}}/"
+            action="/admin/user/{{$user->id}}/role"
             label="Berechtigung"
         />
 

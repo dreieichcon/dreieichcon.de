@@ -22,9 +22,14 @@
     @endif
 
 
-   {{-- @vite("/resources/css/main.css") --}}
-   <link rel='stylesheet' href="{{ asset("/build/assets/main-CJdvWMam.css") }}" type="text/css">
+    @vite("/resources/css/main.css")
+{{--   <link rel='stylesheet' href="{{ asset("/build/assets/main-CJdvWMam.css") }}" type="text/css">--}}
 
+    <!-- jQuery -->
+    <script src="{{ asset("/assets/vendor/jquery/js/jquery-3.7.1.min.js") }}"></script>
+    <!-- Marked.js and DOMpurify -->
+    <script src="{{ asset("/vendor/marked/marked.js") }}"></script>
+    <script src="{{ asset("/vendor/dompurify/purify.min.js") }}"></script>
 </head>
 
 <body>
@@ -32,7 +37,7 @@
     <div class="stack">
 
         <x-dc.site.socials.bar/>
-        <x-dc.site.banner.stack/>
+        <x-dc.site.banner.stack :e="$e"/>
         <x-dc.site.nav.navbar/>
 
         <div class="content-scroll">

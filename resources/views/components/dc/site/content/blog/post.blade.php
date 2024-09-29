@@ -20,10 +20,16 @@
             {{ $section->h2 }}
         </div>
         <div class="blog-post-text-divider"></div>
-        <div class="blog-post-text">
-            @foreach(explode("\n", $section->body) as $body)
-                <p>{{ $body }}</p>
-            @endforeach
-        </div>
+        <div class="blog-post-text" id="section_body_{{$section->id}}">{{ $section->body }}</div>
+{{--            @foreach(explode("\n", $section->body) as $body)--}}
+{{--                <p>{{ $body }}</p>--}}
+{{--            @endforeach--}}
+
+
+        <script>
+            $( document ).ready(function() {
+                $('#section_body_{{$section->id}}').html(DOMPurify.sanitize(marked.parse($('#section_body_{{$section->id}}').html())));
+            });
+        </script>
     </div>
 </div>
