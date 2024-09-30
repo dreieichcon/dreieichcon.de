@@ -5,10 +5,18 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/css/app.css',
+                'resources/css/main.css',
+                'resources/css/admin_customization.css',
+                'resources/js/custom.js',
+                'resources/sass/app.scss',
                 'resources/js/app.js',
+                // 'resources/img/',
+                // 'resources/js/',
             ],
-            refresh: true,
+            refresh: [{
+                paths: ['resources/**', 'config/**', 'app/Http/Controllers/**'],
+                config: { delay: 300 }
+            }]
         }),
     ],
 });
