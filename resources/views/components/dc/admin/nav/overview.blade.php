@@ -38,7 +38,7 @@ if (!isset($navigation)) {
                         <span style="font-family: monospace; background-color: #666666">{{ $child->href() }}</span>
 
                     </li>
-                    <x-dc.admin.edit
+                    
                 @endforeach
             </ul>
         </li>
