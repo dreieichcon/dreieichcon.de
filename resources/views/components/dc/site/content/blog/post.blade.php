@@ -6,9 +6,11 @@
                  src="{{ $img->src() }}"
                  alt="{{ $img->alt }}"
             />
-            <div class="blog-post-image-copyright">
-                &copy; {{ $img->copyright }}
-            </div>
+            @if(isset($img->copyright) && strlen($img->copyright) > 0)
+                <div class="blog-post-image-copyright">
+                    &copy; {{ $img->copyright }}
+                </div>
+            @endif
         @endif
 
     </div>
@@ -21,13 +23,13 @@
         </div>
         <div class="blog-post-text-divider"></div>
         <div class="blog-post-text" id="section_body_{{$section->id}}">{{ $section->body }}</div>
-{{--            @foreach(explode("\n", $section->body) as $body)--}}
-{{--                <p>{{ $body }}</p>--}}
-{{--            @endforeach--}}
+        {{--            @foreach(explode("\n", $section->body) as $body)--}}
+        {{--                <p>{{ $body }}</p>--}}
+        {{--            @endforeach--}}
 
 
         <script>
-            $( document ).ready(function() {
+            $(document).ready(function () {
                 $('#section_body_{{$section->id}}').html(DOMPurify.sanitize(marked.parse($('#section_body_{{$section->id}}').html())));
             });
         </script>
