@@ -1,7 +1,8 @@
 <div class="socials-stack">
     <div class="socials-bar">
-        @for($i=0; $i<10; $i++)
-            <x-dc.site.socials.item/>
-        @endfor
+        @foreach(\App\Models\Social::all()->sortBy("sort") as $social)
+
+            <x-dc.site.socials.item :social="$social"/>
+        @endforeach
     </div>
 </div>

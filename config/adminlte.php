@@ -396,7 +396,12 @@ return [
             'icon' => 'fas fa-fw fa-list',
             'can' => 'admin.log',
         ],
-
+        [
+            'text' => 'Social Icons',
+            'url' => 'admin/social',
+            'icon' => 'far fa-fw fa-list',
+            'can' => 'admin.social',
+        ],
     ],
 
     /*

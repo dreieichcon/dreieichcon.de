@@ -57,7 +57,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource("/admin/event", \App\Http\Controllers\AdminEventController::class);
 
-
+    Route::resource("/admin/social", \App\Http\Controllers\AdminSocialController::class);
 
     Route::resource("/admin/user", \App\Http\Controllers\AdminUserController::class);
     Route::post("/admin/user/{user}/role_add", [\App\Http\Controllers\AdminUserController::class, "role_add"]);

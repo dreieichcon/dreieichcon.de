@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Http\Controllers\SocialController;
+use App\Http\Controllers\AdminSocialController;
 use App\Models\Social;
 use Illuminate\Database\Seeder;
 
