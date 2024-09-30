@@ -9,7 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    @vite("resources/css/admin_customization.css")
+
+    {{--    ToDo: find out, why vite asset bundling not working on production server --}}
+    @if(config("app.env") == "local")
+        @vite("resources/css/admin_customization.css")
+    @else
+        <link rel='stylesheet' href="{{ asset("/build/assets/admin_customization-CkfSp5Bh.css") }}" type="text/css">
+    @endif
 
     {{-- Custom Meta Tags --}}
     @yield('meta_tags')
@@ -125,7 +131,13 @@
     @yield('adminlte_js')
 
     <!-- custom js -->
-    @vite("resources/js/custom.js")
+    {{--    ToDo: find out, why vite asset bundling not working on production server --}}
+    @if(config("app.env") == "local")
+        @vite("resources/js/custom.js")
+    @else
+        <script src="{{ asset("/build/assets/custom-ceBg0bRc.js") }}">
+    @endif
+
 </body>
 
 </html>

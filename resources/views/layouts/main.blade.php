@@ -12,10 +12,10 @@
         ->where("end", ">", $now)
         ->get();
 
-    if(count($event) > 0){
+    if (count($event) > 0) {
         $e = $event->sortBy("start")->first();
     }
-        ?>
+    ?>
 
     @if(isset($e))
         <link rel="stylesheet" href="{{ asset("/assets/css/theme/" . $e->theme .  ".css") }}" type="text/css">
@@ -23,9 +23,13 @@
         <link rel="stylesheet" href="{{ asset("/assets/css/theme/lightning.css") }}" type="text/css">
     @endif
 
+{{--    ToDo: find out, why vite asset bundling not working on production server --}}
+    @if(config("app.env") == "local")
+        @vite("/resources/css/main.css")
+    @else
+        <link rel='stylesheet' href="{{ asset("/build/assets/main-CJdvWMam.css") }}" type="text/css">
+    @endif
 
-    @vite("/resources/css/main.css")
-{{--   <link rel='stylesheet' href="{{ asset("/build/assets/main-CJdvWMam.css") }}" type="text/css">--}}
 
     <!-- jQuery -->
     <script src="{{ asset("/assets/vendor/jquery/js/jquery-3.7.1.min.js") }}"></script>
@@ -44,7 +48,7 @@
 
         <div class="content-scroll">
             @yield("content")
-            <x-dc.site.footer.stack />
+            <x-dc.site.footer.stack/>
         </div>
     </div>
 </div>
