@@ -7,6 +7,7 @@
     flex-direction: column;
     overflow-y: scroll;
     padding: 0 spacing.$normal spacing.$normal spacing.$normal;
+    justify-content: space-between;
 }
 
 .content-page-title{

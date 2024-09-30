@@ -257,6 +257,7 @@ a {
   flex-direction: column;
   overflow-y: scroll;
   padding: 0 1rem 1rem 1rem;
+  justify-content: space-between;
 }
 
 .content-page-title {
@@ -319,6 +320,7 @@ a {
   display: flex;
   flex-direction: row;
   width: 100%;
+  padding-top: 1.5rem;
 }
 .blog-post > .blog-post-text-stack {
   padding-left: 1rem;

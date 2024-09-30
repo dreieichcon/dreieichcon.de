@@ -5,6 +5,7 @@
 .blog-post{
     @include flex.flex-row;
     width: 100%;
+    padding-top: spacing.$large;
 
     > .blog-post-text-stack{
         padding-left: 1rem;
