@@ -43,7 +43,12 @@
     <div class="stack">
 
         <x-dc.site.socials.bar/>
-        <x-dc.site.banner.stack :e="$e"/>
+        @if(isset($e))
+            <x-dc.site.banner.stack :e="$e"/>
+        @else
+            <x-dc.site.banner.stack/>
+        @endif
+
         <x-dc.site.nav.navbar/>
 
         <div class="content-scroll">
