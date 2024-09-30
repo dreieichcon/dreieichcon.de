@@ -9,6 +9,7 @@ export default defineConfig({
                 'resources/css/admin_customization.css',
                 'resources/js/custom.js',
                 'resources/sass/app.scss',
+		'resources/css/app.css',
                 'resources/js/app.js',
                 // 'resources/img/',
                 // 'resources/js/',
