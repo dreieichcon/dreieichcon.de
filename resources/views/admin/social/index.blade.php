@@ -33,7 +33,7 @@
                                 <td>{{ $social->href }}</td>
 
                                 <td>
-                                    <x-dc.admin.edit href="/admin/socail/{{$social->id}}/edit"/>
+                                    <x-dc.admin.edit href="/admin/social/{{$social->id}}/edit"/>
                                 </td>
                             </tr>
 

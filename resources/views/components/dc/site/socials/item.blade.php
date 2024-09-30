@@ -1,4 +1,4 @@
-<a href="{{ $social->href }}" class="socials-icon-wrapper">
+<a href="{{ $social->href }}" class="socials-icon-wrapper" target="_blank">
     <div class="socials-icon-box">
         <img
             class="socials-icon"
