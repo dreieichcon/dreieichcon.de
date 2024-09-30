@@ -19,6 +19,8 @@
 
     @if(isset($e))
         <link rel="stylesheet" href="{{ asset("/assets/css/theme/" . $e->theme .  ".css") }}" type="text/css">
+    @else
+        <link rel="stylesheet" href="{{ asset("/assets/css/theme/lightning.css") }}" type="text/css">
     @endif
 
 
