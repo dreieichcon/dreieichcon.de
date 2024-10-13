@@ -47,7 +47,7 @@ class NavigationController extends Controller
 
         $nav = Navigation::create($data);
 
-        $this->create_log("navigation", $nav->id, "CREATE", $nav);
+        $this->create_log("navigation", $nav->id, "CREATE", $nav->toArray());
 
         return redirect("/admin/navigation")->with("success", "Navigation $nav->name angelegt");
 
