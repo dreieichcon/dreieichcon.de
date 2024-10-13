@@ -37,6 +37,13 @@ a {
   color: var(--foreground) !important;
 }
 
+p > a {
+  text-decoration: underline !important;
+}
+p > a:hover {
+  color: var(--secondary-color) !important;
+}
+
 .banner-stack {
   height: 20%;
   display: flex;
@@ -324,12 +331,6 @@ a {
 }
 .blog-post > .blog-post-text-stack {
   padding-left: 1rem;
-}
-.blog-post > a {
-  text-decoration: underline !important;
-}
-.blog-post > a:hover {
-  color: var(--secondary-color) !important;
 }
 
 .blog-post-alt {

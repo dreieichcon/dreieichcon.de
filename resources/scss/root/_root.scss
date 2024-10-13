@@ -48,3 +48,13 @@ a {
     text-decoration: none !important;
     color: var(--foreground) !important;
 }
+
+p {
+    > a {
+        text-decoration: underline !important;
+    }
+
+    > a:hover{
+        color: var(--secondary-color) !important;
+    }
+}
