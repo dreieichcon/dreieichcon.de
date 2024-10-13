@@ -325,6 +325,9 @@ a {
 .blog-post > .blog-post-text-stack {
   padding-left: 1rem;
 }
+.blog-post > a {
+  text-decoration: underline;
+}
 
 .blog-post-alt {
   width: 100%;
