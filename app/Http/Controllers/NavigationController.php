@@ -42,7 +42,7 @@ class NavigationController extends Controller
             'target_internal' => ['nullable'],
             'target_external' => ['nullable'],
             'target_special' => ['nullable'],
-            'parent_id' => ['nullable', 'exists:navigations'],
+            'parent_id' => ['nullable'],
         ]);
 
         $nav = Navigation::create($data);
@@ -63,6 +63,7 @@ class NavigationController extends Controller
             "navigation" => $navigation,
             "pages" => Page::all(),
             "special_pages" => ["game", "programm"],
+
         ]);
     }
 
@@ -75,7 +76,7 @@ class NavigationController extends Controller
             'target_internal' => ['nullable'],
             'target_external' => ['nullable'],
             'target_special' => ['nullable'],
-            'parent_id' => ['nullable', 'exists:navigations'],
+            'parent_id' => ['nullable'],
             'enabled' => ['nullable']
         ]);
 
@@ -96,8 +97,15 @@ class NavigationController extends Controller
 
     public function destroy(Navigation $navigation)
     {
+        $this->check_permission("navigation");
+        $entry = $navigation->name;
+        //check children
+        Navigation::where("parent_id", $navigation->id)
+            ->delete();
+
         $navigation->delete();
 
-        return response()->json();
+        return redirect("/admin/navigation")
+            ->with("success", "Eintrag $entry gelöscht");
     }
 }

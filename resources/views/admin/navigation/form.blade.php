@@ -96,9 +96,9 @@ if(!isset($navigation)){
                         </div>
                         <div class="row">
                             <div class="col-12">
-                                <label class="col-form-label" for="parent">Übergeordnetes Element <small>optional</small></label>
-                                <select id="parent" name="parent" class="form-control">
-                                    <x-dc.admin.form.option.placeholder />
+                                <label class="col-form-label" for="parent_id">Übergeordnetes Element <small>optional</small></label>
+                                <select id="parent" name="parent_id" class="form-control">
+                                    <option value="">+++ keine übergeordnete Seite +++</option>
                                     @foreach($all_navigation as $parent)
                                         <option
                                             @if($parent->id == $navigation->parent_id)
@@ -128,7 +128,13 @@ if(!isset($navigation)){
             </div>
         </div>
     </div>
+@if($patch)
+    <x-dc.admin.delete_section
+    action="{{ $action }}"
+    name="Navigationselement"
+    />
 
+@endif
     <div class="row">
         <div class="col-12">
             <div class="card">

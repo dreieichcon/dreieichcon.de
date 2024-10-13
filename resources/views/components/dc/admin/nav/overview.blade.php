@@ -19,8 +19,7 @@ if (!isset($navigation)) {
             {{ $nav->name }}
             @if($links)
                 <a href="/admin/navigation/{{$nav->id}}/edit" class="mr-1"><span class="fas fa-edit"></span></a>
-                <a href="/admin/navigation/{{$nav->id}}/child_create" class="mr-2"><span
-                        class="fas fa-plus-circle"></span></a>
+               
             @endif
 {{--            <span style="font-family: monospace; background-color: #aaaaaa">Internal: {{ $nav->target_internal }}</span>--}}
 {{--            <span style="font-family: monospace; background-color: #aaaaaa">External: {{ $nav->target_external }}</span>--}}
