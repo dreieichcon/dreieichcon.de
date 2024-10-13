@@ -326,7 +326,10 @@ a {
   padding-left: 1rem;
 }
 .blog-post > a {
-  text-decoration: underline;
+  text-decoration: underline !important;
+}
+.blog-post > a:hover {
+  color: var(--secondary-color) !important;
 }
 
 .blog-post-alt {

@@ -12,7 +12,11 @@
     }
 
     > a {
-        text-decoration: underline;
+        text-decoration: underline !important;
+    }
+
+    > a:hover{
+        color: var(--secondary-color) !important;
     }
 }
 
