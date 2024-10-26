@@ -68,7 +68,7 @@ if (isset($biography)) {
             sortBy="name"
             key="id"
             value="name"
-            action="/admin/biography/{{$biography->id}}/"
+            action="/admin/biography/{{$biography->id}}/category"
             label="Kategorie"
         />
 
