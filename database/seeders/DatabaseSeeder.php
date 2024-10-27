@@ -43,6 +43,7 @@ class DatabaseSeeder extends Seeder
             SocialSeeder::class,
             PermissionSeeder::class,
             NavigationSeeder::class,
+            FontAwesomeSeeder::class,
         ]);
     }
 }

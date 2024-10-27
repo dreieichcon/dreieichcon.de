@@ -26,6 +26,7 @@ class AdminBiographyController extends Controller
         $data = $request->validate([
             "name" => ["required", "min:3", "max:255", "unique:biographies"],
             "short" => ["required", "min:3", "max:255"],
+            "slug" => ["required", "min:3", "max:255", "unique:biographies"],
             "long" => ["required"],
         ]);
 
@@ -51,6 +52,7 @@ class AdminBiographyController extends Controller
             "name" => ["required", "min:3", "max:255"],
             "short" => ["required", "min:3", "max:255"],
             "long" => ["required"],
+            "slug" => ["required", "min:3", "max:255", "unique:biographies"],
         ]);
 
         $biography->update($data);

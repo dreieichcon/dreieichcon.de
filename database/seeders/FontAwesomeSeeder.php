@@ -43,5 +43,11 @@ class FontAwesomeSeeder extends Seeder
                 ]
             );
         }
+
+        FontAwesome::create([
+            "category" => "brand",
+            "name" => "Webseite",
+            "class" => "fas fa-earth-europe",
+        ]);
     }
 }

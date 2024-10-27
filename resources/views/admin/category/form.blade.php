@@ -36,6 +36,12 @@ if (isset($category)) {
                             attribute="name"
                             required
                         />
+                        <x-dc.admin.form.input-new
+                            :model="$category"
+                            attribute="slug"
+                            required
+                        />
+
 
                     </div>
                     <div class="card-footer">

@@ -12,8 +12,13 @@ class Category extends Model
     use Uuids;
     protected $fillable = [
         'name',
+        'slug',
     ];
 
+    protected $hidden = [];
+    protected $with = [
+        "biographies",
+    ];
     public function biographies() :BelongsToMany
     {
         return $this->belongsToMany(Biography::class, 'biography_categories');

@@ -10,6 +10,7 @@ return new class extends Migration {
         Schema::create('biographies', function (Blueprint $table) {
             $table->uuid("id")->primary()->unique();
             $table->string('name');
+            $table->string('slug')->unique();
             $table->text('short');
             $table->longText('long');
             $table->uuid('user_id')->nullable();

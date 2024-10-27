@@ -3,6 +3,8 @@
 namespace App\Traits;
 
 
+use Illuminate\Support\Facades\Storage;
+
 trait Upload{
     public function UploadFile(UploadedFile $file, $folder = null, $disk = 'public', $filename = null)
     {

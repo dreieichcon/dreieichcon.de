@@ -10,18 +10,19 @@ class CategoriesSeeder extends Seeder
     public function run()
     {
         $categories = [
-            "Autor*in",
-            "Game Designer",
-            "Artists",
-            "Content Creator & Community",
-            "Cosplay",
-            "Ausstellende",
-            "Kooperationen",
+            "author"=>"Autor*in",
+            "game_designer"=>"Game Designer",
+            "artist"=>"Artists",
+            "creator"=>"Content Creator & Community",
+            "cosplay"=>"Cosplay",
+            "exhibitor"=>"Ausstellende",
+            "cooperation" =>"Kooperationen",
         ];
 
-        foreach($categories as $cat){
+        foreach($categories as $slug => $cat){
             Category::create([
-                "name" => $cat
+                "name" => $cat,
+                "slug" => $slug,
             ]);
         }
     }

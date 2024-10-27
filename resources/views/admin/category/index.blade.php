@@ -20,6 +20,7 @@
                         <thead>
                         <tr>
                             <th>Name</th>
+                            <th>Slug</th>
 
                             <th></th>
                         </tr>
@@ -28,6 +29,7 @@
                         @foreach($categories as $cat)
                             <tr>
                                 <td>{{ $cat->name }}</td>
+                                <td>{{ $cat->slug }}</td>
 
                                 <td><x-dc.admin.edit href="/admin/category/{{$cat->id}}/edit"/></td>
                             </tr>

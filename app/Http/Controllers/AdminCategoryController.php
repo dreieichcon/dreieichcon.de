@@ -22,7 +22,10 @@ class AdminCategoryController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->validate(["name" => "required"]);
+        $data = $request->validate([
+            "name" => "required",
+            "slug" => "required",
+        ]);
         $category = Category::create($data);
         return redirect("/admin/category/$category->id/edit")->with("success", "Kategorie erfolgreich angelegt!");
     }
@@ -38,7 +41,10 @@ class AdminCategoryController extends Controller
 
     public function update(Request $request, Category $category)
     {
-        $data = $request->validate(["name" => "required"]);
+        $data = $request->validate([
+            "name" => "required",
+            "slug" => "required",
+        ]);
         $category->update($data);
         return redirect("/admin/category/$category->id/edit")->with("success", "Kategorie bearbeitet");
     }

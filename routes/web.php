@@ -22,6 +22,9 @@ Route::resource("/programm", \App\Http\Controllers\ProgrammController::class);
 
 Route::get("/page/{page:slug}", [\App\Http\Controllers\PageController::class, "show"]);
 
+Route::get("/category/{category:slug}", [\App\Http\Controllers\CategoryController::class, "show"]);
+Route::get("/biography/{biography:slug}", [\App\Http\Controllers\BiographyController::class, "show"]);
+
 Route::get('/dashboard', function () {
     return redirect("/home");
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -49,9 +52,11 @@ Route::middleware('auth')->group(function () {
     Route::resource("/admin/biography", \App\Http\Controllers\AdminBiographyController::class);
     Route::post("/admin/biography/{biography}/category_add", [\App\Http\Controllers\AdminBiographyController::class, 'categoryAdd']);
     Route::post("/admin/biography/{biography}/category_remove", [\App\Http\Controllers\AdminBiographyController::class, 'categoryRemove']);
-
     Route::post("/admin/biography/{biography}/link_add", [\App\Http\Controllers\BiographyLinksController::class, 'store']);
+    Route::post("/admin/biography/{biography}/upload", [\App\Http\Controllers\BiographyImageController::class, 'upload']);
+
     Route::resource("/admin/biography_link", \App\Http\Controllers\BiographyLinksController::class);
+    Route::resource("/admin/biography_image", \App\Http\Controllers\BiographyImageController::class);
 
     Route::resource("/admin/category", \App\Http\Controllers\AdminCategoryController::class);
 

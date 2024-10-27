@@ -12,7 +12,9 @@ class BiographyController extends Controller
 
     public function show(Biography $biography)
     {
-        return $biography;
+        return view("dc.biography.show", [
+            "biography" => $biography
+        ]);
     }
 
 
