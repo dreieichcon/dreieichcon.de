@@ -16,10 +16,19 @@
                         </div>
                    </div>
                     <div class="artist-card-image-wrapper">
-                        <img class="artist-card-image"
-                            src="{{ $bio->images->first()->src() }}"
-                            alt="{{ $bio->images->first()->alt }}"
-                        />
+                        @if(is_null($bio->images->first()))
+                            <img class="artist-card-image"
+                                 src="{{ asset("/assets/img/no_img.png") }}"
+                                 alt="no image yet"
+
+                            />
+                        @else
+                            <img class="artist-card-image"
+                                 src="{{ $bio->images->first()->src() }}"
+                                 alt="{{ $bio->images->first()->alt }}"
+                            />
+                        @endif
+
                     </div>
                     <div class="artist-card-footer">
                         <div>

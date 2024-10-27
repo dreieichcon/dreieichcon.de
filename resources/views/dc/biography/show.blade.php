@@ -5,6 +5,12 @@ if (!isset($biography)) {
 }
 ?>
 
+<?php
+$images = $biography->images;
+$header_image = $images->firstWhere("is_primary", true) ?? $images->first();
+
+?>
+
 @section("content")
     <div class="content-page-title">
         {{ $biography->name }}
@@ -13,18 +19,22 @@ if (!isset($biography)) {
         <div class="profile-row">
             <div class="profile-image-stack">
                 <div class="profile-image-resize">
-                    <?php
-                    $images = $biography->images;
-                    $header_image = $images->firstWhere("is_primary", true) ?? $images->first();
 
-                    ?>
-                    <img class="profile-image"
-                         src="{{ $header_image->src() }}"
-                         alt=" {{ $header_image->alt}}"
-                    />
+                    @if(!is_null($header_image))
+                        <img class="profile-image"
+                             src="{{ $header_image->src() }}"
+                             alt=" {{ $header_image->alt}}"
+                        />
+                    @else
+                        <img class="profile-image"
+                             src="{{ asset("/assets/img/no_img.png") }}"
+                             alt="no image yet"
+
+                        />
+                    @endif
                 </div>
                 <div class="blog-post-image-copyright">
-                    @if(!is_null($header_image->copyright) && strlen($header_image->copyright)> 0)
+                    @if(!is_null($header_image) && !is_null($header_image->copyright) && strlen($header_image->copyright)> 0)
                         &copy; {{ $header_image->copyright }}
                     @endif
                 </div>
