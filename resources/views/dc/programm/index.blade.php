@@ -71,7 +71,12 @@
                     </div>
                     <div class="mobile-text">
                         <div class="mobile-infos">
-                            {{ $location->name }}, {{ $item->start }} ({{ $item->start->diffForHumans() }})
+                            <div>
+                                {{ $item -> start -> format("d.m. H:i") }} ({{ $item->start->diffForHumans() }})
+                            </div>
+                            <div>
+                                {{ $location->name }}
+                            </div>
                         </div>
                     </div>
                 </a>

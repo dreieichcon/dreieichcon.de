@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="{{ asset("/assets/css/bootstrap/bootstrap.css") }}" type="text/css">
     <link rel="stylesheet" href="{{ asset("/assets/css/fonts.css") }}" type="text/css">
 
+    <!-- FontAwesome -->
+    <link href="{{ asset("/assets/vendor/fontawesome-free-6.5.2-web/css/all.css") }}" rel="stylesheet">
+
     <?php
     $now = \Carbon\Carbon::now();
     $event = \App\Models\Event::where("start", "<", $now)

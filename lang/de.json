@@ -1,9 +1,9 @@
 {
     "title": "Titel",
     "description_short": "Kurzbeschreibung",
-    "start": "Startpunkt",
-    "starts_in": "Startet in",
-    "end": "Endpunkt",
+    "start": "Startzeit",
+    "starts_in": "Startet&nbsp;in",
+    "end": "Endzeit",
     "location": "Ort",
     "type": "Typ",
     "h1": "Überschrift",
@@ -15,5 +15,10 @@
     "opening_hours": "Öffnungszeiten",
     "theme": "Theme",
     "ticketshop": "Ticket-Shop",
-    "description_long": "lange Beschreibung"
+    "description_long": "lange Beschreibung",
+    "game_master": "Spielleiter",
+    "system": "System",
+    "duration": "Dauer",
+    "players": "Spieler",
+    "actions": "Aktionen"
 }

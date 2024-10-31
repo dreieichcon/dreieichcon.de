@@ -35,10 +35,12 @@ class GameController extends Controller
             $game->start_timestamp = $item['start_timestamp'];
             $game->player = $item['player'];
             $game->language = $item['language'];
+            $game->location = implode(', ', array_column($item['table'], "name"));
+            $game->accessibility = count(array_filter($item['table'], fn($tab) => $tab["wheelchair_accessible"] == 1)) > 0;
             return $game;
         });
 
-       return view("admin.games.index", [
+       return view("dc.games.index", [
            'games' => $games->sortBy("start_timestamp"),
        ]);
     }

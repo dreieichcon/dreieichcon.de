@@ -3,6 +3,8 @@
 @use "../root/spacing";
 @use "../root/text";
 
+$breakpoint: 900px;
+
 $tableHeight: 50vh;
 
 .table-stack {
@@ -17,9 +19,13 @@ $tableHeight: 50vh;
     padding: spacing.$normal spacing.$small;
 }
 
+.table-link{
+    text-decoration: underline !important;
+}
+
 .table-main {
 
-    @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: $breakpoint) {
         display: none;
     }
 
@@ -33,6 +39,7 @@ $tableHeight: 50vh;
             > td {
                 @include table-cell;
                 height: inherit;
+                max-width: 30% !important;
 
                 > a {
                     display: block;
@@ -40,6 +47,19 @@ $tableHeight: 50vh;
                     height: 100% !important;
                     cursor: pointer;
                     padding: spacing.$medium 0;
+                }
+
+                > div {
+                    display: flex;
+                    width: 100% !important;
+                    height: 100% !important;
+                    padding: spacing.$medium 0;
+
+                    > div{
+                        justify-content: center;
+                        align-items: center;
+                        gap: spacing.$small;
+                    }
                 }
             }
         }
@@ -67,7 +87,7 @@ $tableHeight: 50vh;
 }
 
 .table-mobile {
-    @media only screen and (min-width: 800px) {
+    @media only screen and (min-width: $breakpoint) {
         display: none;
     }
 
@@ -108,9 +128,28 @@ $tableHeight: 50vh;
             }
         }
 
-        > .mobile-text > .mobile-infos {
-            font-weight: 500;
-            border-top: 1px solid var(--border);
+        > .mobile-text {
+
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            > .mobile-infos {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                gap: spacing.$medium;
+                width: 100%;
+                font-weight: 500;
+                border-top: 1px solid var(--border);
+            }
+
         }
+    }
+
+    .table-wheelchair-icon{
+        max-height: 50%;
+        aspect-ratio: 1/1;
     }
 }
