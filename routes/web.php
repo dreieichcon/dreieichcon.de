@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\AdminProgrammController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Page;
 use Illuminate\Support\Facades\Route;
@@ -38,8 +39,16 @@ Route::middleware('auth')->group(function () {
 
     Route::resource("/admin/navigation", \App\Http\Controllers\NavigationController::class);
 
-    Route::resource("/admin/location", \App\Http\Controllers\LocationController::class);
+    Route::resource("/admin/location", \App\Http\Controllers\AdminLocationController::class);
+
+    Route::resource("/admin/type", \App\Http\Controllers\AdminTypeController::class);
+
     Route::resource("/admin/programm", \App\Http\Controllers\AdminProgrammController::class);
+    Route::post("/admin/programm/{programm}/location_add", [AdminProgrammController::class, "addLocation"]);
+    Route::post("/admin/programm/{programm}/location_remove", [AdminProgrammController::class, "removeLocation"]);
+    Route::post("/admin/programm/{programm}/type_add", [AdminProgrammController::class, "addType"]);
+    Route::post("/admin/programm/{programm}/type_remove", [AdminProgrammController::class, "removeType"]);
+
     Route::resource("/admin/page", \App\Http\Controllers\AdminPageController::class);
     Route::get("/admin/page/{page}/section_new", [\App\Http\Controllers\AdminPageController::class, 'sectionForm']);
     Route::post("/admin/page/{page}/section_new", [\App\Http\Controllers\AdminPageController::class, 'sectionStore']);

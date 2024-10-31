@@ -24,6 +24,7 @@
     @endif
 
 {{--    ToDo: find out, why vite asset bundling not working on production server --}}
+{{--    Solution: remove leading slash! --}}
     @if(config("app.env") == "local")
         @vite("/resources/css/main.css")
     @else

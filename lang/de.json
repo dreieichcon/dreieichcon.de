@@ -14,5 +14,6 @@
     "long": "Langbeschreibung",
     "opening_hours": "Öffnungszeiten",
     "theme": "Theme",
-    "ticketshop": "Ticket-Shop"
+    "ticketshop": "Ticket-Shop",
+    "description_long": "lange Beschreibung"
 }

@@ -8,7 +8,7 @@ use App\Models\ProgrammLocation;
 use App\Traits\Logger;
 use Illuminate\Http\Request;
 
-class LocationController extends Controller
+class AdminLocationController extends Controller
 {
     use Logger;
     public function index()

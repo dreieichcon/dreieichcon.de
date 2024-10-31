@@ -20,6 +20,7 @@ class Programm extends Model
         'description_short',
         'description_long',
         'start',
+        'end',
         'duration',
     ];
 
