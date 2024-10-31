@@ -761,4 +761,32 @@ input[type=checkbox]:checked ~ .hide-show {
   object-fit: cover !important;
 }
 
+.error-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  max-height: 80%;
+  max-width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+
+.error-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-image-wrapper {
+  max-height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.error-image-wrapper > img {
+  height: 100%;
+}
+
 /*# sourceMappingURL=main.css.map */
