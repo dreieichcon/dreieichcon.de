@@ -11,6 +11,10 @@
     border-bottom: 1px solid var(--primary-alpha);
 }
 
+@mixin bottom-primary-alpha-border-2 {
+    border-bottom: 2px solid var(--primary-alpha);
+}
+
 @mixin bottom-primary-border-large {
     border-bottom: 2px solid var(--primary);
 }

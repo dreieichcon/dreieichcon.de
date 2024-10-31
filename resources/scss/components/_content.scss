@@ -6,6 +6,7 @@
     flex-grow: 1;
     flex-direction: column;
     overflow-y: scroll;
+    margin-top: spacing.$normal;
     padding: 0 spacing.$normal spacing.$normal spacing.$normal;
     justify-content: space-between;
 }
