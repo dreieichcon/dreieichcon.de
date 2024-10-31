@@ -263,6 +263,7 @@ p > a:hover {
   flex-grow: 1;
   flex-direction: column;
   overflow-y: scroll;
+  margin-top: 1rem;
   padding: 0 1rem 1rem 1rem;
   justify-content: space-between;
 }
@@ -693,12 +694,29 @@ input[type=checkbox]:checked ~ .hide-show {
   flex-direction: column;
 }
 
+@media only screen and (max-width: 800px) {
+  .table-main {
+    display: none;
+  }
+}
 .table-main > tbody > tr {
   vertical-align: top;
-  border-bottom: 1px solid var(--primary-alpha);
+  border-bottom: 2px solid var(--primary-alpha);
+  height: 100%;
 }
 .table-main > tbody > tr > td {
   padding: 0.25rem;
+  height: inherit;
+}
+.table-main > tbody > tr > td > a {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  cursor: pointer;
+  padding: 0.5rem 0;
+}
+.table-main > tbody > tr:hover {
+  background: var(--hover);
 }
 .table-main > thead {
   position: sticky;
@@ -709,6 +727,47 @@ input[type=checkbox]:checked ~ .hide-show {
 }
 .table-main > thead > tr > th {
   padding: 1rem 0.25rem;
+}
+
+.table-mobile {
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (min-width: 800px) {
+  .table-mobile {
+    display: none;
+  }
+}
+.table-mobile > a:hover {
+  background: var(--hover);
+}
+.table-mobile > .mobile-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  gap: 0.5rem;
+  border: 2px solid var(--primary-alpha);
+}
+.table-mobile > .mobile-item > .mobile-header {
+  font-size: var(--font-size-text-subtitle);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--border);
+}
+.table-mobile > .mobile-item > .mobile-header > .mobile-header-text {
+  font-weight: 1000;
+}
+.table-mobile > .mobile-item > .mobile-header > .mobile-header-tags {
+  font-weight: 400;
+}
+.table-mobile > .mobile-item > .mobile-text > .mobile-infos {
+  font-weight: 500;
+  border-top: 1px solid var(--border);
 }
 
 .artist-card {
@@ -759,6 +818,34 @@ input[type=checkbox]:checked ~ .hide-show {
   height: 100%;
   width: 100%;
   object-fit: cover !important;
+}
+
+.error-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  max-height: 80%;
+  max-width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+
+.error-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-image-wrapper {
+  max-height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.error-image-wrapper > img {
+  height: 100%;
 }
 
 /*# sourceMappingURL=main.css.map */

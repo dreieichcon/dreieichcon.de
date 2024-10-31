@@ -1,0 +1,27 @@
+@use "../root/flex";
+@use "../root/spacing";
+
+.error-wrapper{
+    @include flex.flex-col;
+    flex-grow: 1;
+    max-height: 80%;
+    max-width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: spacing.$large;
+}
+
+.error-text{
+    @include flex.flex-center;
+}
+
+.error-image-wrapper{
+    max-height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    >img{
+        height: 100%;
+    }
+}

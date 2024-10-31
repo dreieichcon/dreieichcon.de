@@ -23,14 +23,7 @@
         <link rel="stylesheet" href="{{ asset("/assets/css/theme/lightning.css") }}" type="text/css">
     @endif
 
-{{--    ToDo: find out, why vite asset bundling not working on production server --}}
-{{--    Solution: remove leading slash! --}}
-    @if(config("app.env") == "local")
-        @vite("/resources/css/main.css")
-    @else
-        <link rel='stylesheet' href="{{ asset("/build/assets/main-CJdvWMam.css") }}" type="text/css">
-    @endif
-
+    @vite("resources/css/main.css")
 
     <!-- jQuery -->
     <script src="{{ asset("/assets/vendor/jquery/js/jquery-3.7.1.min.js") }}"></script>
