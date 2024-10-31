@@ -13,8 +13,13 @@ class ProgrammController extends Controller
         return view("dc.programm.index", [
             "programm" => $programm,
         ]);
+    }
 
-
+    public function show(Programm $programm)
+    {
+        return view("dc.programm.show", [
+            "programm" => $programm,
+        ]);
     }
 
 }
