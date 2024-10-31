@@ -694,7 +694,11 @@ input[type=checkbox]:checked ~ .hide-show {
   flex-direction: column;
 }
 
-@media only screen and (max-width: 800px) {
+.table-link {
+  text-decoration: underline !important;
+}
+
+@media only screen and (max-width: 900px) {
   .table-main {
     display: none;
   }
@@ -707,6 +711,7 @@ input[type=checkbox]:checked ~ .hide-show {
 .table-main > tbody > tr > td {
   padding: 0.25rem;
   height: inherit;
+  max-width: 30% !important;
 }
 .table-main > tbody > tr > td > a {
   display: block;
@@ -714,6 +719,17 @@ input[type=checkbox]:checked ~ .hide-show {
   height: 100% !important;
   cursor: pointer;
   padding: 0.5rem 0;
+}
+.table-main > tbody > tr > td > div {
+  display: flex;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0.5rem 0;
+}
+.table-main > tbody > tr > td > div > div {
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
 }
 .table-main > tbody > tr:hover {
   background: var(--hover);
@@ -733,7 +749,7 @@ input[type=checkbox]:checked ~ .hide-show {
   display: flex;
   flex-direction: column;
 }
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 900px) {
   .table-mobile {
     display: none;
   }
@@ -765,9 +781,24 @@ input[type=checkbox]:checked ~ .hide-show {
 .table-mobile > .mobile-item > .mobile-header > .mobile-header-tags {
   font-weight: 400;
 }
+.table-mobile > .mobile-item > .mobile-text {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .table-mobile > .mobile-item > .mobile-text > .mobile-infos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
   font-weight: 500;
   border-top: 1px solid var(--border);
+}
+.table-mobile .table-wheelchair-icon {
+  max-height: 50%;
+  aspect-ratio: 1/1;
 }
 
 .artist-stack {
