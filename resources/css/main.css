@@ -770,9 +770,16 @@ input[type=checkbox]:checked ~ .hide-show {
   border-top: 1px solid var(--border);
 }
 
+.artist-stack {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
 .artist-card {
   display: flex;
-  margin-right: 0.5rem;
 }
 .artist-card > :hover {
   filter: drop-shadow(2px 2px 2px var(--primary));

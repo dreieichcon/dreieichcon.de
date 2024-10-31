@@ -2,9 +2,16 @@
 @use "../root/spacing";
 @use "../root/text";
 
+.artist-stack{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: spacing.$normal;
+}
+
 .artist-card{
     display: flex;
-    margin-right: spacing.$medium;
 
     >:hover{
         filter: drop-shadow(2px 2px 2px var(--primary));

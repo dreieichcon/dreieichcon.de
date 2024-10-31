@@ -6,7 +6,7 @@
         {{ $category->name }}
     </div>
 
-    <div class="d-flex flex-row flex-wrap">
+    <div class="artist-stack">
         @foreach($category->biographies as $bio)
             <a class="artist-card col-2" href="/biography/{{$bio->slug}}">
                 <div class="artist-card-content">
