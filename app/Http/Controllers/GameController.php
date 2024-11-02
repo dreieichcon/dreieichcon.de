@@ -35,6 +35,7 @@ class GameController extends Controller
             $game->start_timestamp = $item['start_timestamp'];
             $game->player = $item['player'];
             $game->language = $item['language'];
+            $game->full = $item['player'] == $item['player_max'];
             $game->location = implode(', ', array_column($item['table'], "name"));
             $game->accessibility = count(array_filter($item['table'], fn($tab) => $tab["wheelchair_accessible"] == 1)) > 0;
             return $game;

@@ -689,6 +689,20 @@ input[type=checkbox]:checked ~ .hide-show {
   visibility: visible !important;
 }
 
+.table-wrapper {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.table-scroll {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
 .table-stack {
   display: flex;
   flex-direction: column;
@@ -696,6 +710,23 @@ input[type=checkbox]:checked ~ .hide-show {
 
 .table-link {
   text-decoration: underline !important;
+}
+
+.table-actions {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.table-action {
+  border: 1px solid var(--primary);
+  padding: 0.5rem;
+  border-radius: 0.15rem;
+}
+
+.action-active {
+  background: var(--primary-alpha);
 }
 
 @media only screen and (max-width: 900px) {
