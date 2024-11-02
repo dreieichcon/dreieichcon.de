@@ -175,7 +175,7 @@
                     @endforeach
                 </x-slot>
                 <x-slot name="mobile">
-                    @foreach($games as $item)
+                    @foreach($final_games as $item)
                         <div class="mobile-item">
                             <div class="mobile-header">
                                 <div class="mobile-header-text">
