@@ -9,7 +9,7 @@ class ProgrammController extends Controller
 {
     public function index()
     {
-        $programm = Programm::all();
+        $programm = Programm::all()->sortBy("start");
         return view("dc.programm.index", [
             "programm" => $programm,
         ]);

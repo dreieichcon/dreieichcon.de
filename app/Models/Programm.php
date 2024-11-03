@@ -30,6 +30,7 @@ class Programm extends Model
     {
         return [
             'start' => 'datetime',
+            'end' => 'datetime',
         ];
     }
 
