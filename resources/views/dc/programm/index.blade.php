@@ -57,9 +57,7 @@
                             {{ $item->title }}
                         </div>
                         <div class="mobile-header-tags">
-                            @foreach($item->type as $type)
-                                {{ $type->name }}
-                            @endforeach
+                            {{ implode(', ', $item->type->pluck('name')->toArray()) }}
                         </div>
                     </div>
                     <div class="mobile-text">
@@ -71,7 +69,7 @@
                                 {{ $item -> start -> format("d.m. H:i") }} ({{ $item->start->diffForHumans() }})
                             </div>
                             <div>
-                                {{ $location->name }}
+                                {{ implode(', ', $item->location->pluck('name')->toArray()) }}
                             </div>
                         </div>
                     </div>
