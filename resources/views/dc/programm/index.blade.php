@@ -38,16 +38,12 @@
                     </td>
                     <td>
                         <a href="/programm/{{ $item -> id}}">
-                            @foreach($item->location as $location)
-                                {{ $location->name }},
-                            @endforeach
+                            {{ implode(', ', $item->location->pluck('name')->toArray()) }}
                         </a>
                     </td>
                     <td>
                         <a href="/programm/{{ $item -> id}}">
-                            @foreach($item->type as $type)
-                                {{ $type->name }},
-                            @endforeach
+                            {{ implode(', ', $item->type->pluck('name')->toArray()) }}
                         </a>
                     </td>
                 </tr>
