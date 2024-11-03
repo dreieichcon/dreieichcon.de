@@ -21,7 +21,7 @@
                     </div>
                     <div class="profile-socials-bar">
                         <div class="profile-title">
-                        {{ $programm->start->format("d.m. H:i") }} @
+                        {{ $programm->start->format("d.m. H:i") }} - {{ $programm->end->format("H:i") }} @
                             @foreach($programm->location as $location)
                                 {{ $location->name }}
                             @endforeach

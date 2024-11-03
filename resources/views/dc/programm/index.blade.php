@@ -28,7 +28,7 @@
                     </td>
                     <td>
                         <a href="/programm/{{ $item -> id}}">
-                            {{ $item->start }}
+                            {{ $item->start->format("d.m. H:i") }}
                         </a>
                     </td>
                     <td>
