@@ -58,9 +58,7 @@ $header_image = $images->firstWhere("is_primary", true) ?? $images->first();
                     </div>
                 </div>
                 <div class="profile-text-divider"></div>
-                <div class="profile-text" id="biography_long">
-                    {{ $biography->long }}
-                </div>
+                <div class="profile-text" id="biography_long">{{ $biography->long }}</div>
                 <div class="profile-text-divider"></div>
                 <div class="profile-grow">
 
