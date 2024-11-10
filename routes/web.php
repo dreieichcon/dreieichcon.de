@@ -22,6 +22,7 @@ Route::get('/prof', function () {
 Route::resource("/programm", \App\Http\Controllers\ProgrammController::class);
 
 Route::resource("/games", \App\Http\Controllers\GameController::class);
+Route::resource("/map", \App\Http\Controllers\MapController::class);
 
 Route::get("/page/{page:slug}", [\App\Http\Controllers\PageController::class, "show"]);
 
