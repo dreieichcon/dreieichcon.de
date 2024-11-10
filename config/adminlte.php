@@ -314,6 +314,11 @@ return [
             'url' => 'admin/page',
             'icon' => 'fas fa-fw fa-file',
         ],
+        [
+            'text' => 'Karten',
+            'url' => 'admin/map',
+            'icon' => 'fas fa-fw fa-map',
+        ],
 
         ###################################################
 

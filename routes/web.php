@@ -46,6 +46,9 @@ Route::middleware('auth')->group(function () {
 
     Route::resource("/admin/type", \App\Http\Controllers\AdminTypeController::class);
 
+    Route::resource("/admin/map", \App\Http\Controllers\AdminMapController::class);
+    Route::post("/admin/map/{map}/upload", [\App\Http\Controllers\AdminMapController::class, 'upload'])->name('map.upload');
+
     Route::resource("/admin/programm", \App\Http\Controllers\AdminProgrammController::class);
     Route::post("/admin/programm/{programm}/location_add", [AdminProgrammController::class, "addLocation"]);
     Route::post("/admin/programm/{programm}/location_remove", [AdminProgrammController::class, "removeLocation"]);
