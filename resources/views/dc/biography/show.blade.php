@@ -58,7 +58,7 @@ $header_image = $images->firstWhere("is_primary", true) ?? $images->first();
                     </div>
                 </div>
                 <div class="profile-text-divider"></div>
-                <div class="profile-text">
+                <div class="profile-text" id="biography_long">
                     {{ $biography->long }}
                 </div>
                 <div class="profile-text-divider"></div>
@@ -67,6 +67,12 @@ $header_image = $images->firstWhere("is_primary", true) ?? $images->first();
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function () {
+                let biography_long = $('#biography_long');
+                biography_long.html(DOMPurify.sanitize(marked.parse(biography_long.html())));
+            });
+        </script>
         <x-dc.site.content.main.divider/>
         @if($biography->images->count() > 1)
             <div class="profile-gallery-container">

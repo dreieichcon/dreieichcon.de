@@ -30,7 +30,8 @@
 
         <script>
             $(document).ready(function () {
-                $('#section_body_{{$section->id}}').html(DOMPurify.sanitize(marked.parse($('#section_body_{{$section->id}}').html())));
+                let body=$('#section_body_{{$section->id}}');
+                body.html(DOMPurify.sanitize(marked.parse(body.html())));
             });
         </script>
     </div>
