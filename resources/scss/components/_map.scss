@@ -7,10 +7,11 @@
     margin-bottom: spacing.$small;
 }
 
-.map-overview-wrapper{
+.map-overview-global-wrapper{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    gap: spacing.$normal;
 }
 
 .map-buttons{

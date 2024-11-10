@@ -924,10 +924,11 @@ input[type=checkbox]:checked ~ .hide-show {
   margin-bottom: 0.25rem;
 }
 
-.map-overview-wrapper {
+.map-overview-global-wrapper {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .map-buttons {

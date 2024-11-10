@@ -3,7 +3,7 @@
 
 @section("content")
 
-    <div class="map-overview-wrapper">
+    <div class="map-overview-global-wrapper">
         @foreach($maps as $map)
             <a href="/map/{{ $map->id }}" class="map-overview-wrapper col-2">
                 <h4>{{ $map->name }}</h4>
