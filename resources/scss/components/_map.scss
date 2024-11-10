@@ -7,6 +7,12 @@
     margin-bottom: spacing.$small;
 }
 
+.map-overview-wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .map-buttons{
     display: flex;
     gap: spacing.$normal;
