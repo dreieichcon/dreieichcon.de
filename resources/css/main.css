@@ -917,4 +917,50 @@ input[type=checkbox]:checked ~ .hide-show {
   height: 100%;
 }
 
+.map-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.map-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.map-wrapper {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden !important;
+}
+.map-reset {
+  cursor: pointer;
+  display: flex;
+  padding: 0.25rem;
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+}
+.map-reset:hover {
+  background: var(--hover);
+}
+
+.map-overview-wrapper {
+  aspect-ratio: 1/1;
+  border: 1px solid var(--primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  object-fit: contain;
+  overflow: hidden;
+  background: var(--background);
+}
+.map-overview-wrapper > img {
+  width: 95%;
+  object-fit: cover;
+}
+.map-overview-wrapper:hover {
+  filter: drop-shadow(2px 2px 2px var(--primary));
+}
+
 /*# sourceMappingURL=main.css.map */

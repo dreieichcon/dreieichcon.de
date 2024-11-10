@@ -1,0 +1,55 @@
+@use "../root/spacing";
+
+.map-title-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: spacing.$small;
+}
+
+.map-buttons{
+    display: flex;
+    gap: spacing.$normal;
+}
+
+.map-wrapper{
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden !important;
+
+    >img{
+    }
+}
+
+.map-reset{
+    cursor: pointer;
+    display: flex;
+    padding: spacing.$small;
+
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+
+    &:hover{
+        background: var(--hover);
+    }
+}
+
+.map-overview-wrapper{
+    aspect-ratio: 1/1;
+    border: 1px solid var(--primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    object-fit: contain;
+    overflow: hidden;
+    background: var(--background);
+
+    >img{
+        width: 95%;
+        object-fit: cover;
+    }
+
+    &:hover{
+        filter: drop-shadow(2px 2px 2px var(--primary));
+    }
+}
