@@ -4,7 +4,8 @@
 
 .profile-stack{
     @include flex.flex-col;
-    overflow: scroll;
+    flex-grow: 1;
+    overflow-y: scroll;
 }
 
 .profile-row{

@@ -388,7 +388,8 @@ p > a:hover {
 .profile-stack {
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  flex-grow: 1;
+  overflow-y: scroll;
 }
 
 .profile-row {
