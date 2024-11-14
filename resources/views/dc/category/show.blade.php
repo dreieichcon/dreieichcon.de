@@ -7,7 +7,7 @@
     </div>
 
     <div class="artist-stack">
-        @foreach($category->biographies as $bio)
+        @foreach($category->biographies->sortBy('name') as $bio)
             <a class="artist-card col-2" href="/biography/{{$bio->slug}}">
                 <div class="artist-card-content">
                     <div class="artist-card-title">
