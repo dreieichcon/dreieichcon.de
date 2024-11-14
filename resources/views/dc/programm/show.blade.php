@@ -30,9 +30,7 @@
 
                 </div>
                 <div class="profile-text-divider"></div>
-                <div class="profile-text" id="description_long">
-                    {{ $programm->description_long }}
-                </div>
+                <div class="profile-text" id="description_long">{{ $programm->description_long }}</div>
                 <div class="profile-text-divider"></div>
                 <div class="profile-grow">
 
