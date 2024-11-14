@@ -30,13 +30,19 @@
 
                 </div>
                 <div class="profile-text-divider"></div>
-                <div class="profile-text">
+                <div class="profile-text" id="description_long">
                     {{ $programm->description_long }}
                 </div>
                 <div class="profile-text-divider"></div>
                 <div class="profile-grow">
 
                 </div>
+                <script>
+                    $(document).ready(function () {
+                        let description_long = $('#description_long');
+                        description_long.html(DOMPurify.sanitize(marked.parse(description_long.html())));
+                    });
+                </script>
             </div>
         </div>
 
