@@ -94,8 +94,20 @@ if (!isset($page)) {
                                 <tr>
                                     <td>{{ $section->pivot->order }}</td>
                                     <td>{{ $section->h1 }}</td>
-                                    <td>
-                                        <x-dc.admin.edit href="/admin/section/{{ $section->id }}/edit"/>
+                                    <td class="d-flex float-right">
+
+                                        <a href="/admin/section/{{ $section->id }}/edit" class="btn btn-sm btn-outline-primary">
+                                            <span class="fas fa-edit"></span>
+                                        </a>
+
+
+                                        <span class="mr-2">&nbsp;</span>
+
+                                        <form action="/admin/page/{{$page->id}}/section_unlink" method="POST">
+                                            @csrf
+                                            <input type="hidden" value="{{$section->id}}" name="section_id">
+                                            <button type="submit" class="btn btn-sm btn-outline-warning"><span class="fas fa-link-slash"></span></button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

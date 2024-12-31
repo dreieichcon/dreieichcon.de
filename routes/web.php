@@ -59,6 +59,7 @@ Route::middleware('auth')->group(function () {
     Route::get("/admin/page/{page}/section_new", [\App\Http\Controllers\AdminPageController::class, 'sectionForm']);
     Route::post("/admin/page/{page}/section_new", [\App\Http\Controllers\AdminPageController::class, 'sectionStore']);
     Route::post("/admin/page/{page}/section_add", [\App\Http\Controllers\AdminPageController::class, 'sectionAdd']);
+    Route::post("/admin/page/{page}/section_unlink", [\App\Http\Controllers\AdminPageController::class, 'sectionUnlink']);
 
     Route::resource("/admin/section", \App\Http\Controllers\AdminSectionController::class);
     Route::post("/admin/section/{section}/image_new", [\App\Http\Controllers\AdminSectionController::class, 'imageStore']);

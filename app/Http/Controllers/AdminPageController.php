@@ -103,4 +103,18 @@ class AdminPageController extends Controller
 
         return redirect("/admin/page/" . $page->id . "/edit")->with("success", "Unterseite erfolgreich zugewiesen");
     }
+
+    public function sectionUnlink(Request $request, Page $page)
+    {
+        $data = $request->validate([
+            "section_id" => "required",
+        ]);
+
+        PageSection::where('page_id', $page->id)
+            ->where('section_id', $data['section_id'])
+            ->delete();
+
+
+        return redirect("/admin/page/" . $page->id . "/edit")->with("success", "Unterseite erfolgreich entfernt");
+    }
 }
