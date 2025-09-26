@@ -28,10 +28,12 @@ auth.json
 npm-debug.log
 yarn-error.log
 
-
-
 database/seeders/old_data/
 
 *.pem
 
 package-lock.json
+
+# docker specific
+docker/db-data/*
+docker/logs/*
