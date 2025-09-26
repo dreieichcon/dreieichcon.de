@@ -1,0 +1,73 @@
+services:
+  apache:
+    container_name: dreieichcon-apache
+    build:
+      context: .
+      dockerfile: docker/apache/Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - ./docker/apache/laravel-proxy.conf:/usr/local/apache2/conf/extra/laravel-proxy.conf
+    depends_on:
+      - php
+      - node
+    networks:
+      - internal
+
+  node:
+    container_name: dreieichcon-node
+    image: node:lts
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www/
+      - ./docker/node/entrypoint.sh:/entrypoint.sh
+    ports:
+      - 5173:5173
+    entrypoint: ["/bin/bash", "/entrypoint.sh"]
+    depends_on:
+      - php
+    networks:
+      - internal
+
+  php:
+    container_name: dreieichcon-php
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    networks:
+      - internal
+    volumes:
+      - ./:/var/www/html/
+      - ./docker/php/entrypoint.sh:/entrypoint.sh
+      - ./docker/logs/php.log:/var/log/fpm-php.www.log
+    ports:
+      - "8000:8000"
+    entrypoint: ["/bin/bash", "/entrypoint.sh"]
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  mysql:
+    container_name: dreieichcon-db
+    image: mysql:latest
+    platform: linux/x86_64
+    ports:
+     - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_DATABASE: 'dreieichcon_docker'
+      MYSQL_USER: 'dreieichcon_docker'
+      MYSQL_PASSWORD: 'dreieichcon_docker'
+    volumes:
+      - ./docker/db-data:/var/lib/mysql
+    networks:
+      - internal
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  internal:
+    driver: bridge
