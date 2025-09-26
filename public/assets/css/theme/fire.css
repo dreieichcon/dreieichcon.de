@@ -7,5 +7,6 @@
     --secondary: #ea2300;
     --banner-image: url(../../assets/img/fire.png);
     --hover: #221210;
+    --background-dark-alpha: rgba(0, 0, 0, 0.7);
 }
 

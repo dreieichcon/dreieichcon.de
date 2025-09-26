@@ -1,5 +1,6 @@
 ﻿@use "../root/spacing";
 @use "../root/flex";
+@use "../root/breakpoints";
 
 .content-scroll{
     display: flex;
@@ -37,6 +38,14 @@
     max-width: 20vw;
     margin-left: spacing.$medium;
     margin-right: spacing.$medium;
+
+    @include breakpoints.tablet{
+        max-width: 40vw;
+    }
+
+    @include breakpoints.mobile{
+        max-width: 50vw;
+    }
 }
 
 .content-footer-title{

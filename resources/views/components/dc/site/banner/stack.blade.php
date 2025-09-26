@@ -34,4 +34,15 @@ if ($theme == "lightning") {#
             alt="Link zum Ticket-Shop"
         />
     </a>
+    <a class="banner-action-link-mobile"
+       @if(isset($e) && !is_null($e->ticketshop) && strlen($e->ticketshop))
+           href="{{ $e->ticketshop }}"
+       @else
+           href="https://pretix.eu/wiric-online/"
+        @endif
+    >
+        <div>
+            TICKETS KAUFEN
+        </div>
+    </a>
 </div>

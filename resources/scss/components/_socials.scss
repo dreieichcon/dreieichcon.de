@@ -1,17 +1,29 @@
 ﻿@use '../root/basics';
 @use "../root/flex";
+@use "../root/breakpoints";
 
 $circleSize: 80%;
 $circlePosition: (100% - $circleSize) / 2;
 $iconMargin: 1rem;
+$iconMarginMobile: 0.7rem;
 $socialsHeight: 5vh !important;
+$socialsHeightMobile: 10vh !important;
 $socialsMinHeight: 40px;
 
 .socials-stack{
     height: $socialsHeight;
     min-height: $socialsMinHeight;
     @include basics.bottom-primary-border-large;
-    @include flex.flex-col;
+    @include flex.flex-row;
+
+    align-items: center;
+
+    @include breakpoints.mobileAndTablet{
+        height: 10vh !important;
+        min-height: 55px !important;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+    }
 }
 
 .socials-bar{
@@ -26,6 +38,10 @@ $socialsMinHeight: 40px;
     position: relative;
     @include flex.flex-center;
     margin-right: $iconMargin;
+
+    @include breakpoints.mobile{
+        margin-right: $iconMarginMobile;
+    }
 }
 
 .socials-icon-box{
