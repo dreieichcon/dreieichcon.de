@@ -18,16 +18,22 @@ services:
     container_name: dreieichcon-node
     image: node:lts
     working_dir: /var/www
-    volumes:
-      - ./:/var/www/
-      - ./docker/node/entrypoint.sh:/entrypoint.sh
+    build:
+      context: .
+      dockerfile: docker/node/Dockerfile
     ports:
-      - 5173:5173
-    entrypoint: ["/bin/bash", "/entrypoint.sh"]
+      - "5173:5173"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
     depends_on:
       - php
     networks:
       - internal
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /var/www
 
   php:
     container_name: dreieichcon-php
@@ -37,15 +43,18 @@ services:
     networks:
       - internal
     volumes:
-      - ./:/var/www/html/
-      - ./docker/php/entrypoint.sh:/entrypoint.sh
+    
       - ./docker/logs/php.log:/var/log/fpm-php.www.log
     ports:
       - "8000:8000"
-    entrypoint: ["/bin/bash", "/entrypoint.sh"]
     depends_on:
       mysql:
         condition: service_healthy
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /var/www/html
 
   mysql:
     container_name: dreieichcon-db

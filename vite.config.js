@@ -16,7 +16,7 @@ export default defineConfig({
                 // 'resources/js/',
             ],
             refresh: [{
-                paths: ['resources/**', 'config/**', 'app/Http/Controllers/**'],
+                paths: ['resources/views/**', 'config/**', 'app/Http/Controllers/**'],
                 config: {delay: 300}
             }]
         }),
