@@ -5,6 +5,7 @@
     <title>DreieichCon</title>
     <link rel="stylesheet" href="{{ asset("/assets/css/bootstrap/bootstrap.css") }}" type="text/css">
     <link rel="stylesheet" href="{{ asset("/assets/css/fonts.css") }}" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- FontAwesome -->
     <link href="{{ asset("/assets/vendor/fontawesome-free-6.5.2-web/css/all.css") }}" rel="stylesheet">
