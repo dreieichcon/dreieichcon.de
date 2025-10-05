@@ -5,7 +5,6 @@
     <x-dc.site.table.main>
         <x-slot name="head">
             <x-dc.site.table.header key="title"/>
-
             <x-dc.site.table.header key="start"/>
             <x-dc.site.table.header key="hosted_by"/>
             <x-dc.site.table.header key="location"/>

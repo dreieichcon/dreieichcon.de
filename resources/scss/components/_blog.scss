@@ -1,6 +1,7 @@
 ﻿@use "../root/flex";
 @use "../root/spacing";
 @use "../root/text";
+@use "../root/breakpoints";
 
 .blog-post{
     @include flex.flex-row;
@@ -9,6 +10,14 @@
 
     > .blog-post-text-stack{
         padding-left: 1rem;
+    }
+
+    @include breakpoints.mobile{
+        flex-direction: column;
+
+        > .blog-post-text-stack{
+            padding-left: 0;
+        }
     }
 }
 
@@ -21,11 +30,25 @@
         padding-right: 1rem;
         align-items: end;
     }
+
+    @include breakpoints.mobile{
+        flex-direction: column !important;
+
+        > .blog-post-text-stack{
+            padding-right: 0;
+            align-items: unset;
+        }
+    }
 }
 
 .blog-post-image-stack{
     max-width: 40%;
     width: 40%;
+
+    @include breakpoints.mobile{
+        width: 100% !important;
+        max-width:  100% !important;
+    }
 }
 
 .blog-post-image{
@@ -42,6 +65,10 @@
 .blog-post-text-stack{
     @include flex.flex-col;
     width: 60%;
+
+    @include breakpoints.mobile{
+        width: 100% !important;
+    }
 }
 
 .blog-post-title{
