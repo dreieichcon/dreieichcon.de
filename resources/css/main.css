@@ -980,8 +980,10 @@ input[type=checkbox]:checked ~ .hide-show {
 .artist-card > :hover {
   filter: drop-shadow(2px 2px 2px var(--primary));
 }
-.artist-card {
-  width: auto !important;
+@media screen and (max-width: 700px) {
+  .artist-card {
+    width: auto !important;
+  }
 }
 
 .artist-card-content {
