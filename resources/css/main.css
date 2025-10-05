@@ -495,13 +495,22 @@ p > a:hover {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  overflow-y: scroll;
+}
+@media screen and (max-width: 700px) {
+  .profile-stack {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 .profile-row {
   display: flex;
   flex-direction: row;
-  max-height: 60vh;
+}
+@media screen and (max-width: 700px) {
+  .profile-row {
+    flex-direction: column !important;
+  }
 }
 
 .profile-image-stack {
@@ -509,6 +518,12 @@ p > a:hover {
   width: 40%;
   display: flex;
   flex-direction: column;
+}
+@media screen and (max-width: 700px) {
+  .profile-image-stack {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 .profile-image {
@@ -533,6 +548,12 @@ p > a:hover {
   max-width: 70%;
   height: 92%;
   max-height: 92%;
+}
+@media screen and (max-width: 700px) {
+  .profile-content-stack {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 .profile-header-bar {
@@ -947,12 +968,20 @@ input[type=checkbox]:checked ~ .hide-show {
   justify-content: center;
   gap: 1rem;
 }
+@media screen and (max-width: 700px) {
+  .artist-stack {
+    flex-direction: column !important;
+  }
+}
 
 .artist-card {
   display: flex;
 }
 .artist-card > :hover {
   filter: drop-shadow(2px 2px 2px var(--primary));
+}
+.artist-card {
+  width: auto !important;
 }
 
 .artist-card-content {

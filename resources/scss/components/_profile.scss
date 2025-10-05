@@ -1,22 +1,35 @@
 @use "../root/flex";
 @use "../root/spacing";
 @use "../root/text";
+@use "../root/breakpoints";
 
 .profile-stack{
     @include flex.flex-col;
     flex-grow: 1;
-    overflow-y: scroll;
+
+    @include breakpoints.mobile{
+        max-width: 100%;
+        width: 100%;
+    }
 }
 
 .profile-row{
     @include flex.flex-row;
-    max-height: 60vh;
+
+    @include breakpoints.mobile{
+        flex-direction: column !important;
+    }
 }
 
 .profile-image-stack{
     max-width: 40%;
     width: 40%;
     @include flex.flex-col;
+
+    @include breakpoints.mobile{
+        max-width: 100%;
+        width: 100%;
+    }
 }
 
 .profile-image{
@@ -40,6 +53,11 @@
     max-width: 70%;
     height: 92%;
     max-height: 92%;
+
+    @include breakpoints.mobile{
+        max-width: 100%;
+        width: 100%;
+    }
 }
 
 .profile-header-bar{

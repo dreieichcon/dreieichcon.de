@@ -71,8 +71,8 @@ $header_image = $images->firstWhere("is_primary", true) ?? $images->first();
                 biography_long.html(DOMPurify.sanitize(marked.parse(biography_long.html())));
             });
         </script>
-        <x-dc.site.content.main.divider/>
         @if($biography->images->count() > 1)
+            <x-dc.site.content.main.divider/>
             <div class="profile-gallery-container">
                 <x-dc.site.content.gallery.carousel
                     :images="$biography->images"
