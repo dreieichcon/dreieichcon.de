@@ -5,45 +5,41 @@
     <x-dc.site.table.main>
         <x-slot name="head">
             <x-dc.site.table.header key="title"/>
-            <x-dc.site.table.header key="description_short"/>
+
             <x-dc.site.table.header key="start"/>
-            <x-dc.site.table.header key="starts_in"/>
+            <x-dc.site.table.header key="hosted_by"/>
             <x-dc.site.table.header key="location"/>
             <x-dc.site.table.header key="type"/>
         </x-slot>
         <x-slot name="body">
-            @foreach($programm as $item)
+            @foreach($programm->sortBy("start") as $item)
                 <tr>
                     <td>
-                        <a href="/programm/{{ $item -> id}}">
+                        <a href="https://conservices.de/programm/{{$item->conservices_id}}" target="_blank">
                             {{ $item->title }}
                         </a>
                     </td>
                     <td>
-                        <a href="/programm/{{ $item -> id}}">
-                            <div style="max-width: 30vw">
-                                {{ $item->description_short }}
-                            </div>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/programm/{{ $item -> id}}">
+                        <a href="https://conservices.de/programm/{{$item->conservices_id}}" target="_blank">
                             {{ $item->start->format("d.m. H:i") }}
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/programm/{{ $item -> id}}">
+
+                            <br>
                             {{ $item->start->diffForHumans() }}
                         </a>
                     </td>
                     <td>
-                        <a href="/programm/{{ $item -> id}}">
-                            {{ implode(', ', $item->location->pluck('name')->toArray()) }}
+                        <a href="https://conservices.de/programm/{{$item->conservices_id}}" target="_blank">
+                            {{ $item->host }}
                         </a>
                     </td>
                     <td>
-                        <a href="/programm/{{ $item -> id}}">
-                            {{ implode(', ', $item->type->pluck('name')->toArray()) }}
+                        <a href="https://conservices.de/programm/{{$item->conservices_id}}" target="_blank">
+                            {{ $item->location }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://conservices.de/programm/{{$item->conservices_id}}" target="_blank">
+                            {{ $item->label }}
                         </a>
                     </td>
                 </tr>
@@ -51,25 +47,23 @@
         </x-slot>
         <x-slot name="mobile">
             @foreach($programm as $item)
-                <a class="mobile-item" href="/programm/{{ $item -> id}}">
+                <a class="mobile-item" href="https://conservices.de/programm/{{ $item->conservices_id}}">
                     <div class="mobile-header">
                         <div class="mobile-header-text">
                             {{ $item->title }}
                         </div>
                         <div class="mobile-header-tags">
-                            {{ implode(', ', $item->type->pluck('name')->toArray()) }}
+                            {{ $item->label }}
                         </div>
                     </div>
-                    <div class="mobile-text">
-                        {{ $item->description_short }}
-                    </div>
+
                     <div class="mobile-text">
                         <div class="mobile-infos">
                             <div>
                                 {{ $item -> start -> format("d.m. H:i") }} ({{ $item->start->diffForHumans() }})
                             </div>
                             <div>
-                                {{ implode(', ', $item->location->pluck('name')->toArray()) }}
+                                {{$item->location}}
                             </div>
                         </div>
                     </div>
