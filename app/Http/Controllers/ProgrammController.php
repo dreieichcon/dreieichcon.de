@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Conservices\Games;
 use App\Models\Programm;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -20,7 +21,10 @@ class ProgrammController extends Controller
             $prog = new Programm();
             $prog->conservices_id = $item['id'];
             $prog->title = $item['title'];
-            $prog->start = $item['start'];
+            $prog->start = Carbon::create($item['start'])->setTimezone(config('app.timezone'));
+//            $prog->start = Carbon::createFromFormat('Y-m-d\TH:i:s.u\Z',
+//                $item['start'],
+//                'UTC')->setTimezone(config('app.timezone'));
             $prog->duration = $item['duration'];
             $prog->location = implode(', ', array_column($item['table'], "name"));
             $prog->label = implode(', ', array_column($item['label'], "name"));
