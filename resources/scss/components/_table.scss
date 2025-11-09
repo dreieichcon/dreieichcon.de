@@ -2,6 +2,7 @@
 @use "../root/flex";
 @use "../root/spacing";
 @use "../root/text";
+@use "../root/breakpoints";
 
 $breakpoint: 900px;
 
@@ -48,6 +49,11 @@ $tableHeight: 50vh;
     border: 1px solid var(--primary);
     padding: spacing.$medium;
     border-radius: spacing.$tiny;
+
+    @include breakpoints.mobile {
+        padding: spacing.$small !important;
+        margin-bottom: spacing.$small !important;
+    }
 }
 
 .action-active{
@@ -137,6 +143,7 @@ $tableHeight: 50vh;
         padding: spacing.$medium;
         margin-bottom: spacing.$normal;
         gap: spacing.$medium;
+        background: #ffffff09;
 
         border: 2px solid var(--primary-alpha);
 

@@ -79,20 +79,20 @@
         <div class="table-actions">
             @if($hide_full)
                 <div class="table-action action-active">
-                    <a href={{$toggle_full_url}}>Volle Spielrunden ausblenden</a>
+                    <a href={{$toggle_full_url}}>Volle ausblenden</a>
                 </div>
             @else
                 <div class="table-action">
-                    <a href={{$toggle_full_url}}>Volle Spielrunden ausblenden</a>
+                    <a href={{$toggle_full_url}}>Volle ausblenden</a>
                 </div>
             @endif
             @if($hide_started)
                 <div class="table-action action-active">
-                    <a href={{$toggle_started_url}}>Angefangene Spielrunden ausblenden</a>
+                    <a href={{$toggle_started_url}}>Gestartete ausblenden</a>
                 </div>
             @else
                 <div class="table-action">
-                    <a href={{$toggle_started_url}}>Angefangene Spielrunden ausblenden</a>
+                    <a href={{$toggle_started_url}}>Gestartete ausblenden</a>
                 </div>
             @endif
         </div>

@@ -38,6 +38,7 @@
 
     @include breakpoints.mobile{
         flex-direction: column !important;
+        padding: 0;
     }
 }
 
