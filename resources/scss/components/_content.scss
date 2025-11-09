@@ -35,6 +35,10 @@
     justify-content: center;
     align-items: center;
     padding: spacing.$medium;
+
+    @include breakpoints.mobile{
+        flex-direction: column !important;
+    }
 }
 
 .content-footer-item{
@@ -67,6 +71,10 @@
     border-right: 2px solid var(--foreground);
     margin-left: spacing.$medium;
     margin-right: spacing.$medium;
+
+    @include breakpoints.mobile{
+        display: none;
+    }
 }
 
 .content-divider{
