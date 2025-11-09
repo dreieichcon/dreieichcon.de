@@ -4,47 +4,33 @@ $faker = Faker\Factory::create();
 
 <div class="content-footer-stack">
     <div class="content-footer-row">
+        <x-dc.site.footer.link
+            href="https://dreieichcon.de/page/when_and_where"
+            label="Veranstaltungsort"/>
+        <x-dc.site.footer.divider/>
+        <x-dc.site.footer.link
+            href="https://buergerverein-buchschlag.de/imprint"
+            label="Impressum"/>
+        <x-dc.site.footer.divider/>
+        <x-dc.site.footer.link
+            href="https://buergerverein-buchschlag.de/privacy"
+            label="Datenschutz"/>
 
-        <x-dc.site.footer.item
-                title="Veranstaltungsort"
-        >
-            Bürgerhaus Dreieich-Sprendlingen<br>
-            Fichtestraße 50 <br>
-            63303 Dreieich
+        <?php
+        $now = \Carbon\Carbon::now();
+        $event = \App\Models\Event::where("start", "<", $now)
+            ->where("end", ">", $now)
+            ->get();
 
-        </x-dc.site.footer.item>
-
-        <x-dc.site.footer.item
-                title="Öffnungszeiten"
-        >
-            <?php
-            $now = \Carbon\Carbon::now();
-            $event = \App\Models\Event::where("start", "<", $now)
-                ->where("end", ">", $now)
-                ->get();
-
-            if(count($event) > 0){
+            if (count($event) > 0) {
                 $e = $event->sortBy("start")->first();
             }
 
-            ?>
-            @if(isset($e))
-                {!! nl2br(strip_tags($e->opening_hours)) !!}
-            @else
-                noch keine Informationen
-            @endif
+        ?>
+        @if(isset($e))
+            <x-dc.site.footer.divider/>
+            {!! strip_tags($e->opening_hours) !!}
+        @endif
 
-
-        </x-dc.site.footer.item>
-
-    </div>
-    <div class="content-footer-row">
-        <x-dc.site.footer.link
-            href="https://buergerverein-buchschlag.de/imprint"
-            label="Impressum" />
-        <x-dc.site.footer.divider />
-        <x-dc.site.footer.link
-            href="https://buergerverein-buchschlag.de/privacy"
-            label="Datenschutz" />
     </div>
 </div>
