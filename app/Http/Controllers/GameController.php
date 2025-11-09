@@ -11,7 +11,7 @@ class GameController extends Controller
     public function index()
     {
         $event_id = "1cd1b999-68bb-4a43-8b8a-b6afbdb0c3cb"; //todo: move to event
-        $url = "https://conservices.de/api/event/$event_id/game";
+        $url = "https://butler.conservices.de/api/v1/$event_id/game";
 
         $games = Http::get($url)->json();
 

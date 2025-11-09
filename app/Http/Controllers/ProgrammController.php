@@ -13,7 +13,9 @@ class ProgrammController extends Controller
     public function index()
     {
         $event_id = "1cd1b999-68bb-4a43-8b8a-b6afbdb0c3cb"; //todo: move to event
-        $url = "https://conservices.de/api/event/$event_id/programm";
+
+//	$url="https://conservices.de/api/event/$event_id/programm";
+        $url = "https://butler.conservices.de/api/v1/$event_id/program";
 
         $programm = Http::get($url)->json();
 
