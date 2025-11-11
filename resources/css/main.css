@@ -1183,8 +1183,8 @@ input[type=checkbox]:checked ~ .hide-show {
   position: absolute;
   top: 55px;
   left: 0;
-  min-height: calc(90vh - 55px);
-  max-height: 90vh;
+  min-height: calc(80vh - 55px);
+  max-height: 80vh;
   backdrop-filter: blur(10px);
   width: 100vw;
   overflow: hidden;
