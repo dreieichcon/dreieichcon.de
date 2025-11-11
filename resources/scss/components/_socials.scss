@@ -24,6 +24,13 @@ $socialsMinHeight: 40px;
         justify-content: space-between;
         flex-direction: row-reverse;
     }
+
+    @include breakpoints.mobile{
+        position: sticky !important;
+        top: 0;
+        background: var(--background);
+        z-index: 100;
+    }
 }
 
 .socials-bar{

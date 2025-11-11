@@ -10,6 +10,10 @@
     margin-top: spacing.$normal;
     padding: 0 spacing.$normal spacing.$normal spacing.$normal;
     justify-content: space-between;
+
+    @include breakpoints.mobile{
+        overflow-y: unset !important;
+    }
 }
 
 ::-webkit-scrollbar {
@@ -28,6 +32,10 @@
     border-top: 2px solid var(--primary);
     padding-top: spacing.$medium;
     margin-top: spacing.$normal;
+
+    @include breakpoints.mobile{
+        margin-bottom: 8vh !important;
+    }
 }
 
 .content-footer-row{
@@ -64,6 +72,7 @@
 .content-footer-link{
     font-weight: bold;
     cursor: pointer;
+    font-size: 1.1rem;
 }
 
 .content-footer-divider{
