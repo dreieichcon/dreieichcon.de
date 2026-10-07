@@ -7,94 +7,94 @@
 
 @php
 
-    function get_full_toggle_url($full_active, $started_active): string
-    {
-        if ($full_active){
-            if ($started_active){
-                return "/games" . "?hide_started=true";
-            }
-            return "/games";
-        }
-        else{
-            if ($started_active){
-                return "/games" . "?hide_full=true" . "&hide_started=true";
-            }
-            else{
-                return "/games" . "?hide_full=true";
-            }
-        }
-    }
+//    function get_full_toggle_url($full_active, $started_active): string
+//    {
+//        if ($full_active){
+//            if ($started_active){
+//                return "/games" . "?hide_started=true";
+//            }
+//            return "/games";
+//        }
+//        else{
+//            if ($started_active){
+//                return "/games" . "?hide_full=true" . "&hide_started=true";
+//            }
+//            else{
+//                return "/games" . "?hide_full=true";
+//            }
+//        }
+//    }
+//
+//    function get_started_toggle_url($currently_active, $full_active): string
+//    {
+//
+//        if ($currently_active)
+//        {
+//            if ($full_active){
+//                return "/games" . "?hide_full=true";
+//            }
+//            return "/games";
+//        }
+//        else{
+//            if ($full_active){
+//                return "/games" . "?hide_full=true" . "&hide_started=true";
+//            }
+//            else{
+//                return "/games" . "?hide_started=true";
+//            }
+//        }
+//    }
 
-    function get_started_toggle_url($currently_active, $full_active): string
-    {
 
-        if ($currently_active)
-        {
-            if ($full_active){
-                return "/games" . "?hide_full=true";
-            }
-            return "/games";
-        }
-        else{
-            if ($full_active){
-                return "/games" . "?hide_full=true" . "&hide_started=true";
-            }
-            else{
-                return "/games" . "?hide_started=true";
-            }
-        }
-    }
+//    $toggle_full_url = "/games";
+//    $toggle_started_url = "/games";
+//
+//    $final_games = $games;
+//
+//    $hide_full = false;
+//    $hide_started = false;
+//
+//    if (isset($_GET["hide_full"])){
+//        $hide_full = true;
+//        $final_games = $final_games -> filter(fn($g) => count($g["player"]) < $g["player_max"]);
+//    }
+//
+//    if (isset($_GET["hide_started"])){
+//        $hide_started = true;
+//        $final_games = $final_games -> filter(
+//            function($g)
+//            {
+//                return Carbon::create($g["start"]) > Carbon::now();
+//            }
+//        );
+//    }
 
-
-    $toggle_full_url = "/games";
-    $toggle_started_url = "/games";
-
-    $final_games = $games;
-
-    $hide_full = false;
-    $hide_started = false;
-
-    if (isset($_GET["hide_full"])){
-        $hide_full = true;
-        $final_games = $final_games -> filter(fn($g) => count($g["player"]) < $g["player_max"]);
-    }
-
-    if (isset($_GET["hide_started"])){
-        $hide_started = true;
-        $final_games = $final_games -> filter(
-            function($g)
-            {
-                return Carbon::create($g["start"]) > Carbon::now();
-            }
-        );
-    }
-
-    $toggle_full_url = get_full_toggle_url($hide_full, $hide_started);
-    $toggle_started_url = get_started_toggle_url($hide_started, $hide_full);
+//    $toggle_full_url = get_full_toggle_url($hide_full, $hide_started);
+//    $toggle_started_url = get_started_toggle_url($hide_started, $hide_full);
 
 @endphp
 
 @section("content")
     <div class="table-wrapper">
         <div class="table-actions">
-            @if($hide_full)
-                <div class="table-action action-active">
-                    <a href={{$toggle_full_url}}>Volle ausblenden</a>
-                </div>
-            @else
-                <div class="table-action">
-                    <a href={{$toggle_full_url}}>Volle ausblenden</a>
-                </div>
-            @endif
-            @if($hide_started)
-                <div class="table-action action-active">
-                    <a href={{$toggle_started_url}}>Gestartete ausblenden</a>
-                </div>
-            @else
-                <div class="table-action">
-                    <a href={{$toggle_started_url}}>Gestartete ausblenden</a>
-                </div>
-            @endif
+{{--            @if($hide_full)--}}
+{{--                <div class="table-action action-active">--}}
+{{--                    <a href={{$toggle_full_url}}>Volle ausblenden</a>--}}
+{{--                </div>--}}
+{{--            @else--}}
+{{--                <div class="table-action">--}}
+{{--                    <a href={{$toggle_full_url}}>Volle ausblenden</a>--}}
+{{--                </div>--}}
+{{--            @endif--}}
+{{--            @if($hide_started)--}}
+{{--                <div class="table-action action-active">--}}
+{{--                    <a href={{$toggle_started_url}}>Gestartete ausblenden</a>--}}
+{{--                </div>--}}
+{{--            @else--}}
+{{--                <div class="table-action">--}}
+{{--                    <a href={{$toggle_started_url}}>Gestartete ausblenden</a>--}}
+{{--                </div>--}}
+{{--            @endif--}}
         </div>
         <div class="table-scroll">
             <x-dc.site.table.main>
@@ -111,7 +111,7 @@
                 </x-slot>
                 <x-slot name="body">
 
-                    @foreach($final_games as $item)
+                    @foreach($games as $item)
                         <tr>
                             <td>
                                 <div>
@@ -162,7 +162,7 @@
                             </td>
                             <td>
                                 <div>
-                                    {{ count($item -> player) }} / {{ $item -> player_max }}
+                                    {{ $item->players_count }} / {{ $item -> player_max }}
                                 </div>
                             </td>
                             <td>
@@ -175,7 +175,7 @@
                     @endforeach
                 </x-slot>
                 <x-slot name="mobile">
-                    @foreach($final_games as $item)
+                    @foreach($games as $item)
                         <div class="mobile-item">
                             <div class="mobile-header">
                                 <div class="mobile-header-text">
@@ -224,8 +224,8 @@
                                         @endif
                                     </div>
                                     <div>
-                                        {!! __("players") !!}:
-                                        {{ count($item -> player) }} / {{ $item -> player_max }}
+                                        {{ __("players") }}:
+                                        {{ $item->players_count }} / {{ $item -> player_max }}
                                     </div>
                                 </div>
                             </div>

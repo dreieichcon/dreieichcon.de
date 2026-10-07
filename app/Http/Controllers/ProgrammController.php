@@ -12,10 +12,10 @@ class ProgrammController extends Controller
 {
     public function index()
     {
-        $event_id = "1cd1b999-68bb-4a43-8b8a-b6afbdb0c3cb"; //todo: move to event
+        $event_id = "01a06d78-9045-7297-9840-3ace7630d57c"; //todo: move to event
 
-//	$url="https://conservices.de/api/event/$event_id/programm";
-        $url = "https://butler.conservices.de/api/v1/$event_id/program";
+////	$url="https://conservices.de/api/event/$event_id/programm";
+        $url = "https://conservices.de/api/convention/$event_id/programms";
 
         $programm = Http::get($url)->json();
 
@@ -28,15 +28,11 @@ class ProgrammController extends Controller
 //                $item['start'],
 //                'UTC')->setTimezone(config('app.timezone'));
             $prog->duration = $item['duration'];
-            $prog->location = implode(', ', array_column($item['table'], "name"));
-            $prog->label = implode(', ', array_column($item['label'], "name"));
+            $prog->location = implode(', ', array_column($item['tables'], "name"));
+            $prog->label = implode(', ', array_column($item['tags'], "name"));
 //            $game->accessibility = count(array_filter($item['table'], fn($tab) => $tab["wheelchair_accessible"] == 1)) > 0;
 
-            if (!is_null($item['alias_host']) && strlen($item['alias_host']) > 0) {
-                $prog->host = $item['alias_host'];
-            } else {
-                $prog->host = $item['host']['name'];
-            }
+           $prog->host = $item['host'];
             return $prog;
         });
 
